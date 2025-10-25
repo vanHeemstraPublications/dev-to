@@ -1,0 +1,47 @@
+name: Publish to DEV.to
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/*.md'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests python-frontmatter
+      
+      - name: Get changed files
+        id: changed-files
+        run: |
+          # Get list of changed markdown files
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/*.md' || echo "")
+          if [ -z "$CHANGED_FILES" ]; then
+            # If triggered manually, publish all articles
+            CHANGED_FILES=$(find articles -name "*.md")
+          fi
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Publish to DEV.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          python scripts/publish_to_devto.py
