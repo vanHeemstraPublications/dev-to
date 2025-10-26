@@ -8,7 +8,6 @@ DEV.to API Documentation: https://developers.forem.com/api/v1
 
 import os
 import sys
-import json
 import requests
 import frontmatter
 from pathlib import Path
@@ -39,6 +38,15 @@ class DevToPublisher:
         """Get list of user's published articles."""
         response = requests.get(
             f"{self.base_url}/articles/me/all",
+            headers=self.headers
+        )
+        response.raise_for_status()
+        return response.json()
+    
+    def get_my_organizations(self) -> List[Dict]:
+        """Get list of user's organizations."""
+        response = requests.get(
+            f"{self.base_url}/organizations/users/me",
             headers=self.headers
         )
         response.raise_for_status()
@@ -203,10 +211,20 @@ def main():
     # Get user info
     try:
         user_info = publisher.get_user_info()
-        print(f"✓ Authenticated as: {user_info['name']} (@{user_info['username']})")
+        print(f"✓ Authenticated as: {user_info['name']} "
+              f"(@{user_info['username']})")
     except requests.exceptions.RequestException as e:
         print(f"ERROR: Failed to authenticate with DEV.to: {e}")
         sys.exit(1)
+    
+    # Get user's organizations
+    try:
+        organizations = publisher.get_my_organizations()
+        org_dict = {org['slug']: org['id'] for org in organizations}
+        print(f"✓ Loaded {len(organizations)} organizations")
+    except requests.exceptions.RequestException as e:
+        print(f"Warning: Could not load organizations: {e}")
+        org_dict = {}
     
     # Find all markdown files in articles directory
     articles_dir = Path("articles")
@@ -236,12 +254,18 @@ def main():
             cover_image = metadata.get("cover_image")
             description = metadata.get("description")
             organization_id = metadata.get("organization_id")
+            organization_slug = metadata.get("organization")
+            
+            # Resolve organization ID if slug provided
+            if organization_slug and organization_slug in org_dict:
+                organization_id = org_dict[organization_slug]
             
             # Check if article already exists
             existing_article = publisher.find_article_by_title(title)
             
             if existing_article:
-                print(f"  Article exists (ID: {existing_article['id']}), updating...")
+                art_id = existing_article['id']
+                print(f"  Article exists (ID: {art_id}), updating...")
                 result = publisher.update_article(
                     article_id=existing_article["id"],
                     title=title,
@@ -255,7 +279,7 @@ def main():
                 )
                 print(f"✓ Updated: {result['title']}")
             else:
-                print(f"  Creating new article...")
+                print("  Creating new article...")
                 result = publisher.create_article(
                     title=title,
                     body_markdown=content,
@@ -270,7 +294,8 @@ def main():
                 print(f"✓ Created: {result['title']}")
             
             print(f"  URL: {result['url']}")
-            print(f"  Status: {'Published' if result.get('published') else 'Draft'}")
+            status = 'Published' if result.get('published') else 'Draft'
+            print(f"  Status: {status}")
             success_count += 1
             
         except Exception as e:

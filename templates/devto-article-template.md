@@ -1,12 +1,13 @@
------
-
-## title: “Your Article Title Goes Here”
+---
+title: "Your Article Title Goes Here"
 published: false
-description: “A brief description or subtitle for your article (appears in previews and search)”
-tags: [“python”, “webdev”, “tutorial”, “beginners”]
-series: “”
-canonical_url: “”
-cover_image: “”
+description: "A brief description or subtitle for your article (appears in previews and search)"
+tags: ["python", "webdev", "tutorial", "beginners"]
+series: ""
+canonical_url: ""
+cover_image: ""
+organization: "the-software-s-journey"
+---
 
 # Your Article Title
 
@@ -160,7 +161,7 @@ I write about [your topics] regularly. Follow me here on DEV for more content!
 - Twitter: [@yourhandle](https://twitter.com/yourhandle)
 - LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
 
------
+---
 
 *Did you find this helpful? Give it a ❤️ or 🦄 and let me know in the comments!*
 
@@ -173,7 +174,7 @@ Ask your readers questions to encourage engagement:
 - What challenges did you face?
 - Any tips to add?
 
------
+---
 
 **This article is part of my [Series Name] series:**
 

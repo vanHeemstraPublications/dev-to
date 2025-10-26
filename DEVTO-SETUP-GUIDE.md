@@ -112,6 +112,7 @@ tags: ["python", "webdev", "tutorial", "beginners"]  # Max 4 tags
 series: "Python Fundamentals" # Optional: group related articles
 canonical_url: ""             # Original URL if cross-posting
 cover_image: ""              # URL to cover image
+organization: "the-software-s-journey"  # Optional: publish to organization
 ---
 ```
 
@@ -126,6 +127,7 @@ cover_image: ""              # URL to cover image
 |`series`       |❌ No    |Series name             |“Python Advanced Topics”        |
 |`canonical_url`|❌ No    |Original post URL       |“https://yourblog.com/post”     |
 |`cover_image`  |❌ No    |Cover image URL         |“https://images.com/cover.jpg”  |
+|`organization` |❌ No    |Organization slug       |`"the-software-s-journey"`      |
 
 ### Complete Article Example
 
@@ -138,6 +140,7 @@ tags: ["python", "api", "webdev", "tutorial"]
 series: "Modern Python Development"
 canonical_url: ""
 cover_image: "https://images.unsplash.com/photo-1234567890"
+organization: "the-software-s-journey"
 ---
 
 # Building REST APIs with FastAPI
@@ -282,6 +285,74 @@ series: "Mastering Python"
 ```
 
 DEV.to automatically links them together!
+
+## 🏢 Publishing to Organizations
+
+You can publish articles to a DEV.to organization instead of your personal account.
+
+### Benefits of Organizations
+
+- **Branded content**: Articles appear under the organization
+- **Separate analytics**: Track organization-specific metrics
+- **Team collaboration**: Multiple members can publish
+- **Professional appearance**: Better for companies/teams
+
+### Setting Up Organization Publishing
+
+1. **Create an organization on DEV.to**
+   - Go to https://dev.to/settings/organizations
+   - Click "New Organization"
+   - Complete setup process
+
+2. **Add organization to article frontmatter**
+
+```yaml
+---
+title: "Your Article Title"
+organization: "the-software-s-journey"  # Your organization slug
+---
+```
+
+3. **The organization slug is the part after `dev.to/`**
+   - Example: `dev.to/the-software-s-journey` → slug is `"the-software-s-journey"`
+
+### How It Works
+
+The publishing script automatically:
+1. Fetches your organizations from DEV.to API
+2. Resolves the organization slug to an organization ID
+3. Publishes the article under your organization
+
+### Example
+
+```yaml
+---
+title: "The Gilded Rose Kata: Composition Over Inheritance"
+published: false
+description: "A deep dive into solving the Gilded Rose refactoring kata"
+tags: ["python", "designpatterns", "refactoring", "tutorial"]
+organization: "the-software-s-journey"
+---
+
+# Your article content...
+```
+
+### Finding Your Organization
+
+Your organization URL will look like:
+- `https://dev.to/the-software-s-journey`
+
+The slug is everything after `dev.to/`
+
+### Alternative: Use Organization ID
+
+You can also use the numeric organization ID directly:
+
+```yaml
+organization_id: 12345  # Use this if you know the ID
+```
+
+The slug approach is recommended as it's more maintainable.
 
 ## 🔄 Publishing Workflow
 

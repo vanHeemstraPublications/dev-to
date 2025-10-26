@@ -4,6 +4,15 @@
 
 You now have **everything you need** to automatically publish articles from GitHub to DEV.to!
 
+## 🏢 Organization Publishing
+
+Articles are published to **[The Software's Journey](https://dev.to/the-software-s-journey)** by default.
+
+Add this to your article frontmatter:
+```yaml
+organization: "the-software-s-journey"
+```
+
 -----
 
 ## 📦 Core DEV.to Files (Required)
