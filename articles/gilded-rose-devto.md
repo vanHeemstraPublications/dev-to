@@ -10,7 +10,7 @@ cover_image: “”
 
 # The Gilded Rose Kata: Composition Over Inheritance
 
-The [Gilded Rose refactoring kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) is a classic coding exercise that challenges developers to refactor legacy code while adding new functionality. Most solutions reach for inheritance as the primary design pattern, but I want to show you a different approach: **composition over inheritance**.
+The [Gilded Rose refactoring kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) is a classic coding exercise that challenges developers to refactor legacy code while adding new functionality. Most solutions reach for inheritance as the primary design pattern, but I want to show you a different approach: **composition over inheritance**. 
 
 In this article, I’ll walk you through my solution that leverages composition and the Strategy pattern to create a more flexible and maintainable design. By the end, you’ll see why composition often leads to better software architecture.
 
