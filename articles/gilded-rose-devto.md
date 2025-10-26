@@ -1,12 +1,12 @@
------
-
-## title: “The Gilded Rose Kata: Composition Over Inheritance”
+---
+title: "The Gilded Rose Kata: Composition Over Inheritance"
 published: false
-description: “A deep dive into solving the Gilded Rose refactoring kata using composition and the Strategy pattern instead of inheritance”
-tags: [“python”, “designpatterns”, “refactoring”, “tutorial”]
-series: “”
-canonical_url: “”
-cover_image: “”
+description: "A deep dive into solving the Gilded Rose refactoring kata using composition and the Strategy pattern instead of inheritance"
+tags: ["python", "designpatterns", "refactoring", "tutorial"]
+series: ""
+canonical_url: ""
+cover_image: ""
+---
 
 # The Gilded Rose Kata: Composition Over Inheritance
 
@@ -463,6 +463,4 @@ The next time you’re tempted to create a deep inheritance hierarchy, ask yours
 
 Happy coding, and remember: favor composition over inheritance!
 
------
-
-*What’s your take on composition vs inheritance? Have you solved the Gilded Rose kata differently? I’d love to hear your approach in the comments!*
+*What's your take on composition vs inheritance? Have you solved the Gilded Rose kata differently? I'd love to hear your approach in the comments!*
