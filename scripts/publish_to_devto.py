@@ -226,16 +226,30 @@ def main():
         print(f"Warning: Could not load organizations: {e}")
         org_dict = {}
     
-    # Find all markdown files in articles directory
-    articles_dir = Path("articles")
-    if not articles_dir.exists():
-        print("ERROR: 'articles' directory not found")
-        sys.exit(1)
+    # Determine which files to process
+    # Check for files from environment variable (set by GitHub Actions)
+    files_to_process = os.environ.get("FILES_TO_PUBLISH", "").strip()
     
-    markdown_files = list(articles_dir.glob("*.md"))
-    if not markdown_files:
-        print("No markdown files found in 'articles' directory")
-        sys.exit(0)
+    if files_to_process:
+        # Process specific files from environment variable
+        file_paths = [f.strip() for f in files_to_process.split('\n') if f.strip()]
+        markdown_files = [Path(f) for f in file_paths if Path(f).exists() and f.endswith('.md')]
+        if not markdown_files:
+            print(f"ERROR: No valid markdown files found in provided list: {file_paths}")
+            sys.exit(1)
+        print(f"Processing {len(markdown_files)} specified file(s)")
+    else:
+        # Fallback: Find all markdown files in articles directory
+        articles_dir = Path("articles")
+        if not articles_dir.exists():
+            print("ERROR: 'articles' directory not found")
+            sys.exit(1)
+        
+        markdown_files = list(articles_dir.glob("*.md"))
+        if not markdown_files:
+            print("No markdown files found in 'articles' directory")
+            sys.exit(0)
+        print(f"Processing all {len(markdown_files)} file(s) in articles directory")
     
     # Process each article
     success_count = 0
@@ -256,9 +270,22 @@ def main():
             organization_id = metadata.get("organization_id")
             organization_slug = metadata.get("organization")
             
+            # Convert empty strings to None (empty strings in YAML frontmatter)
+            if series == "":
+                series = None
+            if canonical_url == "":
+                canonical_url = None
+            if cover_image == "":
+                cover_image = None
+            if description == "":
+                description = None
+            
             # Resolve organization ID if slug provided
             if organization_slug and organization_slug in org_dict:
                 organization_id = org_dict[organization_slug]
+            elif organization_slug:
+                print(f"  Warning: Organization '{organization_slug}' not found. Publishing to personal account.")
+                organization_id = None
             
             # Check if article already exists
             existing_article = publisher.find_article_by_title(title)
@@ -300,12 +327,15 @@ def main():
             
         except Exception as e:
             print(f"✗ Failed to publish {md_file.name}: {e}")
+            import traceback
+            print(f"  Error details: {traceback.format_exc()}")
             continue
     
     print(f"\n{'='*50}")
     print(f"Processed {success_count} of {len(markdown_files)} articles")
     
     if success_count < len(markdown_files):
+        print(f"ERROR: {len(markdown_files) - success_count} article(s) failed to publish")
         sys.exit(1)
 
 

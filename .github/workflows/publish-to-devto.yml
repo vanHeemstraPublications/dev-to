@@ -34,14 +34,20 @@ jobs:
           CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/*.md' || echo "")
           if [ -z "$CHANGED_FILES" ]; then
             # If triggered manually, publish all articles
-            CHANGED_FILES=$(find articles -name "*.md")
+            CHANGED_FILES=$(find articles -name "*.md" 2>/dev/null || echo "")
           fi
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No markdown files to process"
+            echo "files=" >> $GITHUB_OUTPUT
+          else
+            echo "files<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
       
       - name: Publish to DEV.to
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          FILES_TO_PUBLISH: ${{ steps.changed-files.outputs.files }}
         run: |
           python scripts/publish_to_devto.py
