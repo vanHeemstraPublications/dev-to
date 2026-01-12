@@ -25,6 +25,32 @@ class DevToPublisher:
             "Content-Type": "application/json"
         }
     
+    @staticmethod
+    def sanitize_tags(tags: List[str]) -> List[str]:
+        """
+        Sanitize tags to meet DEV.to requirements.
+        DEV.to tags must be lowercase, alphanumeric with underscores only.
+        Hyphens and spaces are converted to underscores.
+        """
+        sanitized = []
+        for tag in tags:
+            if not tag:
+                continue
+            # Convert to lowercase
+            tag = tag.lower()
+            # Replace hyphens and spaces with underscores
+            tag = tag.replace('-', '_').replace(' ', '_')
+            # Remove any non-alphanumeric characters except underscores
+            tag = ''.join(c if c.isalnum() or c == '_' else '' for c in tag)
+            # Remove multiple consecutive underscores
+            while '__' in tag:
+                tag = tag.replace('__', '_')
+            # Remove leading/trailing underscores
+            tag = tag.strip('_')
+            if tag:  # Only add non-empty tags
+                sanitized.append(tag)
+        return sanitized
+    
     def get_user_info(self) -> Dict:
         """Retrieve authenticated user information."""
         response = requests.get(
@@ -109,8 +135,9 @@ class DevToPublisher:
         }
         
         if tags:
-            # DEV.to allows max 4 tags
-            article_data["article"]["tags"] = tags[:4]
+            # Sanitize tags and limit to 4 (DEV.to maximum)
+            sanitized_tags = self.sanitize_tags(tags)
+            article_data["article"]["tags"] = sanitized_tags[:4]
         
         if series:
             article_data["article"]["series"] = series
@@ -170,7 +197,9 @@ class DevToPublisher:
             article_data["article"]["published"] = published
         
         if tags is not None:
-            article_data["article"]["tags"] = tags[:4]
+            # Sanitize tags and limit to 4 (DEV.to maximum)
+            sanitized_tags = self.sanitize_tags(tags)
+            article_data["article"]["tags"] = sanitized_tags[:4]
         
         if series is not None:
             article_data["article"]["series"] = series
@@ -331,6 +360,12 @@ def main():
             description = metadata.get("description")
             organization_id = metadata.get("organization_id")
             organization_slug = metadata.get("organization")
+            
+            # Sanitize tags (DEV.to doesn't allow hyphens, spaces, or special chars)
+            original_tags = tags.copy() if tags else []
+            tags = publisher.sanitize_tags(tags) if tags else []
+            if original_tags != tags:
+                print(f"  Note: Tags sanitized from {original_tags} to {tags}")
             
             # Convert empty strings to None (empty strings in YAML frontmatter)
             if series == "":
