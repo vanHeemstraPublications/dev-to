@@ -451,6 +451,13 @@ def main():
                     organization_id=organization_id
                 )
                 print(f"✓ Updated: {result['title']}")
+                # Show detailed status information
+                result_published = result.get('published', False)
+                result_url = result.get('url', 'N/A')
+                print(f"  Published Status: {'PUBLISHED' if result_published else 'DRAFT'}")
+                print(f"  URL: {result_url}")
+                if not result_published:
+                    print(f"  ⚠️  WARNING: Article is still a DRAFT. It will not be publicly accessible until published.")
             else:
                 print("  Creating new article...")
                 result = publisher.create_article(
@@ -465,10 +472,15 @@ def main():
                     organization_id=organization_id
                 )
                 print(f"✓ Created: {result['title']}")
-            
-            print(f"  URL: {result['url']}")
-            status = 'Published' if result.get('published') else 'Draft'
-            print(f"  Status: {status}")
+                # Show detailed status information
+                result_published = result.get('published', False)
+                result_url = result.get('url', 'N/A')
+                print(f"  Published Status: {'PUBLISHED' if result_published else 'DRAFT'}")
+                print(f"  URL: {result_url}")
+                if not result_published:
+                    print(f"  ⚠️  WARNING: Article is still a DRAFT. It will not be publicly accessible until published.")
+                else:
+                    print(f"  ✓ Article is PUBLISHED and publicly accessible")
             success_count += 1
             
         except Exception as e:
