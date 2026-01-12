@@ -12,6 +12,8 @@ import requests
 import frontmatter
 from pathlib import Path
 from typing import Dict, List, Optional
+from datetime import datetime
+from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
 
 
 class DevToPublisher:
@@ -259,6 +261,37 @@ class DevToPublisher:
         return None
 
 
+def add_cache_busting_to_url(url: str) -> str:
+    """
+    Add a timestamp-based cache-busting parameter to a URL.
+    This ensures DEV.to fetches the latest version of images.
+    
+    Args:
+        url: The URL to add cache-busting to
+        
+    Returns:
+        URL with ?v=<timestamp> parameter added
+    """
+    if not url:
+        return url
+    
+    # Parse the URL
+    parsed = urlparse(url)
+    
+    # Get existing query parameters
+    query_params = parse_qs(parsed.query)
+    
+    # Add or update the version parameter with current timestamp
+    timestamp = int(datetime.now().timestamp())
+    query_params['v'] = [str(timestamp)]
+    
+    # Reconstruct the URL with updated query parameters
+    new_query = urlencode(query_params, doseq=True)
+    new_parsed = parsed._replace(query=new_query)
+    
+    return urlunparse(new_parsed)
+
+
 def process_markdown_file(file_path: Path) -> tuple:
     """
     Process a markdown file with frontmatter.
@@ -369,6 +402,13 @@ def main():
                 cover_image = None
             if description == "":
                 description = None
+            
+            # Add cache-busting timestamp to cover image URL
+            if cover_image:
+                original_cover_image = cover_image
+                cover_image = add_cache_busting_to_url(cover_image)
+                if cover_image != original_cover_image:
+                    print(f"  Added cache-busting parameter to cover image URL")
             
             # Resolve organization ID if slug provided
             if organization_slug and organization_slug in org_dict:

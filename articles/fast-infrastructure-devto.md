@@ -5,7 +5,7 @@ description: "A deep dive into solving infrastructure-as-code using composition 
 tags: ["crossplane", "infrastructure-as-code", "cloud-computing", "tutorial"]
 series: ""
 canonical_url: ""
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/fast-infrastructure-234.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/fast-infrastructure.png"
 organization: "the-software-s-journey"
 ---
 
