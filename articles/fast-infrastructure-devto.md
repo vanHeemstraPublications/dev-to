@@ -21,6 +21,22 @@ Now imagine if provisioning cloud infrastructure worked the same way.
 
 Spoiler alert: With Crossplane, it does. [GitHub repo](https://github.com/software-journey/fast-infrastructure/tree/main)
 
+## 🌟 The Metaphor Explained
+
+|Crossplane Concept                 |Fast-Food Metaphor                   |
+|-----------------------------------|-------------------------------------|
+|XRD (Composite Resource Definition)|Menu board with available items      |
+|Composition                        |Recipe card in the kitchen           |
+|Claim                              |Customer’s order                     |
+|Composite Resource (XR)            |The completed meal                   |
+|Provider                           |Kitchen station (grill, fryer, etc.) |
+|Managed Resource                   |Individual food items (burger, fries)|
+|ProviderConfig                     |Kitchen access credentials           |
+|Crossplane Controller              |Counter staff taking orders          |
+|Reconciliation Loop                |Kitchen checking order status        |
+|Composition Functions              |Special preparation instructions     |
+|CompositionRevisions               |Menu updates/new recipes             |
+
 ## The Problem: Too Many Chefs in the Cloud Kitchen
 
 Let me paint a picture. You’re a developer who needs a database, some storage, and maybe a Kubernetes cluster for your new application. In the traditional world, this means:
