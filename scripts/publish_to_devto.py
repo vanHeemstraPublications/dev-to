@@ -45,12 +45,31 @@ class DevToPublisher:
     
     def get_my_organizations(self) -> List[Dict]:
         """Get list of user's organizations."""
-        response = requests.get(
+        # Try different API endpoints for organizations
+        endpoints = [
+            f"{self.base_url}/organizations",
             f"{self.base_url}/organizations/users/me",
-            headers=self.headers
-        )
-        response.raise_for_status()
-        return response.json()
+            f"{self.base_url}/users/me/organizations"
+        ]
+        
+        for endpoint in endpoints:
+            try:
+                response = requests.get(endpoint, headers=self.headers)
+                response.raise_for_status()
+                orgs = response.json()
+                # Handle different response formats
+                if isinstance(orgs, list):
+                    return orgs
+                elif isinstance(orgs, dict) and 'organizations' in orgs:
+                    return orgs['organizations']
+                elif isinstance(orgs, dict) and 'data' in orgs:
+                    return orgs['data']
+                return orgs
+            except requests.exceptions.RequestException:
+                continue
+        
+        # If all endpoints fail, raise the last error
+        raise requests.exceptions.RequestException("Could not fetch organizations from any endpoint")
     
     def create_article(
         self,
@@ -126,7 +145,8 @@ class DevToPublisher:
         series: Optional[str] = None,
         canonical_url: Optional[str] = None,
         cover_image: Optional[str] = None,
-        description: Optional[str] = None
+        description: Optional[str] = None,
+        organization_id: Optional[int] = None
     ) -> Dict:
         """
         Update an existing article on DEV.to.
@@ -164,13 +184,49 @@ class DevToPublisher:
         if description is not None:
             article_data["article"]["description"] = description
         
+        if organization_id is not None:
+            article_data["article"]["organization_id"] = organization_id
+        
         response = requests.put(
             f"{self.base_url}/articles/{article_id}",
             headers=self.headers,
             json=article_data
         )
-        response.raise_for_status()
+        
+        # Provide better error messages
+        if not response.ok:
+            error_msg = f"{response.status_code} {response.reason}"
+            try:
+                error_data = response.json()
+                if isinstance(error_data, dict):
+                    if 'error' in error_data:
+                        error_msg += f": {error_data['error']}"
+                    elif 'errors' in error_data:
+                        error_msg += f": {error_data['errors']}"
+                    elif 'message' in error_data:
+                        error_msg += f": {error_data['message']}"
+                    # Print full error data for debugging
+                    print(f"  API Error Response: {error_data}")
+            except ValueError:
+                # If response is not JSON, include response text
+                error_msg += f": {response.text[:200]}"
+            
+            # Create a custom exception with better message
+            raise requests.exceptions.HTTPError(error_msg, response=response)
+        
         return response.json()
+    
+    def get_article_by_id(self, article_id: int) -> Optional[Dict]:
+        """Get a specific article by ID with full details."""
+        try:
+            response = requests.get(
+                f"{self.base_url}/articles/{article_id}",
+                headers=self.headers
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException:
+            return None
     
     def find_article_by_title(self, title: str) -> Optional[Dict]:
         """Find an existing article by title."""
@@ -220,10 +276,16 @@ def main():
     # Get user's organizations
     try:
         organizations = publisher.get_my_organizations()
-        org_dict = {org['slug']: org['id'] for org in organizations}
-        print(f"✓ Loaded {len(organizations)} organizations")
+        # Handle different organization response formats
+        if isinstance(organizations, list):
+            org_dict = {org.get('slug'): org.get('id') for org in organizations if org.get('slug') and org.get('id')}
+            print(f"✓ Loaded {len(organizations)} organizations")
+        else:
+            print(f"Warning: Unexpected organizations response format: {type(organizations)}")
+            org_dict = {}
     except requests.exceptions.RequestException as e:
         print(f"Warning: Could not load organizations: {e}")
+        print("  Continuing without organization lookup - will use organization_id from existing articles if available")
         org_dict = {}
     
     # Determine which files to process
@@ -293,6 +355,35 @@ def main():
             if existing_article:
                 art_id = existing_article['id']
                 print(f"  Article exists (ID: {art_id}), updating...")
+                
+                # Fetch full article details to get organization information
+                full_article = publisher.get_article_by_id(art_id)
+                if full_article:
+                    # Preserve organization_id from existing article if it belongs to an organization
+                    # This is critical - articles published to organizations must keep their organization_id
+                    existing_org_id = None
+                    if 'organization' in full_article:
+                        org = full_article['organization']
+                        if isinstance(org, dict) and 'id' in org:
+                            existing_org_id = org['id']
+                        elif isinstance(org, int):
+                            existing_org_id = org
+                    
+                    if existing_org_id:
+                        print(f"  Preserving organization_id: {existing_org_id} from existing article")
+                        organization_id = existing_org_id
+                    elif organization_id is None and organization_slug:
+                        # Try to resolve organization if not already resolved
+                        if organization_slug in org_dict:
+                            organization_id = org_dict[organization_slug]
+                            print(f"  Using organization_id: {organization_id} for slug: {organization_slug}")
+                else:
+                    # Fallback: try to get org from the basic article data
+                    existing_org_id = existing_article.get('organization', {}).get('id') if isinstance(existing_article.get('organization'), dict) else None
+                    if existing_org_id:
+                        print(f"  Preserving organization_id: {existing_org_id} from article list")
+                        organization_id = existing_org_id
+                
                 result = publisher.update_article(
                     article_id=existing_article["id"],
                     title=title,
@@ -302,7 +393,8 @@ def main():
                     series=series,
                     canonical_url=canonical_url,
                     cover_image=cover_image,
-                    description=description
+                    description=description,
+                    organization_id=organization_id
                 )
                 print(f"✓ Updated: {result['title']}")
             else:
