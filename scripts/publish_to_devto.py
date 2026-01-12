@@ -384,7 +384,7 @@ def main():
                 art_id = existing_article['id']
                 print(f"  Article exists (ID: {art_id}), updating...")
                 
-                # Fetch full article details to get organization information
+                # Fetch full article details to get organization information and published status
                 full_article = publisher.get_article_by_id(art_id)
                 if full_article:
                     # Preserve organization_id from existing article if it belongs to an organization
@@ -405,12 +405,38 @@ def main():
                         if organization_slug in org_dict:
                             organization_id = org_dict[organization_slug]
                             print(f"  Using organization_id: {organization_id} for slug: {organization_slug}")
+                    
+                    # Preserve published status if article is already published
+                    # This prevents accidentally unpublishing articles when frontmatter has published: false
+                    existing_published = full_article.get('published', False)
+                    if existing_published:
+                        if published:
+                            print(f"  Article is already published, maintaining published status")
+                        else:
+                            # Article is published but frontmatter says false
+                            # Preserve published status to avoid accidentally unpublishing
+                            print(f"  Preserving published status: article is already published (frontmatter has published: false, but keeping it published)")
+                            published = True
+                    elif not existing_published and published:
+                        print(f"  Publishing article (was draft, frontmatter has published: true)")
                 else:
                     # Fallback: try to get org from the basic article data
                     existing_org_id = existing_article.get('organization', {}).get('id') if isinstance(existing_article.get('organization'), dict) else None
                     if existing_org_id:
                         print(f"  Preserving organization_id: {existing_org_id} from article list")
                         organization_id = existing_org_id
+                    
+                    # Preserve published status from basic article data
+                    existing_published = existing_article.get('published', False)
+                    if existing_published:
+                        if published:
+                            print(f"  Article is already published, maintaining published status")
+                        else:
+                            # Article is published but frontmatter says false - preserve status
+                            print(f"  Preserving published status: article is already published (frontmatter has published: false, but keeping it published)")
+                            published = True
+                    elif not existing_published and published:
+                        print(f"  Publishing article (was draft, frontmatter has published: true)")
                 
                 result = publisher.update_article(
                     article_id=existing_article["id"],
