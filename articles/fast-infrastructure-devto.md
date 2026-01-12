@@ -754,4 +754,4 @@ Let’s learn from each other’s experiences and build better infrastructure me
 
 -----
 
-**Did you find this helpful? Give it a clap! 👏 Want more cloud-native analogies? Follow me for more articles where I explain complex tech through everyday metaphors.**
+**Did you find this helpful? Give it a clap! 👏 Want more cloud-native analogies? Follow me for more articles where I explain complex tech through everyday metaphors.** 

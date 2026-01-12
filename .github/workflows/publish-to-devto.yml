@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - 'articles/*.md'
+      - 'images/*.png'
+      - 'images/*.jpg'
+      - 'images/*.jpeg'
   workflow_dispatch:
 
 jobs:
@@ -32,6 +35,24 @@ jobs:
         run: |
           # Get list of changed markdown files
           CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/*.md' || echo "")
+          
+          # If images changed, find articles that reference those images
+          CHANGED_IMAGES=$(git diff --name-only HEAD~1 HEAD -- 'images/*.png' 'images/*.jpg' 'images/*.jpeg' 2>/dev/null || echo "")
+          if [ -n "$CHANGED_IMAGES" ]; then
+            echo "Images changed: $CHANGED_IMAGES"
+            # Find articles that reference the changed images
+            for img in $CHANGED_IMAGES; do
+              img_basename=$(basename "$img")
+              # Find articles that reference this image
+              matching_articles=$(grep -l "$img_basename" articles/*.md 2>/dev/null || echo "")
+              if [ -n "$matching_articles" ]; then
+                CHANGED_FILES="$CHANGED_FILES"$'\n'"$matching_articles"
+              fi
+            done
+            # Remove duplicates and empty lines
+            CHANGED_FILES=$(echo "$CHANGED_FILES" | grep -v '^$' | sort -u)
+          fi
+          
           if [ -z "$CHANGED_FILES" ]; then
             # If triggered manually, publish all articles
             CHANGED_FILES=$(find articles -name "*.md" 2>/dev/null || echo "")
