@@ -6,7 +6,7 @@ tags: ["python", "refactoring", "codesmells", "tutorial"]
 series: ""
 canonical_url: ""
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/windows-1694867_1920.jpg"
-organization: "the-software-s-journey"
+organization: "code-smell-detective"
 ---
 
 The [Gilded Rose refactoring kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) is a classic coding exercise that challenges developers to refactor legacy code while adding new functionality. Instead of jumping straight to a design pattern, let's take a methodical approach: **identify code smells and fix them systematically**.
