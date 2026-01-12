@@ -8,7 +8,7 @@ Ever stood in front of a fast-food counter and marveled at the simplicity? You s
 
 Now imagine if provisioning cloud infrastructure worked the same way.
 
-Spoiler alert: With Crossplane, it does.
+Spoiler alert: With Crossplane, it does. [GitHub repo](https://github.com/software-journey/fast-infrastructure/tree/main)
 
 ## The Problem: Too Many Chefs in the Cloud Kitchen
 
@@ -723,7 +723,7 @@ Let’s learn from each other’s experiences and build better infrastructure me
 - [Upbound Provider Marketplace](https://marketplace.upbound.io/)
 - [Crossplane Slack Community](https://slack.crossplane.io/)
 - [Azure Provider Documentation](https://marketplace.upbound.io/providers/upbound/provider-azure/)
-
+- [GitHub repository with sources of this article](https://github.com/software-journey/fast-infrastructure/tree/main)
 
 -----
 
