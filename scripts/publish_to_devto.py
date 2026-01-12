@@ -29,8 +29,8 @@ class DevToPublisher:
     def sanitize_tags(tags: List[str]) -> List[str]:
         """
         Sanitize tags to meet DEV.to requirements.
-        DEV.to tags must be lowercase, alphanumeric with underscores only.
-        Hyphens and spaces are converted to underscores.
+        DEV.to tags must be lowercase and purely alphanumeric (no hyphens, underscores, or special characters).
+        All non-alphanumeric characters are removed.
         """
         sanitized = []
         for tag in tags:
@@ -38,15 +38,8 @@ class DevToPublisher:
                 continue
             # Convert to lowercase
             tag = tag.lower()
-            # Replace hyphens and spaces with underscores
-            tag = tag.replace('-', '_').replace(' ', '_')
-            # Remove any non-alphanumeric characters except underscores
-            tag = ''.join(c if c.isalnum() or c == '_' else '' for c in tag)
-            # Remove multiple consecutive underscores
-            while '__' in tag:
-                tag = tag.replace('__', '_')
-            # Remove leading/trailing underscores
-            tag = tag.strip('_')
+            # Remove ALL non-alphanumeric characters (only keep letters and numbers)
+            tag = ''.join(c for c in tag if c.isalnum())
             if tag:  # Only add non-empty tags
                 sanitized.append(tag)
         return sanitized
