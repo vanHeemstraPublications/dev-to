@@ -4,7 +4,7 @@ published: false
 description: "Learn how to test Crossplane v2 compositions with end-to-end testing, explained through the surprisingly apt metaphor of assembling IKEA furniture"
 tags: kubernetes, crossplane, testing, devops
 cover_image: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/your-cover-image.png
-canonical_url: null
+organization: the-software-s-journey
 ---
 
 # Testing Your Cloud Infrastructure Like IKEA Furniture: A Guide to Crossplane v2 End-to-End Testing
