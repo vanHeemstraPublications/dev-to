@@ -1,13 +1,13 @@
 ---
 
-## title: “Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane”
+## title: "Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane‘s Control Plane"
 published: draft
-description: “Understanding Crossplane and Crossview through the lens of everyone’s favorite friendship-destroying board game”
-tags: [”kubernetes”, “devops”, “infrastructure”, “cloudnative”]
-cover_image: “https://dev-to-uploads.s3.amazonaws.com/uploads/articles/monopoly-crossplane-crossview.jpg”
-canonical_url: “”
-series: “Infrastructure as Code Adventures”
-organization: “the-software-s-journey”
+description: "Understanding Crossplane and Crossview through the lens of everyone’s favorite friendship-destroying board game"
+tags: ["kubernetes", "devops", "infrastructure", "cloudnative"]
+cover_image: "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/monopoly-crossplane-crossview.jpg"
+canonical_url: ""
+series: "Infrastructure as Code Adventures"
+organization: "the-software-s-journey"
 ---
 
 # Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane
