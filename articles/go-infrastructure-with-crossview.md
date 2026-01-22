@@ -36,7 +36,7 @@ metadata:
 spec:
   group: example.com
   names:
-    kind: XDatabase          # Like "Mediterranean Avenue"
+    kind: XDatabase          # Like "Baltic Avenue"
     plural: xdatabases
   versions:
   - name: v1alpha1
@@ -75,7 +75,7 @@ spec:
   storageGB: 100
 ```
 
-Boom! You just bought Park Place. Well, the database equivalent. Your production database is now running in the cloud, and you’re collecting rent (or in this case, serving traffic).
+Boom! You just bought Baltic Avenue. Well, the database equivalent. Your production database is now running in the cloud, and you’re collecting rent (or in this case, serving traffic).
 
 In Crossplane 2.1, you can configure XRs to be namespace-scoped (perfect for multi-tenant scenarios) or cluster-scoped. Think of namespaces as different neighborhoods on your Monopoly board!
 
@@ -111,7 +111,7 @@ spec:
             forProvider:
               location: eastus
               sku:
-                name: B_Gen5_2  # Big hotel on Boardwalk!
+                name: B_Gen5_2  # Big hotel on Baltic Avenue!
               storageMb: 102400
               version: "15"
       - name: backup-storage
