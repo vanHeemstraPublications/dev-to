@@ -10,17 +10,17 @@ series: "Infrastructure as Code Adventures"
 organization: "the-software-s-journey"
 ---
 
-# Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane
+# Don't Pass GO Without Crossview: A Monopoly Guide to Crossplane's Control Plane
 
-Remember that time you flipped the Monopoly board because your sibling bought Park Place right before you could? Or when you mortgaged everything just to stay in the game? Well, managing cloud infrastructure can feel exactly like that—except instead of fake money, you’re burning through real Azure credits, and instead of going to jail, you’re debugging YAML at 3 AM.
+Remember that time you flipped the Monopoly board because your sibling bought Park Place right before you could? Or when you mortgaged everything just to stay in the game? Well, managing cloud infrastructure can feel exactly like that—except instead of fake money, you're burning through real Azure credits, and instead of going to jail, you're debugging YAML at 3 AM.
 
-But what if I told you there’s a way to manage your infrastructure empire with the clarity of a Monopoly board laid out in front of you? Enter **Crossplane** and **Crossview**—the dynamic duo that turns infrastructure chaos into a beautiful, visual game board you can actually understand.
+But what if I told you there's a way to manage your infrastructure empire with the clarity of a Monopoly board laid out in front of you? Enter **Crossplane** and **Crossview**—the dynamic duo that turns infrastructure chaos into a beautiful, visual game board you can actually understand.
 
 Let me explain using the only framework that matters: Monopoly.
 
 ## 🎩 The Game Board: Understanding Crossplane
 
-Before we talk about Crossview (the fancy GUI dashboard), let’s understand Crossplane using our favorite capitalist board game.
+Before we talk about Crossview (the fancy GUI dashboard), let's understand Crossplane using our favorite capitalist board game.
 
 ### The Deed Cards: Composite Resource Definitions (XRDs)
 
@@ -38,9 +38,6 @@ spec:
   names:
     kind: XDatabase          # Like "Mediterranean Avenue"
     plural: xdatabases
-  claimNames:
-    kind: Database           # The player-friendly name
-    plural: databases
   versions:
   - name: v1alpha1
     served: true
@@ -59,31 +56,34 @@ spec:
                 type: integer
 ```
 
-Think of this as the deed card for “Baltic Avenue”—it tells you what you’re getting and what options you have. You can’t actually *use* it until you buy it, but it’s there, waiting.
+Think of this as the deed card for "Baltic Avenue"—it tells you what you're getting and what options you have. You can't actually *use* it until you buy it, but it's there, waiting.
 
 ### The Properties You Own: Composite Resources (XRs)
 
-When you land on Baltic Avenue and hand over your $60, you now *own* that property. It’s yours! The deed card becomes a real asset.
+When you land on Baltic Avenue and hand over your $60, you now *own* that property. It's yours! The deed card becomes a real asset.
 
-In Crossplane, when you create a **Composite Resource (XR)** based on an XRD, you’re buying that property. You’ve gone from “this exists as an option” to “this is mine and it’s running.”
+In Crossplane, when you create a **Composite Resource (XR)** based on an XRD, you're buying that property. You've gone from "this exists as an option" to "this is mine and it's running."
 
 ```yaml
 apiVersion: example.com/v1alpha1
 kind: XDatabase
 metadata:
   name: my-production-db
+  namespace: production  # XRs can be namespaced in Crossplane 2.1!
 spec:
   size: large
   storageGB: 100
 ```
 
-Boom! You just bought Park Place. Well, the database equivalent. Your production database is now running in the cloud, and you’re collecting rent (or in this case, serving traffic).
+Boom! You just bought Park Place. Well, the database equivalent. Your production database is now running in the cloud, and you're collecting rent (or in this case, serving traffic).
+
+In Crossplane 2.1, you can configure XRs to be namespace-scoped (perfect for multi-tenant scenarios) or cluster-scoped. Think of namespaces as different neighborhoods on your Monopoly board!
 
 ### The Buildings: Compositions
 
-Here’s where it gets fun. In Monopoly, once you own a property, you can build houses and hotels on it. These buildings make your property more valuable and generate more rent.
+Here's where it gets fun. In Monopoly, once you own a property, you can build houses and hotels on it. These buildings make your property more valuable and generate more rent.
 
-In Crossplane, **Compositions** are exactly like that. They define what gets “built” when you claim a property (create an XR). A Composition might say: “When someone creates a Database XR, we’re going to build them an Azure Database for PostgreSQL, a Storage Account for backups, monitoring dashboards, and a Key Vault secret for credentials.”
+In Crossplane, **Compositions** are exactly like that. They define what gets "built" when you create an XR. A Composition might say: "When someone creates a Database XR, we're going to build them an Azure Database for PostgreSQL, a Storage Account for backups, monitoring dashboards, and a Key Vault secret for credentials."
 
 ```yaml
 apiVersion: apiextensions.crossplane.io/v1
@@ -129,46 +129,24 @@ spec:
           kind: Workspace
 ```
 
-See what happened? You bought one “property” (the Database XR), but the Composition automatically built you a hotel (PostgreSQL Server), a parking lot (Storage Account for backups), and a security system (Log Analytics workspace).
+See what happened? You bought one "property" (the Database XR), but the Composition automatically built you a hotel (PostgreSQL Server), a parking lot (Storage Account for backups), and a security system (Log Analytics workspace).
 
-You’re basically the Donald Trump of cloud infrastructure. Without the bankruptcies. Hopefully.
+You're basically the Donald Trump of cloud infrastructure. Without the bankruptcies. Hopefully.
 
-### The Player Tokens: Claims (XRCs)
+## 🎲 The Problem: You Can't See the Board!
 
-In Monopoly, you have your little player token—maybe you’re the car, the dog, or if you’re fancy, the thimble nobody wants.
-
-In Crossplane, **Claims** are your player token. They’re namespace-scoped resources that “claim” a Composite Resource. Think of them as “I’m the player who owns Park Place.”
-
-```yaml
-apiVersion: example.com/v1alpha1
-kind: Database
-metadata:
-  namespace: production
-  name: customer-db
-spec:
-  size: large
-  storageGB: 100
-```
-
-This is you saying “I’m playing in the ‘production’ namespace, and I want to claim this database.” The Claim creates an XR, which triggers the Composition, which builds all your infrastructure.
-
-Just like how your shoe token sitting on Boardwalk represents your ownership, the Claim represents your namespace’s ownership of that infrastructure.
-
-## 🎲 The Problem: You Can’t See the Board!
-
-Imagine playing Monopoly with your eyes closed. Someone tells you “you landed on a property” but won’t tell you which one, how much it costs, or what’s already on it. That’s what managing Crossplane resources with just `kubectl` feels like:
+Imagine playing Monopoly with your eyes closed. Someone tells you "you landed on a property" but won't tell you which one, how much it costs, or what's already on it. That's what managing Crossplane resources with just `kubectl` feels like:
 
 ```bash
 # What fresh hell is this?
 kubectl get compositeresourcedefinitions
 kubectl get compositions  
 kubectl get xdatabases
-kubectl get databases
 kubectl describe xdatabase my-production-db
 # ...500 lines of YAML later...
 ```
 
-You’re squinting at YAML, grep-ing through status conditions, and trying to figure out if your database is actually running or if it’s stuck in some weird pending state. It’s like playing Monopoly by reading the rulebook aloud instead of just looking at the board.
+You're squinting at YAML, grep-ing through status conditions, and trying to figure out if your database is actually running or if it's stuck in some weird pending state. It's like playing Monopoly by reading the rulebook aloud instead of just looking at the board.
 
 **This is madness.**
 
@@ -182,16 +160,16 @@ Crossview is a beautiful web dashboard that turns your Crossplane chaos into an 
 
 When you open Crossview, you get a dashboard that shows you everything, organized and pretty:
 
-- **All your properties (XRs)** - See every database, storage bucket, and Kubernetes cluster you’ve claimed
-- **Property status** - Green = healthy and collecting rent, Red = something’s on fire
-- **The buildings (managed resources)** - See every house and hotel (RDS instance, S3 bucket, etc.) built by your Compositions
-- **Recent moves** - Activity feed showing what everyone’s been buying and selling
+- **All your properties (XRs)** - See every database, storage bucket, and Kubernetes cluster you've created
+- **Property status** - Green = healthy and collecting rent, Red = something's on fire
+- **The buildings (managed resources)** - See every PostgreSQL Server, Storage Account, etc. built by your Compositions
+- **Recent moves** - Activity feed showing what everyone's been creating and deleting
 
-It’s like being able to see the entire Monopoly board from above instead of crawling around on the floor trying to read property cards.
+It's like being able to see the entire Monopoly board from above instead of crawling around on the floor trying to read property cards.
 
 ### Real-Time Property Status
 
-In Monopoly, you can glance at the board and see: “Oh, Jenny owns all the railroads and has hotels on Boardwalk. I’m doomed.”
+In Monopoly, you can glance at the board and see: "Oh, Jenny owns all the railroads and has hotels on Boardwalk. I'm doomed."
 
 In Crossview, you get the same instant clarity:
 
@@ -212,9 +190,9 @@ One glance tells you: production is printing money, but staging is on fire. Time
 
 ### Searching Your Empire
 
-In late-game Monopoly, you’ve got properties everywhere. “Wait, do I own the utilities? Which railroads do I have?”
+In late-game Monopoly, you've got properties everywhere. "Wait, do I own the utilities? Which railroads do I have?"
 
-Crossview has a search bar. Type “database” and boom—every database resource across every namespace. Type “production” and see everything in prod.
+Crossview has a search bar. Type "database" and boom—every database resource across every namespace. Type "production" and see everything in prod. 
 
 ```
 Search: "postgresql"
@@ -225,20 +203,18 @@ Results:
 - PostgreSQL Server: legacy-postgres (default namespace)
 ```
 
-It’s like having a property accountant who actually knows where you put everything.
+It's like having a property accountant who actually knows where you put everything.
 
 ## 🏦 The Bank: Resource Relationships
 
-One of the most confusing parts of Crossplane is understanding relationships. A Claim creates an XR, which uses a Composition, which creates Managed Resources, which talk to cloud providers…
+One of the most confusing parts of Crossplane is understanding relationships. A Claim creates an XR, which uses a Composition, which creates Managed Resources, which talk to cloud providers...
 
-It’s like trying to explain Monopoly’s mortgage rules to a five-year-old.
+It's like trying to explain Monopoly's mortgage rules to a five-year-old.
 
 Crossview shows you the relationships visually:
 
 ```
-Claim (Database) 
-    ↓
-Composite Resource (XDatabase)
+Composite Resource (XDatabase) 
     ↓  
 Composition (database-azure-production)
     ↓
@@ -250,16 +226,15 @@ Managed Resources:
 ```
 
 Click on any resource and see:
-
 - **What created it** (the parent)
-- **What it created** (the children)
+- **What it created** (the children)  
 - **Current status** (is it healthy?)
-- **Events** (what’s been happening?)
+- **Events** (what's been happening?)
 - **Full YAML** (for the masochists among us)
 
 ### Multi-Cluster Game Nights
 
-Got multiple Kubernetes clusters? Crossview can connect to all of them. It’s like hosting multiple Monopoly games simultaneously and being able to see all boards at once.
+Got multiple Kubernetes clusters? Crossview can connect to all of them. It's like hosting multiple Monopoly games simultaneously and being able to see all boards at once.
 
 ```javascript
 // Crossview can switch between clusters
@@ -270,15 +245,15 @@ Clusters:
 - 🔴 Sandbox (southeastasia) - Connection Error
 ```
 
-Click between them like switching between game boards. “Oh right, I forgot I had hotels on Boardwalk in the staging cluster!”
+Click between them like switching between game boards. "Oh right, I forgot I had hotels on Boardwalk in the staging cluster!"
 
-## 🎯 Installing Crossview: Let’s Play!
+## 🎯 Installing Crossview: Let's Play!
 
 Ready to see your infrastructure empire in all its glory? Installing Crossview is easier than setting up Monopoly (no fighting over who gets to be the banker).
 
 ### The Quick Setup
 
-First, make sure you have Crossplane running. If you don’t, that’s like trying to play Monopoly without the board:
+First, make sure you have Crossplane running. If you don't, that's like trying to play Monopoly without the board:
 
 ```bash
 # Install Crossplane (if you haven't already)
@@ -319,7 +294,7 @@ kubectl port-forward -n crossview svc/crossview 3001:3001
 # Now open: http://localhost:3001
 ```
 
-🎉 **BAM!** You’ve got a visual game board for your infrastructure!
+🎉 **BAM!** You've got a visual game board for your infrastructure!
 
 ### For Production (with LoadBalancer)
 
@@ -338,9 +313,9 @@ kubectl get svc crossview -n crossview
 # Access at: http://<EXTERNAL-IP>:3001
 ```
 
-## 🎲 Let’s Play: A Real Example
+## 🎲 Let's Play: A Real Example
 
-Let’s create some infrastructure and watch Crossview show us what’s happening, Monopoly-style!
+Let's create some infrastructure and watch Crossview show us what's happening, Monopoly-style!
 
 ### Roll the Dice: Create an XRD (Deed Card)
 
@@ -355,9 +330,6 @@ spec:
   names:
     kind: XPostgreSQLInstance
     plural: xpostgresqlinstances
-  claimNames:
-    kind: PostgreSQLInstance
-    plural: postgresqlinstances
   versions:
   - name: v1alpha1
     served: true
@@ -386,12 +358,11 @@ spec:
 ```
 
 Apply it:
-
 ```bash
 kubectl apply -f database-xrd.yaml
 ```
 
-In Crossview, you’ll see this appear in the “Definitions” tab. It’s like adding a new deed card to your deck!
+In Crossview, you'll see this appear in the "Definitions" tab. It's like adding a new deed card to your deck!
 
 ### Build Your Empire: Create a Composition (The Hotel Blueprint)
 
@@ -477,14 +448,14 @@ spec:
 kubectl apply -f database-composition.yaml
 ```
 
-Now in Crossview, go to “Compositions” and you’ll see your blueprint. It’s like having the instructions for building hotels!
+Now in Crossview, go to "Compositions" and you'll see your blueprint. It's like having the instructions for building hotels!
 
-### Claim Your Property!
+### Create Your XR (Buy the Property!)
 
 ```yaml
 # my-database.yaml
 apiVersion: database.example.com/v1alpha1
-kind: PostgreSQLInstance
+kind: XPostgreSQLInstance
 metadata:
   namespace: production
   name: customer-database
@@ -502,37 +473,35 @@ kubectl apply -f my-database.yaml
 
 ### Watch the Magic in Crossview! 🎩✨
 
-Open Crossview and navigate to the dashboard. You’ll see:
+Open Crossview and navigate to the dashboard. You'll see:
 
-1. **Your Claim** appears in the “Claims” section (your game token is on the board!)
-1. **An XR is created automatically** (you bought the property!)
-1. **Managed Resources start appearing** (the hotel construction begins!)
-- PostgreSQL Server shows up with status “Creating”
-- Storage Account appears immediately (fast construction!)
-1. **Status updates in real-time**
-- Watch the PostgreSQL Server go from “Creating” → “Ready”
-- All with pretty green/yellow/red indicators
+1. **Your XR** appears in the "Composite Resources" section (you bought the property!)
+2. **Managed Resources start appearing** (the hotel construction begins!)
+   - PostgreSQL Server shows up with status "Creating"
+   - Storage Account appears immediately (fast construction!)
+3. **Status updates in real-time**
+   - Watch the PostgreSQL Server go from "Creating" → "Ready"
+   - All with pretty green/yellow/red indicators
 
-Click on your “customer-database” Claim and you’ll see a beautiful tree view:
+Click on your "customer-database" XR and you'll see a beautiful tree view:
 
 ```
-PostgreSQLInstance: customer-database
-├── XPostgreSQLInstance: customer-database-xxxxx
-    ├── 🟢 PostgreSQL Server: customer-database-xxxxx
-    │   └── Status: Ready
-    │   └── FQDN: customer-db.postgres.database.azure.com
-    └── 🟢 Storage Account: customerdatabasebackups
-        └── Status: Succeeded
-        └── Location: eastus
+XPostgreSQLInstance: customer-database
+├── 🟢 PostgreSQL Server: customer-database-xxxxx
+│   └── Status: Ready
+│   └── FQDN: customer-db.postgres.database.azure.com
+└── 🟢 Storage Account: customerdatabasebackups
+    └── Status: Succeeded
+    └── Location: eastus
 ```
 
-It’s like watching your Monopoly properties generate passive income, except this actually pays real money (or costs it, depending on your Azure bill).
+It's like watching your Monopoly properties generate passive income, except this actually pays real money (or costs it, depending on your Azure bill).
 
 ## 🏆 Winning the Game: Best Practices
 
-### Don’t Put Hotels on Baltic Avenue
+### Don't Put Hotels on Baltic Avenue
 
-Just like you wouldn’t waste money building hotels on cheap properties, don’t over-provision small environments:
+Just like you wouldn't waste money building hotels on cheap properties, don't over-provision small environments:
 
 ```yaml
 # Good: Right-sized for development
@@ -562,22 +531,21 @@ spec:
 
 Crossview will show you all your resources and their sizes. Use it to catch these expensive mistakes before your Azure bill makes you cry.
 
-### Know When to Fold ’Em
+### Know When to Fold 'Em
 
-In Monopoly, sometimes you need to mortgage properties to stay in the game. In Crossplane, sometimes you need to delete resources you’re not using.
+In Monopoly, sometimes you need to mortgage properties to stay in the game. In Crossplane, sometimes you need to delete resources you're not using.
 
 Crossview makes this easy:
-
 1. Search for old/unused resources
-1. Check their last activity time
-1. Delete the ones gathering dust
+2. Check their last activity time
+3. Delete the ones gathering dust
 
 ```bash
 # Check in Crossview first, then clean up
-kubectl delete postgresqlinstance old-test-database -n development
+kubectl delete xpostgresqlinstance old-test-database -n development
 ```
 
-Watch in Crossview as the Claim disappears, the XR gets cleaned up, and all the managed resources gracefully shut down. It’s oddly satisfying, like watching Monopoly properties get returned to the bank.
+Watch in Crossview as the XR disappears and all the managed resources gracefully shut down. It's oddly satisfying, like watching Monopoly properties get returned to the bank.
 
 ### Use Labels Like Property Groups
 
@@ -585,7 +553,7 @@ In Monopoly, you want to own all properties of the same color. In Crossplane, us
 
 ```yaml
 apiVersion: database.example.com/v1alpha1
-kind: PostgreSQLInstance
+kind: XPostgreSQLInstance
 metadata:
   name: user-service-db
   namespace: production
@@ -596,12 +564,11 @@ metadata:
 ```
 
 Then in Crossview, filter by labels:
+- See all "production" resources
+- See everything for "user-service"
+- Find all resources owned by "backend" team
 
-- See all “production” resources
-- See everything for “user-service”
-- Find all resources owned by “backend” team
-
-It’s like being able to highlight all your red properties on the board!
+It's like being able to highlight all your red properties on the board!
 
 ## 🎪 Advanced Strategies: Power Moves
 
@@ -641,7 +608,7 @@ spec:
 EOF
 ```
 
-In Crossview’s “Providers” section, you’ll see all your railroads—er, providers—and their health status. Now you can create databases on ANY cloud! Mix and match! Go wild!
+In Crossview's "Providers" section, you'll see all your railroads—er, providers—and their health status. Now you can create databases on ANY cloud! Mix and match! Go wild!
 
 ### The Boardwalk & Park Place Combo: Compositions for Different Environments
 
@@ -677,13 +644,14 @@ spec:
   # ... creates single-region PostgreSQL, minimal backups
 ```
 
-Then in your Claim, specify which Composition to use:
+Then in your XR, specify which Composition to use:
 
 ```yaml
 apiVersion: database.example.com/v1alpha1
-kind: PostgreSQLInstance
+kind: XPostgreSQLInstance
 metadata:
   name: my-database
+  namespace: production
 spec:
   compositionRef:
     name: postgresql-production  # The fancy one!
@@ -691,7 +659,7 @@ spec:
     storageGB: 100
 ```
 
-Crossview shows you which Composition each XR is using. It’s like seeing which properties have hotels vs. houses!
+Crossview shows you which Composition each XR is using. It's like seeing which properties have hotels vs. houses!
 
 ## 🎬 Real-World Success Story
 
@@ -700,47 +668,45 @@ At my company (totally not making this up), we had 47 databases across Azure and
 Then we installed Crossview.
 
 Within 10 minutes, we discovered:
-
 - 12 databases nobody was using (Free Parking!)
-- 8 databases that should’ve been in production but were in staging (someone put hotels on Mediterranean Avenue)
+- 8 databases that should've been in production but were in staging (someone put hotels on Mediterranean Avenue)
 - 3 databases running on SKUs 4x too large (oops, our Azure bill makes sense now)
 - 1 database that was somehow running in the wrong region for 8 months (Go directly to jail, do not pass GO)
 
 We deleted the unused ones, right-sized the oversized ones, and documented ownership for everything. Our Azure bill dropped 40% the next month.
 
-**Crossview paid for itself in saved infrastructure costs on day one.** And by “paid for itself,” I mean it’s free, but you get the point.
+**Crossview paid for itself in saved infrastructure costs on day one.** And by "paid for itself," I mean it's free, but you get the point.
 
 ## 🎯 The Endgame: Why Crossview Matters
 
-Managing infrastructure without Crossview is like playing Monopoly in the dark while drunk. Sure, you might eventually figure out what’s happening, but it’s going to be painful and you’ll make expensive mistakes.
+Managing infrastructure without Crossview is like playing Monopoly in the dark while drunk. Sure, you might eventually figure out what's happening, but it's going to be painful and you'll make expensive mistakes.
 
 Crossview gives you:
-
 - **Visual clarity**: See your entire infrastructure empire at a glance
 - **Real-time updates**: Know when something breaks immediately
 - **Relationship mapping**: Understand how resources connect
-- **Multi-cluster support**: Manage multiple “game boards” from one dashboard
+- **Multi-cluster support**: Manage multiple "game boards" from one dashboard
 - **Search and filter**: Find that one database you created 6 months ago
 - **Team collaboration**: Everyone can see the same board
 
-Plus, it’s **open source and free**. It’s like getting a deluxe Monopoly set for the price of the cardboard version.
+Plus, it's **open source and free**. It's like getting a deluxe Monopoly set for the price of the cardboard version.
 
 ## 🚀 Your Next Move
 
 Ready to turn your infrastructure chaos into an organized game board?
 
-1. **Install Crossplane** (if you haven’t already)
-1. **Install Crossview** using the Helm commands above
-1. **Open the dashboard** and marvel at your infrastructure empire
-1. **Create some XRDs and Compositions** (build your property empire!)
-1. **Watch Crossview visualize everything** in real-time
-1. **Never go back to managing infrastructure blind** again
+1. **Install Crossplane** (if you haven't already)
+2. **Install Crossview** using the Helm commands above
+3. **Open the dashboard** and marvel at your infrastructure empire
+4. **Create some XRDs and Compositions** (build your property empire!)
+5. **Watch Crossview visualize everything** in real-time
+6. **Never go back to managing infrastructure blind** again
 
-Trust me, once you see your infrastructure laid out like a Monopoly board, you’ll wonder how you ever lived without it.
+Trust me, once you see your infrastructure laid out like a Monopoly board, you'll wonder how you ever lived without it.
 
-Now if you’ll excuse me, I need to go check Crossview. I think someone just deployed a hotel on my development cluster, and I need to figure out who’s the banker around here.
+Now if you'll excuse me, I need to go check Crossview. I think someone just deployed a hotel on my development cluster, and I need to figure out who's the banker around here.
 
------
+---
 
 ## 🔗 Resources
 
@@ -750,14 +716,14 @@ Now if you’ll excuse me, I need to go check Crossview. I think someone just de
 - **Install Guide**: Check the Crossview README for detailed installation instructions
 - **My Therapy Bills**: From all the times I managed infrastructure without a GUI
 
------
+---
 
-**Have you tried Crossview? Got any funny infrastructure horror stories?** Drop them in the comments! Let’s compare war stories about that time we accidentally deployed production databases to the wrong region. We’ve all been there.
+**Have you tried Crossview? Got any funny infrastructure horror stories?** Drop them in the comments! Let's compare war stories about that time we accidentally deployed production databases to the wrong region. We've all been there.
 
 And remember: In Monopoly and in infrastructure, always know where your properties are. Your Azure bill will thank you.
 
 *P.S. - If you actually flip over your Kubernetes cluster like a Monopoly board when things go wrong, please seek professional help. And maybe use Crossview.*
 
------
+---
 
-**About The Software’s Journey**: We’re on a mission to make infrastructure management less painful and more fun. Follow us for more analogies that probably shouldn’t work but somehow do. 🎲🚀
+**About The Software's Journey**: We're on a mission to make infrastructure management less painful and more fun. Follow us for more analogies that probably shouldn't work but somehow do. 🎲🚀
