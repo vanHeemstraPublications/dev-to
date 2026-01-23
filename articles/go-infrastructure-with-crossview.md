@@ -1,6 +1,6 @@
 ---
 
-## title: "Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane"
+title: "Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane"
 published: false
 description: "Understanding Crossplane and Crossview through the lens of everyone’s favorite friendship-destroying board game"
 tags: ["kubernetes", "devops", "infrastructure", "cloudnative"]
@@ -9,8 +9,6 @@ canonical_url: ""
 series: "Infrastructure as Code Adventures"
 organization: “the-software-s-journey"
 ---
-
-# Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane
 
 Remember that time you flipped the Monopoly board because your sibling bought Park Place right before you could? Or when you mortgaged everything just to stay in the game? Well, managing cloud infrastructure can feel exactly like that—except instead of fake money, you’re burning through real Azure credits, and instead of going to jail, you’re debugging YAML at 3 AM.
 
