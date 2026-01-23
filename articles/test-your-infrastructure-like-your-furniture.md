@@ -629,7 +629,7 @@ az group delete --name crossplane-e2e-rg --yes --no-wait
 
 All the code from this tutorial is available in my GitHub repository:
 
-🔗 **[github.com/vanHeemstraSystems/learning-crossplane-e2e-testing](https://github.com/vanHeemstraSystems/learning-crossplane-e2e-testing)**
+🔗 **[https://github.com/software-journey/crossplane-e2e-testing](https://github.com/software-journey/crossplane-e2e-testing)**
 
 The repo includes:
 - Complete setup script for automation
