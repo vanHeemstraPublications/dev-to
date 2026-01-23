@@ -3,7 +3,7 @@ title: "Fast Infrastructure: Understanding Crossplane like a Fast Food Restauran
 published: true
 description: "A deep dive into solving infrastructure-as-code using composition of crossplane"
 tags: ["crossplane", "infrastructure-as-code", "cloud-computing", "tutorial"]
-series: ""
+series: "Infrastructure as Code Adventures"
 canonical_url: ""
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/fast-infrastructure.png"
 organization: "the-software-s-journey"

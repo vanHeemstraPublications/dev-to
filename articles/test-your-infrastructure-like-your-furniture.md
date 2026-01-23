@@ -4,7 +4,7 @@
 published: false
 description: "ULearn how to test Crossplane v2 compositions with end-to-end testing, explained through the surprisingly apt metaphor of assembling IKEA furniture"
 tags: ["kubernetes", "crossplane", "testing", "devops"]
-cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/go-infrastructure-with-crossview.png
+cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/test-your-infrastructure-like-your-furniture.png
 canonical_url: ""
 series: "Infrastructure as Code Adventures"
 organization: “the-software-s-journey"
