@@ -5,7 +5,7 @@ description: "Learn how to test Crossplane v2 compositions with end-to-end testi
 tags: [kubernetes, crossplane, testing, devops]
 series: ""
 canonical_url: ""
-cover_image: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/your-cover-image.png
+cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/test-your-infrastructure-like-your-furniture.png
 organization: "the-software-s-journey"
 ---
 

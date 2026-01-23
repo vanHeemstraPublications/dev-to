@@ -4,7 +4,7 @@
 published: false
 description: "Understanding Crossplane and Crossview through the lens of everyone’s favorite friendship-destroying board game"
 tags: ["kubernetes", "devops", "infrastructure", "cloudnative"]
-cover_image: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/monopoly-crossplane-crossview.jpg
+cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/go-infrastructure-with-crossview.png
 canonical_url: ""
 series: "Infrastructure as Code Adventures"
 organization: “the-software-s-journey"
@@ -720,6 +720,7 @@ Now if you’ll excuse me, I need to go check Crossview. I think someone just de
 - **Crossplane Docs**: https://docs.crossplane.io/
 - **Azure Provider Docs**: https://marketplace.upbound.io/providers/upbound/provider-azure
 - **Install Guide**: Check the Crossview README for detailed installation instructions
+- **Source Code on GitHub**: https://github.com/software-journey/crossplane-crossview
 - **My Therapy Bills**: From all the times I managed infrastructure without a GUI
 
 -----

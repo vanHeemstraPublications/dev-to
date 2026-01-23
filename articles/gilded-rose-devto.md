@@ -5,7 +5,7 @@ description: "A deep dive into solving the Gilded Rose refactoring kata using co
 tags: ["python", "designpatterns", "refactoring", "tutorial"]
 series: ""
 canonical_url: ""
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/windows-1694867_1920.jpg"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/gilded-rose-devto.jpg"
 organization: "the-software-s-journey"
 ---
 
