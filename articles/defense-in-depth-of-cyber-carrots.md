@@ -42,6 +42,7 @@ We're going to deploy a secure Azure AKS cluster with Crossplane v2 that include
 - **Detective Layer**: Azure Monitor and Container Insights
 - **Responsive Layer**: Azure Policy auto-remediation
 - **Recovery Layer**: Backup and disaster recovery
+- **GitOps Layer**: Flux continuously reconciles the “garden plan” from Git
 
 All of this will be declared as code, version-controlled, and reproducible. Because infrastructure-as-code is like having a detailed garden plan - you can rebuild your garden exactly the same way every time.
 
@@ -51,8 +52,9 @@ Before we start planting our cyber-carrots, make sure you have:
 
 ```bash
 # Crossplane v2 (the important bit!)
-kubectl crossplane --version
-# Should show v2.x.x
+# Crossplane CLI (recommended for v2 workflows)
+crossplane version
+# The client version should be v2.x.x
 
 # Azure CLI
 az --version
@@ -72,6 +74,7 @@ First, let's set up who can access our garden. We'll create a Crossplane composi
 
 ```yaml
 # compositions/aks-with-identity.yaml
+# Note: Compositions still use apiextensions.crossplane.io/v1 in Crossplane v2.
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
@@ -147,39 +150,30 @@ Now let's build our fence - pod security standards that prevent mischievous cont
 # compositions/pod-security-standards.yaml
 - name: pod-security-policy
   base:
-    apiVersion: kubernetes.crossplane.io/v1alpha2
-    kind: Object
-    spec:
-      forProvider:
-        manifest:
-          apiVersion: v1
-          kind: Namespace
-          metadata:
-            name: carrot-storage
-            labels:
-              # Enforce restricted pod security standard
-              pod-security.kubernetes.io/enforce: restricted
-              pod-security.kubernetes.io/audit: restricted
-              pod-security.kubernetes.io/warn: restricted
+    # Crossplane v2 can compose *any* Kubernetes resource directly (no provider-kubernetes wrapper)
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: carrot-storage
+      labels:
+        # Enforce restricted pod security standard
+        pod-security.kubernetes.io/enforce: restricted
+        pod-security.kubernetes.io/audit: restricted
+        pod-security.kubernetes.io/warn: restricted
           
   - name: network-policy-default-deny
     base:
-      apiVersion: kubernetes.crossplane.io/v1alpha2
-      kind: Object
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: default-deny-all
+        namespace: carrot-storage
       spec:
-        forProvider:
-          manifest:
-            apiVersion: networking.k8s.io/v1
-            kind: NetworkPolicy
-            metadata:
-              name: default-deny-all
-              namespace: carrot-storage
-            spec:
-              # Default: Trust no one! 🥕
-              podSelector: {}
-              policyTypes:
-              - Ingress
-              - Egress
+        # Default: Trust no one! 🥕
+        podSelector: {}
+        policyTypes:
+        - Ingress
+        - Egress
 ```
 
 This is like putting up a "NO UNAUTHORIZED VEGETABLES" sign. Pods can't run as root, can't mount sensitive host paths, and can't do other risky things that cyber-rabbits love.
@@ -192,30 +186,25 @@ Let's ensure only the right paths lead to our carrots:
 # compositions/network-security.yaml
 - name: allow-frontend-to-backend
   base:
-    apiVersion: kubernetes.crossplane.io/v1alpha2
-    kind: Object
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: allow-frontend-to-carrot-api
+      namespace: carrot-storage
     spec:
-      forProvider:
-        manifest:
-          apiVersion: networking.k8s.io/v1
-          kind: NetworkPolicy
-          metadata:
-            name: allow-frontend-to-carrot-api
-            namespace: carrot-storage
-          spec:
-            podSelector:
-              matchLabels:
-                app: carrot-api
-            policyTypes:
-            - Ingress
-            ingress:
-            - from:
-              - namespaceSelector:
-                  matchLabels:
-                    name: frontend
-              ports:
-              - protocol: TCP
-                port: 8080
+      podSelector:
+        matchLabels:
+          app: carrot-api
+      policyTypes:
+      - Ingress
+      ingress:
+      - from:
+        - namespaceSelector:
+            matchLabels:
+              name: frontend
+        ports:
+        - protocol: TCP
+          port: 8080
 
 # Also create an Azure Firewall for cluster egress
 - name: azure-firewall
@@ -369,15 +358,10 @@ Finally, our backup plan for when despite all defenses, some rabbits still get t
 # compositions/backup-recovery.yaml
 - name: velero-backup
   base:
-    apiVersion: kubernetes.crossplane.io/v1alpha2
-    kind: Object
-    spec:
-      forProvider:
-        manifest:
-          apiVersion: v1
-          kind: Namespace
-          metadata:
-            name: velero
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: velero
 
 - name: backup-storage-account
   base:
@@ -392,45 +376,113 @@ Finally, our backup plan for when despite all defenses, some rabbits still get t
         
 - name: backup-schedule
   base:
-    apiVersion: kubernetes.crossplane.io/v1alpha2
-    kind: Object
+    apiVersion: velero.io/v1
+    kind: Schedule
+    metadata:
+      name: daily-carrot-backup
+      namespace: velero
     spec:
-      forProvider:
-        manifest:
-          apiVersion: velero.io/v1
-          kind: Schedule
-          metadata:
-            name: daily-carrot-backup
-            namespace: velero
-          spec:
-            schedule: "0 2 * * *"  # 2 AM daily
-            template:
-              includedNamespaces:
-              - carrot-storage
-              - carrot-api
-              storageLocation: azure-backup
+      schedule: "0 2 * * *"  # 2 AM daily
+      template:
+        includedNamespaces:
+        - carrot-storage
+        - carrot-api
+        storageLocation: azure-backup
 ```
 
 Now if cyber-rabbits eat all your carrots, you can restore from last night's backup. It's like having a seed vault in Svalbard, but for your data.
 
+## 🌱 Layer 0: GitOps Controls (Flux as the Garden Caretaker)
+
+Defense-in-depth isn’t just about *what* you deploy — it’s about *how changes reach the garden*.
+
+**Flux is the garden caretaker with a clipboard**: it walks the beds on a schedule, compares what’s actually planted to the garden plan (your Git repo), and *replants anything missing while pulling weeds* (drift) automatically. No late-night “who changed the fence?” mysteries.
+
+Here’s a minimal Flux setup to keep your Crossplane control plane, XRD, Composition, and XR in sync from Git.
+
+```bash
+# Install Flux into the cluster (one-time)
+flux install
+
+# Point Flux at your "garden plan" repo
+kubectl apply -f - <<EOF
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: carrot-garden
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/YOUR-ORG/defense-in-depth-of-cyber-carrots.git
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: carrot-garden
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: ./clusters/prod
+  prune: true
+  wait: true
+  timeout: 10m
+  sourceRef:
+    kind: GitRepository
+    name: carrot-garden
+EOF
+```
+
+And inside your repo, you wire up the desired resources using plain Kustomize (Flux applies it):
+
+```yaml
+# clusters/prod/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Crossplane packages + provider configs + your APIs + compositions
+  - ../../crossplane/
+
+  # Your environment-specific XR(s)
+  - secure-aks-cluster.xr.yaml
+```
+
+```yaml
+# clusters/prod/secure-aks-cluster.xr.yaml
+apiVersion: platform.example.com/v1alpha1
+kind: SecureAKSCluster
+metadata:
+  name: production-carrot-garden
+  namespace: default
+spec:
+  crossplane:
+    compositionRef:
+      name: secure-aks-cluster
+  resourceGroup: rg-secure-carrots-prod
+  adminGroupId: "YOUR-AZURE-AD-GROUP-ID"
+  environment: prod
+  carrotSensitivity: top-secret
+```
+
 ## 🎨 Putting It All Together: The Complete Garden Plan
 
-Here's our XRD (the blueprint for our secure garden):
+Here's our XRD (the blueprint for our secure garden). In Crossplane **v2**, the XRD type itself moved to `apiextensions.crossplane.io/v2` and introduces `spec.scope` (namespaced by default). (Compositions still use `apiextensions.crossplane.io/v1`, which is expected even on Crossplane v2.)
 
 ```yaml
 # apis/secure-aks-cluster.yaml
-apiVersion: apiextensions.crossplane.io/v1
+apiVersion: apiextensions.crossplane.io/v2
 kind: CompositeResourceDefinition
 metadata:
   name: secureaksclusters.platform.example.com
 spec:
+  # Crossplane v2 makes XRs namespaced by default.
+  # (v1-style claimNames are not used in v2 unless you opt into LegacyCluster scope.)
+  scope: Namespaced
   group: platform.example.com
   names:
     kind: SecureAKSCluster
     plural: secureaksclusters
-  claimNames:
-    kind: SecureAKSClusterClaim
-    plural: secureaksclusterclaims
   
   versions:
   - name: v1alpha1
@@ -480,7 +532,20 @@ helm install crossplane \
   --create-namespace \
   --version v2.0.0
 
-# 2. Install Azure provider
+# 2. Install Flux (GitOps caretaker)
+flux install
+
+# 3. Install Composition Functions (v2 removes native patch-and-transform compositions)
+kubectl apply -f - <<EOF
+apiVersion: pkg.crossplane.io/v1
+kind: Function
+metadata:
+  name: function-patch-and-transform
+spec:
+  package: xpkg.crossplane.io/crossplane-contrib/function-patch-and-transform:v0.8.2
+EOF
+
+# 4. Install Azure provider
 kubectl apply -f - <<EOF
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
@@ -497,7 +562,7 @@ spec:
   package: xpkg.upbound.io/upbound/provider-azure-network:v1.0.0
 EOF
 
-# 3. Configure Azure credentials
+# 5. Configure Azure credentials
 az ad sp create-for-rbac --sdk-auth --role Contributor \
   --scopes /subscriptions/YOUR-SUBSCRIPTION-ID > azure-credentials.json
 
@@ -519,22 +584,9 @@ spec:
       key: creds
 EOF
 
-# 4. Install our composition
-kubectl apply -f compositions/
-
-# 5. Claim your secure garden!
-kubectl apply -f - <<EOF
-apiVersion: platform.example.com/v1alpha1
-kind: SecureAKSClusterClaim
-metadata:
-  name: production-carrot-garden
-  namespace: default
-spec:
-  resourceGroup: rg-secure-carrots-prod
-  adminGroupId: "YOUR-AZURE-AD-GROUP-ID"
-  environment: prod
-  carrotSensitivity: top-secret
-EOF
+# 6. Let Flux apply your "garden plan" from Git
+# Commit your Crossplane packages/XRD/Composition and XR under ./clusters/prod,
+# then Flux will reconcile it continuously (no manual kubectl apply needed).
 ```
 
 ## 🔍 Verifying Your Defenses
@@ -584,7 +636,7 @@ Just like a fence won't stop a determined rabbit, no single security control is 
 When your identity layer catches 80% of attacks, your network layer catches 80% of what gets through, and so on - you end up with 99.9%+ protection. Math!
 
 ### 3. **Automate the Boring Stuff**
-Crossplane v2's composition pipelines let you codify this entire garden plan. No more manual clicking in Azure Portal at 2 AM because a cyber-rabbit showed up.
+Crossplane v2's composition pipelines let you codify this entire garden plan, and Flux keeps it applied. No more manual clicking in Azure Portal at 2 AM because a cyber-rabbit showed up.
 
 ### 4. **Defense is Ongoing**
 Gardens need weeding, fences need mending, and security needs updating. Your Crossplane compositions should evolve as new threats emerge.
@@ -644,9 +696,9 @@ Success metrics:
 Want to take your garden security further?
 
 1. **Add Service Mesh**: Istio or Linkerd for even more granular network control
-2. **Implement GitOps**: Flux or ArgoCD to ensure only approved changes reach your garden
-3. **Add Runtime Security**: Falco for detecting suspicious behavior at runtime
-4. **Implement Secrets Management**: Azure Key Vault integration for your most sensitive seeds
+2. **Add Runtime Security**: Falco for detecting suspicious behavior at runtime
+3. **Implement Secrets Management**: Azure Key Vault integration for your most sensitive seeds
+4. **Add Policy-as-Code**: Gatekeeper/Kyverno policies to enforce “no rabbit holes” at admission time
 
 ## 🎬 Conclusion
 
@@ -658,6 +710,7 @@ We've built a production-ready, defense-in-depth secured Azure AKS cluster using
 ✅ Detective controls (Azure Monitor + Insights)
 ✅ Responsive controls (Azure Policy auto-remediation)
 ✅ Recovery controls (Velero backups)
+✅ GitOps controls (Flux reconciliation to prevent drift)
 
 Are cyber-rabbits going to try to eat your carrots anyway? Absolutely. Will they succeed? Not if you maintain your garden properly!
 
