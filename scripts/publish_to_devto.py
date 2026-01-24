@@ -11,7 +11,7 @@ import sys
 import requests
 import frontmatter
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 from datetime import datetime
 from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
 
@@ -308,6 +308,49 @@ def process_markdown_file(file_path: Path) -> tuple:
     return metadata, content
 
 
+def normalize_tags(tags_value: Any) -> List[str]:
+    """
+    Normalize DEV.to tags from frontmatter into a list of strings.
+
+    Frontmatter authors commonly write:
+      - tags: tag1, tag2, tag3        (string)
+      - tags: [tag1, tag2, tag3]      (list)
+      - tags:
+        - tag1
+        - tag2
+    """
+    if tags_value is None:
+        return []
+
+    # Common case: a single comma-separated string.
+    if isinstance(tags_value, str):
+        raw = tags_value.strip()
+        if not raw:
+            return []
+        parts = raw.split(",") if "," in raw else raw.split()
+        return [p.strip().lstrip("#") for p in parts if p.strip().lstrip("#")]
+
+    # List/tuple/set from YAML frontmatter.
+    if isinstance(tags_value, (list, tuple, set)):
+        out: List[str] = []
+        for item in tags_value:
+            if item is None:
+                continue
+            if isinstance(item, str):
+                s = item.strip()
+                if not s:
+                    continue
+                # If someone mixes "tag1, tag2" within a list item, split it too.
+                parts = s.split(",") if "," in s else [s]
+                out.extend([p.strip().lstrip("#") for p in parts if p.strip().lstrip("#")])
+            else:
+                out.append(str(item))
+        return out
+
+    # Fallback: coerce scalars (int/bool/etc.) to a single tag string.
+    return [str(tags_value)]
+
+
 def main():
     """Main execution function."""
     # Get DEV.to API key from environment
@@ -378,7 +421,7 @@ def main():
             
             # Extract metadata with defaults
             title = metadata.get("title", md_file.stem)
-            tags = metadata.get("tags", [])
+            tags = normalize_tags(metadata.get("tags", []))
             published = metadata.get("published", False)
             series = metadata.get("series")
             canonical_url = metadata.get("canonical_url")
