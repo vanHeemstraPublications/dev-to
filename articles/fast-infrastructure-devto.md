@@ -347,6 +347,32 @@ EOF
 
 Because Flux applies a folder, it works best when the repo includes a `kustomization.yaml`. This repository does: see `fast-infrastructure/manifests/kustomization.yaml`.
 
+### 🚀 Even easier: `flux bootstrap` (GitHub)
+
+If you’re using GitHub, you can skip the manual `flux install` + YAML apply and let Flux **install itself and commit the sync config** to your repo:
+
+```bash
+# Install the Flux CLI locally first (see: https://fluxcd.io/flux/installation/)
+
+# Create a GitHub token with repo access and export it
+export GITHUB_TOKEN="ghp_...REDACTED..."
+export GITHUB_USER="YOUR_GITHUB_USERNAME_OR_ORG"
+
+# Bootstrap Flux into the cluster and configure sync
+# This creates the flux-system components + a GitRepository/Kustomization pointing at your repo.
+flux bootstrap github \
+  --owner="$GITHUB_USER" \
+  --repository="fast-infrastructure" \
+  --branch="main" \
+  --path="clusters/prod" \
+  --personal
+```
+
+After bootstrap, you can either:
+
+- Keep your environment Kustomizations under `clusters/` (recommended), or
+- Add an additional `Kustomization` (like the YAML above) that points at `path: ./manifests` to apply the Crossplane menu + recipes + orders.
+
 ## Checking Your Order Status
 
 Want to know if your infrastructure is ready?
