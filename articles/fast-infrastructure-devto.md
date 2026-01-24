@@ -27,8 +27,7 @@ Spoiler alert: With Crossplane, it does. [GitHub repo](https://github.com/softwa
 |-----------------------------------|-------------------------------------|
 |XRD (Composite Resource Definition)|Menu board with available items      |
 |Composition                        |Recipe card in the kitchen           |
-|Claim                              |Customer’s order                     |
-|Composite Resource (XR)            |The completed meal                   |
+|Composite Resource (XR)            |Customer’s order ticket (what they actually place) |
 |Provider                           |Kitchen station (grill, fryer, etc.) |
 |Managed Resource                   |Individual food items (burger, fries)|
 |ProviderConfig                     |Kitchen access credentials           |
@@ -70,18 +69,19 @@ Every good restaurant starts with a menu. In Crossplane, the **XRD** is your men
 Here’s our “Happy Meal” equivalent - let’s call it a `DeveloperCombo`:
 
 ```yaml
-apiVersion: apiextensions.crossplane.io/v1
+apiVersion: apiextensions.crossplane.io/v2
 kind: CompositeResourceDefinition
 metadata:
-  name: xdevelopercombo.example.com
+  # Must be: <plural>.<group>
+  name: developercombos.example.com
 spec:
+  # Crossplane v2 defaults XRs to namespaced scope.
+  scope: Namespaced
   group: example.com
   names:
-    kind: XDeveloperCombo
-    plural: xdevelopercombo
-  claimNames:
+    # Crossplane v2 has no Claims; developers create this XR directly.
     kind: DeveloperCombo
-    plural: developercombo
+    plural: developercombos
   versions:
   - name: v1alpha1
     served: true
@@ -140,7 +140,7 @@ metadata:
 spec:
   compositeTypeRef:
     apiVersion: example.com/v1alpha1
-    kind: XDeveloperCombo
+    kind: DeveloperCombo
   
   mode: Pipeline
   pipeline:
@@ -257,9 +257,9 @@ This Composition is like the kitchen’s recipe card. When someone orders a `Dev
 
 Notice the `patches` section? That’s like special instructions: “No pickles” or “Extra sauce.” Here we’re saying: “If they ordered ‘medium’, make the database a `GP_Standard_D2s_v3`.”
 
-## Placing Your Order: The Claim
+## Placing Your Order: The XR (Order Ticket)
 
-Now comes the magic moment. A developer walks up to the counter (their Kubernetes cluster) and places an order:
+Now comes the magic moment. In Crossplane v2, there’s no separate “Claim” object — the developer places the order by creating the **XR** directly:
 
 ```yaml
 apiVersion: example.com/v1alpha1
@@ -268,13 +268,15 @@ metadata:
   name: my-awesome-app-infra
   namespace: team-awesome
 spec:
+  # Crossplane v2: Crossplane-specific settings live under spec.crossplane
+  crossplane:
+    # Pick which "recipe" to use (Composition)
+    compositionRef:
+      name: developercombo.azure.example.com
+
   size: medium
   includeDatabase: true
   storageSize: "50Gi"
-  
-  compositionSelector:
-    matchLabels:
-      provider: azure
 ```
 
 That’s it. That’s the whole order.
@@ -283,7 +285,7 @@ No Azure CLI. No ARM templates. No Azure AD role juggling. Just: “I’d like a
 
 ## Behind the Counter: What Happens Next
 
-Here’s where Crossplane shows its real magic. When that claim lands:
+Here’s where Crossplane shows its real magic. When that XR lands:
 
 1. **The counter staff (Crossplane controller)** receives the order
 1. **Validates it against the menu** (XRD schema)
@@ -294,16 +296,63 @@ Here’s where Crossplane shows its real magic. When that claim lands:
 - Azure Provider creates the Storage Account
 - Azure Provider creates the Virtual Network
 1. **Monitors preparation** (reconciliation loops)
-1. **Serves the completed meal** (updates the Claim status)
+1. **Serves the completed meal** (updates the XR status)
 
 All of this happens automatically, continuously, and declaratively.
+
+## 🧾 GitOps at the Drive‑Thru: Flux as the Franchise Inspector
+
+In a real fast-food chain, the kitchen doesn’t “freestyle” the Big Mac. Corporate has a recipe book, and **a franchise inspector** shows up regularly to make sure every station follows it.
+
+That’s Flux in a sentence:
+
+- **Git** is the corporate recipe book (the source of truth)
+- **Flux** is the inspector doing recurring audits (reconciliation), fixing drift when the kitchen deviates
+
+If you keep your Crossplane XRDs, Compositions, providers, and example XRs in Git, Flux can continuously apply them for you.
+
+```bash
+# One-time install in the cluster
+flux install
+
+# Tell Flux where your recipe book lives and what folder to apply
+kubectl apply -f - <<EOF
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: fast-infrastructure
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/software-journey/fast-infrastructure.git
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: fast-infrastructure
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: ./manifests
+  prune: true
+  wait: true
+  timeout: 10m
+  sourceRef:
+    kind: GitRepository
+    name: fast-infrastructure
+EOF
+```
+
+Because Flux applies a folder, it works best when the repo includes a `kustomization.yaml`. This repository does: see `fast-infrastructure/manifests/kustomization.yaml`.
 
 ## Checking Your Order Status
 
 Want to know if your infrastructure is ready?
 
 ```bash
-kubectl get developercombo -n team-awesome
+kubectl get developercombos -n team-awesome
 ```
 
 ```
@@ -320,7 +369,7 @@ In Crossplane v2, **Providers** are like specialized kitchen stations:
 - **provider-azure**: The European food station (Azure resources)
 - **provider-aws**: The American food station (AWS resources)
 - **provider-gcp**: The Asian fusion station (GCP resources)
-- **provider-kubernetes**: The salad bar (K8s resources)
+- **(Bonus)**: In Crossplane v2 you can also compose *any* Kubernetes resource directly — you don’t need a “salad bar adapter” (`provider-kubernetes`) just to stamp out `Namespace`, `NetworkPolicy`, etc.
 
 Each provider knows how to prepare its specialty items. Installing a provider is like hiring kitchen staff:
 
@@ -335,7 +384,7 @@ spec:
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-azure-sql
+  name: provider-azure-dbforpostgresql
 spec:
   package: xpkg.upbound.io/upbound/provider-azure-dbforpostgresql:v1.3.0
 ---
@@ -392,11 +441,8 @@ metadata:
 spec:
   compositeTypeRef:
     apiVersion: example.com/v1alpha1
-    kind: XDeveloperCombo
-  
-  publishConnectionDetailsWithStoreConfigRef:
-    name: default
-  
+    kind: DeveloperCombo
+
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 3
   
@@ -455,7 +501,7 @@ Here’s where Crossplane truly shines:
 
 **Developers (Customers)**:
 
-- Order from the menu (create Claims)
+- Order from the menu (create XRs)
 - Specify their preferences (size, options)
 - Receive ready-to-use infrastructure
 - Focus on building applications
@@ -475,6 +521,9 @@ metadata:
   name: myapp-dev
   namespace: development
 spec:
+  crossplane:
+    compositionRef:
+      name: developercombo.azure.example.com
   size: small
   includeDatabase: true
   storageSize: "10Gi"
@@ -486,6 +535,9 @@ metadata:
   name: myapp-staging
   namespace: staging
 spec:
+  crossplane:
+    compositionRef:
+      name: developercombo.azure.advanced.example.com
   size: medium
   includeDatabase: true
   storageSize: "50Gi"
@@ -497,6 +549,9 @@ metadata:
   name: myapp-prod
   namespace: production
 spec:
+  crossplane:
+    compositionRef:
+      name: developercombo.azure.secure.example.com
   size: large
   includeDatabase: true
   storageSize: "500Gi"
@@ -522,7 +577,7 @@ spec:
 ```
 
 - **Delete**: Take your tray to the trash, clean up everything
-- **Orphan**: Leave the leftovers on the table (keep cloud resources even after deleting the Claim)
+- **Orphan**: Leave the leftovers on the table (keep cloud resources even after deleting the XR)
 
 Useful when you want to delete the Kubernetes object but keep the actual Azure resources.
 
@@ -546,9 +601,6 @@ Status:
     Reason:               ReconcileSuccess
     Status:               True
     Type:                 Synced
-  
-  Connection Details:
-    Last Published Time:  2024-01-12T10:30:00Z
   
   Endpoint:  developer-combo-db.postgres.database.azure.com
 ```
@@ -621,10 +673,16 @@ Want to try this yourself? Here’s the quick setup:
 ```bash
 # Install Crossplane (the restaurant franchise)
 helm repo add crossplane-stable https://charts.crossplane.io/stable
+helm repo update
 helm install crossplane \
   crossplane-stable/crossplane \
   --namespace crossplane-system \
-  --create-namespace
+  --create-namespace \
+  --version v2.0.0
+
+# Install Composition Functions (Crossplane v2 uses function pipelines)
+kubectl apply -f manifests/functions/function-patch-and-transform.yaml
+kubectl apply -f manifests/functions/function-auto-ready.yaml
 
 # Install Azure Providers (hire kitchen staff)
 kubectl apply -f - <<EOF
@@ -638,7 +696,7 @@ spec:
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-azure-sql
+  name: provider-azure-dbforpostgresql
 spec:
   package: xpkg.upbound.io/upbound/provider-azure-dbforpostgresql:v1.3.0
 ---
@@ -665,30 +723,30 @@ kubectl create secret generic azure-credentials \
   "tenantId": "your-tenant-id"}'
 
 # Create ProviderConfig
-kubectl apply -f providerconfig.yaml
+kubectl apply -f manifests/providers/providerconfig.yaml
 
 # Apply your XRD and Composition (design the menu)
-kubectl apply -f xrd.yaml
-kubectl apply -f composition.yaml
+kubectl apply -f manifests/xrds/
+kubectl apply -f manifests/compositions/
 
-# Place your first order!
-kubectl apply -f claim.yaml
+# Place your first order (XR)!
+kubectl apply -f manifests/xrs/xr-dev.yaml
 ```
 
 ## Common Pitfalls: When the Order Gets Messed Up
 
-**Issue: “My claim stays in `READY=False` forever”**
+**Issue: “My order stays in `READY=False` forever”**
 
-- Check: `kubectl describe` the claim and look at `Status.Conditions`
+- Check: `kubectl describe` the XR and look at `Status.Conditions`
 - Usually: Provider credentials are wrong, or Azure resource failed to create
 - Fix: Check ProviderConfig and Azure subscription quotas
 
 **Issue: “I updated my Composition but nothing changed”**
 
-- Check: Existing claims use the old `CompositionRevision`
-- Fix: Either set `revisionActivationPolicy: Automatic` or manually update claims
+- Check: Existing XRs are pinned to an older `CompositionRevision`
+- Fix: Either set `revisionActivationPolicy: Automatic` or update `spec.crossplane.compositionRevisionRef`
 
-**Issue: “I deleted my claim but Azure resources still exist”**
+**Issue: “I deleted my XR but Azure resources still exist”**
 
 - Check: `deletionPolicy` is probably set to `Orphan`
 - Fix: Set `deletionPolicy: Delete` in the Composition
