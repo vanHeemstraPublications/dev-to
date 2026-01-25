@@ -728,7 +728,7 @@ Now go forth and protect those prize-winning cyber-carrots! 🥕🔒
 
 ---
 
-*This article is part of our Crossplane Adventures series. Previously: [Testing Your Cloud Infrastructure Like IKEA Furniture: A Guide to Crossplane v2 End-to-End Testing](#)*
+*This article is part of our Infrastructure as Code Adventures series. Previously: [Testing Your Cloud Infrastructure Like IKEA Furniture: A Guide to Crossplane v2 End-to-End Testing](#)*
 
 ---
 
