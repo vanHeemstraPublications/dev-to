@@ -7,7 +7,7 @@ tags: ["kubernetes", "devops", "infrastructure", "cloudnative"]
 cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/go-infrastructure-with-crossview.png
 canonical_url: ""
 series: "Infrastructure as Code Adventures"
-organization: “the-software-s-journey"
+organization: "the-software-s-journey"
 ---
 
 Remember that time you flipped the Monopoly board because your sibling bought Park Place right before you could? Or when you mortgaged everything just to stay in the game? Well, managing cloud infrastructure can feel exactly like that—except instead of fake money, you’re burning through real Azure credits, and instead of going to jail, you’re debugging YAML at 3 AM.
@@ -32,6 +32,8 @@ kind: CompositeResourceDefinition
 metadata:
   name: xdatabases.example.com
 spec:
+  # Crossplane v2 defaults XRs to Namespaced scope (recommended for multi-tenancy).
+  scope: Namespaced
   group: example.com
   names:
     kind: XDatabase          # Like "Baltic Avenue"
@@ -67,15 +69,19 @@ apiVersion: example.com/v1alpha1
 kind: XDatabase
 metadata:
   name: my-production-db
-  namespace: production  # XRs can be namespaced in Crossplane 2.1!
+  namespace: production
 spec:
+  # Crossplane v2: Crossplane-specific machinery lives under spec.crossplane
+  crossplane:
+    compositionRef:
+      name: database-azure-production
   size: large
   storageGB: 100
 ```
 
 Boom! You just bought Baltic Avenue. Well, the database equivalent. Your production database is now running in the cloud, and you’re collecting rent (or in this case, serving traffic).
 
-In Crossplane 2.1, you can configure XRs to be namespace-scoped (perfect for multi-tenant scenarios) or cluster-scoped. Think of namespaces as different neighborhoods on your Monopoly board!
+In Crossplane v2, XRs are **namespaced by default** (perfect for multi-tenant scenarios), though you can opt into cluster scope when you truly need it. Think of namespaces as different neighborhoods on your Monopoly board!
 
 ### The Buildings: Compositions
 
@@ -205,18 +211,18 @@ It’s like having a property accountant who actually knows where you put everyt
 
 ## 🏦 The Bank: Resource Relationships
 
-One of the most confusing parts of Crossplane is understanding relationships. A Claim creates an XR, which uses a Composition, which creates Managed Resources, which talk to cloud providers…
+One of the most confusing parts of Crossplane is understanding relationships. An **XR** selects a **Composition**, which runs a function pipeline that produces **composed resources** (often managed resources), which then talk to cloud providers…
 
 It’s like trying to explain Monopoly’s mortgage rules to a five-year-old.
 
-Crossview shows you the relationships visually:
+Crossview shows you the relationships visually (Crossplane v2 style):
 
 ```
-Composite Resource (XDatabase) 
-    ↓  
+Composite Resource (XR: XDatabase)
+    ↓ (spec.crossplane.compositionRef / composition selection)
 Composition (database-azure-production)
-    ↓
-Managed Resources:
+    ↓ (function pipeline)
+Composed resources (often managed resources):
     ├── PostgreSQL Server
     ├── Storage Account
     ├── Log Analytics Workspace
@@ -325,6 +331,7 @@ kind: CompositeResourceDefinition
 metadata:
   name: xpostgresqlinstances.database.example.com
 spec:
+  scope: Namespaced
   group: database.example.com
   names:
     kind: XPostgreSQLInstance
@@ -460,11 +467,12 @@ metadata:
   namespace: production
   name: customer-database
 spec:
+  crossplane:
+    compositionRef:
+      name: postgresql-azure
   parameters:
     size: medium
     storageGB: 100
-  writeConnectionSecretToRef:
-    name: customer-db-credentials
 ```
 
 ```bash
@@ -506,11 +514,14 @@ Just like you wouldn’t waste money building hotels on cheap properties, don’
 ```yaml
 # Good: Right-sized for development
 apiVersion: database.example.com/v1alpha1
-kind: PostgreSQLInstance
+kind: XPostgreSQLInstance
 metadata:
   namespace: development
   name: dev-database
 spec:
+  crossplane:
+    compositionRef:
+      name: postgresql-development
   parameters:
     size: small      # db.t3.micro
     storageGB: 20    # Just enough
@@ -519,11 +530,14 @@ spec:
 ```yaml
 # Bad: This is Boardwalk-level infrastructure for a dev environment
 apiVersion: database.example.com/v1alpha1
-kind: PostgreSQLInstance
+kind: XPostgreSQLInstance
 metadata:
   namespace: development  
   name: dev-database
 spec:
+  crossplane:
+    compositionRef:
+      name: postgresql-development
   parameters:
     size: large      # GP_Gen5_8 - WHY?!
     storageGB: 1000  # A terabyte for dev?!
@@ -655,8 +669,9 @@ metadata:
   name: my-database
   namespace: production
 spec:
-  compositionRef:
-    name: postgresql-production  # The fancy one!
+  crossplane:
+    compositionRef:
+      name: postgresql-production  # The fancy one!
   parameters:
     storageGB: 100
 ```
