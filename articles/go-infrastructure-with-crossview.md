@@ -1,7 +1,7 @@
 ---
 
 title: "Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane"
-published: false
+published: true
 description: "Understanding Crossplane and Crossview through the lens of everyone’s favorite friendship-destroying board game"
 tags: ["kubernetes", "devops", "infrastructure", "cloudnative"]
 cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/go-infrastructure-with-crossview.png
