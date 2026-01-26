@@ -1275,9 +1275,8 @@ Now go forth and protect your own valuable digital assets with the same rigor! A
 
 ## About the Author
 
-Willem van Heemstra is a Cloud Engineer who takes carrot security very seriously (maybe too seriously). When not protecting cyber-carrots, he can be found studying for Azure certifications, walking his two dachshunds Beau and Elvis (who are surprisingly good at security perimeter patrol), and explaining to his partner Rianne why the home network needs "just one more security layer."
+Willem van Heemstra is a Cloud Engineer who takes carrot security very seriously (maybe too seriously). When not protecting cyber-carrots, he can be found studying for Azure certifications, walking his dachshunds (who are surprisingly good at security perimeter patrol), and explaining to his partner why the home network needs "just one more security layer."
 
-<<<<<<< HEAD
 *This article is part of our Infrastructure as Code Adventures series. Previously: [Testing Your Cloud Infrastructure Like IKEA Furniture: A Guide to Crossplane v2 End-to-End Testing](#)*
 
 ---
@@ -1286,6 +1285,5 @@ Willem van Heemstra is a Cloud Engineer who takes carrot security very seriously
 #crossplane #kubernetes #azure #security #devops #infrastructure-as-code #defense-in-depth #cloudsecurity #aks #devsecops
 =======
 Connect with me:
-- GitHub: [@vanHeemstraSystems](https://github.com/vanHeemstraSystems) (Where I Store My Carrot Protection Blueprints)
-- LinkedIn: [Willem van Heemstra](https://www.linkedin.com/in/willemvanheemstra/) (Professional Carrot Security Consultant)
->>>>>>> 4f80e66 (Revise "Defense-in-Depth of Cyber Carrots" article to enhance clarity and update content for Crossplane v2. Change title, update publication status to false, and improve security principles explanation. Add detailed sections on security layers, prerequisites, and testing procedures, while refining YAML examples for better understanding.)
+- GitHub: [@software-journey](https://github.com/software-journey) (Where I Store My Carrot Protection Blueprints)
+- LinkedIn: [Willem van Heemstra](https://www.linkedin.com/in/wvanheemstra/) (Professional Carrot Security Consultant)
