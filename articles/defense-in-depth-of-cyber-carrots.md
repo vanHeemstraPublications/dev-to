@@ -5,7 +5,7 @@ description: "Learn how to apply layered security controls to your Azure AKS dep
 tags: [crossplane, kubernetes, azure, security]
 series: "Infrastructure as Code Adventures"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/defense-in-depth-of-cyber-carrots.png"
-canonical_url: 
+canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
