@@ -9,8 +9,6 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Finding Crossplane's Black Box: A Flight Data Recorder for Your Infrastructure
-
 Welcome back, fellow Infrastructure Aviators! 🛩️
 
 In our previous adventures, we've learned to navigate the skies of Infrastructure-as-Code with Crossplane. But what happens when your infrastructure takes an unexpected nosedive? When your Compositions crash and burn? When your Managed Resources refuse to take off?
