@@ -16,7 +16,7 @@ In our previous adventures, we've learned to navigate the skies of Infrastructur
 That's when you need to find the black box.
 
 ## The Mystery of the Missing Logs
-
+ 
 Picture this: You're a crash investigator for infrastructure incidents. Your AWS S3 bucket didn't provision. Your Azure Virtual Network is stuck in "Pending" purgatory. Your GCP compute instance has gone AWOL. The only clues? Somewhere in the wreckage lies Crossplane's flight data recorder—its logs.
 
 Unlike aviation's orange boxes (yes, "black boxes" are actually bright orange—aviation's little joke on us), Crossplane's logs are scattered across multiple locations, each telling a different part of the story. Think of it as a distributed cockpit voice recorder, capturing every muttered complaint from your infrastructure components.
