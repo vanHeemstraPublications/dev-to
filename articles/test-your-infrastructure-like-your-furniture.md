@@ -228,7 +228,7 @@ Here's where it gets fun! We're going to create an XRD (the instruction manual) 
 
 ```yaml
 # config/xrds/xstorage-account.yaml
-apiVersion: apiextensions.crossplane.io/v1
+apiVersion: apiextensions.crossplane.io/v2
 kind: CompositeResourceDefinition
 metadata:
   name: xstorageaccounts.storage.example.io
@@ -345,19 +345,19 @@ Install the composition functions first:
 ```bash
 cat <<EOF | kubectl apply -f -
 ---
-apiVersion: pkg.crossplane.io/v1beta1
+apiVersion: pkg.crossplane.io/v1
 kind: Function
 metadata:
   name: function-patch-and-transform
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/function-patch-and-transform:v0.2.1
+  package: xpkg.crossplane.io/crossplane-contrib/function-patch-and-transform:v0.8.2
 ---
-apiVersion: pkg.crossplane.io/v1beta1
+apiVersion: pkg.crossplane.io/v1
 kind: Function
 metadata:
   name: function-auto-ready
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/function-auto-ready:v0.2.1
+  package: xpkg.crossplane.io/crossplane-contrib/function-auto-ready:v0.6.0
 EOF
 
 # Wait for functions to be ready
