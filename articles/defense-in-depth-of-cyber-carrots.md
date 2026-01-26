@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 title: "Protecting Your Prize-Winning Cyber-Carrots: A Defense-in-Depth Guide to Azure AKS with Crossplane v2"
 published: false
 description: "Learn how to apply layered security controls to your Azure AKS deployments using Crossplane v2 - because cyber-rabbits are always hungry for your data!"
@@ -8,15 +7,6 @@ series: "Infrastructure as Code Adventures"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/defense-in-depth-of-cyber-carrots.png"
 canonical_url: 
 organization: "the-software-s-journey"
-=======
-title: "Protecting Your Prize-Winning Cyber Carrots: A Defense in Depth Guide to Azure AKS with Crossplane"
-published: false
-description: "Learn how to implement Defense in Depth security principles in Azure Kubernetes Service using Crossplane for Infrastructure as Code"
-tags: kubernetes, azure, security, devops
-cover_image: https://dev.to/social_previews/article/2049087.png
-canonical_url: https://dev.to/the-software-s-journey/protecting-your-prize-winning-cyber-carrots-a-defense-in-depth-guide-to-azure-aks-with-crossplane-43f0
-series: "Infrastructure as Code Adventure"
->>>>>>> 4f80e66 (Revise "Defense-in-Depth of Cyber Carrots" article to enhance clarity and update content for Crossplane v2. Change title, update publication status to false, and improve security principles explanation. Add detailed sections on security layers, prerequisites, and testing procedures, while refining YAML examples for better understanding.)
 ---
 
 # Protecting Your Prize-Winning Cyber Carrots: A Defense in Depth Guide to Azure AKS with Crossplane
