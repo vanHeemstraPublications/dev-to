@@ -1,9 +1,8 @@
 ---
-
 title: "Crossplane Networking: Mind the Gap Between Your Cloud Resources"
 published: false
-description: "Understanding Crossplane v2 networking through the lens of the London Underground“
-tags: [kubernetes, crossplane, networking, devops]
+description: "Understanding Crossplane v2 networking through the lens of the London Underground"
+tags: ["kubernetes", "crossplane", "networking", "devops"]
 series: "Infrastructure-as-Code Adventures"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/crossplane-infrastructure-mind-the-gap.png"
 organization: "the-software-s-journey"
