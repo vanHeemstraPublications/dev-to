@@ -1,5 +1,5 @@
 ---
-title: "Crossplane Networking: Mind the Gap Between Your Cloud Resources“
+title: "Crossplane Networking: Mind the Gap Between Your Cloud Resources"
 published: false
 description: "Understanding Crossplane v2 networking through the lens of the London Underground“
 tags: [kubernetes, crossplane, networking, devops]
