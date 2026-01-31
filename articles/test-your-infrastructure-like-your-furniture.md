@@ -58,6 +58,105 @@ We’ll build a small Crossplane API package that gives platform consumers a nam
 - XR kind: `XPostgreSQLDatabase`
 - Composed resources: `ResourceGroup` + `FlexibleServer` + `FlexibleServerDatabase`
 
+Here’s the shape of the “instruction manual” (XRD) from the demo (trimmed):
+
+```yaml
+# apis/v1alpha1/postgresql-databases/xrd.yaml (excerpt)
+apiVersion: apiextensions.crossplane.io/v2
+kind: CompositeResourceDefinition
+metadata:
+  name: xpostgresqldatabases.database.example.io
+spec:
+  group: database.example.io
+  names:
+    kind: XPostgreSQLDatabase
+    plural: xpostgresqldatabases
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              parameters:
+                type: object
+                properties:
+                  location: { type: string, default: westeurope }
+                  resourceGroupName: { type: string }
+                  databaseName: { type: string, default: appdb }
+                  adminUsername: { type: string, default: pgadmin }
+                  adminPasswordSecretName: { type: string, default: postgres-admin-password }
+                  adminPasswordSecretKey: { type: string, default: password }
+                  postgresVersion: { type: string, default: "16" }
+                  skuName: { type: string, default: B_Standard_B1ms }
+                  storageMb: { type: integer, default: 32768 }
+                required: [resourceGroupName]
+          status:
+            type: object
+            properties:
+              serverName: { type: string }
+              databaseName: { type: string }
+```
+
+And here’s the “assembly steps” (Composition) in pipeline mode—showing the three composed resources and how we push useful IDs up into XR status (trimmed):
+
+```yaml
+# apis/v1alpha1/postgresql-databases/composition.yaml (excerpt)
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xpostgresqldatabases.database.example.io
+  labels:
+    provider: azure
+    type: standard
+spec:
+  compositeTypeRef:
+    apiVersion: database.example.io/v1alpha1
+    kind: XPostgreSQLDatabase
+  mode: Pipeline
+  pipeline:
+  - step: patch-and-transform
+    functionRef:
+      name: function-patch-and-transform
+    input:
+      apiVersion: pt.fn.crossplane.io/v1beta1
+      kind: Resources
+      resources:
+      - name: resourcegroup
+        base:
+          apiVersion: azure.m.upbound.io/v1beta1
+          kind: ResourceGroup
+        # patches: location, external-name, tags, etc.
+      - name: flexibleserver
+        base:
+          apiVersion: dbforpostgresql.azure.m.upbound.io/v1beta1
+          kind: FlexibleServer
+        patches:
+          # ... name transforms to satisfy Azure constraints ...
+          - type: ToCompositeFieldPath
+            fromFieldPath: metadata.annotations[crossplane.io/external-name]
+            toFieldPath: status.serverName
+      - name: flexibleserverdatabase
+        base:
+          apiVersion: dbforpostgresql.azure.m.upbound.io/v1beta1
+          kind: FlexibleServerDatabase
+        patches:
+          - type: FromCompositeFieldPath
+            fromFieldPath: spec.parameters.databaseName
+            toFieldPath: metadata.annotations[crossplane.io/external-name]
+          - type: ToCompositeFieldPath
+            fromFieldPath: metadata.annotations[crossplane.io/external-name]
+            toFieldPath: status.databaseName
+  - step: auto-ready
+    functionRef:
+      name: function-auto-ready
+```
+
 In the repo, the canonical paths used in the demo are:
 
 - `apis/v1alpha1/postgresql-databases/xrd.yaml`
@@ -68,6 +167,33 @@ In the repo, the canonical paths used in the demo are:
 ## Layer 0 — Local composition rendering (unbox the parts)
 
 Before you touch a cluster, validate that your “instruction manual + steps” actually produce the right parts.
+
+Example XR used for rendering (trimmed):
+
+```yaml
+# apis/v1alpha1/postgresql-databases/examples/basic.yaml (excerpt)
+apiVersion: database.example.io/v1alpha1
+kind: XPostgreSQLDatabase
+metadata:
+  name: render-postgres-example
+  namespace: default
+spec:
+  crossplane:
+    compositionSelector:
+      matchLabels:
+        provider: azure
+        type: standard
+  parameters:
+    location: westeurope
+    resourceGroupName: crossplane-e2e-test-rg
+    databaseName: appdb
+    adminUsername: pgadmin
+    adminPasswordSecretName: postgres-admin-password
+    adminPasswordSecretKey: password
+    postgresVersion: "16"
+    skuName: B_Standard_B1ms
+    storageMb: 32768
+```
 
 Minimal render example (from the demo):
 
@@ -123,6 +249,69 @@ The demo’s PostgreSQL test case builds up like this:
 - **01 verify (Azure)**: query Azure to ensure the server + database exist
 - **02 delete**: delete the XR
 - **02 assert**: confirm XR is gone
+
+Representative KUTTL steps (excerpts from `tests/e2e/postgresql-databases/basic/`):
+
+```yaml
+# 00-secret.yaml (excerpt)
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-admin-password
+  namespace: default
+type: Opaque
+stringData:
+  # Demo-only password for e2e tests (Azure enforces complexity rules).
+  password: "P@ssw0rd1234!"
+```
+
+```yaml
+# 00-xr-postgres.yaml (excerpt)
+apiVersion: database.example.io/v1alpha1
+kind: XPostgreSQLDatabase
+metadata:
+  name: test-postgres-e2e-001
+  namespace: default
+spec:
+  crossplane:
+    compositionSelector:
+      matchLabels:
+        provider: azure
+        type: standard
+  parameters:
+    location: westeurope
+    resourceGroupName: crossplane-e2e-test-rg
+    databaseName: appdb
+    adminUsername: pgadmin
+    adminPasswordSecretName: postgres-admin-password
+    adminPasswordSecretKey: password
+    postgresVersion: "16"
+    skuName: B_Standard_B1ms
+    storageMb: 32768
+```
+
+```yaml
+# 00-assert.yaml (excerpt)
+apiVersion: kuttl.dev/v1beta1
+kind: TestAssert
+timeout: 2400
+commands:
+- script: |
+    kubectl wait -n default xpostgresqldatabase test-postgres-e2e-001 --for=condition=Synced --timeout=2400s
+    kubectl wait -n default xpostgresqldatabase test-postgres-e2e-001 --for=condition=Ready --timeout=2400s
+```
+
+```yaml
+# 01-verify-azure.yaml (excerpt)
+apiVersion: kuttl.dev/v1beta1
+kind: TestAssert
+commands:
+- script: |
+    SERVER_NAME=$(kubectl get -n default xpostgresqldatabase test-postgres-e2e-001 -o jsonpath='{.status.serverName}')
+    DB_NAME=$(kubectl get -n default xpostgresqldatabase test-postgres-e2e-001 -o jsonpath='{.status.databaseName}')
+    az postgres flexible-server show --resource-group crossplane-e2e-test-rg --name "$SERVER_NAME" --output none
+    az postgres flexible-server db show --resource-group crossplane-e2e-test-rg --server-name "$SERVER_NAME" --database-name "$DB_NAME" --output none
+```
 
 KUTTL suite config (so you can run everything consistently):
 
@@ -199,6 +388,23 @@ Reconciling on-demand:
 ```bash
 flux reconcile source git crossplane-configs
 flux reconcile kustomization crossplane-apis --with-source
+```
+
+Verifying the GitOps flow in-cluster:
+
+```bash
+# Confirm your committed label is now on the Composition
+kubectl get composition xpostgresqldatabases.database.example.io \
+  -o jsonpath='{.metadata.labels.gitops-test}'; echo
+```
+
+If you did **Option B** (ResourceGroup tag change), verify Crossplane reconciliation (and optionally Azure):
+
+```bash
+kubectl get -n default resourcegroups.azure.m.upbound.io \
+  -l crossplane.io/composite=test-postgres-e2e-001 -o yaml
+
+az group show --name crossplane-e2e-test-rg --query "tags.gitopsTest" -o tsv
 ```
 
 Headlamp (with the Flux plugin) is the “ops dashboard” for this layer: it makes it obvious which Source/Kustomization is failing and why.
