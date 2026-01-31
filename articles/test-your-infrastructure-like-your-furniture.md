@@ -1,667 +1,223 @@
 ---
 
-title: "Testing Your Cloud Infrastructure Like IKEA Furniture: A Guide to Crossplane v2 End-to-End Testing"
+title: "Testing Your Cloud Infrastructure Like IKEA Furniture: 6 Layers of Crossplane v2 Testing (PostgreSQL Example)"
 published: false
-description: "ULearn how to test Crossplane v2 compositions with end-to-end testing, explained through the surprisingly apt metaphor of assembling IKEA furniture"
+description: "Learn how to test Crossplane v2 compositions using a 6-layer strategy, explained through the metaphor of assembling IKEA furniture—using PostgreSQL as the running example."
 tags: ["kubernetes", "crossplane", "testing", "devops"]
 cover_image: https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/test-your-infrastructure-like-your-furniture.png
 canonical_url: ""
 series: "Infrastructure as Code Adventures"
-organization: “the-software-s-journey"
+organization: "the-software-s-journey"
 ---
 
-Ever bought an IKEA BILLY bookshelf? You know the drill: open the box, check all the pieces are there, follow the instructions, tighten the screws, and give it a good shake to make sure it won't collapse when you load it with your collection of unread programming books.
+Ever assembled an IKEA BILLY bookshelf? You open the box, lay out the pieces, follow the steps, tighten everything, and then do the most important part: give it a careful shake before trusting it with a shelf full of books.
 
-Testing Crossplane v2 infrastructure is remarkably similar. Except instead of a wobbly bookshelf, you're building cloud resources. And instead of an Allen key, you're using YAML. (Arguably, both can be equally frustrating at times.)
+Testing Crossplane compositions is the same idea—except your “bookshelf” is cloud infrastructure, and your “Allen key” is `kubectl`.
 
-In this guide, I'll walk you through setting up end-to-end (E2E) testing for Crossplane v2, using our IKEA metaphor to make the concepts stick like... well, like properly applied IKEA wood glue.
+This article refactors the testing story into **six testing layers** (0–5), and uses a single prime target throughout: a **PostgreSQL database** composition (Azure PostgreSQL Flexible Server + Database) built with Crossplane v2 pipeline mode.
 
-## Why Test Your Infrastructure? (Or: Why You Shouldn't Skip the Assembly Instructions)
+## Why test your infrastructure? (aka “don’t skip the instructions”)
 
-Remember that time you *thought* you could assemble IKEA furniture without reading the instructions? And then you had leftover screws? And the drawer didn't quite close right?
+The failure mode is familiar:
 
-That's what running Crossplane compositions in production without E2E testing feels like.
+- You changed “one small thing” in a composition
+- The rendered YAML looks plausible
+- The cluster accepts it
+- The cloud provider doesn’t
+- Cleanup leaves something behind
 
-**E2E testing for Crossplane validates that:**
-- All the pieces (resources) are actually created ✅
-- They're assembled correctly (configured properly) ✅
-- They work together (networking, permissions, dependencies) ✅
-- They can be disassembled cleanly (deletion works) ✅
+A layered strategy gives you fast feedback early, and high confidence later—without paying the cost of running full end-to-end tests for every tiny change.
 
-## The IKEA Furniture Assembly Metaphor
+## The IKEA metaphor (mapping)
 
-Let's break down our metaphor:
-
-| IKEA Furniture | Crossplane v2 |
-|----------------|---------------|
+| IKEA furniture | Crossplane v2 |
+|---|---|
 | **Instruction manual** | XRD (CompositeResourceDefinition) |
-| **Assembly steps** | Composition with pipeline functions |
-| **Individual pieces** | Managed Resources (Storage Account, VNet, etc.) |
+| **Assembly steps** | Composition (pipeline mode) + Functions |
+| **Individual pieces** | Managed Resources (e.g., `ResourceGroup`, `FlexibleServer`, `FlexibleServerDatabase`) |
 | **Assembled furniture** | Composite Resource (XR) |
-| **Quality check** | E2E Test Suite |
-| **Allen key** | kubectl (both mysterious and essential) |
+| **Quality checks** | Layered test suite (0–5) |
 
-## Prerequisites: What's in Your Toolbox?
+## The six testing layers (0–5)
 
-Before we start assembling (testing), let's make sure you have all the tools. Unlike IKEA, these tools aren't included in the box:
+Here’s the structure we’ll follow (adapted from the platform’s testing strategy docs):
 
-```bash
-# The essentials (your "Allen keys")
-brew install azure-cli kubectl helm jq
-brew install fluxcd/tap/flux
-brew install crossplane
+| Layer | Name | Primary intent | Typical tools |
+|---:|---|---|---|
+| 0 | Local composition rendering | Validate XRD + Composition logic without a cluster | `crossplane render` |
+| 1 | Cluster health + provider validation | Ensure Crossplane stack is stable; providers/functions Healthy | `kubectl`, health scripts, optional Uptest |
+| 2 | Visual inspection & relationship debugging | Understand XR → managed resources graph and conditions | Crossview |
+| 3 | In-cluster E2E tests | Validate reconciliation behavior and lifecycle | KUTTL |
+| 4 | Cloud-side verification | Confirm real Azure resources match intent | Azure CLI |
+| 5 | GitOps deployment & monitoring | Continuous reconciliation, drift detection, ops visibility | Flux + Headlamp |
 
-# The nice-to-haves (your "electric screwdriver")
-brew install k9s  # Visual cluster exploration
-brew install tree # Directory visualization
-```
+## Our “flat-pack” example: PostgreSQL as a platform API
 
-Verify everything works:
+We’ll build a small Crossplane API package that gives platform consumers a namespaced XR:
 
-```bash
-az version
-kubectl version --client
-helm version
-flux --version
-crossplane version
-```
+- XR kind: `XPostgreSQLDatabase`
+- Composed resources: `ResourceGroup` + `FlexibleServer` + `FlexibleServerDatabase`
 
-> **Pro tip**: If any of these fail, don't panic! Check the error messages. They're usually more helpful than IKEA's pictographic instructions.
+In the repo, the canonical paths used in the demo are:
 
-## Step 1: Building Your Workshop (Setting Up AKS)
+- `apis/v1alpha1/postgresql-databases/xrd.yaml`
+- `apis/v1alpha1/postgresql-databases/composition.yaml`
+- `apis/v1alpha1/postgresql-databases/examples/basic.yaml`
+- `tests/e2e/postgresql-databases/basic/` (KUTTL)
 
-First, we need a place to assemble our furniture. Let's create an AKS cluster:
+## Layer 0 — Local composition rendering (unbox the parts)
 
-```bash
-# Set up your environment variables
-export RESOURCE_GROUP="crossplane-e2e-rg"
-export LOCATION="westeurope"
-export CLUSTER_NAME="crossplane-e2e-aks"
-export CROSSPLANE_VERSION="2.1.0"
+Before you touch a cluster, validate that your “instruction manual + steps” actually produce the right parts.
 
-# Log into Azure
-az login
-az account set --subscription "YOUR_SUBSCRIPTION_ID"
-
-# Create your workshop (resource group)
-az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION \
-  --tags environment=development managedBy=crossplane
-
-# Build the workbench (AKS cluster)
-az aks create \
-  --resource-group $RESOURCE_GROUP \
-  --name $CLUSTER_NAME \
-  --node-count 3 \
-  --node-vm-size Standard_D2s_v3 \
-  --enable-managed-identity \
-  --network-plugin azure \
-  --generate-ssh-keys
-```
-
-This takes about 5-10 minutes. Perfect time for a Swedish meatball break! 🍝
+Minimal render example (from the demo):
 
 ```bash
-# Connect your tools to the workbench
-az aks get-credentials \
-  --resource-group $RESOURCE_GROUP \
-  --name $CLUSTER_NAME
-
-# Verify you're connected
-kubectl get nodes
+crossplane render \
+  apis/v1alpha1/postgresql-databases/xrd.yaml \
+  apis/v1alpha1/postgresql-databases/composition.yaml \
+  apis/v1alpha1/postgresql-databases/examples/basic.yaml \
+  --include-function-results \
+  > rendered-output.yaml
 ```
 
-## Step 2: Installing Crossplane (Getting Your Assembly Instructions Ready)
+This is where you catch:
 
-Now let's install Crossplane v2. Think of this as opening the IKEA box and laying out all the instruction sheets:
+- wrong patch paths
+- schema mismatches between XR parameters and Composition expectations
+- naming/transform issues (e.g., lowercasing and sanitizing Azure names)
 
-```bash
-# Add the Crossplane repository
-helm repo add crossplane-stable https://charts.crossplane.io/stable
-helm repo update
+If you maintain multiple APIs, treat examples as contracts and render them all (the demo includes a `scripts/render-all.sh` pattern that’s suitable for pre-commit and CI).
 
-# Install Crossplane v2
-helm install crossplane \
-  --namespace crossplane-system \
-  --create-namespace \
-  crossplane-stable/crossplane \
-  --version $CROSSPLANE_VERSION \
-  --wait
+## Layer 1 — Cluster validation & health (check your workshop is stable)
 
-# Check that Crossplane is running
-kubectl get pods -n crossplane-system
-```
+Even a perfect render can fail if the workshop is broken:
 
-You should see something like:
+- Crossplane core isn’t stable
+- providers/functions aren’t Healthy
+- webhooks are timing out (common on local clusters under load)
+- `ProviderConfig` credentials are misconfigured
 
-```
-NAME                                      READY   STATUS    RESTARTS   AGE
-crossplane-xxx                            1/1     Running   0          1m
-crossplane-rbac-manager-xxx               1/1     Running   0          1m
-```
+The demo uses a pre-test health script (`scripts/check-crossplane-health.sh`) to gate everything else. The quality bar is simple: **stable Crossplane pods, Healthy providers/functions, and reliable webhook behavior**.
 
-## Step 3: Setting Up Azure Authentication (The Security Sticker)
+Optional (but powerful): run **Uptest** as a fast provider/credential smoke test (think “verify the screwdriver works” before you build the whole bookshelf).
 
-Just like IKEA furniture has those "quality checked" stickers, we need to authenticate Crossplane with Azure:
+## Layer 2 — Crossview visual inspection (use the exploded diagram)
 
-```bash
-# Get your subscription ID
-export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+When something is off, you want the “exploded view” that shows how everything connects:
 
-# Create a service principal (think of it as the QA inspector's badge)
-SP_OUTPUT=$(az ad sp create-for-rbac \
-  --name "crossplane-e2e-${CLUSTER_NAME}" \
-  --role Contributor \
-  --scopes /subscriptions/$SUBSCRIPTION_ID \
-  --output json)
+- did your XR select the intended Composition?
+- which managed resources were created?
+- which condition/event explains why the XR isn’t Ready?
 
-# Extract and save the credentials
-export AZURE_CLIENT_ID=$(echo $SP_OUTPUT | jq -r '.appId')
-export AZURE_CLIENT_SECRET=$(echo $SP_OUTPUT | jq -r '.password')
-export AZURE_TENANT_ID=$(echo $SP_OUTPUT | jq -r '.tenant')
+Crossview is great here because it visualizes the XR → composed resources graph. Use it as the interactive debugger between Layers 1 and 3.
 
-# Create a Kubernetes secret
-kubectl create secret generic azure-secret \
-  --namespace crossplane-system \
-  --from-literal=creds="[default]
-client_id = $AZURE_CLIENT_ID
-client_secret = $AZURE_CLIENT_SECRET
-tenant_id = $AZURE_TENANT_ID
-subscription_id = $SUBSCRIPTION_ID"
-```
+## Layer 3 — In-cluster E2E with KUTTL (the shake test)
 
-> **Important**: Save these credentials! You'll need them later, and unlike that bag of extra IKEA screws, you can't just shrug and throw them in a drawer.
+Now we let Kubernetes do the real assembly: create the XR, watch reconciliation, assert readiness, and ensure cleanup works.
 
-## Step 4: Installing Azure Providers (Getting the Right Pieces)
+The demo’s PostgreSQL test case builds up like this:
 
-Crossplane v2 uses modular providers. It's like ordering specific IKEA departments: kitchen, bedroom, storage. We need to install the Azure providers we'll use:
+- **00**: create a password `Secret` + create the XR
+- **00 assert**: wait for XR `Synced=True` and `Ready=True`
+- **01 assert**: wait for composed managed resources to become `Ready=True`
+- **01 verify (Azure)**: query Azure to ensure the server + database exist
+- **02 delete**: delete the XR
+- **02 assert**: confirm XR is gone
 
-```bash
-# Install the providers we need
-cat <<EOF | kubectl apply -f -
----
-apiVersion: pkg.crossplane.io/v1
-kind: Provider
-metadata:
-  name: provider-azure-storage
-spec:
-  package: xpkg.upbound.io/upbound/provider-azure-storage:v1.3.0
----
-apiVersion: pkg.crossplane.io/v1
-kind: Provider
-metadata:
-  name: provider-azure-network
-spec:
-  package: xpkg.upbound.io/upbound/provider-azure-network:v1.3.0
-EOF
-
-# Wait for providers to install (grab another coffee ☕)
-kubectl wait provider --all \
-  --for=condition=Healthy \
-  --timeout=600s
-```
-
-Now configure the providers to use our Azure credentials:
-
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: azure.upbound.io/v1beta1
-kind: ProviderConfig
-metadata:
-  name: default
-spec:
-  credentials:
-    source: Secret
-    secretRef:
-      namespace: crossplane-system
-      name: azure-secret
-      key: creds
-EOF
-```
-
-## Step 5: Creating Your First "Furniture" (XRD and Composition)
-
-Here's where it gets fun! We're going to create an XRD (the instruction manual) and a Composition (the assembly steps) for a Storage Account.
-
-**The XRD (Instruction Manual):**
+KUTTL suite config (so you can run everything consistently):
 
 ```yaml
-# config/xrds/xstorage-account.yaml
-apiVersion: apiextensions.crossplane.io/v2
-kind: CompositeResourceDefinition
-metadata:
-  name: xstorageaccounts.storage.example.io
-spec:
-  group: storage.example.io
-  names:
-    kind: XStorageAccount
-    plural: xstorageaccounts
-  scope: Namespaced
-  versions:
-  - name: v1alpha1
-    served: true
-    referenceable: true
-    schema:
-      openAPIV3Schema:
-        type: object
-        properties:
-          spec:
-            type: object
-            properties:
-              parameters:
-                type: object
-                properties:
-                  location:
-                    type: string
-                    default: westeurope
-                  accountTier:
-                    type: string
-                    enum: [Standard, Premium]
-                    default: Standard
-                  replicationType:
-                    type: string
-                    enum: [LRS, GRS, RAGRS, ZRS]
-                    default: LRS
-                  resourceGroupName:
-                    type: string
-                required:
-                - resourceGroupName
-```
-
-**The Composition (Assembly Steps):**
-
-In Crossplane v2, we use **pipeline mode** with composition functions. It's like having step-by-step assembly instructions instead of just a picture:
-
-```yaml
-# config/compositions/storage-account.yaml
-apiVersion: apiextensions.crossplane.io/v1
-kind: Composition
-metadata:
-  name: xstorageaccounts.storage.example.io
-  labels:
-    provider: azure
-    type: standard
-spec:
-  compositeTypeRef:
-    apiVersion: storage.example.io/v1alpha1
-    kind: XStorageAccount
-  
-  mode: Pipeline
-  pipeline:
-  - step: patch-and-transform
-    functionRef:
-      name: function-patch-and-transform
-    input:
-      apiVersion: pt.fn.crossplane.io/v1beta1
-      kind: Resources
-      resources:
-      # First piece: The resource group (the room)
-      - name: resourcegroup
-        base:
-          apiVersion: azure.m.upbound.io/v1beta1
-          kind: ResourceGroup
-          spec:
-            forProvider:
-              location: westeurope
-        patches:
-        - type: FromCompositeFieldPath
-          fromFieldPath: spec.parameters.location
-          toFieldPath: spec.forProvider.location
-        - type: FromCompositeFieldPath
-          fromFieldPath: spec.parameters.resourceGroupName
-          toFieldPath: metadata.name
-
-      # Second piece: The storage account (the furniture)
-      - name: storageaccount
-        base:
-          apiVersion: storage.azure.m.upbound.io/v1beta2
-          kind: Account
-          spec:
-            forProvider:
-              accountReplicationType: LRS
-              accountTier: Standard
-              resourceGroupNameSelector:
-                matchControllerRef: true
-        patches:
-        - type: FromCompositeFieldPath
-          fromFieldPath: spec.parameters.accountTier
-          toFieldPath: spec.forProvider.accountTier
-        - type: ToCompositeFieldPath
-          fromFieldPath: metadata.name
-          toFieldPath: status.storageAccountName
-        readinessChecks:
-        - type: MatchString
-          fieldPath: status.atProvider.provisioningState
-          matchString: Succeeded
-  
-  - step: auto-ready
-    functionRef:
-      name: function-auto-ready
-```
-
-Install the composition functions first:
-
-```bash
-cat <<EOF | kubectl apply -f -
----
-apiVersion: pkg.crossplane.io/v1
-kind: Function
-metadata:
-  name: function-patch-and-transform
-spec:
-  package: xpkg.crossplane.io/crossplane-contrib/function-patch-and-transform:v0.8.2
----
-apiVersion: pkg.crossplane.io/v1
-kind: Function
-metadata:
-  name: function-auto-ready
-spec:
-  package: xpkg.crossplane.io/crossplane-contrib/function-auto-ready:v0.6.0
-EOF
-
-# Wait for functions to be ready
-kubectl wait function --all --for=condition=Healthy --timeout=300s
-```
-
-Now apply your XRD and Composition:
-
-```bash
-kubectl apply -f config/xrds/xstorage-account.yaml
-kubectl apply -f config/compositions/storage-account.yaml
-```
-
-## Step 6: The Quality Check (Setting Up E2E Tests)
-
-Now comes the crucial part: testing! We'll use **kuttl** (Kubernetes Test Tool) - think of it as your IKEA quality inspector.
-
-Install kuttl:
-
-```bash
-KUTTL_VERSION=0.15.0
-wget -q https://github.com/kudobuilder/kuttl/releases/download/v${KUTTL_VERSION}/kubectl-kuttl_${KUTTL_VERSION}_linux_x86_64
-chmod +x kubectl-kuttl_${KUTTL_VERSION}_linux_x86_64
-sudo mv kubectl-kuttl_${KUTTL_VERSION}_linux_x86_64 /usr/local/bin/kubectl-kuttl
-```
-
-Create your test structure:
-
-```bash
-mkdir -p tests/e2e/01-storage-account/{00-setup,01-verify,02-cleanup}
-```
-
-**Test Step 1: Create the furniture (00-setup)**
-
-```yaml
-# tests/e2e/01-storage-account/00-setup/00-xr-storage.yaml
-apiVersion: storage.example.io/v1alpha1
-kind: XStorageAccount
-metadata:
-  name: test-storage-e2e-001
-  namespace: default
-spec:
-  parameters:
-    location: westeurope
-    accountTier: Standard
-    replicationType: LRS
-    resourceGroupName: crossplane-e2e-test-rg
-  compositionSelector:
-    matchLabels:
-      provider: azure
-      type: standard
-```
-
-```yaml
-# tests/e2e/01-storage-account/00-setup/00-assert.yaml
-apiVersion: storage.example.io/v1alpha1
-kind: XStorageAccount
-metadata:
-  name: test-storage-e2e-001
-  namespace: default
-status:
-  conditions:
-  - type: Ready
-    status: "True"
-  - type: Synced
-    status: "True"
-```
-
-**Test Step 2: Verify it's sturdy (01-verify)**
-
-```yaml
-# tests/e2e/01-storage-account/01-verify/00-assert-storage.yaml
-apiVersion: storage.azure.m.upbound.io/v1beta2
-kind: Account
-metadata:
-  namespace: default
-  ownerReferences:
-  - apiVersion: storage.example.io/v1alpha1
-    kind: XStorageAccount
-    name: test-storage-e2e-001
-status:
-  conditions:
-  - type: Ready
-    status: "True"
-```
-
-**Test Step 3: Check in the real world (Azure)**
-
-```yaml
-# tests/e2e/01-storage-account/01-verify/01-verify-azure.yaml
-apiVersion: kuttl.dev/v1beta1
-kind: TestAssert
-commands:
-- script: |
-    # Get the storage account name
-    STORAGE_NAME=$(kubectl get xstorageaccount test-storage-e2e-001 \
-      -n default \
-      -o jsonpath='{.status.storageAccountName}')
-    
-    # Verify it exists in Azure (give it a shake!)
-    az storage account show \
-      --name $STORAGE_NAME \
-      --resource-group crossplane-e2e-test-rg \
-      --query "provisioningState" \
-      --output tsv | grep -q "Succeeded"
-```
-
-**Test Step 4: Disassemble (02-cleanup)**
-
-```yaml
-# tests/e2e/01-storage-account/02-cleanup/00-delete.yaml
-apiVersion: storage.example.io/v1alpha1
-kind: XStorageAccount
-metadata:
-  name: test-storage-e2e-001
-  namespace: default
-$patch: delete
-```
-
-Create the test configuration:
-
-```yaml
-# tests/e2e/01-storage-account/kuttl-test.yaml
 apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
-metadata:
-  name: storage-account-e2e
-timeout: 600
+timeout: 2400
 parallel: 1
+startKIND: false
 testDirs:
-- .
+  - ./tests/e2e/postgresql-databases
 ```
 
-## Step 7: Running Your Tests (The Moment of Truth)
-
-Time to run the quality check! This is like that satisfying moment when you tighten the last screw and give the furniture a shake to make sure it's stable:
+Run it:
 
 ```bash
-# Run the E2E tests
-kubectl kuttl test tests/e2e/01-storage-account/
-
-# In another terminal, watch the magic happen
-watch kubectl get xstorageaccount,account,resourcegroup
+kubectl kuttl test \
+  --config tests/e2e/kuttl-test.yaml \
+  --timeout 2400 \
+  --start-kind=false
 ```
 
-You should see output like:
+If your tests don’t include cleanup, they’re not end-to-end—they’re “create-to-end”.
 
-```
-=== RUN   kuttl
-    harness.go:462: starting setup
-    harness.go:252: running tests using configured kubeconfig.
-    harness.go:285: Successful connection to cluster at: https://crossplane-e2e-aks-xxx.hcp.westeurope.azmk8s.io:443
-=== RUN   kuttl/harness
-=== RUN   kuttl/harness/storage-account-e2e
-=== PAUSE kuttl/harness/storage-account-e2e
-=== CONT  kuttl/harness/storage-account-e2e
-    logger.go:42: 12:34:56 | storage-account-e2e | Creating namespace: kuttl-test-xxx
-    logger.go:42: 12:34:57 | storage-account-e2e/0-setup | starting test step 0-setup
-    logger.go:42: 12:35:30 | storage-account-e2e/0-setup | test step completed 0-setup
-    logger.go:42: 12:35:30 | storage-account-e2e/1-verify | starting test step 1-verify
-    logger.go:42: 12:35:45 | storage-account-e2e/1-verify | test step completed 1-verify
-    logger.go:42: 12:35:45 | storage-account-e2e/2-cleanup | starting test step 2-cleanup
-    logger.go:42: 12:36:00 | storage-account-e2e/2-cleanup | test step completed 2-cleanup
-=== CONT  kuttl
-    harness.go:405: run tests finished
-    harness.go:513: cleaning up
-    harness.go:570: removing temp folder: ""
---- PASS: kuttl (65.23s)
-    --- PASS: kuttl/harness (0.00s)
-        --- PASS: kuttl/harness/storage-account-e2e (65.12s)
-PASS
-```
+## Layer 4 — Cloud-side verification (confirm it works in the real world)
 
-✨ **If you see PASS, congratulations!** Your infrastructure furniture is assembled correctly!
+Kubernetes conditions are necessary, but the cloud control plane is the source of truth.
 
-## Troubleshooting (When Your Drawer Won't Close)
-
-### Problem: Provider not becoming healthy
+The demo’s E2E suite uses Azure CLI checks like:
 
 ```bash
-# Check provider logs
-kubectl logs -n crossplane-system -l pkg.crossplane.io/provider=provider-azure-storage
+SERVER_NAME=$(kubectl get -n default xpostgresqldatabase test-postgres-e2e-001 \
+  -o jsonpath='{.status.serverName}')
 
-# Usually it's authentication - double-check your secret
-kubectl get secret azure-secret -n crossplane-system
+DB_NAME=$(kubectl get -n default xpostgresqldatabase test-postgres-e2e-001 \
+  -o jsonpath='{.status.databaseName}')
+
+az postgres flexible-server show \
+  --resource-group crossplane-e2e-test-rg \
+  --name "$SERVER_NAME" \
+  --output none
+
+az postgres flexible-server db show \
+  --resource-group crossplane-e2e-test-rg \
+  --server-name "$SERVER_NAME" \
+  --database-name "$DB_NAME" \
+  --output none
 ```
 
-### Problem: XR stuck in "not ready"
+This catches issues like:
+
+- Azure name constraints
+- subscription provider registration gaps (e.g., `Microsoft.DBforPostgreSQL`)
+- resources that exist but don’t match intent (location/SKU/tags)
+
+## Layer 5 — GitOps with Flux + Headlamp (keep it assembled over time)
+
+Layer 5 answers a different question: “Can we deliver and operate this platform continuously from Git?”
+
+In the demo, Flux is configured to reconcile the Crossplane APIs from the repo:
+
+- `GitRepository`: `crossplane-configs` (namespace `flux-system`)
+- `Kustomization`: `crossplane-apis` (namespace `flux-system`)
+
+Then you run an explicit “proof” test (Step 16.1 in the demo):
+
+- **Option A (config-only, safest)**: change a label in the PostgreSQL `Composition`, commit/push, confirm the label appears on the in-cluster `Composition`.
+- **Option B (proves Crossplane reconciliation)**: add a tag to the composed `ResourceGroup` base in the Composition, then confirm:
+  - the composed managed resource reflects it
+  - optionally, Azure shows it
+
+Reconciling on-demand:
 
 ```bash
-# Check what's wrong
-kubectl describe xstorageaccount test-storage-e2e-001
-
-# Check the managed resources
-kubectl get managed
-
-# Check Crossplane logs
-kubectl logs -n crossplane-system deployment/crossplane -f
+flux reconcile source git crossplane-configs
+flux reconcile kustomization crossplane-apis --with-source
 ```
 
-### Problem: Test timeout
+Headlamp (with the Flux plugin) is the “ops dashboard” for this layer: it makes it obvious which Source/Kustomization is failing and why.
 
-This usually means Azure is taking longer than expected. You can increase the timeout in your `kuttl-test.yaml`:
+## The complete picture (full source)
 
-```yaml
-timeout: 900  # Increase from 600 to 900 seconds
-```
+All the code referenced here—including the PostgreSQL API package, KUTTL suites, helper scripts, and Flux structure—is in:
 
-## Bonus: GitOps with Flux (Assembly Instructions on Demand)
+**[https://github.com/software-journey/crossplane-e2e-testing](https://github.com/software-journey/crossplane-e2e-testing)**
 
-Want to make this even more automated? Add Flux for GitOps! It's like having IKEA deliver your furniture AND the assembly instructions automatically update when they improve them:
+## Key takeaways (your assembly summary sheet)
 
-```bash
-# Install Flux
-flux bootstrap github \
-  --owner=YOUR_GITHUB_USER \
-  --repository=crossplane-e2e-fleet \
-  --branch=main \
-  --path=./clusters/dev \
-  --personal
-
-# Create GitRepository
-cat <<EOF | kubectl apply -f -
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: crossplane-configs
-  namespace: flux-system
-spec:
-  interval: 1m
-  url: https://github.com/YOUR_USER/YOUR_REPO
-  ref:
-    branch: main
-EOF
-
-# Create Kustomization
-cat <<EOF | kubectl apply -f -
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: crossplane-xrds
-  namespace: flux-system
-spec:
-  interval: 5m
-  path: ./config/xrds
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: crossplane-configs
-EOF
-```
-
-Now whenever you push changes to your Git repo, Flux automatically applies them to your cluster!
-
-## Cleaning Up (Because Storage Costs Money)
-
-When you're done testing:
-
-```bash
-# Delete test resources
-kubectl delete xstorageaccount --all
-
-# Or delete everything
-az group delete --name crossplane-e2e-rg --yes --no-wait
-```
-
-## The Complete Picture (Full Source Code)
-
-All the code from this tutorial is available in my GitHub repository:
-
-🔗 **[https://github.com/software-journey/crossplane-e2e-testing](https://github.com/software-journey/crossplane-e2e-testing)**
-
-The repo includes:
-- Complete setup script for automation
-- Additional test examples (VNets, PostgreSQL)
-- Helper scripts for running and cleaning up tests
-- Flux GitOps configurations
-- Troubleshooting guides
-
-## Key Takeaways (Your Assembly Summary Sheet)
-
-1. **E2E testing validates your entire Crossplane setup** - from XRD to actual Azure resources
-2. **Crossplane v2 uses pipeline mode** - more powerful and flexible than v1
-3. **Test in layers**: Create → Verify → Cleanup (just like assembling furniture)
-4. **Automate with tools**: kuttl for testing, Flux for GitOps
-5. **Always clean up test resources** - Azure charges are real!
-
-## What's Next?
-
-Now that you know how to test your "IKEA furniture," you can:
-
-- Create more complex compositions (networks, databases, full applications)
-- Integrate E2E tests into your CI/CD pipeline
-- Build a platform with Backstage for self-service infrastructure
-- Add cost tracking and governance policies
-
-Remember: just like IKEA furniture, Crossplane infrastructure is much better when you follow the instructions and test that everything fits together properly. Happy building! 🔧
+- **Layer 0 catches the most mistakes fastest**: render before you reconcile.
+- **Layer 1 prevents noisy failures**: don’t trust E2E results from an unhealthy cluster.
+- **Layer 2 shortens debugging**: visualize the XR → managed resource graph.
+- **Layer 3 proves lifecycle correctness**: create, assert, verify, delete.
+- **Layer 4 closes the loop**: validate cloud reality, not just Kubernetes status.
+- **Layer 5 makes it operable**: Git → Flux → Kubernetes → Crossplane, continuously.
 
 ---
 
-*Got questions? Drop them in the comments! I'd love to hear about your Crossplane testing experiences.*
-
-*If you found this helpful, give it a ❤️ and share it with someone who's also wrangling cloud infrastructure!*
-
----
-
-**About the Author**: I'm Willem, a Cloud Engineer transitioning to platform engineering. I believe complex infrastructure concepts should be accessible to everyone - even if it means comparing them to Swedish furniture. Follow me for more cloud-native content!
+**About the Author**: I'm Willem, a Cloud Engineer transitioning to platform engineering. I believe complex infrastructure concepts should be accessible to everyone—even if it means comparing them to Swedish furniture.
