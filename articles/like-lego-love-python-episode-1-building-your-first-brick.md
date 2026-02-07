@@ -1,14 +1,16 @@
------
-
-## title: "Like LEGO? Love Python! 🧱🐍 Episode 1: Building Your First Brick"
+---
+title: "Like LEGO? Love Python! 🧱🐍 Episode 1: Building Your First Brick"
 published: false
 description: "Learn Python classes through the lens of LEGO bricks - because object-oriented programming is just building blocks with extra steps"
 tags: [python, beginners, tutorial, oop]
 cover_image: https://raw.githubusercontent.com/vanHeemstraSystems/learning-python-object-oriented/main/assets/lego-python-cover.png
 series: "Like LEGO? Love Python!"
+cover_image: ""
 canonical_url: https://dev.to/vanheemstrasystems/like-lego-love-python-episode-1-building-your-first-brick
 organization: "the-software-s-journey"
------
+---
+
+# Like LEGO? Love Python! 🧱🐍
 
 ## Episode 1: Building Your First Brick (Defining Classes)
 
