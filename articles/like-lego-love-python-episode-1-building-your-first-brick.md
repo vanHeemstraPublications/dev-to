@@ -120,12 +120,4 @@ And just like real LEGO, once you understand the basics, you can build anything 
 
 -----
 
-**Next Episode**: “Inheritance: When Child Bricks Rebel Against Their Parent Classes”
-
-Spoiler: `class SpecializedBrick(LegoBrick)` is just fancy LEGO with extra steps.
-
------
-
-*Want to dive deeper into the technical details? Check out the [full documentation on GitHub](https://github.com/vanHeemstraSystems/learning-python-object-oriented/blob/main/200/100-defining-classes.md).*
-
 *Have questions or spotted a bug in my LEGO metaphor? Drop a comment below! And if you’re enjoying this series, smash that ❤️ button - it’s like stepping on a LEGO but in a good way.*
