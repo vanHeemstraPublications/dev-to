@@ -5,12 +5,14 @@ description: "Learn Python classes through the lens of LEGO bricks - because obj
 tags: [python, beginners, tutorial, oop]
 cover_image: https://raw.githubusercontent.com/vanHeemstraSystems/learning-python-object-oriented/main/assets/lego-python-cover.png
 series: "Like LEGO? Love Python!"
-cover_image: ""
-canonical_url: https://dev.to/vanheemstrasystems/like-lego-love-python-episode-1-building-your-first-brick
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-lego-love-python-episode-01.png"
+canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
 ## Episode 1: Building Your First Brick (Defining Classes)
+
+Accompanying source code repository: [`Like LEGO?, Love Python!`](https://github.com/software-journey/python)
 
 Remember when you were a kid and got your first LEGO set? That moment of pure possibility, staring at a pile of colorful bricks, the instruction manual mocking you with its deceptively simple Step 1?
 
