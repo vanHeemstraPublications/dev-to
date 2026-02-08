@@ -1,12 +1,17 @@
------
+---
 
-## title: “Like LEGO, Love Python - Episode 2: Keeping Your Secrets Safe”
+title: "Like LEGO, Love Python"
 published: false
-description: “Just like LEGO bricks hide their inner mechanisms, Python’s encapsulation keeps your data safe and your code clean. Let’s build some privacy into our Python creations!”
-tags: python, beginners, oop, tutorial
-series: Like LEGO, Love Python
-cover_image: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/placeholder.jpg
-canonical_url: https://dev.to/vanheemstra/like-lego-love-python-episode-2-keeping-your-secrets-safe
+description: "Just like LEGO bricks hide their inner mechanisms, Python’s encapsulation keeps your data safe and your code clean. Let’s build some privacy into our Python creations!"
+tags: [python, beginners, oop, tutorial]
+series: "Like LEGO, Love Python"
+cover_image: "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/placeholder.jpg"
+canonical_url: ""
+organization: "the-software-s-journey"
+
+---
+
+## Episode 2: Keeping Your Secrets Safe
 
 ## Welcome Back, Master Builder! 🏗️
 
