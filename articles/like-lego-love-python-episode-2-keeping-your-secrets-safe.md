@@ -1,5 +1,4 @@
 ---
-
 title: "Like LEGO? Love Python! 🧱🐍"
 published: false
 description: "Just like LEGO bricks hide their inner mechanisms, Python’s encapsulation keeps your data safe and your code clean. Let’s build some privacy into our Python creations!"
@@ -8,7 +7,6 @@ series: "Like LEGO? Love Python!"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-lego-love-python-episode-02.png"
 canonical_url: ""
 organization: "the-software-s-journey"
-
 ---
 
 ## Episode 2: Keeping Your Secrets Safe
