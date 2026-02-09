@@ -14,7 +14,7 @@ Ever assembled an IKEA BILLY bookshelf? You open the box, lay out the pieces, fo
 
 Testing Crossplane compositions is the same idea—except your “bookshelf” is cloud infrastructure, and your “Allen key” is `kubectl`.
 
-This article refactors the testing story into **six testing layers** (0–5), and uses a single prime target throughout: a **PostgreSQL database** composition (Azure PostgreSQL Flexible Server + Database) built with Crossplane v2 pipeline mode.
+This article refactors the testing story into **six testing layers** (1–6), and uses a single prime target throughout: a **PostgreSQL database** composition (Azure PostgreSQL Flexible Server + Database) built with Crossplane v2 pipeline mode.
 
 ## Why test your infrastructure? (aka “don’t skip the instructions”)
 
@@ -36,20 +36,20 @@ A layered strategy gives you fast feedback early, and high confidence later—wi
 | **Assembly steps** | Composition (pipeline mode) + Functions |
 | **Individual pieces** | Managed Resources (e.g., `ResourceGroup`, `FlexibleServer`, `FlexibleServerDatabase`) |
 | **Assembled furniture** | Composite Resource (XR) |
-| **Quality checks** | Layered test suite (0–5) |
+| **Quality checks** | Layered test suite (1–6) |
 
-## The six testing layers (0–5)
+## The six testing layers (1–6)
 
 Here’s the structure we’ll follow (adapted from the platform’s testing strategy docs):
 
 | Layer | Name | Primary intent | Typical tools |
 |---:|---|---|---|
-| 0 | Local composition rendering | Validate XRD + Composition logic without a cluster | `crossplane render` |
-| 1 | Cluster health + provider validation | Ensure Crossplane stack is stable; providers/functions Healthy | `kubectl`, health scripts, optional Uptest |
-| 2 | Visual inspection & relationship debugging | Understand XR → managed resources graph and conditions | Crossview |
-| 3 | In-cluster E2E tests | Validate reconciliation behavior and lifecycle | KUTTL |
-| 4 | Cloud-side verification | Confirm real Azure resources match intent | Azure CLI |
-| 5 | GitOps deployment & monitoring | Continuous reconciliation, drift detection, ops visibility | Flux + Headlamp |
+| 1 | Local composition rendering | Validate XRD + Composition logic without a cluster | `crossplane render` |
+| 2 | Cluster health + provider validation | Ensure Crossplane stack is stable; providers/functions Healthy | `kubectl`, health scripts, optional Uptest |
+| 3 | Visual inspection & relationship debugging | Understand XR → managed resources graph and conditions | Crossview |
+| 4 | In-cluster E2E tests | Validate reconciliation behavior and lifecycle | KUTTL |
+| 5 | Cloud-side verification | Confirm real Azure resources match intent | Azure CLI |
+| 6 | GitOps deployment & monitoring | Continuous reconciliation, drift detection, ops visibility | Flux + Headlamp |
 
 ## Our “flat-pack” example: PostgreSQL as a platform API
 
@@ -164,7 +164,7 @@ In the repo, the canonical paths used in the demo are:
 - `apis/v1alpha1/postgresql-databases/examples/basic.yaml`
 - `tests/e2e/postgresql-databases/basic/` (KUTTL)
 
-## Layer 0 — Local composition rendering (unbox the parts)
+## Layer 1 — Local composition rendering (unbox the parts)
 
 Before you touch a cluster, validate that your “instruction manual + steps” actually produce the right parts.
 
@@ -214,7 +214,7 @@ This is where you catch:
 
 If you maintain multiple APIs, treat examples as contracts and render them all (the demo includes a `scripts/render-all.sh` pattern that’s suitable for pre-commit and CI).
 
-## Layer 1 — Cluster validation & health (check your workshop is stable)
+## Layer 2 — Cluster validation & health (check your workshop is stable)
 
 Even a perfect render can fail if the workshop is broken:
 
@@ -227,7 +227,7 @@ The demo uses a pre-test health script (`scripts/check-crossplane-health.sh`) to
 
 Optional (but powerful): run **Uptest** as a fast provider/credential smoke test (think “verify the screwdriver works” before you build the whole bookshelf).
 
-## Layer 2 — Crossview visual inspection (use the exploded diagram)
+## Layer 3 — Crossview visual inspection (use the exploded diagram)
 
 When something is off, you want the “exploded view” that shows how everything connects:
 
@@ -235,9 +235,9 @@ When something is off, you want the “exploded view” that shows how everythin
 - which managed resources were created?
 - which condition/event explains why the XR isn’t Ready?
 
-Crossview is great here because it visualizes the XR → composed resources graph. Use it as the interactive debugger between Layers 1 and 3.
+Crossview is great here because it visualizes the XR → composed resources graph. Use it as the interactive debugger between Layers 2 and 4.
 
-## Layer 3 — In-cluster E2E with KUTTL (the shake test)
+## Layer 4 — In-cluster E2E with KUTTL (the shake test)
 
 Now we let Kubernetes do the real assembly: create the XR, watch reconciliation, assert readiness, and ensure cleanup works.
 
@@ -336,7 +336,7 @@ kubectl kuttl test \
 
 If your tests don’t include cleanup, they’re not end-to-end—they’re “create-to-end”.
 
-## Layer 4 — Cloud-side verification (confirm it works in the real world)
+## Layer 5 — Cloud-side verification (confirm it works in the real world)
 
 Kubernetes conditions are necessary, but the cloud control plane is the source of truth.
 
@@ -367,9 +367,9 @@ This catches issues like:
 - subscription provider registration gaps (e.g., `Microsoft.DBforPostgreSQL`)
 - resources that exist but don’t match intent (location/SKU/tags)
 
-## Layer 5 — GitOps with Flux + Headlamp (keep it assembled over time)
+## Layer 6 — GitOps with Flux + Headlamp (keep it assembled over time)
 
-Layer 5 answers a different question: “Can we deliver and operate this platform continuously from Git?”
+Layer 6 answers a different question: “Can we deliver and operate this platform continuously from Git?”
 
 In the demo, Flux is configured to reconcile the Crossplane APIs from the repo:
 
@@ -417,12 +417,12 @@ All the code referenced here—including the PostgreSQL API package, KUTTL suite
 
 ## Key takeaways (your assembly summary sheet)
 
-- **Layer 0 catches the most mistakes fastest**: render before you reconcile.
-- **Layer 1 prevents noisy failures**: don’t trust E2E results from an unhealthy cluster.
-- **Layer 2 shortens debugging**: visualize the XR → managed resource graph.
-- **Layer 3 proves lifecycle correctness**: create, assert, verify, delete.
-- **Layer 4 closes the loop**: validate cloud reality, not just Kubernetes status.
-- **Layer 5 makes it operable**: Git → Flux → Kubernetes → Crossplane, continuously.
+- **Layer 1 catches the most mistakes fastest**: render before you reconcile.
+- **Layer 2 prevents noisy failures**: don’t trust E2E results from an unhealthy cluster.
+- **Layer 3 shortens debugging**: visualize the XR → managed resource graph.
+- **Layer 4 proves lifecycle correctness**: create, assert, verify, delete.
+- **Layer 5 closes the loop**: validate cloud reality, not just Kubernetes status.
+- **Layer 6 makes it operable**: Git → Flux → Kubernetes → Crossplane, continuously.
 
 ---
 
