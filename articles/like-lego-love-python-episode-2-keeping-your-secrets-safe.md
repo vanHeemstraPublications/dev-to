@@ -1,5 +1,5 @@
 ---
-title: "Like LEGO? Love Python! 🧱🐍"
+title: "Like LEGO? Love Python! 🧱🐍 Ep.2"
 published: false
 description: "Just like LEGO bricks hide their inner mechanisms, Python’s encapsulation keeps your data safe and your code clean. Let’s build some privacy into our Python creations!"
 tags: [python, beginners, oop, tutorial]
