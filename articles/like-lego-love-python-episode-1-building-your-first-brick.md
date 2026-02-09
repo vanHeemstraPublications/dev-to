@@ -1,5 +1,5 @@
 ---
-title: "Like LEGO? Love Python! 🧱🐍"
+title: "Like LEGO? Love Python! 🧱🐍 Ep.1"
 published: false
 description: "Learn Python classes through the lens of LEGO bricks - because object-oriented programming is just building blocks with extra steps"
 tags: [python, beginners, tutorial, oop]
