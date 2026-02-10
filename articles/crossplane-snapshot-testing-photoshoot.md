@@ -7,7 +7,7 @@ series: “Infrastructure as Code"
 cover_image: ""
 canonical_url: ""
 organization: "the-software-s-journey"
-——-
+---
 
 Ever wondered what your infrastructure would look like if it had to go through a professional photoshoot? Well, buckle up, because that’s exactly what snapshot testing in Crossplane is all about! Just like a fashion photographer meticulously compares test shots against reference photos, we’re going to make sure our Crossplane compositions look *absolutely fabulous* every single time.
 
