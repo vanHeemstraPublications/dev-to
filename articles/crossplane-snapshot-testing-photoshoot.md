@@ -4,7 +4,7 @@ published: false
 description: "Learn how snapshot testing in Crossplane is like running a professional photoshoot - complete with reference photos, Photoshop comparisons, and the occasional wardrobe malfunction"
 tags: [crossplane, kubernetes, testing, devops]
 series: “Infrastructure as Code"
-cover_image: ""
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/crossplane-snapshot-testing.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
