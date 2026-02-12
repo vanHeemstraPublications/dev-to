@@ -1,6 +1,6 @@
 ---
 title: "Like LEGO? Love Python! 🧱🐍 Ep.4"
-published: false
+published: true
 description: "Episode 4: Many Bricks, One Action (Polymorphism) - When different bricks all click together, but in their own special way!"
 tags: [python, beginners, oop, tutorial]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-lego-love-python-episode-04.png"
