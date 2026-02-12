@@ -72,3 +72,4 @@ jobs:
           FILES_TO_PUBLISH: ${{ steps.changed-files.outputs.files }}
         run: |
           python scripts/publish_to_devto.py
+          sleep 5  # Wait 5 seconds between files to void hitting Dev.to’s rate-limit
