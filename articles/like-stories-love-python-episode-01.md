@@ -1,7 +1,7 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.1 - The One Ring (Singleton)"
 published: false
-description: "Learn the Singleton design pattern through epic tales and code - because there can be only one!"’
+description: "Learn the Singleton design pattern through epic tales and code - because there can be only one!"
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-01.png"
