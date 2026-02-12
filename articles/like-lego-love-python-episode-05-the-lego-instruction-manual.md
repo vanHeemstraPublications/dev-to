@@ -747,7 +747,7 @@ Happy building! 🏗️✨
 -----
 
 **🎯 Key Takeaways:**
-
+ 
 - **Abstraction** = defining WHAT without specifying HOW
 - **ABC (Abstract Base Class)** = Python’s way to enforce contracts
 - **@abstractmethod** = “you MUST implement this!”
