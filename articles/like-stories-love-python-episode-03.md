@@ -1,12 +1,12 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.3"
 published: false
-description: "Learn the Builder design pattern through Inception’s nested realities - because complex objects need step-by-step construction!"
+description: “Learn the Builder design pattern through Inception’s nested realities - because complex objects need step-by-step construction!"
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-03.png"
-canonical_url:"“
-organization: "the-software-s-journey“
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 ## Episode 3: Dream Layers (Builder Pattern)
