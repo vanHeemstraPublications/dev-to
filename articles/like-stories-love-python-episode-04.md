@@ -1,6 +1,6 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.4"
-published: false
+published: true
 description: "Learn the Adapter design pattern through The Martian’s survival ingenuity - because sometimes you need to make incompatible systems work together!"
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!"
