@@ -1,5 +1,5 @@
 ---
-title: "Like Stories? Love Python! 📖🐍 Ep.8 - FINALE: The Narrative Commands (Command)"
+title: "Like Stories? Love Python! 📖🐍 Ep.8"
 published: false
 description: “Learn the Command design pattern through Westworld’s narrative programming - because requests should be objects with undo/redo!"
 tags: [python, beginners, tutorial, designpatterns]
