@@ -1,5 +1,5 @@
 ---
-title: "Like Stories? Love Python! 📖🐍 Ep.5 - Armor Upgrades (Decorator)"
+title: "Like Stories? Love Python! 📖🐍 Ep.5"
 published: false
 description: "Learn the Decorator design pattern through Iron Man’s suit evolution - because sometimes you need to layer functionality without changing the core!"
 tags: [python, beginners, tutorial, designpatterns]
