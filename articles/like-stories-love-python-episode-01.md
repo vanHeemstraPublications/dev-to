@@ -1,5 +1,5 @@
 ---
-title: "Like Stories? Love Python! 📖🐍 Ep.1 - The One Ring (Singleton)"
+title: "Like Stories? Love Python! 📖🐍 Ep.1"
 published: false
 description: "Learn the Singleton design pattern through epic tales and code - because there can be only one!"
 tags: [python, beginners, tutorial, designpatterns]
