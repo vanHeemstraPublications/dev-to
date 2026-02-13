@@ -1,5 +1,5 @@
 ---
-title: "Like Stories? Love Python! 📖🐍 Ep.6 - The Broadcast (Observer)"
+title: "Like Stories? Love Python! 📖🐍 Ep.6"
 published: false
 description: "Learn the Observer design pattern through The Truman Show’s surveillance system - because sometimes everyone needs to know when state changes!"
 tags: [python, beginners, tutorial, designpatterns]
