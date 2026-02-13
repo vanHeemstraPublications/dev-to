@@ -1,7 +1,7 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.6 - The Broadcast (Observer)"
 published: false
-description: “Learn the Observer design pattern through The Truman Show’s surveillance system - because sometimes everyone needs to know when state changes!“
+description: "Learn the Observer design pattern through The Truman Show’s surveillance system - because sometimes everyone needs to know when state changes!“
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-06.png"
