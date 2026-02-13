@@ -1,12 +1,12 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.4"
 published: false
-description: “Learn the Adapter design pattern through The Martian’s survival ingenuity - because sometimes you need to make incompatible systems work together!"
+description: "Learn the Adapter design pattern through The Martian’s survival ingenuity - because sometimes you need to make incompatible systems work together!"
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!"
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-04.png“
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-04.png"
 canonical_url: “"
-organization: "the-software-s-journey“
+organization: "the-software-s-journey"
 ---
 
 ## Episode 4: Duct Tape Engineering (Adapter Pattern)
