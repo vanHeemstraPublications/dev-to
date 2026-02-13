@@ -1,7 +1,7 @@
 ---
 title: "Like Stories? Love Python! 📖🐍 Ep.8"
 published: false
-description: "Learn the Command design pattern through Westworld’s narrative programming - because requests should be objects with undo redo!"
+description: "Learn the Command design pattern through Westworld’s narrative programming - because requests should be objects with undo/redo!"
 tags: [python, beginners, tutorial, designpatterns]
 series: "Like Stories? Love Python!“
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-stories-love-python-episode-08.png"
