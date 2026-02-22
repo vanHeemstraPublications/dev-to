@@ -5,7 +5,7 @@ description: "Henry Ford revolutionised manufacturing with the assembly line. Cr
 tags: [crossplane, kubernetes, platformengineering, devops]
 series: "Infrastructure-as-Code Adventures"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/crossplane-sipoc-assembly-line.png"
-organization: "the-software-s-journey“
+organization: "the-software-s-journey"
 ---
 
 *How Crossplane v2 orchestrates your cloud infrastructure like Henry Ford orchestrated the Model T — with stunning efficiency, total standardisation, and a philosophy that any customer can have any colour, as long as it’s black. Or in our case: any resource, as long as it’s defined in a Composition.*
