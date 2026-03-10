@@ -1,13 +1,13 @@
------
-
-## title: “Welcome to Container Harbour! 🚢 Ep.1”
+---
+title: "Welcome to Container Harbour! 🚢 Ep.1"
 published: false
-description: “Episode 1: The Big Overview — Kubernetes is the Harbourmaster, your apps are freight containers, and somebody’s gotta run this place!”
+description: "Episode 1: The Big Overview — Kubernetes is the Harbourmaster, your apps are freight containers, and somebody’s gotta run this place!"
 tags: [kubernetes, beginners, devops, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/welcome-to-container-harbour-episode-01.png”
-series: “Welcome to Container Harbour!”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/welcome-to-container-harbour-episode-01.png"
+series: "Welcome to Container Harbour!"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 1: Welcome to Container Harbour! 🚢
 
