@@ -1,0 +1,82 @@
+name: Generate prompt bundle from episode definitions
+
+on:
+  workflow_dispatch:
+    inputs:
+      series_file:
+        description: Path to the series YAML file
+        required: false
+        default: series/SERIES_EPISODES.yaml
+      episode_number:
+        description: Optional episode number to generate
+        required: false
+        default: ""
+
+  push:
+    paths:
+      - series/**
+      - prompts/**
+      - config/**
+      - .github/workflows/generate-prompt-bundle.yml
+
+jobs:
+  build-prompt-bundle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Generate prompt bundle
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+
+          series_path = Path("series/SERIES_EPISODES.yaml")
+          data = yaml.safe_load(series_path.read_text())
+
+          series = data["series"]
+          episodes = data["episodes"]
+
+          out = Path("generated")
+          out.mkdir(exist_ok=True)
+
+          for ep in episodes:
+              filename = out / f"episode-{ep['number']:02d}-{ep['slug']}.md"
+
+              text = f"""# Prompt Bundle
+
+Series: {series['name']}
+Episode: {ep['number']} - {ep['title']}
+
+Metaphor:
+{ep['metaphor']}
+
+Center Action:
+{ep['center_action']}
+
+Props:
+"""
+
+              for p in ep.get("supporting_props", []):
+                  text += f"- {p}\n"
+
+              filename.write_text(text)
+
+          print("Prompt bundles generated.")
+          PY
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: prompt-bundle
+          path: generated/

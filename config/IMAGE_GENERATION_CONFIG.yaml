@@ -1,0 +1,19 @@
+model: image-generation
+resolution: 1792x1024
+aspect_ratio: 16:9
+
+deterministic_settings:
+  seed: 847261
+  guidance_scale: 8
+  steps: 35
+  sampler: deterministic
+
+composition:
+  layout: landscape
+  whitespace_margin: 15%
+
+lighting:
+  style: golden_hour
+
+style:
+  rendering: cinematic_digital_illustration

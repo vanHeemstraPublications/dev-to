@@ -1,0 +1,55 @@
+name: Validate prompt system
+
+on:
+  push:
+    paths:
+      - series/**
+      - prompts/**
+      - config/**
+      - docs/**
+      - .github/workflows/validate-prompt-system.yml
+
+  pull_request:
+    paths:
+      - series/**
+      - prompts/**
+      - config/**
+      - docs/**
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml
+
+      - name: Validate YAML structure
+        run: |
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+
+          series = yaml.safe_load(Path("series/SERIES_EPISODES.yaml").read_text())
+
+          if "series" not in series:
+              raise SystemExit("Missing 'series' block")
+
+          if "episodes" not in series:
+              raise SystemExit("Missing 'episodes' block")
+
+          numbers=set()
+
+          for ep in series["episodes"]:
+              if ep["number"] in numbers:
+                  raise SystemExit("Duplicate episode number")
+
+              numbers.add(ep["number"])
+
+          print("Validation passed.")
+          PY
