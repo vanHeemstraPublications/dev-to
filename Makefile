@@ -96,6 +96,10 @@ ifndef EP
 endif
 	$(PY) scripts/prompt-cli.py generate $(SERIES) $(EP)
 
+check-cli:
+	$(PY) -m py_compile scripts/prompt-cli.py
+	$(PY) scripts/prompt-cli.py list-series
+
 clean:
 	rm -rf generated
 	rm -rf $(VENV)

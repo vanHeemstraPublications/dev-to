@@ -1,37 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-Prompt CLI
-
-Generate prompt bundles locally from a chosen series YAML file.
-
-Usage examples:
-
-Generate all episodes for the Python series:
-
-    python scripts/prompt-cli.py generate series/python_story_series.yaml
-
-Generate all episodes for the Kubernetes series:
-
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml
-
-Generate one episode from a series:
-
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml 4
-
-Optional command to list available series:
-
-    python scripts/prompt-cli.py list-series
-
-Output will be written to:
-
-    generated/<series-id>/
-
-Example:
-
-    generated/python_story_series/episode-04-adapter-pattern.md
-"""
-
 import sys
 from pathlib import Path
 
@@ -42,127 +10,287 @@ except ImportError:
     print("Install with: pip install -r requirements.txt")
     sys.exit(1)
 
-
 SERIES_INDEX_FILE = Path("series/SERIES_INDEX.yaml")
 
 
-def load_yaml(path: Path):
+def load_yaml(path):
+    path = Path(path)
+
     if not path.exists():
         print(f"Error: file not found: {path}")
         sys.exit(1)
 
     try:
-        return yaml.safe_load(path.read_text(encoding="utf-8"))
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
     except Exception as exc:
         print(f"Error reading YAML from {path}: {exc}")
         sys.exit(1)
 
 
 def list_series():
-    data = load_yaml(SERIES_INDEX_FILE)
-
-    series_entries = data.get("series", [])
-    if not series_entries:
-        print("No series found in series/SERIES_INDEX.yaml")
+    if not SERIES_INDEX_FILE.exists():
+        print("Error: series/SERIES_INDEX.yaml not found")
         sys.exit(1)
 
+    data = load_yaml(SERIES_INDEX_FILE)
+    series_entries = data.get("series", [])
+
+    if not series_entries:
+        print("No series defined.")
+        return
+
     print("Available series:")
+
     for item in series_entries:
-        print(f"- {item.get('id')}: {item.get('name')} ({item.get('file')})")
+        sid = item.get("id")
+        name = item.get("name")
+        file = item.get("file")
+        print(f"- {sid}: {name} ({file})")
 
 
-def generate_prompt_bundle(data, episode):
-    series = data["series"]
+def get_episode(data, episode_number):
+    episodes = data.get("episodes", [])
+
+    for episode in episodes:
+        if str(episode.get("number")) == str(episode_number):
+            return episode
+
+    return None
+
+
+def build_prompt(data, episode):
+    series = data.get("series", {})
     defaults = data.get("defaults", {})
     composition = defaults.get("composition", {})
 
-    props = "\n".join(f"- {p}" for p in episode.get("supporting_props", []))
+    series_id = series.get("id", "")
+    series_name = series.get("name", "")
+    orientation = series.get("orientation", "landscape")
+    resolution = series.get("resolution", "1792x1024")
+    aspect_ratio = series.get("aspect_ratio", "16:9")
+    whitespace = series.get("whitespace_margin_percent", 15)
 
-    return f"""# Prompt Bundle
+    setting = defaults.get("setting", "")
+    lighting = defaults.get("lighting", "")
 
-Series ID: {series.get('id', '')}
-Series Name: {series.get('name', '')}
-Series Type: {series.get('type', '')}
+    left_third = composition.get("left_third", "")
+    center = composition.get("center", "")
+    right_third = composition.get("right_third", "")
+    background = composition.get("background", "")
+
+    title = episode.get("title", "")
+    metaphor = episode.get("metaphor", "")
+    center_action = episode.get("center_action", "")
+    props = episode.get("supporting_props", [])
+    props_text = ", ".join(props)
+
+    common = f"""
+Create a polished cinematic {orientation} banner illustration for a web article.
+
+Series title:
+"{series_name}"
+
+Episode subtitle:
+"Episode {episode['number']}: {title}"
+
+Canvas requirements:
+- {aspect_ratio} aspect ratio
+- {resolution} target resolution
+- landscape banner composition
+- about {whitespace}% whitespace around the artwork
+- clean readable layout suitable for a header image
+- avoid clutter and keep the composition visually clear
+
+Scene setting:
+{setting}
+
+Lighting and atmosphere:
+{lighting}
+
+Visual metaphor:
+{metaphor}
+
+Center action:
+{center_action}
+
+Composition guidance:
+- left third: {left_third}
+- center: {center}
+- right third: {right_third}
+- background: {background}
+
+Supporting props to include:
+{props_text}
+
+Typography requirements:
+- include the exact series title: "{series_name}"
+- include the exact subtitle: "Episode {episode['number']}: {title}"
+- typography should feel integrated into the banner
+- keep the title and subtitle readable and well positioned
+
+Style requirements:
+- cinematic digital illustration
+- highly detailed
+- storybook realism
+- polished composition
+- visually striking but not overcrowded
+- designed specifically as a web article banner
+""".strip()
+
+    if series_id == "python_story_series":
+        series_specific = """
+Additional series guidance:
+- the tone should feel playful, witty, educational, and slightly humorous
+- lean into a Hollywood storytelling atmosphere
+- make the design pattern metaphor visually obvious at a glance
+- emphasize film-set energy, production design, and narrative clarity
+- the result should feel like a smart, light-hearted banner for a Python learning series
+""".strip()
+    elif series_id == "container_harbour_series":
+        series_specific = """
+Additional series guidance:
+- the tone should feel adventurous, educational, cinematic, and lightly humorous
+- lean into a grand early-20th-century harbour aesthetic
+- make the Kubernetes metaphor visually obvious at a glance
+- emphasize ships, docks, cranes, logistics, and maritime coordination
+- the result should feel like a smart, memorable banner for a Kubernetes explainer series
+""".strip()
+    else:
+        series_specific = """
+Additional series guidance:
+- keep the concept immediately understandable
+- make the central metaphor easy to grasp visually
+- ensure the image works well as a banner header
+""".strip()
+
+    negative = """
+Avoid:
+- visual clutter
+- unreadable text
+- cramped composition
+- generic stock-art look
+- flat lighting
+- messy perspective
+- low-detail background
+- accidental portrait orientation
+""".strip()
+
+    return f"{common}\n\n{series_specific}\n\n{negative}"
+
+
+def generate_prompt_bundle(data, episode):
+    series = data.get("series", {})
+    defaults = data.get("defaults", {})
+    composition = defaults.get("composition", {})
+
+    props_lines = ""
+    for prop in episode.get("supporting_props", []):
+        props_lines += f"- {prop}\n"
+
+    chatgpt_prompt = build_prompt(data, episode)
+
+    text = f"""
+# Prompt Bundle
+
+Series ID: {series.get('id')}
+Series Name: {series.get('name')}
+Series Type: {series.get('type')}
 
 Episode: {episode['number']} - {episode['title']}
-Slug: {episode.get('slug', '')}
+Slug: {episode.get('slug')}
 
-Canvas:
-- orientation: {series.get('orientation', '')}
-- resolution: {series.get('resolution', '')}
-- aspect ratio: {series.get('aspect_ratio', '')}
-- whitespace margin: {series.get('whitespace_margin_percent', '')}%
+Canvas
+orientation: {series.get('orientation')}
+resolution: {series.get('resolution')}
+aspect ratio: {series.get('aspect_ratio')}
+whitespace margin: {series.get('whitespace_margin_percent')}%
 
-Prompt Assets:
-- deterministic config: {series.get('deterministic_config', '')}
-- prompt template: {series.get('prompt_template', '')}
+Prompt Assets
+deterministic config: {series.get('deterministic_config')}
+prompt template: {series.get('prompt_template')}
 
-Defaults:
-- setting: {defaults.get('setting', '')}
-- lighting: {defaults.get('lighting', '')}
+Defaults
+setting: {defaults.get('setting')}
+lighting: {defaults.get('lighting')}
 
-Composition:
-- left third: {composition.get('left_third', '')}
-- center: {composition.get('center', '')}
-- right third: {composition.get('right_third', '')}
-- background: {composition.get('background', '')}
+Composition
+left third: {composition.get('left_third')}
+center: {composition.get('center')}
+right third: {composition.get('right_third')}
+background: {composition.get('background')}
 
-Episode Metaphor:
-{episode.get('metaphor', '')}
+Episode Metaphor
+{episode.get('metaphor')}
 
-Center Action:
-{episode.get('center_action', '')}
+Center Action
+{episode.get('center_action')}
 
-Supporting Props:
-{props}
+Supporting Props
+{props_lines}
 
-Suggested Subtitle:
+Suggested Subtitle
 Episode {episode['number']}: {episode['title']}
-"""
+
+--------------------------------------------------
+
+ChatGPT Image Prompt
+
+{chatgpt_prompt}
+""".strip()
+
+    return text
 
 
-def generate_all(series_path: Path):
-    data = load_yaml(series_path)
+def generate_all(series_file):
+    data = load_yaml(series_file)
 
     series = data.get("series", {})
     series_id = series.get("id", "unknown_series")
     episodes = data.get("episodes", [])
 
     if not episodes:
-        print(f"No episodes found in {series_path}")
+        print("No episodes defined.")
         sys.exit(1)
 
-    output_dir = Path("generated") / series_id
-    output_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = Path("generated") / series_id
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     for episode in episodes:
-        filename = output_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
-        filename.write_text(generate_prompt_bundle(data, episode), encoding="utf-8")
+        filename = out_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
+        content = generate_prompt_bundle(data, episode)
+
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(content)
+
         print(f"Generated {filename}")
 
 
-def generate_single(series_path: Path, episode_number: str):
-    data = load_yaml(series_path)
+def generate_single(series_file, episode_number):
+    data = load_yaml(series_file)
 
     series = data.get("series", {})
     series_id = series.get("id", "unknown_series")
-    episodes = data.get("episodes", [])
+    episode = get_episode(data, episode_number)
 
-    output_dir = Path("generated") / series_id
-    output_dir.mkdir(parents=True, exist_ok=True)
+    if not episode:
+        print(f"Episode {episode_number} not found.")
+        sys.exit(1)
 
-    for episode in episodes:
-        if str(episode.get("number")) == str(episode_number):
-            filename = output_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
-            filename.write_text(generate_prompt_bundle(data, episode), encoding="utf-8")
-            print(f"Generated {filename}")
-            return
+    out_dir = Path("generated") / series_id
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"Episode {episode_number} not found in {series_path}")
-    sys.exit(1)
+    filename = out_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
+    content = generate_prompt_bundle(data, episode)
+
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    print(f"Generated {filename}")
 
 
 def print_usage():
+    print("")
     print("Usage:")
     print("  python scripts/prompt-cli.py list-series")
     print("  python scripts/prompt-cli.py generate <series_file>")
@@ -173,12 +301,13 @@ def print_usage():
     print("  python scripts/prompt-cli.py generate series/python_story_series.yaml")
     print("  python scripts/prompt-cli.py generate series/container_harbour_series.yaml")
     print("  python scripts/prompt-cli.py generate series/container_harbour_series.yaml 4")
+    print("")
 
 
 def main():
     if len(sys.argv) < 2:
         print_usage()
-        sys.exit(0)
+        return
 
     command = sys.argv[1]
 
@@ -186,22 +315,23 @@ def main():
         list_series()
         return
 
-    if command != "generate":
-        print("Unknown command.")
-        print_usage()
-        sys.exit(1)
+    if command == "generate":
+        if len(sys.argv) < 3:
+            print("Missing series file.")
+            print_usage()
+            return
 
-    if len(sys.argv) < 3:
-        print("Missing required argument: <series_file>")
-        print_usage()
-        sys.exit(1)
+        series_file = sys.argv[2]
 
-    series_file = Path(sys.argv[2])
+        if len(sys.argv) == 3:
+            generate_all(series_file)
+        else:
+            generate_single(series_file, sys.argv[3])
 
-    if len(sys.argv) == 3:
-        generate_all(series_file)
-    else:
-        generate_single(series_file, sys.argv[3])
+        return
+
+    print("Unknown command.")
+    print_usage()
 
 
 if __name__ == "__main__":
