@@ -1,0 +1,50 @@
+name: Check generated docs
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "series/**"
+      - "docs/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/check-generated-docs.yml"
+  push:
+    paths:
+      - "series/**"
+      - "docs/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/check-generated-docs.yml"
+
+jobs:
+  check-generated-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Regenerate docs
+        run: python scripts/prompt-docs.py
+
+      - name: Check for uncommitted doc changes
+        run: |
+          git diff --exit-code docs/EPISODE_INDEX.md docs/SERIES_INDEX.md || (
+            echo ""
+            echo "Generated docs are out of date."
+            echo "Please run:"
+            echo "  python scripts/prompt-docs.py"
+            echo "and commit the updated files:"
+            echo "  docs/EPISODE_INDEX.md"
+            echo "  docs/SERIES_INDEX.md"
+            exit 1
+          )

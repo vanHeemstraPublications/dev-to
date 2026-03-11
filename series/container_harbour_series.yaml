@@ -1,0 +1,108 @@
+series:
+  id: container_harbour_series
+  name: "Welcome to container harbour!"
+  type: kubernetes_explainer_series
+  orientation: landscape
+  resolution: "1792x1024"
+  aspect_ratio: "16:9"
+  whitespace_margin_percent: 15
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/kubernetes_episode_template.md"
+
+defaults:
+  setting: "Titanic-era container harbour at golden sunset"
+  lighting: "warm cinematic maritime atmosphere"
+  composition:
+    left_third: "harbour captain presenter"
+    center: "dock activity and container metaphor"
+    right_third: "crane lifting cargo"
+    background: "steamship and harbor skyline"
+
+episodes:
+  - number: 1
+    title: "What is Kubernetes, really?"
+    slug: "what-is-kubernetes-really"
+    metaphor: "a harbor coordinating many containers and ships"
+    center_action: "cargo is organized and routed across the harbor"
+    supporting_props:
+      - "shipping ledger"
+      - "ropes"
+      - "dock carts"
+      - "stacked cargo"
+
+  - number: 2
+    title: "Pods — Ships in the Harbour"
+    slug: "pods-ships-in-the-harbour"
+    metaphor: "pods as grouped units traveling together"
+    center_action: "containers are grouped together on the same vessel"
+    supporting_props:
+      - "cargo net"
+      - "grouped crates"
+      - "dock workers"
+      - "manifest clipboard"
+
+  - number: 3
+    title: "Deployments — Shipping Schedules"
+    slug: "deployments-shipping-schedules"
+    metaphor: "deployments as planned recurring shipping operations"
+    center_action: "the harbor manager schedules repeated ship departures"
+    supporting_props:
+      - "harbor timetable board"
+      - "captain whistle"
+      - "schedule ledger"
+      - "departure bell"
+
+  - number: 4
+    title: "Services — Harbour Traffic Control"
+    slug: "services-harbour-traffic-control"
+    metaphor: "services as stable routes directing traffic to the right destination"
+    center_action: "incoming cargo is routed to the correct dock"
+    supporting_props:
+      - "signal flags"
+      - "direction signs"
+      - "routing desk"
+      - "control tower lamp"
+
+  - number: 5
+    title: "Ingress — The Harbour Gate"
+    slug: "ingress-the-harbour-gate"
+    metaphor: "ingress as the guarded gateway that decides what may enter"
+    center_action: "ships are directed through one official harbor entrance"
+    supporting_props:
+      - "harbor gate"
+      - "customs booth"
+      - "entry stamps"
+      - "lantern posts"
+
+  - number: 6
+    title: "Autoscaling — Expanding the Fleet"
+    slug: "autoscaling-expanding-the-fleet"
+    metaphor: "autoscaling as adding or removing ships depending on demand"
+    center_action: "more vessels are called in as harbor traffic increases"
+    supporting_props:
+      - "signal flare"
+      - "reserve tugboats"
+      - "traffic counter"
+      - "dispatch board"
+
+  - number: 7
+    title: "Self-Healing — Repairing the Fleet"
+    slug: "self-healing-repairing-the-fleet"
+    metaphor: "self-healing as quickly replacing damaged ships or cargo operations"
+    center_action: "a broken vessel is swapped out without stopping the harbor"
+    supporting_props:
+      - "repair tools"
+      - "dry dock"
+      - "replacement ship"
+      - "maintenance crew"
+
+  - number: 8
+    title: "Namespaces — Docks Within the Harbour"
+    slug: "namespaces-docks-within-the-harbour"
+    metaphor: "namespaces as clearly separated dock zones inside one harbor"
+    center_action: "different teams work in separate dock sections without interference"
+    supporting_props:
+      - "zone signs"
+      - "painted dock boundaries"
+      - "cargo labels"
+      - "team uniforms"

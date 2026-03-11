@@ -70,6 +70,7 @@ htmlcov/
 *.temp
 temp/
 tmp/
+generated/
 
 # Medium drafts (optional - if you want to work on drafts locally first)
 # drafts/

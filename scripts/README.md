@@ -6,25 +6,60 @@ This directory contains local tooling for the prompt framework.
 
 ### `prompt-cli.py`
 
-Generate prompt bundles locally from `series/SERIES_EPISODES.yaml`.
+Generate prompt bundles locally from a chosen series file.
 
 Examples:
 
-Generate all episodes:
+List all known series from `series/SERIES_INDEX.yaml`:
 
 ```bash
-python scripts/prompt-cli.py generate
+python scripts/prompt-cli.py list-series
 ```
 
-Generate one episode:
+Generate all episodes for the Python series:
 
 ```bash
-python scripts/prompt-cli.py generate 4
+python scripts/prompt-cli.py generate series/python_story_series.yaml
 ```
+
+Generate all episodes for the Kubernetes series:
+
+```bash
+python scripts/prompt-cli.py generate series/container_harbour_series.yaml
+```
+
+Generate one episode from a series:
+
+```bash
+python scripts/prompt-cli.py generate series/container_harbour_series.yaml 4
+```
+
+Output examples:
+
+generated/python_story_series/episode-04-adapter-pattern.md  
+generated/container_harbour_series/episode-04-services-harbour-traffic-control.md
+
+## prompt-lint.py
+
+Validate the prompt framework structure and check for common issues.
+
+Example:
+
+```bash
+python scripts/prompt-lint.py
+```
+
+This checks:
+
+- required directories exist
+- required files exist
+- series YAML files are valid
+- episode numbers are unique
+- episode slugs are unique
 
 ## prompt-docs.py
 
-Generate documentation from series/SERIES_EPISODES.yaml.
+Generate documentation from series YAML files.
 
 Example:
 
@@ -34,35 +69,32 @@ python scripts/prompt-docs.py
 
 Output:
 
-docs/EPISODE_INDEX.md
+docs/EPISODE_INDEX.md  
+docs/SERIES_INDEX.md
 
-## Setup
+# Setup
 
-Install dependencies:
+## Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-```
-
-Or directly:
-
-```bash
-pip install pyyaml
 ```
 
 ## Suggested Commands
 
 ```bash
 pip install -r requirements.txt
+python scripts/prompt-cli.py list-series
 python scripts/prompt-lint.py
 python scripts/prompt-docs.py
-python scripts/prompt-cli.py generate
-python scripts/prompt-cli.py generate 4
+python scripts/prompt-cli.py generate series/python_story_series.yaml
+python scripts/prompt-cli.py generate series/container_harbour_series.yaml
+python scripts/prompt-cli.py generate series/container_harbour_series.yaml 4
 ```
 
 ## Typical Local Workflow
 
-1. Update series/SERIES_EPISODES.yaml
+1. Update one or more files in /series
 2. Run the linter
 3. Regenerate docs
 4. Generate one or more prompt bundles
@@ -72,5 +104,23 @@ Example:
 ```bash
 python scripts/prompt-lint.py
 python scripts/prompt-docs.py
-python scripts/prompt-cli.py generate
+python scripts/prompt-cli.py generate series/python_story_series.yaml
+python scripts/prompt-cli.py generate series/container_harbour_series.yaml
 ```
+
+## Makefile Shortcuts
+
+If your repository includes a root `Makefile`, you can use shorter commands:
+
+```bash
+make install
+make lint
+make docs
+make list-series
+make generate-python
+make generate-kubernetes
+make generate-kubernetes-episode-4
+make validate
+make clean
+```
+

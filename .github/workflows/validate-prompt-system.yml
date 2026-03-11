@@ -1,55 +1,50 @@
 name: Validate prompt system
 
 on:
-  push:
-    paths:
-      - series/**
-      - prompts/**
-      - config/**
-      - docs/**
-      - .github/workflows/validate-prompt-system.yml
-
+  workflow_dispatch:
   pull_request:
     paths:
-      - series/**
-      - prompts/**
-      - config/**
-      - docs/**
+      - "series/**"
+      - "prompts/**"
+      - "config/**"
+      - "docs/**"
+      - "scripts/**"
+      - ".github/workflows/validate-prompt-system.yml"
+  push:
+    paths:
+      - "series/**"
+      - "prompts/**"
+      - "config/**"
+      - "docs/**"
+      - "scripts/**"
+      - ".github/workflows/validate-prompt-system.yml"
 
 jobs:
   validate:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - run: pip install pyyaml
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Validate YAML structure
-        run: |
-          python - <<'PY'
-          import yaml
-          from pathlib import Path
+      - name: Run prompt linter
+        run: python scripts/prompt-lint.py
 
-          series = yaml.safe_load(Path("series/SERIES_EPISODES.yaml").read_text())
+      - name: Generate docs
+        run: python scripts/prompt-docs.py
 
-          if "series" not in series:
-              raise SystemExit("Missing 'series' block")
-
-          if "episodes" not in series:
-              raise SystemExit("Missing 'episodes' block")
-
-          numbers=set()
-
-          for ep in series["episodes"]:
-              if ep["number"] in numbers:
-                  raise SystemExit("Duplicate episode number")
-
-              numbers.add(ep["number"])
-
-          print("Validation passed.")
-          PY
+      - name: Upload validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: prompt-system-validation
+          path: |
+            docs/EPISODE_INDEX.md
+            docs/SERIES_INDEX.md

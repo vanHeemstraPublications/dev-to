@@ -1,0 +1,10 @@
+series:
+  - id: python_story_series
+    name: "Like Stories? Love Python!"
+    file: "series/python_story_series.yaml"
+    prompt_template: "prompts/python_story_episode_template.md"
+
+  - id: container_harbour_series
+    name: "Welcome to container harbour!"
+    file: "series/container_harbour_series.yaml"
+    prompt_template: "prompts/kubernetes_episode_template.md"
