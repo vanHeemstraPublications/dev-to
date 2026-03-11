@@ -32,17 +32,34 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          HOST="${GITHUB_SERVER_URL#https://}"
+          HOST="${HOST#http://}"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@${HOST}/${GITHUB_REPOSITORY}.git"
+
+          git init .
+          git remote add origin "${REMOTE}"
+          git fetch --no-tags --prune origin "${GITHUB_REF}"
+          git checkout -B "${GITHUB_REF_NAME}" FETCH_HEAD
 
       - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v python3.12 >/dev/null 2>&1; then
+            PYTHON="python3.12"
+          else
+            PYTHON="python3"
+          fi
+          echo "PYTHON=$PYTHON" >> "$GITHUB_ENV"
+          $PYTHON --version
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: $PYTHON -m pip install -r requirements.txt
 
       - name: Generate selected series or all series
         env:
@@ -54,9 +71,9 @@ jobs:
 
             if [ -n "$EPISODE_NUMBER" ]; then
               echo "Generating episode: $EPISODE_NUMBER"
-              python scripts/prompt-cli.py generate "$SERIES_FILE" "$EPISODE_NUMBER"
+              $PYTHON scripts/prompt-cli.py generate "$SERIES_FILE" "$EPISODE_NUMBER"
             else
-              python scripts/prompt-cli.py generate "$SERIES_FILE"
+              $PYTHON scripts/prompt-cli.py generate "$SERIES_FILE"
             fi
           else
             echo "No series_file provided. Generating all series."
@@ -65,7 +82,7 @@ jobs:
                 continue
               fi
               echo "Generating prompt bundles for $file"
-              python scripts/prompt-cli.py generate "$file"
+              $PYTHON scripts/prompt-cli.py generate "$file"
             done
           fi
 
@@ -82,4 +99,4 @@ jobs:
           fi
 
           git commit -m "chore(generated): refresh prompt bundles"
-          git push
+          git push origin HEAD:"${GITHUB_REF_NAME}"

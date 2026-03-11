@@ -21,6 +21,9 @@ on:
       - "requirements.txt"
       - ".github/workflows/validate-prompt-system.yml"
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     if: github.actor != 'github-actions[bot]'
@@ -28,26 +31,62 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          HOST="${GITHUB_SERVER_URL#https://}"
+          HOST="${HOST#http://}"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@${HOST}/${GITHUB_REPOSITORY}.git"
+
+          git init .
+          git remote add origin "${REMOTE}"
+          git fetch --no-tags --prune --depth=1 origin "${GITHUB_REF}"
+          git checkout --detach FETCH_HEAD
 
       - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+        shell: bash
+        run: |
+          set -euo pipefail
+          if command -v python3.12 >/dev/null 2>&1; then
+            PYTHON="python3.12"
+          else
+            PYTHON="python3"
+          fi
+          echo "PYTHON=$PYTHON" >> "$GITHUB_ENV"
+          $PYTHON --version
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: $PYTHON -m pip install -r requirements.txt
 
       - name: Run prompt linter
-        run: python scripts/prompt-lint.py
+        run: $PYTHON scripts/prompt-lint.py
 
       - name: Generate docs
-        run: python scripts/prompt-docs.py
+        run: $PYTHON scripts/prompt-docs.py
 
-      - name: Upload validation artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: prompt-system-validation
-          path: |
-            docs/EPISODE_INDEX.md
-            docs/SERIES_INDEX.md
+      - name: Package validation artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -czf prompt-system-validation.tgz docs/EPISODE_INDEX.md docs/SERIES_INDEX.md
+          ls -lh prompt-system-validation.tgz
+
+      - name: Publish validation artifact branch
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BRANCH="artifacts/prompt-system-validation/${GITHUB_RUN_ID}"
+
+          git checkout --orphan "$BRANCH"
+          git rm -rf . >/dev/null 2>&1 || true
+
+          git add prompt-system-validation.tgz
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "chore(artifacts): prompt system validation ${GITHUB_RUN_ID}"
+
+          git push origin HEAD:"$BRANCH"
