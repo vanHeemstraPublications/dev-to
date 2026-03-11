@@ -370,3 +370,4 @@ Until then — keep your Pods healthy, your images tagged, and for the love of e
 - **SIPOC for Pods**: image + config IN → Kubernetes schedules it → running app OUT → users happy
 - `kubectl logs`, `kubectl describe`, and `kubectl exec` are your three best friends
 - `CrashLoopBackOff` means something is broken. Check logs. Breathe. Check logs again. 🔍
+ 
