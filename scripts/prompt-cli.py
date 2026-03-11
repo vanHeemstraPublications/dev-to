@@ -59,6 +59,28 @@ def get_episode(data, episode_number):
     return None
 
 
+def build_title_safety_block(series_name, episode_number, title):
+    return f"""
+DEV.to title safety requirements:
+- This image will be used as a DEV.to article header/banner, so all text must remain fully readable inside a conservative safe area.
+- Do not place any important text near the extreme top edge, bottom edge, left edge, or right edge.
+- Reserve a strong safe margin: keep all title typography at least 12% away from the left and right edges, at least 14% away from the top edge, and at least 12% away from the bottom edge.
+- Place the main title block in the upper-middle portion of the artwork, not flush against the top border.
+- Keep the subtitle clearly below the main title with generous spacing.
+- Use slightly smaller typography rather than oversized typography if needed for readability.
+- Do not let any letter, ornament, frame, or banner overlap the image boundary.
+- Avoid decorative flourishes that extend beyond the safe text area.
+- The full title and subtitle must be completely visible in the final banner image.
+
+Exact text to include:
+Top title:
+"{series_name}"
+
+Subtitle:
+"Episode {episode_number}: {title}"
+""".strip()
+
+
 def build_prompt(data, episode):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
@@ -84,6 +106,8 @@ def build_prompt(data, episode):
     center_action = episode.get("center_action", "")
     props = episode.get("supporting_props", [])
     props_text = ", ".join(props)
+
+    title_safety = build_title_safety_block(series_name, episode["number"], title)
 
     common = f"""
 Create a polished cinematic {orientation} banner illustration for a web article.
@@ -123,12 +147,6 @@ Composition guidance:
 Supporting props to include:
 {props_text}
 
-Typography requirements:
-- include the exact series title: "{series_name}"
-- include the exact subtitle: "Episode {episode['number']}: {title}"
-- typography should feel integrated into the banner
-- keep the title and subtitle readable and well positioned
-
 Style requirements:
 - cinematic digital illustration
 - highly detailed
@@ -136,6 +154,8 @@ Style requirements:
 - polished composition
 - visually striking but not overcrowded
 - designed specifically as a web article banner
+
+{text_wrap(title_safety)}
 """.strip()
 
     if series_id == "python_story_series":
@@ -174,9 +194,16 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
+- oversized title text that touches or nearly touches the top edge
+- title banners placed too high for DEV.to header usage
+- cropped-looking typography
 """.strip()
 
     return f"{common}\n\n{series_specific}\n\n{negative}"
+
+
+def text_wrap(text):
+    return text
 
 
 def generate_prompt_bundle(data, episode):
