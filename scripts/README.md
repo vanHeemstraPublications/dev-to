@@ -110,17 +110,19 @@ python scripts/prompt-cli.py generate series/container_harbour_series.yaml
 
 ## Makefile Shortcuts
 
-If your repository includes a root `Makefile`, you can use shorter commands:
+If your repository includes the root `Makefile`, you can use:
 
 ```bash
 make install
 make lint
 make docs
-make list-series
-make generate-python
-make generate-kubernetes
-make generate-kubernetes-episode-4
 make validate
+make list-series
+make show-series-files
+make generate-all
+make generate-series SERIES=series/python_story_series.yaml
+make generate-series SERIES=series/container_harbour_series.yaml
+make generate-episode SERIES=series/container_harbour_series.yaml EP=4
 make clean
 ```
 

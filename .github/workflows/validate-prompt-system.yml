@@ -9,6 +9,7 @@ on:
       - "config/**"
       - "docs/**"
       - "scripts/**"
+      - "requirements.txt"
       - ".github/workflows/validate-prompt-system.yml"
   push:
     paths:
@@ -17,10 +18,12 @@ on:
       - "config/**"
       - "docs/**"
       - "scripts/**"
+      - "requirements.txt"
       - ".github/workflows/validate-prompt-system.yml"
 
 jobs:
   validate:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
