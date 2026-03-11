@@ -13,10 +13,6 @@ resolution: 1792x1024
 aspect ratio: 16:9
 whitespace margin: 15%
 
-Prompt Assets
-deterministic config: config/IMAGE_GENERATION_CONFIG.yaml
-prompt template: prompts/kubernetes_episode_template.md
-
 Defaults
 setting: Titanic-era container harbour at golden sunset
 lighting: warm cinematic maritime atmosphere
@@ -40,9 +36,6 @@ Supporting Props
 - cargo inventory ledger
 
 
-Suggested Subtitle
-Episode 11: Volumes — The Cargo Warehouse
-
 --------------------------------------------------
 
 ChatGPT Image Prompt
@@ -57,16 +50,14 @@ Episode subtitle:
 
 Canvas requirements:
 - 16:9 aspect ratio
-- 1792x1024 target resolution
-- landscape banner composition
-- about 15% whitespace around the artwork
-- clean readable layout suitable for a header image
-- avoid clutter and keep the composition visually clear
+- 1792x1024 resolution
+- landscape banner layout
+- about 15% whitespace around artwork
 
 Scene setting:
 Titanic-era container harbour at golden sunset
 
-Lighting and atmosphere:
+Lighting:
 warm cinematic maritime atmosphere
 
 Visual metaphor:
@@ -76,56 +67,66 @@ Center action:
 containers unload cargo into a dockside warehouse where it remains even if ships leave
 
 Composition guidance:
-- left third: harbour captain presenter
-- center: dock activity and container metaphor
-- right third: crane lifting cargo
-- background: steamship and harbor skyline
+Left third: harbour captain presenter
+Center: dock activity and container metaphor
+Right third: crane lifting cargo
+Background: steamship and harbor skyline
 
-Supporting props to include:
+Supporting props:
 warehouse building, stacked crates, dock forklifts, cargo inventory ledger
 
-Style requirements:
-- cinematic digital illustration
-- highly detailed
-- storybook realism
-- polished composition
-- visually striking but not overcrowded
-- designed specifically as a web article banner
+Typography safety:
+- text must remain fully visible inside a safe central area
+- keep titles away from edges
+- ensure the full title is readable
 
-DEV.to title safety requirements:
-- This image will be used as a DEV.to article header/banner, so all text must remain fully readable inside a conservative safe area.
-- Do not place any important text near the extreme top edge, bottom edge, left edge, or right edge.
-- Reserve a strong safe margin: keep all title typography at least 12% away from the left and right edges, at least 14% away from the top edge, and at least 12% away from the bottom edge.
-- Place the main title block in the upper-middle portion of the artwork, not flush against the top border.
-- Keep the subtitle clearly below the main title with generous spacing.
-- Use slightly smaller typography rather than oversized typography if needed for readability.
-- Do not let any letter, ornament, frame, or banner overlap the image boundary.
-- Avoid decorative flourishes that extend beyond the safe text area.
-- The full title and subtitle must be completely visible in the final banner image.
+Style:
+cinematic digital illustration, storybook realism, highly detailed, polished banner composition
 
-Exact text to include:
-Top title:
-"Welcome to container harbour!"
+--------------------------------------------------
 
-Subtitle:
-"Episode 11: Volumes — The Cargo Warehouse"
+Claude / ChatGPT Article Prompt
 
-Additional series guidance:
-- the tone should feel adventurous, educational, cinematic, and lightly humorous
-- lean into a grand early-20th-century harbour aesthetic
-- make the Kubernetes metaphor visually obvious at a glance
-- emphasize ships, docks, cranes, logistics, and maritime coordination
-- the result should feel like a smart, memorable banner for a Kubernetes explainer series
+I have created a repository that contains markdown articles published to dev.to.
 
-Avoid:
-- visual clutter
-- unreadable text
-- cramped composition
-- generic stock-art look
-- flat lighting
-- messy perspective
-- low-detail background
-- accidental portrait orientation
-- oversized title text that touches or nearly touches the top edge
-- title banners placed too high for DEV.to header usage
-- cropped-looking typography
+The articles live in:
+https://github.com/vanHeemstraSystems/dev-to/articles/
+
+Please inspect the formatting style used in those articles, especially the frontmatter.
+
+Now create the following article.
+
+Series:
+Welcome to container harbour!
+
+Episode:
+Episode 11: Volumes — The Cargo Warehouse
+
+Writing style requirements:
+- light-hearted tone
+- humorous delivery similar to Eddie Murphy's storytelling style
+- beginner-friendly
+- explain complex concepts in simple terms
+
+Concept explanation metaphor:
+cargo warehouses storing goods independently of ships
+
+Article requirements:
+- produce a complete dev.to-ready markdown article
+- include frontmatter similar to the examples in the repository
+- include headings and subheadings
+- include humorous storytelling
+- include practical code examples
+- include explanations of the code
+- ensure the article is engaging and readable
+
+Structure suggestion:
+1. humorous opening hook
+2. introduce the metaphor
+3. explain the concept step-by-step
+4. include code examples
+5. recap the key idea
+6. end with a teaser for the next episode
+
+Output:
+Return the complete article in markdown including frontmatter.
