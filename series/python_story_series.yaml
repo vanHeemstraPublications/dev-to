@@ -106,3 +106,80 @@ episodes:
       - "cue cards"
       - "walkie-talkies"
       - "clapperboard"
+
+  - number: 9
+    title: "Facade Pattern"
+    slug: "facade-pattern"
+    metaphor: "a single studio front desk simplifying access to many departments"
+    center_action: "the presenter uses one reception desk to coordinate lighting, costumes, and props"
+    supporting_props:
+      - "studio reception desk"
+      - "department signs"
+      - "walkie-talkies"
+      - "production clipboard"
+
+  - number: 10
+    title: "Proxy Pattern"
+    slug: "proxy-pattern"
+    metaphor: "a stunt double standing in for a movie star"
+    center_action: "a stunt performer temporarily replaces the main actor during filming"
+    supporting_props:
+      - "director chair"
+      - "camera crane"
+      - "stunt safety mats"
+      - "clapperboard"
+
+  - number: 11
+    title: "Chain of Responsibility Pattern"
+    slug: "chain-of-responsibility-pattern"
+    metaphor: "a script request passing through several film crew members until someone handles it"
+    center_action: "crew members pass a request along until the right department resolves it"
+    supporting_props:
+      - "script folders"
+      - "assistant director headset"
+      - "production desk"
+      - "message clipboard"
+
+  - number: 12
+    title: "Mediator Pattern"
+    slug: "mediator-pattern"
+    metaphor: "a director coordinating communication between actors and crew"
+    center_action: "the director orchestrates interactions so actors do not talk directly to every crew member"
+    supporting_props:
+      - "director megaphone"
+      - "studio monitors"
+      - "boom microphone"
+      - "film crew headsets"
+
+  - number: 13
+    title: "State Pattern"
+    slug: "state-pattern"
+    metaphor: "a film set changing behavior depending on whether filming, rehearsing, or resetting"
+    center_action: "the crew changes how they behave depending on the current filming state"
+    supporting_props:
+      - "studio signal light"
+      - "camera rig"
+      - "director slate"
+      - "stage lighting controls"
+
+  - number: 14
+    title: "Template Method Pattern"
+    slug: "template-method-pattern"
+    metaphor: "a standard film production workflow reused across different scenes"
+    center_action: "crew follows the same filming sequence but adapts certain steps for each scene"
+    supporting_props:
+      - "production checklist"
+      - "scene storyboard"
+      - "film slate"
+      - "camera setup diagram"
+
+  - number: 15
+    title: "Visitor Pattern"
+    slug: "visitor-pattern"
+    metaphor: "a film critic visiting different departments to analyze their work"
+    center_action: "a critic moves between departments evaluating different aspects of the production"
+    supporting_props:
+      - "critic notebook"
+      - "studio tour badge"
+      - "film lighting rig"
+      - "camera dolly"      

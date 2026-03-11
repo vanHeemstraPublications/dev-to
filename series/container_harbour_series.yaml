@@ -106,3 +106,80 @@ episodes:
       - "painted dock boundaries"
       - "cargo labels"
       - "team uniforms"
+
+  - number: 9
+    title: "ConfigMaps — Harbour Notice Boards"
+    slug: "configmaps-harbour-notice-boards"
+    metaphor: "shared harbour notice boards displaying operational information for crews"
+    center_action: "dock workers read configuration instructions posted on a large harbour notice board"
+    supporting_props:
+      - "harbour notice board"
+      - "pinned instruction sheets"
+      - "dock workers reading notices"
+      - "harbour control clipboard"
+
+  - number: 10
+    title: "Secrets — The Captain's Locked Safe"
+    slug: "secrets-the-captains-locked-safe"
+    metaphor: "sensitive harbour information stored securely in the captain’s safe"
+    center_action: "the harbour captain unlocks a secure safe containing confidential navigation documents"
+    supporting_props:
+      - "locked safe"
+      - "sealed envelopes"
+      - "captain keyring"
+      - "confidential cargo manifest"
+
+  - number: 11
+    title: "Volumes — The Cargo Warehouse"
+    slug: "volumes-the-cargo-warehouse"
+    metaphor: "cargo warehouses storing goods independently of ships"
+    center_action: "containers unload cargo into a dockside warehouse where it remains even if ships leave"
+    supporting_props:
+      - "warehouse building"
+      - "stacked crates"
+      - "dock forklifts"
+      - "cargo inventory ledger"
+
+  - number: 12
+    title: "Persistent Volumes — Permanent Harbour Storage"
+    slug: "persistent-volumes-permanent-harbour-storage"
+    metaphor: "permanent harbour storage facilities used by many ships"
+    center_action: "ships repeatedly load and unload cargo from a large permanent storage facility"
+    supporting_props:
+      - "large cargo depot"
+      - "dock cranes"
+      - "cargo pallets"
+      - "shipping labels"
+
+  - number: 13
+    title: "Nodes — The Harbour Piers"
+    slug: "nodes-the-harbour-piers"
+    metaphor: "piers where ships dock and operate"
+    center_action: "multiple ships dock at different piers where crews unload containers"
+    supporting_props:
+      - "harbour piers"
+      - "mooring ropes"
+      - "dock cranes"
+      - "cargo carts"
+
+  - number: 14
+    title: "Cluster — The Entire Harbour"
+    slug: "cluster-the-entire-harbour"
+    metaphor: "the whole harbour system coordinating ships, piers, warehouses, and traffic"
+    center_action: "a panoramic view of the harbour showing ships docking, cranes moving cargo, and the harbour master coordinating activity"
+    supporting_props:
+      - "harbour master tower"
+      - "signal flags"
+      - "multiple piers"
+      - "cargo ships"
+
+  - number: 15
+    title: "Helm — The Harbour Blueprint"
+    slug: "helm-the-harbour-blueprint"
+    metaphor: "a blueprint used to quickly construct identical harbour installations"
+    center_action: "engineers unroll architectural blueprints showing how to replicate an entire harbour setup"
+    supporting_props:
+      - "rolled blueprints"
+      - "construction tools"
+      - "harbour scale model"
+      - "engineer drafting table"      
