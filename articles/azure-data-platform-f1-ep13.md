@@ -1,11 +1,16 @@
 ---
-title: "Scuderia Data Ep.13 — Race Broadcast (Power BI, Synapse & Serving Data)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.13"
+published: false
+description: "Episode 13: Race Broadcast"
 part: 13
-tags: powerbi, synapse, databricks, analytics
+tags: [powerbi, synapse, databricks, analytics]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-13.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
-# 📺 Episode 13 — Race Broadcast
+# 📺 Episode 13 — Race Broadcast (Power BI, Synapse & Serving Data)
 
 > *"The engineers in the garage see raw telemetry. The pit wall sees aggregated strategy data. The world watching on TV sees a clean graphic: 'Hamilton P1, +4.2s to Verstappen'. Same data, three different consumers."*
 
