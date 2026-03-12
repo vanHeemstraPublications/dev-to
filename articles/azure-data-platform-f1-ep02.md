@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.2 — The Fuel Tank (Azure Data Lake Storage Gen2)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.2"
+published: false
+description: "Episode 2: The Fuel Tank"
 part: 2
-tags: azure, storage, dataengineering, databricks
+tags: [azure, storage, dataengineering, databricks]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-02.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🛢️ Episode 2 — The Fuel Tank
