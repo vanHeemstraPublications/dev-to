@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.8 — Gold Aggregation (Business-Ready Data Products)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.8"
+published: false
+description: "Episode 8: Gold Aggregation"
 part: 8
-tags: delta, databricks, analytics, dataengineering
+tags: [delta, databricks, analytics, dataengineering]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-08.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🥇 Episode 8 — Gold Aggregation
