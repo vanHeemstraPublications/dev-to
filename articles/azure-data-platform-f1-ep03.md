@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.3 — Fuel Logistics (Azure Data Factory)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.3"
+published: false
+description: "Episode 3: Fuel Logistics"
 part: 3
-tags: azure, adf, dataengineering, pipelines
+tags: [azure, adf, dataengineering, pipelines]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-03.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🚛 Episode 3 — Fuel Logistics
