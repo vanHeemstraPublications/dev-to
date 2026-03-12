@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.4 — The Race Car (Azure Databricks Architecture)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.4"
+published: false
+description: "Episode 4: The Race Car"
 part: 4
-tags: azure, databricks, architecture, dataengineering
+tags: [azure, databricks, architecture, dataengineering]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-04.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🏎️ Episode 4 — The Race Car
