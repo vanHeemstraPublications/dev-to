@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.9 — The Cockpit (Databricks Notebooks, Workflows & Jobs)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.9"
+published: false
+description: "Episode 9: The Cockpit"
 part: 9
-tags: databricks, notebooks, workflows, dataengineering
+tags: [databricks, notebooks, workflows, dataengineering]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-09.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🖥️ Episode 9 — The Cockpit
