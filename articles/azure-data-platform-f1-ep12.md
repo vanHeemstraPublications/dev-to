@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.12 — The Wind Tunnel (MLflow, AutoML & the Model Registry)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.12"
+published: false
+description: "Episode 12: The Wind Tunnel"
 part: 12
-tags: mlflow, databricks, machinelearning, mlops
+tags: [mlflow, databricks, machinelearning, mlops]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-12.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 💨 Episode 12 — The Wind Tunnel
