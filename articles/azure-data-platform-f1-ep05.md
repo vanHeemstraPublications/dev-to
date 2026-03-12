@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.5 — The Engine (Apache Spark Fundamentals)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.5"
+published: false
+description: "Episode 5: The Engine"
 part: 5
-tags: spark, databricks, dataengineering, bigdata
+tags: [spark, databricks, dataengineering, bigdata]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-05.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # ⚙️ Episode 5 — The Engine
