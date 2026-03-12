@@ -36,6 +36,10 @@ def list_series():
     data = load_yaml(SERIES_INDEX_FILE)
     series_entries = data.get("series", [])
 
+    if not series_entries:
+        print("No series defined.")
+        return
+
     print("Available series:")
 
     for item in series_entries:
@@ -53,6 +57,34 @@ def get_episode(data, episode_number):
             return episode
 
     return None
+
+
+def build_title_safety_block(series_name, episode_number, title):
+    return f"""
+DEV.to title safety requirements:
+- This image will be used as a DEV.to article header/banner, so all text must
+  remain fully readable inside a conservative safe area.
+- Do not place any important text near the extreme top edge, bottom edge, left edge, or right edge.
+- Reserve a strong safe margin: keep all title typography at least 12% away from
+  the left and right edges, at least 14% away from the top edge, and at least
+  12% away from the bottom edge.
+- Place the main title block in the upper-middle portion of the artwork, not
+  flush against the top border.
+- Keep the subtitle clearly below the main title with generous spacing.
+- Use slightly smaller typography rather than oversized typography if needed
+  for readability.
+- Do not let any letter, ornament, frame, or banner overlap the image boundary.
+- Avoid decorative flourishes that extend beyond the safe text area.
+- The full title and subtitle must be completely visible in the final banner
+  image.
+
+Exact text to include:
+Top title:
+"{series_name}"
+
+Subtitle:
+"Episode {episode_number}: {title}"
+""".strip()
 
 
 def build_image_prompt(data, episode):
@@ -81,7 +113,9 @@ def build_image_prompt(data, episode):
     props = episode.get("supporting_props", [])
     props_text = ", ".join(props)
 
-    prompt = f"""
+    title_safety = build_title_safety_block(series_name, episode["number"], title)
+
+    common = f"""
 Create a polished cinematic {orientation} banner illustration for a web article.
 
 Series title:
@@ -92,14 +126,16 @@ Episode subtitle:
 
 Canvas requirements:
 - {aspect_ratio} aspect ratio
-- {resolution} resolution
-- landscape banner layout
-- about {whitespace}% whitespace around artwork
+- {resolution} target resolution
+- landscape banner composition
+- about {whitespace}% whitespace around the artwork
+- clean readable layout suitable for a header image
+- avoid clutter and keep the composition visually clear
 
 Scene setting:
 {setting}
 
-Lighting:
+Lighting and atmosphere:
 {lighting}
 
 Visual metaphor:
@@ -109,56 +145,140 @@ Center action:
 {center_action}
 
 Composition guidance:
-Left third: {left_third}
-Center: {center}
-Right third: {right_third}
-Background: {background}
+- left third: {left_third}
+- center: {center}
+- right third: {right_third}
+- background: {background}
 
-Supporting props:
+Supporting props to include:
 {props_text}
 
-Typography safety:
-- text must remain fully visible inside a safe central area
-- keep titles away from edges
-- ensure the full title is readable
+Style requirements:
+- cinematic digital illustration
+- highly detailed
+- storybook realism
+- polished composition
+- visually striking but not overcrowded
+- designed specifically as a web article banner
 
-Style:
-cinematic digital illustration, storybook realism, highly detailed, polished banner composition
-"""
+{title_safety}
+""".strip()
 
-    return prompt.strip()
+    if series_id == "python_story_series":
+        series_specific = """
+Additional series guidance:
+- the tone should feel playful, witty, educational, and slightly humorous
+- lean into a Hollywood storytelling atmosphere
+- make the design pattern metaphor visually obvious at a glance
+- emphasize film-set energy, production design, and narrative clarity
+- the result should feel like a smart, light-hearted banner for a Python
+  learning series
+""".strip()
+    elif series_id == "container_harbour_series":
+        series_specific = """
+Additional series guidance:
+- the tone should feel adventurous, educational, cinematic, and lightly 
+  humorous
+- lean into a grand early-20th-century harbour aesthetic
+- make the Kubernetes metaphor visually obvious at a glance
+- emphasize ships, docks, cranes, logistics, and maritime coordination
+- the result should feel like a smart, memorable banner for a Kubernetes 
+  explainer series
+""".strip()
+    else:
+        series_specific = """
+Additional series guidance:
+- keep the concept immediately understandable
+- make the central metaphor easy to grasp visually
+- ensure the image works well as a banner header
+""".strip()
+
+    negative = """
+Avoid:
+- visual clutter
+- unreadable text
+- cramped composition
+- generic stock-art look
+- flat lighting
+- messy perspective
+- low-detail background
+- accidental portrait orientation
+- oversized title text that touches or nearly touches the top edge
+- title banners placed too high for DEV.to header usage
+- cropped-looking typography
+""".strip()
+
+    return f"{common}\n\n{series_specific}\n\n{negative}"
 
 
 def build_article_prompt(data, episode):
     series = data.get("series", {})
-    series_name = series.get("name")
-    metaphor = episode.get("metaphor")
-    title = episode.get("title")
+    defaults = data.get("defaults", {})
+    composition = defaults.get("composition", {})
 
-    prompt = f"""
-I have created a repository that contains markdown articles published to dev.to.
+    series_name = series.get("name", "")
+    series_type = series.get("type", "")
+    title = episode.get("title", "")
+    metaphor = episode.get("metaphor", "")
+    center_action = episode.get("center_action", "")
+    props = episode.get("supporting_props", [])
+    props_text = ", ".join(props)
+
+    setting = defaults.get("setting", "")
+    lighting = defaults.get("lighting", "")
+
+    left_third = composition.get("left_third", "")
+    center = composition.get("center", "")
+    right_third = composition.get("right_third", "")
+    background = composition.get("background", "")
+
+    return f"""
+I have created a repository that contains markdown articles published to
+dev.to.
 
 The articles live in:
 https://github.com/vanHeemstraSystems/dev-to/articles/
 
-Please inspect the formatting style used in those articles, especially the frontmatter.
+Please inspect the formatting style used in those articles, especially the
+frontmatter.
 
 Now create the following article.
 
 Series:
 {series_name}
 
+Series type:
+{series_type}
+
 Episode:
 Episode {episode['number']}: {title}
 
 Writing style requirements:
 - light-hearted tone
-- humorous delivery similar to Eddie Murphy's storytelling style
+- humorous delivery
 - beginner-friendly
 - explain complex concepts in simple terms
+- include code samples
+- include explanations of the code
+- use a memorable metaphor consistently throughout the article
 
-Concept explanation metaphor:
+Primary metaphor:
 {metaphor}
+
+Episode-specific action:
+{center_action}
+
+Scene / setting inspiration:
+{setting}
+
+Visual inspiration:
+- left third: {left_third}
+- center: {center}
+- right third: {right_third}
+- background: {background}
+
+Useful props / concepts to weave into the explanation:
+{props_text}
 
 Article requirements:
 - produce a complete dev.to-ready markdown article
@@ -168,20 +288,36 @@ Article requirements:
 - include practical code examples
 - include explanations of the code
 - ensure the article is engaging and readable
+- make the subject understandable for readers who are new to it
 
 Structure suggestion:
 1. humorous opening hook
 2. introduce the metaphor
 3. explain the concept step-by-step
 4. include code examples
-5. recap the key idea
-6. end with a teaser for the next episode
+5. include a SIPOC section
+6. recap the key idea
+7. end with a teaser for the next episode
+
+SIPOC requirement:
+Please include a section in the article that explains the concept using the
+SIPOC pattern:
+- Supplier
+- Input
+- Process
+- Output
+- Consumer
+
+For the SIPOC section:
+- explain each SIPOC element in simple language
+- map each SIPOC element both to the real technical concept and to the
+  metaphor used in the article
+- make the SIPOC section practical and easy to understand
+- prefer a compact table or bullet structure if that improves readability
 
 Output:
 Return the complete article in markdown including frontmatter.
-"""
-
-    return prompt.strip()
+""".strip()
 
 
 def generate_prompt_bundle(data, episode):
@@ -190,8 +326,8 @@ def generate_prompt_bundle(data, episode):
     composition = defaults.get("composition", {})
 
     props_lines = ""
-    for p in episode.get("supporting_props", []):
-        props_lines += f"- {p}\n"
+    for prop in episode.get("supporting_props", []):
+        props_lines += f"- {prop}\n"
 
     image_prompt = build_image_prompt(data, episode)
     article_prompt = build_article_prompt(data, episode)
@@ -254,14 +390,19 @@ def generate_all(series_file):
     series_id = series.get("id", "unknown_series")
     episodes = data.get("episodes", [])
 
+    if not episodes:
+        print("No episodes defined.")
+        sys.exit(1)
+
     out_dir = Path("generated") / series_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    for ep in episodes:
-        filename = out_dir / f"episode-{ep['number']:02d}-{ep['slug']}.md"
+    for episode in episodes:
+        filename = out_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
+        content = generate_prompt_bundle(data, episode)
 
         with open(filename, "w", encoding="utf-8") as f:
-            f.write(generate_prompt_bundle(data, ep))
+            f.write(content)
 
         print(f"Generated {filename}")
 
@@ -271,7 +412,6 @@ def generate_single(series_file, episode_number):
 
     series = data.get("series", {})
     series_id = series.get("id", "unknown_series")
-
     episode = get_episode(data, episode_number)
 
     if not episode:
@@ -282,9 +422,10 @@ def generate_single(series_file, episode_number):
     out_dir.mkdir(parents=True, exist_ok=True)
 
     filename = out_dir / f"episode-{episode['number']:02d}-{episode['slug']}.md"
+    content = generate_prompt_bundle(data, episode)
 
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(generate_prompt_bundle(data, episode))
+        f.write(content)
 
     print(f"Generated {filename}")
 
