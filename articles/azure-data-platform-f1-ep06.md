@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.6 — Pit Lane Bronze (Delta Lake & Raw Ingestion)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.6"
+published: false
+description: "Episode 6: Pit Lane Bronze"
 part: 6
-tags: delta, databricks, datalake, dataengineering
+tags: [delta, databricks, datalake, dataengineering]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-06.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🥉 Episode 6 — Pit Lane Bronze
