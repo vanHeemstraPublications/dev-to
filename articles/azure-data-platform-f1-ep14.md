@@ -1,11 +1,16 @@
 ---
-title: "Scuderia Data Ep.14 — The Championship (The Complete Lakehouse Architecture)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.14"
+published: false
+description: "Episode 14: The Championship"
 part: 14
-tags: databricks, lakehouse, azure, architecture
+tags: [databricks, lakehouse, azure, architecture]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-01.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
-# 🏆 Episode 14 — The Championship
+# 🏆 Episode 14 — The Championship (The Complete Lakehouse Architecture)
 
 > *"The championship isn't won in one race. It's the accumulation of every correct technical decision, every well-executed pit stop, every strategy call made with the right data at the right time."*
 
