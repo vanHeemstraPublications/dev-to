@@ -38,6 +38,10 @@ You do NOT need to manually create configuration files.
 
 Instead, run:
 
+    make generate SERIES=<your_series>_series
+
+Or (without Make):
+
     python scripts/prompt-cli.py generate series/<your_series>.yaml
 
 If the file does not exist, the CLI will automatically start a setup wizard.
@@ -48,6 +52,10 @@ If the file does not exist, the CLI will automatically start a setup wizard.
 Example: Copilot Series with Snoopy
 
 Run:
+
+    make generate SERIES=copilot_snoopy_series
+
+Or:
 
     python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
 
@@ -103,6 +111,10 @@ It will also update:
 Generate Episode Prompt Bundles
 
 After reviewing the created files, run again:
+
+    make generate SERIES=copilot_snoopy_series
+
+Or:
 
     python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
 
@@ -195,6 +207,10 @@ Summary
 To create a new series:
 
 1. Run
+
+    make generate SERIES=<series>_series
+
+   Or:
 
     python scripts/prompt-cli.py generate series/<series>.yaml
 

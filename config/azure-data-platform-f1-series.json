@@ -1,0 +1,26 @@
+{
+  "github_repository_url": "https://github.com/software-journey/azure-data-platform",
+  "article_repository_url": "https://github.com/vanHeemstraSystems/dev-to/articles/",
+  "article_tone": "light-hearted, humorous, beginner-friendly",
+  "article_humor_style": "professional, humoristic, and positive",
+  "article_code_language": "Azure",
+  "article_frontmatter_required": true,
+  "image_resolution": "1000x420",
+  "image_aspect_ratio": "100:42",
+  "image_format": "WebP",
+  "image_max_file_size_kb": 400,
+  "image_whitespace_margin_percent": 15,
+  "image_title_safe_left_right_percent": 12,
+  "image_title_safe_top_percent": 14,
+  "image_title_safe_bottom_percent": 12,
+  "image_style": "cinematic digital illustration, highly detailed, storybook realism, polished composition",
+  "article_structure": [
+    "humorous opening hook",
+    "introduce the metaphor",
+    "explain the concept step-by-step",
+    "include code examples",
+    "include a SIPOC section",
+    "recap the key idea",
+    "end with a teaser for the next episode"
+  ]
+}

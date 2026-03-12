@@ -10,6 +10,17 @@ PIP := $(VENV)/bin/pip
 SERIES_DIR := series
 SERIES_FILES := $(filter-out $(SERIES_DIR)/SERIES_INDEX.yaml,$(wildcard $(SERIES_DIR)/*.yaml))
 
+# Resolve SERIES argument to a YAML path.
+# Convention: series file stems end with "_series" (e.g. "python_story_series").
+# Accepts:
+# - SERIES=series/foo_series.yaml
+# - SERIES=foo_series.yaml      (assumes series/foo_series.yaml)
+# - SERIES=foo_series           (assumes series/foo_series.yaml)
+# - SERIES=foo                  (assumes series/foo_series.yaml)
+define resolve_series
+$(if $(findstring /,$(1)),$(1),$(SERIES_DIR)/$(if $(filter %_series,$(basename $(1))),$(basename $(1)),$(basename $(1))_series).yaml)
+endef
+
 # -------------------------------------------
 # Internal helper
 # -------------------------------------------
@@ -23,7 +34,7 @@ $(VENV)/bin/activate:
 # Commands
 # -------------------------------------------
 
-.PHONY: help install lint docs list-series generate-all generate-series generate-episode validate clean show-series-files
+.PHONY: help install lint docs list-series generate generate-all generate-series generate-episode validate clean show-series-files
 
 help:
 	@echo ""
@@ -48,6 +59,9 @@ help:
 	@echo "      Show detected YAML series files in /series"
 	@echo "  make generate-all"
 	@echo "      Generate prompt bundles for all detected series files"
+	@echo "  make generate SERIES=<your_series>"
+	@echo "      Generate prompts (SERIES should follow the '*_series' convention)"
+	@echo "      Accepts: 'foo' -> 'series/foo_series.yaml', 'foo_series', 'foo_series.yaml', or 'series/foo_series.yaml'"
 	@echo "  make generate-series SERIES=series/python_story_series.yaml"
 	@echo "      Generate all prompt bundles for one series file"
 	@echo "  make generate-episode SERIES=series/container_harbour_series.yaml EP=4"
@@ -80,6 +94,12 @@ generate-all: $(VENV)/bin/activate
 		echo "Generating prompt bundles for $$file"; \
 		$(PY) scripts/prompt-cli.py generate $$file || exit 1; \
 	done
+
+generate: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate SERIES=container_harbour_series)
+endif
+	$(PY) scripts/prompt-cli.py generate $(call resolve_series,$(SERIES))
 
 generate-series: $(VENV)/bin/activate
 ifndef SERIES
