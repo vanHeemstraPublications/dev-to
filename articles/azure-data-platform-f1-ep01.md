@@ -1,9 +1,13 @@
 ---
-title: "Scuderia Data Ep.1 — Welcome to the F1 Factory (Azure Data Platform Overview)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.1"
+published: false
+description: "Episode 1: Welcome to the Factory"
 part: 1
-tags: azure, databricks, dataengineering, beginners
-cover_image: (add F1 factory aerial photo)
+tags: [azure, databricks, dataengineering, beginners]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-01.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🏭 Episode 1 — Welcome to the Factory
