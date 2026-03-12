@@ -1,245 +1,175 @@
 # Scripts
 
-This directory contains local tooling for the prompt framework.
+This directory contains the automation tools used to generate article and image prompts for DEV.to series.
 
-## Included Scripts
+The main tool is:
 
-### `prompt-cli.py`
+    prompt-cli.py
 
-Generate self-contained prompt bundles from a chosen series YAML file.
+This script powers the entire production pipeline for article series.
 
-Each generated episode file contains:
+It can:
 
-1. structured prompt metadata
-2. a ready-to-copy section called:
+• list existing series  
+• generate prompt bundles for episodes  
+• bootstrap a brand new series automatically  
 
-    ## ChatGPT Image Prompt
+Each generated episode bundle contains:
 
-You can copy that prompt directly into ChatGPT to generate the image for the episode.
+• a ChatGPT image generation prompt  
+• a Claude / ChatGPT article writing prompt  
+• metadata about the episode  
+• a link to the series GitHub repository  
 
----
+These bundles live in:
 
-### `prompt-lint.py`
+    generated/<series_id>/
 
-Validate the prompt framework structure and check for common issues.
 
-This checks:
+--------------------------------------------------
 
-- required directories exist
-- required files exist
-- series index structure is valid
-- series YAML files are valid
-- episode numbers are unique within each series
-- episode slugs are unique within each series
+Basic Commands
 
----
-
-### `prompt-docs.py`
-
-Generate documentation from all series YAML files.
-
-This produces:
-
-    docs/EPISODE_INDEX.md
-    docs/SERIES_INDEX.md
-
----
-
-## Setup
-
-Install dependencies from the repository root:
-
-    make install
-
-Or manually:
-
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-
----
-
-## List Available Series
-
-List all series defined in `series/SERIES_INDEX.yaml`:
+List all series registered in the repository:
 
     python scripts/prompt-cli.py list-series
 
-Example output:
 
-    Available series:
-    - python_story_series: Like Stories? Love Python! (series/python_story_series.yaml)
-    - container_harbour_series: Welcome to container harbour! (series/container_harbour_series.yaml)
+Generate prompt bundles for a series:
 
----
+    python scripts/prompt-cli.py generate series/<series_file>.yaml
 
-## Generate Prompt Bundles
 
-### Generate all episodes for one series
+Generate only one episode:
 
-Example:
+    python scripts/prompt-cli.py generate series/<series_file>.yaml <episode_number>
 
-    python scripts/prompt-cli.py generate series/python_story_series.yaml
-
-Or:
-
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml
-
-This generates files such as:
-
-    generated/python_story_series/episode-01-singleton-pattern.md
-    generated/python_story_series/episode-02-factory-pattern.md
-    generated/container_harbour_series/episode-01-what-is-kubernetes-really.md
-
----
-
-### Generate a single episode
 
 Example:
 
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml 1
-
-This generates:
-
-    generated/container_harbour_series/episode-01-what-is-kubernetes-really.md
-
----
-
-## Copy-Paste Workflow for ChatGPT
-
-Each generated episode file is self-contained.
-
-Example file:
-
-    generated/container_harbour_series/episode-01-what-is-kubernetes-really.md
-
-Inside that file you will find a section like this:
-
-    ## ChatGPT Image Prompt
-
-    Create a cinematic landscape banner illustration for the series
-    "Welcome to container harbour!" ...
-
-To generate the image:
-
-1. Open the generated episode file
-2. Scroll to `## ChatGPT Image Prompt`
-3. Copy the text inside that section
-4. Paste it directly into ChatGPT
-5. Ask ChatGPT to generate the image
-
-Example prompt to ChatGPT:
-
-    Generate this image.
-
-No additional files or context should be needed.
-
----
-
-## Regenerate All Prompt Bundles
-
-From the repository root:
-
-    make generate-all
-
-Or manually:
-
-    python scripts/prompt-cli.py generate series/python_story_series.yaml
     python scripts/prompt-cli.py generate series/container_harbour_series.yaml
+    python scripts/prompt-cli.py generate series/python_story_series.yaml 3
 
----
 
-## Verifying the CLI
+--------------------------------------------------
 
-To verify that the CLI works:
+Bootstrap New Series Automatically
 
-    python -m py_compile scripts/prompt-cli.py
-    python scripts/prompt-cli.py list-series
-
-Both commands should run without errors.
-
----
-
-## Suggested Commands
-
-    make install
-    make lint
-    make docs
-    make list-series
-    make show-series-files
-    make generate-all
-    make generate-series SERIES=series/python_story_series.yaml
-    make generate-series SERIES=series/container_harbour_series.yaml
-    make generate-episode SERIES=series/container_harbour_series.yaml EP=4
-    make validate
-
-If you are not using the `Makefile`, the equivalent direct commands are:
-
-    pip install -r requirements.txt
-    python scripts/prompt-lint.py
-    python scripts/prompt-docs.py
-    python scripts/prompt-cli.py list-series
-    python scripts/prompt-cli.py generate series/python_story_series.yaml
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml
-    python scripts/prompt-cli.py generate series/container_harbour_series.yaml 4
-
----
-
-## Typical Workflow
-
-1. Add or update episodes in a file in `series/`
-2. Run the linter
-3. Regenerate docs
-4. Generate prompt bundles
-5. Open the generated episode file
-6. Copy the `## ChatGPT Image Prompt` section
-7. Paste it into ChatGPT to generate the image
+If the series YAML file does not exist, the generator will automatically guide you through creating it.
 
 Example:
 
-    make lint
-    make docs
+    python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
+
+If the file does not exist, the CLI will ask:
+
+• series id
+• series name
+• number of episodes
+• metaphor
+• humor style
+• code language
+• GitHub repository URL
+• visual setting
+• lighting style
+
+The CLI will then create:
+
+    config/<series>.json
+    series/<series>.yaml
+
+and update:
+
+    series/SERIES_INDEX.yaml
+
+After that, simply review the files and rerun the command.
+
+
+--------------------------------------------------
+
+Generated Prompt Bundles
+
+After generation, files appear in:
+
+    generated/<series_id>/
+
+Example:
+
+    generated/container_harbour_series/
+        episode-01-what-is-kubernetes-really.md
+
+
+Each bundle contains two sections:
+
+    ChatGPT Image Prompt
+    Claude / ChatGPT Article Prompt
+
+
+--------------------------------------------------
+
+Image Generation
+
+The image prompt is designed specifically for DEV.to cover images.
+
+Default settings:
+
+    resolution: 1000x420
+    aspect ratio: 100:42
+    format: WebP
+    file size target: < 400 KB
+
+Images include safe title margins to prevent cropping in DEV.to headers.
+
+
+--------------------------------------------------
+
+Article Generation
+
+The article prompt instructs Claude or ChatGPT to:
+
+• produce a complete DEV.to markdown article
+• include frontmatter
+• include code samples
+• use a humorous storytelling style
+• explain the concept through the episode metaphor
+• include a SIPOC explanation section
+
+
+--------------------------------------------------
+
+Typical Workflow
+
+1. Create or bootstrap a series
+
+    python scripts/prompt-cli.py generate series/new_series.yaml
+
+2. Generate prompts
+
     make generate-all
+    or
+    python scripts/prompt-cli.py generate series/new_series.yaml
 
----
+3. Open generated episode bundle
 
-## Repository Structure
+    generated/<series>/episode-XX.md
 
-    scripts/
-        README.md
-        prompt-cli.py
-        prompt-lint.py
-        prompt-docs.py
+4. Copy:
 
-    series/
-        SERIES_INDEX.yaml
-        python_story_series.yaml
-        container_harbour_series.yaml
+    Claude / ChatGPT Article Prompt
 
-    generated/
-        python_story_series/
-            episode-01-singleton-pattern.md
-        container_harbour_series/
-            episode-01-what-is-kubernetes-really.md
+Paste it into Claude to generate the article.
 
----
+5. Copy:
 
-## Design Philosophy
+    ChatGPT Image Prompt
 
-The system follows this flow:
+Paste it into ChatGPT to generate the banner image.
 
-    series YAML (source of truth)
-            ↓
-    scripts/prompt-cli.py
-            ↓
-    generated Markdown prompt bundles
-            ↓
-    ChatGPT image generation
+6. Save the outputs
 
-This keeps the workflow:
+    articles/<article>.md
+    images/<image>.webp
 
-- version controlled
-- reproducible
-- series-driven
-- copy-paste friendly
-- simple to maintain
+7. Commit and push.
+
+The GitHub workflow will automatically publish the article to DEV.to.

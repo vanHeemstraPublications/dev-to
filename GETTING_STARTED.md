@@ -1,301 +1,211 @@
 # Getting Started
 
-This repository contains a small **content factory** for producing article series for **dev.to**.
+This repository contains an automated system for producing article series for DEV.to.
 
-The system generates two things automatically:
+It generates both:
 
-1. **Article prompts** for Claude / ChatGPT that generate the markdown article.
-2. **Image prompts** for ChatGPT that generate the banner image.
+• article prompts
+• banner image prompts
 
-Each episode becomes a **self-contained production unit**.
+Each episode becomes a self-contained production bundle.
 
-Workflow overview:
 
-```
-series YAML
-      ↓
+--------------------------------------------------
+
+Pipeline Overview
+
+Series definition
+        ↓
 prompt-cli.py
-      ↓
-generated/<series>/episode-XX.md
-      ↓
-copy article prompt → Claude
-copy image prompt → ChatGPT
-      ↓
-article + banner image
-      ↓
-commit to articles/
-      ↓
-publish-to-dev.yml → dev.to
-```
+        ↓
+Generated prompt bundles
+        ↓
+Claude writes article
+ChatGPT generates banner image
+        ↓
+articles/ + images/
+        ↓
+publish-to-dev workflow
+        ↓
+DEV.to
 
----
 
-# Step 1 — Create a New Series Definition
+--------------------------------------------------
 
-All series start as a YAML file in:
+Creating a New Series
 
-```
-series/
-```
+You do NOT need to manually create configuration files.
 
-Create a new file for your series:
+Instead, run:
 
-```
-series/copilot_snoopy_series.yaml
-```
+    python scripts/prompt-cli.py generate series/<your_series>.yaml
 
-Example series: **Copilot explained through Snoopy as your digital assistant.**
+If the file does not exist, the CLI will automatically start a setup wizard.
 
-```
-series:
-  id: copilot_snoopy_series
-  name: "Coding with Copilot & Snoopy"
-  type: dev_to_series
-  orientation: landscape
-  resolution: 1792x1024
-  aspect_ratio: "16:9"
-  whitespace_margin_percent: 15
 
-defaults:
-  setting: "cartoon-inspired workspace where Snoopy acts as your helpful coding assistant"
-  lighting: "warm playful cartoon lighting"
+--------------------------------------------------
 
-  composition:
-    left_third: "Snoopy acting as a cheerful digital assistant"
-    center: "developer working with Copilot suggestions"
-    right_third: "visual metaphor of Copilot helping generate code"
-    background: "cartoon coding environment inspired by the Peanuts comic style"
+Example: Copilot Series with Snoopy
 
-episodes:
+Run:
 
-  - number: 1
-    title: "What is GitHub Copilot?"
-    slug: what-is-github-copilot
-    metaphor: "Snoopy helping you write code like a playful assistant sitting on your desk"
-    center_action: "Snoopy suggests code while the developer types"
+    python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
 
-    supporting_props:
-      - laptop with code editor
-      - Snoopy sitting on keyboard
-      - floating code suggestions
-      - coffee mug
 
-  - number: 2
-    title: "Writing Your First Code with Copilot"
-    slug: writing-first-code-with-copilot
-    metaphor: "Snoopy whispering helpful suggestions while you code"
-    center_action: "Copilot suggestions appearing as Snoopy ideas"
+The CLI will ask a few questions.
 
-    supporting_props:
-      - code suggestions bubbles
-      - Snoopy notebook
-      - laptop screen
-      - playful sticky notes
+Example answers:
 
-  - number: 3
-    title: "Let Copilot Refactor Your Code"
-    slug: copilot-refactor-code
-    metaphor: "Snoopy reorganizing messy code like tidying a desk"
-    center_action: "Snoopy cleaning up tangled code into neat blocks"
+Series id:
+    copilot_snoopy_series
 
-    supporting_props:
-      - messy code turning into clean code
-      - Snoopy holding a pencil
-      - code diagrams
-      - developer smiling
+Series name:
+    Coding with Copilot & Snoopy
 
-  - number: 4
-    title: "Using Copilot Like a Pro"
-    slug: using-copilot-like-a-pro
-    metaphor: "Snoopy as your experienced coding sidekick"
-    center_action: "Snoopy and developer solving problems together"
+Number of episodes:
+    4
 
-    supporting_props:
-      - code editor with advanced suggestions
-      - Snoopy high-five
-      - developer workstation
-      - playful code icons
-```
+Base metaphor:
+    Snoopy as your digital assistant helping you code
 
----
+Default setting:
+    a playful cartoon workspace where Snoopy helps the developer
 
-# Step 2 — Register the Series
+Lighting style:
+    warm cartoon lighting
 
-Open:
+Code language:
+    Python
 
-```
-series/SERIES_INDEX.yaml
-```
+Humor style:
+    lighthearted Snoopy-style humor
 
-Add your new series:
+GitHub repository URL:
+    https://github.com/software-journey/copilot
 
-```
-series:
 
-  - id: python_story_series
-    name: "Like Stories? Love Python!"
-    file: series/python_story_series.yaml
+--------------------------------------------------
 
-  - id: container_harbour_series
-    name: "Welcome to container harbour!"
-    file: series/container_harbour_series.yaml
+Files Created Automatically
 
-  - id: copilot_snoopy_series
-    name: "Coding with Copilot & Snoopy"
-    file: series/copilot_snoopy_series.yaml
-```
+The CLI will generate:
 
----
+    config/copilot-snoopy-series.json
+    series/copilot_snoopy_series.yaml
 
-# Step 3 — Generate Episode Prompt Bundles
+It will also update:
 
-From the repository root run:
+    series/SERIES_INDEX.yaml
 
-```
-make generate-all
-```
 
-or manually:
+--------------------------------------------------
 
-```
-python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
-```
+Generate Episode Prompt Bundles
 
-This will generate files in:
+After reviewing the created files, run again:
 
-```
-generated/copilot_snoopy_series/
-```
+    python scripts/prompt-cli.py generate series/copilot_snoopy_series.yaml
+
+
+This produces:
+
+    generated/copilot_snoopy_series/
+
+Example files:
+
+    episode-01-episode-1.md
+    episode-02-episode-2.md
+    episode-03-episode-3.md
+    episode-04-episode-4.md
+
+
+--------------------------------------------------
+
+Generating the Article
+
+Open one of the generated episode files.
 
 Example:
 
-```
-generated/copilot_snoopy_series/episode-01-what-is-github-copilot.md
-generated/copilot_snoopy_series/episode-02-writing-first-code-with-copilot.md
-generated/copilot_snoopy_series/episode-03-copilot-refactor-code.md
-generated/copilot_snoopy_series/episode-04-using-copilot-like-a-pro.md
-```
+    generated/copilot_snoopy_series/episode-01-episode-1.md
 
-Each file contains **two prompts**:
+Find the section:
 
-```
-ChatGPT Image Prompt
-Claude / ChatGPT Article Prompt
-```
+    Claude / ChatGPT Article Prompt
 
----
+Copy the prompt and paste it into Claude.
 
-# Step 4 — Generate the Article
+Claude will generate the complete article in DEV.to markdown format.
 
-Open the episode file.
-
-Example:
-
-```
-generated/copilot_snoopy_series/episode-01-what-is-github-copilot.md
-```
-
-Scroll to:
-
-```
-Claude / ChatGPT Article Prompt
-```
-
-Copy the prompt and paste it into **Claude**.
-
-Claude will generate the **full dev.to article in markdown with frontmatter**.
 
 Save the result in:
 
-```
-articles/
-```
+    articles/
+
 
 Example:
 
-```
-articles/copilot-snoopy-episode-01.md
-```
+    articles/copilot-snoopy-episode-01.md
 
----
 
-# Step 5 — Generate the Banner Image
+--------------------------------------------------
 
-In the same episode file, scroll to:
+Generating the Banner Image
 
-```
-ChatGPT Image Prompt
-```
+In the same episode bundle file, find:
 
-Copy the prompt and paste it into **ChatGPT**.
+    ChatGPT Image Prompt
 
-This generates the banner image for the article.
+Copy that prompt and paste it into ChatGPT.
 
-Save the image in:
+Save the generated image as:
 
-```
-images/
-```
+    images/<image>.webp
 
-Example:
 
-```
-images/copilot-snoopy-episode-01.png
-```
+Recommended DEV.to image settings:
 
----
+    1000 x 420 px
+    WebP format
+    under 400 KB
 
-# Step 6 — Commit the Article
+
+--------------------------------------------------
+
+Publishing the Article
 
 Commit the new files:
 
-```
-articles/copilot-snoopy-episode-01.md
-images/copilot-snoopy-episode-01.png
-```
+    articles/<article>.md
+    images/<image>.webp
 
-Push to the repository.
+Push to GitHub.
 
 The workflow:
 
-```
-publish-to-dev.yml
-```
+    .github/workflows/publish-to-dev.yml
 
-will automatically publish the article to **dev.to**.
+will automatically publish the article to DEV.to.
 
----
 
-# Example Final Article Layout
+--------------------------------------------------
 
-Your article will appear on dev.to with:
-
-- banner image
-- title
-- humorous story-style explanation
-- Copilot examples
-- Snoopy metaphor
-
-Example title:
-
-```
-Coding with Copilot & Snoopy 🐶
-Episode 1: What is GitHub Copilot?
-```
-
----
-
-# Summary
+Summary
 
 To create a new series:
 
-1. Create a YAML file in `series/`
-2. Register it in `SERIES_INDEX.yaml`
-3. Run `make generate-all`
-4. Use the generated prompts to create
-   - the article
-   - the banner image
-5. Commit the files
-6. The automation publishes to dev.to
+1. Run
 
-You now have a **repeatable production pipeline for technical article series**.
+    python scripts/prompt-cli.py generate series/<series>.yaml
+
+2. Answer the setup questions.
+
+3. Generate prompts.
+
+4. Use Claude to write the article.
+
+5. Use ChatGPT to generate the image.
+
+6. Commit and push.
+
+The automation handles the rest.

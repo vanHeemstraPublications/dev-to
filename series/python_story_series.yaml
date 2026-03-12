@@ -8,6 +8,7 @@ series:
   whitespace_margin_percent: 15
   deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
   prompt_template: "prompts/python_story_episode_template.md"
+  series_config: "config/like-stories-love-python.json"  
 
 defaults:
   setting: "Hollywood film set at sunset"
