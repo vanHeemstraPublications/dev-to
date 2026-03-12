@@ -1,8 +1,13 @@
 ---
-title: "Scuderia Data Ep.11 — Telemetry (Monitoring, Observability & Alerting)"
-series: Scuderia Data — Azure Databricks & the F1 Data Platform
+title: "Scuderia Data Ep.11"
+published: false
+description: "Episode 11: Telemetry"
 part: 11
-tags: azure, monitoring, databricks, observability
+tags: [azure, monitoring, databricks, observability]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/azure-data-platform-f1-episode-11.png"
+series: "Azure Data Platform & Formula 1"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 📡 Episode 11 — Telemetry
