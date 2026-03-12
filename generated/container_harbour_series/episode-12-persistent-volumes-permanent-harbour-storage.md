@@ -9,8 +9,8 @@ Slug: persistent-volumes-permanent-harbour-storage
 
 Canvas
 orientation: landscape
-resolution: 1792x1024
-aspect ratio: 16:9
+resolution: 1000x420
+aspect ratio: 100:42
 whitespace margin: 15%
 
 Defaults
@@ -49,12 +49,19 @@ Episode subtitle:
 "Episode 12: Persistent Volumes — Permanent Harbour Storage"
 
 Canvas requirements:
-- 16:9 aspect ratio
-- 1792x1024 target resolution
+- resolution: 1000x420
+- aspect ratio: 100:42
 - landscape banner composition
-- about 15% whitespace around the artwork
-- clean readable layout suitable for a header image
+- about 15% whitespace around the
+  artwork
+- clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
+
+Output requirements:
+- export format: WebP
+- target file size: under 400 KB
+- optimized for fast web loading
+- suitable for DEV.to cover image usage
 
 Scene setting:
 Titanic-era container harbour at golden sunset
@@ -78,29 +85,22 @@ Supporting props to include:
 large cargo depot, dock cranes, cargo pallets, shipping labels
 
 Style requirements:
-- cinematic digital illustration
-- highly detailed
-- storybook realism
-- polished composition
+- cinematic digital illustration, highly detailed, storybook realism, polished maritime composition
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
 DEV.to title safety requirements:
-- This image will be used as a DEV.to article header/banner, so all text must
-  remain fully readable inside a conservative safe area.
-- Do not place any important text near the extreme top edge, bottom edge, left edge, or right edge.
-- Reserve a strong safe margin: keep all title typography at least 12% away from
-  the left and right edges, at least 14% away from the top edge, and at least
-  12% away from the bottom edge.
-- Place the main title block in the upper-middle portion of the artwork, not
-  flush against the top border.
+- This image will be used as a DEV.to article header/banner.
+- Keep all text fully readable inside a conservative safe area.
+- Do not place important text near the extreme edges.
+- Keep title typography at least 12% away from the left and right edges.
+- Keep title typography at least 14% away from the top edge.
+- Keep title typography at least 12% away from the bottom edge.
+- Place the main title block in the upper-middle area, not flush against the top border.
 - Keep the subtitle clearly below the main title with generous spacing.
-- Use slightly smaller typography rather than oversized typography if needed
-  for readability.
-- Do not let any letter, ornament, frame, or banner overlap the image boundary.
-- Avoid decorative flourishes that extend beyond the safe text area.
-- The full title and subtitle must be completely visible in the final banner
-  image.
+- Use slightly smaller typography rather than oversized typography if needed.
+- Do not let any letter, banner, or ornament touch the image edge.
+- The full title and subtitle must be completely visible.
 
 Exact text to include:
 Top title:
@@ -108,15 +108,9 @@ Top title:
 
 Subtitle:
 "Episode 12: Persistent Volumes — Permanent Harbour Storage"
+Reference repository for the series concept:
+https://github.com/software-journey/kubernetes
 
-Additional series guidance:
-- the tone should feel adventurous, educational, cinematic, and lightly 
-  humorous
-- lean into a grand early-20th-century harbour aesthetic
-- make the Kubernetes metaphor visually obvious at a glance
-- emphasize ships, docks, cranes, logistics, and maritime coordination
-- the result should feel like a smart, memorable banner for a Kubernetes 
-  explainer series
 
 Avoid:
 - visual clutter
@@ -127,8 +121,7 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text that touches or nearly touches the top edge
-- title banners placed too high for DEV.to header usage
+- oversized title text
 - cropped-looking typography
 
 --------------------------------------------------
@@ -156,11 +149,11 @@ Episode:
 Episode 12: Persistent Volumes — Permanent Harbour Storage
 
 Writing style requirements:
-- light-hearted tone
-- humorous delivery
+- tone: light-hearted, humorous, beginner-friendly
+- humor style: warm, playful, slightly theatrical
 - beginner-friendly
 - explain complex concepts in simple terms
-- include code samples
+- include code samples in YAML
 - include explanations of the code
 - use a memorable metaphor consistently throughout the article
 
@@ -184,7 +177,8 @@ large cargo depot, dock cranes, cargo pallets, shipping labels
 
 Article requirements:
 - produce a complete dev.to-ready markdown article
-- include frontmatter similar to the examples in the repository
+- include frontmatter similar to the examples in the repository:
+  yes
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
@@ -192,7 +186,7 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
-Structure suggestion:
+Suggested structure:
 1. humorous opening hook
 2. introduce the metaphor
 3. explain the concept step-by-step
@@ -219,3 +213,11 @@ For the SIPOC section:
 
 Output:
 Return the complete article in markdown including frontmatter.
+Series repository for reference:
+https://github.com/software-journey/kubernetes
+
+--------------------------------------------------
+
+Series GitHub Repository
+
+https://github.com/software-journey/kubernetes
