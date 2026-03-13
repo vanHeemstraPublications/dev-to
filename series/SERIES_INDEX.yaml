@@ -10,3 +10,6 @@ series:
 - id: azure_data_platform_f1_series
   name: Azure Data Platform F1 Series
   file: series/azure_data_platform_f1_series.yaml
+- id: to_the_moon_terraform_series
+  name: To The Moon Terraform Series
+  file: series/to_the_moon_terraform_series.yaml

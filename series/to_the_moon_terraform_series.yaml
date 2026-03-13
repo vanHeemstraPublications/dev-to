@@ -1,0 +1,153 @@
+series:
+  id: to_the_moon_terraform_series
+  name: To The Moon Terraform Series
+  type: dev_to_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  series_config: config/to-the-moon-terraform-series.json
+defaults:
+  setting: space mission
+  lighting: bright space sky with stars
+  composition:
+    left_third: main presenter or guide
+    center: core metaphor and primary action
+    right_third: supporting action or secondary character
+    background: supporting environment for the series
+episodes:
+- number: 1
+  title: Episode 1
+  display_title: Episode 1
+  slug: episode-1
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 2
+  title: Episode 2
+  display_title: Episode 2
+  slug: episode-2
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 3
+  title: Episode 3
+  display_title: Episode 3
+  slug: episode-3
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 4
+  title: Episode 4
+  display_title: Episode 4
+  slug: episode-4
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 5
+  title: Episode 5
+  display_title: Episode 5
+  slug: episode-5
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 6
+  title: Episode 6
+  display_title: Episode 6
+  slug: episode-6
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 7
+  title: Episode 7
+  display_title: Episode 7
+  slug: episode-7
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 8
+  title: Episode 8
+  display_title: Episode 8
+  slug: episode-8
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 9
+  title: Episode 9
+  display_title: Episode 9
+  slug: episode-9
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 10
+  title: Episode 10
+  display_title: Episode 10
+  slug: episode-10
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 11
+  title: Episode 11
+  display_title: Episode 11
+  slug: episode-11
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 12
+  title: Episode 12
+  display_title: Episode 12
+  slug: episode-12
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 13
+  title: Episode 13
+  display_title: Episode 13
+  slug: episode-13
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 14
+  title: Episode 14
+  display_title: Episode 14
+  slug: episode-14
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
+- number: 15
+  title: Episode 15
+  display_title: Episode 15
+  slug: episode-15
+  metaphor: Planning a Mission to the Moon and Going There
+  center_action: describe the key action for this episode here
+  supporting_props:
+  - placeholder prop 1
+  - placeholder prop 2
