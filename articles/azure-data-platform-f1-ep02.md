@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛢️ Episode 2 — The Fuel Tank (ADLS Gen2)
+# 🛢️ Episode 2 — The Fuel Tank (Azure Data Lake Storage Gen2)
 
 > *"An F1 car without a fuel tank is just an expensive sculpture."*
 

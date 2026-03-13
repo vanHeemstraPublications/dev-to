@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🧠 Episode 10 — Race Strategy (Unity Catalog governance)
+# 🧠 Episode 10 — Race Strategy (Unity Catalog & Data Governance)
 
 > *"The race strategist knows everything: who has access to what data, what changed, when, and why. Without strategy, drivers go rogue. Without governance, data goes wrong."*
 

@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 💨 Episode 12 — The Wind Tunnel (MLflow & AutoML)
+# 💨 Episode 12 — The Wind Tunnel (MLflow, AutoML & the Model Registry)
 
 > *"Every aerodynamic setup is a hypothesis: 'This wing angle will be 0.03 seconds faster.' The wind tunnel tests thousands of hypotheses before the team commits to race specification."*
 

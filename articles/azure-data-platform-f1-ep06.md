@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🥉 Episode 6 — Pit Lane Bronze (Delta Lake ingestion)
+# 🥉 Episode 6 — Pit Lane Bronze (Delta Lake & Raw Ingestion)
 
 > *"When the car comes into the pit lane, it's raw. Worn tyres, dirty aerodynamics, low fuel. The pit crew's job is to change what needs changing — fast, reliably, and without mistakes."*
 

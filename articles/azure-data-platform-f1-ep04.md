@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🏎️ Episode 4 — The Race Car (Azure Databricks)
+# 🏎️ Episode 4 — The Race Car (Azure Databricks Architecture)
 
 > *"You can have the best fuel, the best strategy, the best team — but without a great car, you don't win races."*
 
