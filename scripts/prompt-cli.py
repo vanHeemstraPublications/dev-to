@@ -33,7 +33,7 @@ DEFAULT_CONFIG = {
     "image_title_safe_left_right_percent": 12,
     # DEV.to cover images are frequently cropped (especially on top) depending
     # on layout and viewport. Use conservative safe areas for any typography.
-    "image_title_safe_top_percent": 48,
+    "image_title_safe_top_percent": 52,
     "image_title_safe_bottom_percent": 18,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
@@ -254,7 +254,7 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "Placement target (important):\n"
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
         "- Place the series title so its cap-height starts below that zone.\n"
-        "- Aim for the title block center around ~60% of image height.\n"
+        "- Aim for the title block center around ~65% of image height.\n"
         "- Place the subtitle below the series title (not above).\n\n"
         "Exact text to include:\n"
         "Top title:\n"
