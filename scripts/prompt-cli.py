@@ -1,16 +1,35 @@
 #!/usr/bin/env python3
 
+import base64
+import io
 import json
+import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 try:
     import yaml
 except ImportError:
     print("Missing dependency: pyyaml")
-    print("Install with: pip install -r requirements.txt")
+    print("Install with: pip install pyyaml pillow openai")
     sys.exit(1)
+
+try:
+    from PIL import Image
+except ImportError:
+    print("Missing dependency: pillow")
+    print("Install with: pip install pillow")
+    sys.exit(1)
+
+try:
+    from openai import OpenAI
+except ImportError:
+    print("Missing dependency: openai")
+    print("Install with: pip install openai")
+    sys.exit(1)
+
 
 SERIES_INDEX_FILE = Path("series/SERIES_INDEX.yaml")
 
@@ -27,18 +46,25 @@ DEFAULT_CONFIG = {
     "image_aspect_ratio": "100:42",
     "image_format": "WebP",
     "image_max_file_size_kb": 400,
-    # DEV.to cover images can be shown with extra cropping. Increase overall
-    # whitespace so the composition survives various viewports.
+    "image_model": "gpt-image-1",
+    "image_quality": "medium",
+    "image_background": "opaque",
+    "image_generation_size": "1536x1024",
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
-    # DEV.to cover images are frequently cropped (especially on top) depending
-    # on layout and viewport. Use conservative safe areas for any typography.
     "image_title_safe_top_percent": 52,
     "image_title_safe_bottom_percent": 18,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
     ),
+    "images_local_dir": "images",
+    "image_public_base_url": "",
+    "image_public_branch": "main",
+    "articles_local_dir": "articles",
+    "article_filename_template": "episode-{episode_number:02d}-{slug}.md",
+    "image_filename_template": "episode-{episode_number:02d}.webp",
+    "series_cover_filename": "series-cover.webp",
     "article_structure": [
         "humorous opening hook",
         "introduce the metaphor",
@@ -173,6 +199,13 @@ def load_series_config(series):
         if isinstance(loaded, dict):
             config.update(loaded)
 
+    if not config.get("image_public_base_url"):
+        repo_url = config.get("github_repository_url", "").strip()
+        branch = config.get("image_public_branch", "main").strip() or "main"
+        if repo_url:
+            derived = derive_raw_github_images_base_url(repo_url, branch)
+            config["image_public_base_url"] = derived
+
     return config
 
 
@@ -207,29 +240,50 @@ def get_episode(data, episode_number):
     return None
 
 
-_DISPLAY_TITLE_PLACEHOLDER = "add display title here"
-
-
 def episode_image_title(episode):
-    """
-    Title to use in image prompt subtitle.
-
-    We prefer an explicit `display_title` so that `center_action` can be used
-    purely for scene/action description without also becoming the title.
-    """
-
     display_title = (episode.get("display_title") or "").strip()
     if display_title:
         return display_title
 
-    # Backwards-compatible fallback for older series files.
     return (episode.get("title") or "").strip()
+
+
+def derive_raw_github_images_base_url(repo_url, branch):
+    """
+    Convert a GitHub repository URL into a raw-content images base URL.
+
+    Example:
+    https://github.com/software-journey/azure-data-platform
+    ->
+    https://raw.githubusercontent.com/software-journey/azure-data-platform/main/images
+    """
+    repo_url = (repo_url or "").strip().rstrip("/")
+    if not repo_url:
+        return ""
+
+    parsed = urlparse(repo_url)
+
+    if parsed.netloc not in {"github.com", "www.github.com"}:
+        return ""
+
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) < 2:
+        return ""
+
+    owner = parts[0]
+    repo = parts[1]
+
+    return (
+        f"https://raw.githubusercontent.com/"
+        f"{owner}/{repo}/{branch}/images"
+    )
 
 
 def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = config["image_title_safe_bottom_percent"]
+    title_center = int(top + (100 - top - bottom) / 2)
 
     return (
         "DEV.to title safety requirements:\n"
@@ -254,7 +308,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "Placement target (important):\n"
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
         "- Place the series title so its cap-height starts below that zone.\n"
-        "- Aim for the title block center around ~65% of image height.\n"
+        f"- Aim for the title block center around ~{title_center}% of image "
+        "height.\n"
         "- Place the subtitle below the series title (not above).\n\n"
         "Exact text to include:\n"
         "Top title:\n"
@@ -365,10 +420,175 @@ Avoid:
 """.strip()
 
 
+def build_series_cover_prompt(data, config):
+    series = data.get("series", {})
+    defaults = data.get("defaults", {})
+    composition = defaults.get("composition", {})
+
+    series_name = series.get("name", "")
+    series_type = series.get("type", "")
+    setting = defaults.get("setting", "")
+    lighting = defaults.get("lighting", "")
+
+    left_third = composition.get("left_third", "")
+    center = composition.get("center", "")
+    right_third = composition.get("right_third", "")
+    background = composition.get("background", "")
+
+    return f"""
+Create a polished cinematic landscape banner illustration for a web article
+series overview.
+
+Series title:
+"{series_name}"
+
+Optional small subtitle:
+"{series_type}"
+
+Canvas requirements:
+- resolution: {config["image_resolution"]}
+- aspect ratio: {config["image_aspect_ratio"]}
+- landscape banner composition
+- about {config["image_whitespace_margin_percent"]}% whitespace around the
+  artwork
+- clean readable layout suitable for a DEV.to article header or repository
+    overview banner
+- avoid clutter and keep the composition visually clear
+
+Output requirements:
+- export format: {config["image_format"]}
+- target file size: under {config["image_max_file_size_kb"]} KB
+- optimized for fast web loading
+
+Scene setting:
+{setting}
+
+Lighting and atmosphere:
+{lighting}
+
+Composition guidance:
+- left third: {left_third}
+- center: broad series concept overview
+- right third: {right_third}
+- background: {background}
+
+Style requirements:
+- {config["image_style"]}
+- visually striking but not overcrowded
+- designed specifically as a series banner
+
+Text safety requirements:
+- keep all text fully readable in a conservative central safe area
+- do not place text close to the top edge
+- do not let text or ornaments touch the image edge
+- keep the title fully visible
+
+Avoid:
+- visual clutter
+- unreadable text
+- cramped composition
+- flat lighting
+- messy perspective
+- low-detail background
+- oversized title text
+""".strip()
+
+
 def build_article_structure_block(config):
     lines = []
     for idx, item in enumerate(config["article_structure"], start=1):
         lines.append(f"{idx}. {item}")
+    return "\n".join(lines)
+
+
+def get_images_local_dir(series, config):
+    series_id = series.get("id", "unknown_series")
+    return Path(config["images_local_dir"]) / series_id
+
+
+def get_articles_local_dir(series, config):
+    series_id = series.get("id", "unknown_series")
+    return Path(config["articles_local_dir"]) / series_id
+
+
+def get_episode_image_filename(episode, config):
+    return config["image_filename_template"].format(
+        episode_number=int(episode["number"]),
+        slug=episode.get("slug", ""),
+    )
+
+
+def get_episode_image_path(series, episode, config):
+    images_dir = get_images_local_dir(series, config)
+    images_dir.mkdir(parents=True, exist_ok=True)
+    return images_dir / get_episode_image_filename(episode, config)
+
+
+def get_series_cover_path(series, config):
+    images_dir = get_images_local_dir(series, config)
+    images_dir.mkdir(parents=True, exist_ok=True)
+    return images_dir / config["series_cover_filename"]
+
+
+def get_episode_cover_image_url(series, episode, config):
+    base_url = (config.get("image_public_base_url") or "").rstrip("/")
+    filename = get_episode_image_filename(episode, config)
+
+    if not base_url:
+        return ""
+
+    return f"{base_url}/{series.get('id', 'unknown_series')}/{filename}"
+
+
+def get_series_cover_image_url(series, config):
+    base_url = (config.get("image_public_base_url") or "").rstrip("/")
+
+    if not base_url:
+        return ""
+
+    return (
+        f"{base_url}/"
+        f"{series.get('id', 'unknown_series')}/"
+        f"{config['series_cover_filename']}"
+    )
+
+
+def get_article_filename(episode, config):
+    return config["article_filename_template"].format(
+        episode_number=int(episode["number"]),
+        slug=episode.get("slug", ""),
+    )
+
+
+def get_article_output_path(series, episode, config):
+    articles_dir = get_articles_local_dir(series, config)
+    articles_dir.mkdir(parents=True, exist_ok=True)
+    return articles_dir / get_article_filename(episode, config)
+
+
+def build_frontmatter_hint(series, episode, config):
+    cover_image_url = get_episode_cover_image_url(series, episode, config)
+    series_name = series.get("name", "")
+    title = episode_image_title(episode)
+
+    lines = [
+        "---",
+        f'title: "Episode {episode["number"]}: {title}"',
+        "published: false",
+        'description: "Add article description here."',
+        'tags: ["add", "tags", "here"]',
+        f'series: "{series_name}"',
+    ]
+
+    if cover_image_url:
+        lines.append(f'cover_image: "{cover_image_url}"')
+    else:
+        lines.append(
+            'cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"'
+        )
+
+    lines.append("---")
+
     return "\n".join(lines)
 
 
@@ -379,7 +599,7 @@ def build_article_prompt(data, episode, config):
 
     series_name = series.get("name", "")
     series_type = series.get("type", "")
-    title = episode.get("title", "")
+    title = episode_image_title(episode)
     metaphor = episode.get("metaphor", "")
     center_action = episode.get("center_action", "")
 
@@ -405,6 +625,7 @@ def build_article_prompt(data, episode, config):
     frontmatter_line = (
         "yes" if config["article_frontmatter_required"] else "no"
     )
+    frontmatter_hint = build_frontmatter_hint(series, episode, config)
 
     return f"""
 I have created a repository that contains markdown articles published to
@@ -458,12 +679,17 @@ Article requirements:
 - produce a complete dev.to-ready markdown article
 - include frontmatter similar to the examples in the repository:
   {frontmatter_line}
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
 - include explanations of the code
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
+
+Suggested frontmatter example:
+{frontmatter_hint}
 
 Suggested structure:
 {structure_block}
@@ -506,6 +732,10 @@ def generate_prompt_bundle(data, episode):
     if not github_repo_url:
         github_repo_url = "[UPDATE_SERIES_GITHUB_REPOSITORY_URL]"
 
+    cover_image_url = get_episode_cover_image_url(series, episode, config)
+    if not cover_image_url:
+        cover_image_url = "[UPDATE_PUBLIC_COVER_IMAGE_URL]"
+
     return f"""
 # Prompt Bundle
 
@@ -513,7 +743,7 @@ Series ID: {series.get("id")}
 Series Name: {series.get("name")}
 Series Type: {series.get("type")}
 
-Episode: {episode["number"]} - {episode["title"]}
+Episode: {episode["number"]} - {episode_image_title(episode)}
 Slug: {episode.get("slug")}
 
 Canvas
@@ -540,6 +770,12 @@ Center Action
 
 Supporting Props
 {props_lines}
+
+Local Image Path
+{get_episode_image_path(series, episode, config)}
+
+Public Cover Image URL
+{cover_image_url}
 
 --------------------------------------------------
 
@@ -606,6 +842,10 @@ def bootstrap_series(series_file):
         "Series GitHub repository URL",
         "https://github.com/software-journey/example",
     )
+    image_public_branch = prompt_input(
+        "Public image branch",
+        "main",
+    )
 
     config_path = derive_config_path_from_series_file(series_file)
 
@@ -614,6 +854,11 @@ def bootstrap_series(series_file):
     config_data["article_tone"] = article_tone
     config_data["article_humor_style"] = humor_style
     config_data["article_code_language"] = code_language
+    config_data["image_public_branch"] = image_public_branch
+    config_data["image_public_base_url"] = derive_raw_github_images_base_url(
+        github_repo_url,
+        image_public_branch,
+    )
 
     if config_path.exists():
         print(f"Config already exists, not overwriting: {config_path}")
@@ -623,13 +868,15 @@ def bootstrap_series(series_file):
 
     episodes = []
     for number in range(1, episode_count + 1):
-        episode_title = f"Episode {number}"
+        internal_title = f"Episode {number}"
+        default_display_title = f"Episode {number}"
         episode_slug = f"episode-{number}"
+
         episodes.append(
             {
                 "number": number,
-                "title": episode_title,
-                "display_title": "add display title here",
+                "title": internal_title,
+                "display_title": default_display_title,
                 "slug": episode_slug,
                 "metaphor": base_metaphor,
                 "center_action": (
@@ -684,6 +931,151 @@ def bootstrap_series(series_file):
     print("Starter files created.")
     print("Please review and refine them, then rerun the generate command.")
     print("")
+
+
+def crop_to_aspect(img, target_ratio):
+    width, height = img.size
+    current_ratio = width / height
+
+    if current_ratio > target_ratio:
+        new_width = int(height * target_ratio)
+        left = (width - new_width) // 2
+        img = img.crop((left, 0, left + new_width, height))
+    else:
+        new_height = int(width / target_ratio)
+        top = (height - new_height) // 2
+        img = img.crop((0, top, width, top + new_height))
+
+    return img
+
+
+def compress_webp(img, path, max_kb):
+    for quality in range(95, 15, -5):
+        img.save(path, "WEBP", quality=quality)
+        size_kb = path.stat().st_size / 1024
+        if size_kb <= max_kb:
+            return
+
+    img.save(path, "WEBP", quality=20)
+
+
+def ensure_openai_api_key():
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        print("Missing OPENAI_API_KEY environment variable.")
+        sys.exit(1)
+    return api_key
+
+
+def generate_image_file(prompt, config, out_path):
+    ensure_openai_api_key()
+    client = OpenAI()
+
+    result = client.images.generate(
+        model=config["image_model"],
+        prompt=prompt,
+        size=config["image_generation_size"],
+        quality=config["image_quality"],
+        background=config["image_background"],
+    )
+
+    img_base64 = result.data[0].b64_json
+    img_bytes = base64.b64decode(img_base64)
+
+    img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+
+    width_str, height_str = config["image_resolution"].lower().split("x")
+    target_width = int(width_str)
+    target_height = int(height_str)
+    target_ratio = target_width / target_height
+
+    img = crop_to_aspect(img, target_ratio)
+    img = img.resize((target_width, target_height), Image.LANCZOS)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    compress_webp(img, out_path, config["image_max_file_size_kb"])
+
+
+def generate_episode_image(data, episode):
+    series = data.get("series", {})
+    config = load_series_config(series)
+
+    prompt = build_image_prompt(data, episode, config)
+    out_path = get_episode_image_path(series, episode, config)
+
+    prompt_path = out_path.with_suffix(".prompt.txt")
+    prompt_path.write_text(prompt + "\n", encoding="utf-8")
+
+    generate_image_file(prompt, config, out_path)
+
+    print(f"Generated image {out_path}")
+    print(f"Saved prompt {prompt_path}")
+
+    public_url = get_episode_cover_image_url(series, episode, config)
+    if public_url:
+        print(f"Public cover URL: {public_url}")
+    else:
+        print("Public cover URL not configured.")
+
+
+def generate_series_cover(data):
+    series = data.get("series", {})
+    config = load_series_config(series)
+
+    prompt = build_series_cover_prompt(data, config)
+    out_path = get_series_cover_path(series, config)
+
+    prompt_path = out_path.with_suffix(".prompt.txt")
+    prompt_path.write_text(prompt + "\n", encoding="utf-8")
+
+    generate_image_file(prompt, config, out_path)
+
+    print(f"Generated series cover {out_path}")
+    print(f"Saved prompt {prompt_path}")
+
+    public_url = get_series_cover_image_url(series, config)
+    if public_url:
+        print(f"Public series cover URL: {public_url}")
+    else:
+        print("Public series cover URL not configured.")
+
+
+def build_article_markdown_stub(data, episode, config):
+    series = data.get("series", {})
+    title = episode_image_title(episode)
+    series_name = series.get("name", "")
+    cover_image_url = get_episode_cover_image_url(series, episode, config)
+
+    if not cover_image_url:
+        cover_image_url = "REPLACE_WITH_PUBLIC_IMAGE_URL"
+
+    return f"""---
+title: "Episode {episode["number"]}: {title}"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "{series_name}"
+cover_image: "{cover_image_url}"
+---
+
+# Episode {episode["number"]}: {title}
+
+Write your article here.
+"""
+
+
+def generate_article_stub(data, episode):
+    series = data.get("series", {})
+    config = load_series_config(series)
+
+    out_path = get_article_output_path(series, episode, config)
+    if out_path.exists():
+        print(f"Article already exists, not overwriting: {out_path}")
+        return
+
+    content = build_article_markdown_stub(data, episode, config)
+    out_path.write_text(content, encoding="utf-8")
+    print(f"Generated article stub {out_path}")
 
 
 def generate_all(series_file):
@@ -749,20 +1141,97 @@ def generate_single(series_file, episode_number):
     print(f"Generated {filename}")
 
 
+def generate_single_image(series_file, episode_number):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episode = get_episode(data, episode_number)
+
+    if not episode:
+        print(f"Episode {episode_number} not found.")
+        sys.exit(1)
+
+    generate_episode_image(data, episode)
+
+
+def generate_all_images(series_file):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episodes = data.get("episodes", [])
+
+    if not episodes:
+        print("No episodes defined.")
+        sys.exit(1)
+
+    for episode in episodes:
+        generate_episode_image(data, episode)
+
+
+def generate_single_article_stub(series_file, episode_number):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episode = get_episode(data, episode_number)
+
+    if not episode:
+        print(f"Episode {episode_number} not found.")
+        sys.exit(1)
+
+    generate_article_stub(data, episode)
+
+
+def generate_all_article_stubs(series_file):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episodes = data.get("episodes", [])
+
+    if not episodes:
+        print("No episodes defined.")
+        sys.exit(1)
+
+    for episode in episodes:
+        generate_article_stub(data, episode)
+
+
 def print_usage():
     print("")
     print("Usage:")
     print("  python scripts/prompt-cli.py list-series")
     print("  python scripts/prompt-cli.py generate <series_file>")
-    print(
-        "  python scripts/prompt-cli.py generate "
-        "<series_file> <episode_number>"
-    )
+    print("  python scripts/prompt-cli.py generate <series_file> <episode_number>")
+    print("  python scripts/prompt-cli.py generate-image <series_file> "
+          "<episode_number>")
+    print("  python scripts/prompt-cli.py generate-images <series_file>")
+    print("  python scripts/prompt-cli.py generate-article <series_file> "
+          "<episode_number>")
+    print("  python scripts/prompt-cli.py generate-articles <series_file>")
+    print("  python scripts/prompt-cli.py generate-series-cover <series_file>")
     print("")
     print("Behavior:")
-    print("- If the series file exists, prompt bundles are generated.")
+    print("- If the series file exists, prompt bundles can be generated.")
     print("- If the series file does not exist, starter config and series")
     print("  files are created interactively.")
+    print("- Episode images are saved in images/<series_id>/")
+    print("- Article stubs are saved in articles/<series_id>/")
+    print("- DEV.to cover_image uses a public absolute URL, not /images/...")
     print("")
 
 
@@ -790,6 +1259,58 @@ def main():
         else:
             generate_single(series_file, sys.argv[3])
 
+        return
+
+    if command == "generate-image":
+        if len(sys.argv) < 4:
+            print("Missing arguments.")
+            print_usage()
+            return
+
+        generate_single_image(sys.argv[2], sys.argv[3])
+        return
+
+    if command == "generate-images":
+        if len(sys.argv) < 3:
+            print("Missing series file.")
+            print_usage()
+            return
+
+        generate_all_images(sys.argv[2])
+        return
+
+    if command == "generate-article":
+        if len(sys.argv) < 4:
+            print("Missing arguments.")
+            print_usage()
+            return
+
+        generate_single_article_stub(sys.argv[2], sys.argv[3])
+        return
+
+    if command == "generate-articles":
+        if len(sys.argv) < 3:
+            print("Missing series file.")
+            print_usage()
+            return
+
+        generate_all_article_stubs(sys.argv[2])
+        return
+
+    if command == "generate-series-cover":
+        if len(sys.argv) < 3:
+            print("Missing series file.")
+            print_usage()
+            return
+
+        series_file = Path(sys.argv[2])
+
+        if not series_file.exists():
+            print(f"Series file not found: {series_file}")
+            sys.exit(1)
+
+        data = load_yaml(series_file)
+        generate_series_cover(data)
         return
 
     print("Unknown command.")

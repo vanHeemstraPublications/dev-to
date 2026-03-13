@@ -11,14 +11,13 @@ SERIES_DIR := series
 SERIES_FILES := $(filter-out $(SERIES_DIR)/SERIES_INDEX.yaml,$(wildcard $(SERIES_DIR)/*.yaml))
 
 # Resolve SERIES argument to a YAML path.
-# Convention: series file stems end with "_series" (e.g. "python_story_series").
 # Accepts:
-# - SERIES=series/foo_series.yaml
-# - SERIES=foo_series.yaml      (assumes series/foo_series.yaml)
-# - SERIES=foo_series           (assumes series/foo_series.yaml)
-# - SERIES=foo                  (assumes series/foo_series.yaml)
+# - SERIES=series/foo.yaml
+# - SERIES=foo.yaml          -> series/foo.yaml
+# - SERIES=foo               -> series/foo_series.yaml
+# - SERIES=foo_series        -> series/foo_series.yaml
 define resolve_series
-$(if $(findstring /,$(1)),$(1),$(SERIES_DIR)/$(if $(filter %_series,$(basename $(1))),$(basename $(1)),$(basename $(1))_series).yaml)
+$(if $(findstring /,$(1)),$(1),$(SERIES_DIR)/$(if $(filter %.yaml,$(1)),$(1),$(if $(filter %_series,$(1)),$(1),$(1)_series).yaml))
 endef
 
 # -------------------------------------------
@@ -34,7 +33,15 @@ $(VENV)/bin/activate:
 # Commands
 # -------------------------------------------
 
-.PHONY: help install lint docs list-series generate generate-all generate-series generate-episode validate clean show-series-files
+.PHONY: \
+	help install lint docs validate check-cli \
+	list-series show-series-files \
+	generate generate-all generate-series generate-episode \
+	generate-image generate-images \
+	generate-article generate-articles \
+	generate-assets \
+	generate-series-cover \
+	clean clean-generated
 
 help:
 	@echo ""
@@ -51,25 +58,48 @@ help:
 	@echo "      Regenerate docs/EPISODE_INDEX.md and docs/SERIES_INDEX.md"
 	@echo "  make validate"
 	@echo "      Run lint + docs"
+	@echo "  make check-cli"
+	@echo "      Check prompt-cli.py syntax and basic execution"
 	@echo ""
-	@echo "Series"
+	@echo "Series Discovery"
 	@echo "  make list-series"
 	@echo "      List all available series from SERIES_INDEX.yaml"
 	@echo "  make show-series-files"
 	@echo "      Show detected YAML series files in /series"
-	@echo "  make generate-all"
-	@echo "      Generate prompt bundles for all detected series files"
+	@echo ""
+	@echo "Prompt Bundles"
 	@echo "  make generate SERIES=<your_series>"
-	@echo "      Generate prompts (SERIES should follow the '*_series' convention)"
-	@echo "      Accepts: 'foo' -> 'series/foo_series.yaml', 'foo_series', 'foo_series.yaml', or 'series/foo_series.yaml'"
-	@echo "  make generate-series SERIES=series/python_story_series.yaml"
+	@echo "      Generate prompt bundles for a series"
+	@echo "  make generate-series SERIES=series/azure_data_platform.yaml"
 	@echo "      Generate all prompt bundles for one series file"
-	@echo "  make generate-episode SERIES=series/container_harbour_series.yaml EP=4"
-	@echo "      Generate one episode from one series file"
+	@echo "  make generate-episode SERIES=azure_data_platform EP=1"
+	@echo "      Generate one episode prompt bundle"
+	@echo "  make generate-all"
+	@echo "      Generate prompt bundles for all series"
+	@echo ""
+	@echo "Images"
+	@echo "  make generate-image SERIES=azure_data_platform EP=1"
+	@echo "      Generate one episode banner image"
+	@echo "  make generate-images SERIES=azure_data_platform"
+	@echo "      Generate all episode banner images for a series"
+	@echo "  make generate-series-cover SERIES=azure_data_platform"
+	@echo "      Generate a reusable series cover image"
+	@echo ""
+	@echo "Articles"
+	@echo "  make generate-article SERIES=azure_data_platform EP=1"
+	@echo "      Generate one article stub"
+	@echo "  make generate-articles SERIES=azure_data_platform"
+	@echo "      Generate all article stubs for a series"
+	@echo ""
+	@echo "Convenience"
+	@echo "  make generate-assets SERIES=azure_data_platform EP=1"
+	@echo "      Generate both the banner image and article stub for one episode"
 	@echo ""
 	@echo "Maintenance"
+	@echo "  make clean-generated"
+	@echo "      Remove generated prompt bundles only"
 	@echo "  make clean"
-	@echo "      Remove generated files and virtual environment"
+	@echo "      Remove generated prompt bundles and the virtual environment"
 	@echo ""
 
 install: $(VENV)/bin/activate
@@ -81,6 +111,10 @@ docs: $(VENV)/bin/activate
 	$(PY) scripts/prompt-docs.py
 
 validate: lint docs
+
+check-cli: $(VENV)/bin/activate
+	$(PY) -m py_compile scripts/prompt-cli.py
+	$(PY) scripts/prompt-cli.py list-series
 
 list-series: $(VENV)/bin/activate
 	$(PY) scripts/prompt-cli.py list-series
@@ -97,29 +131,73 @@ generate-all: $(VENV)/bin/activate
 
 generate: $(VENV)/bin/activate
 ifndef SERIES
-	$(error SERIES is required. Example: make generate SERIES=container_harbour_series)
+	$(error SERIES is required. Example: make generate SERIES=azure_data_platform)
 endif
 	$(PY) scripts/prompt-cli.py generate $(call resolve_series,$(SERIES))
 
 generate-series: $(VENV)/bin/activate
 ifndef SERIES
-	$(error SERIES is required. Example: make generate-series SERIES=series/python_story_series.yaml)
+	$(error SERIES is required. Example: make generate-series SERIES=series/azure_data_platform.yaml)
 endif
-	$(PY) scripts/prompt-cli.py generate $(SERIES)
+	$(PY) scripts/prompt-cli.py generate $(call resolve_series,$(SERIES))
 
 generate-episode: $(VENV)/bin/activate
 ifndef SERIES
-	$(error SERIES is required. Example: make generate-episode SERIES=series/container_harbour_series.yaml EP=4)
+	$(error SERIES is required. Example: make generate-episode SERIES=azure_data_platform EP=1)
 endif
 ifndef EP
-	$(error EP is required. Example: make generate-episode SERIES=series/container_harbour_series.yaml EP=4)
+	$(error EP is required. Example: make generate-episode SERIES=azure_data_platform EP=1)
 endif
-	$(PY) scripts/prompt-cli.py generate $(SERIES) $(EP)
+	$(PY) scripts/prompt-cli.py generate $(call resolve_series,$(SERIES)) $(EP)
 
-check-cli:
-	$(PY) -m py_compile scripts/prompt-cli.py
-	$(PY) scripts/prompt-cli.py list-series
+generate-image: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-image SERIES=azure_data_platform EP=1)
+endif
+ifndef EP
+	$(error EP is required. Example: make generate-image SERIES=azure_data_platform EP=1)
+endif
+	$(PY) scripts/prompt-cli.py generate-image $(call resolve_series,$(SERIES)) $(EP)
 
-clean:
+generate-images: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-images SERIES=azure_data_platform)
+endif
+	$(PY) scripts/prompt-cli.py generate-images $(call resolve_series,$(SERIES))
+
+generate-article: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-article SERIES=azure_data_platform EP=1)
+endif
+ifndef EP
+	$(error EP is required. Example: make generate-article SERIES=azure_data_platform EP=1)
+endif
+	$(PY) scripts/prompt-cli.py generate-article $(call resolve_series,$(SERIES)) $(EP)
+
+generate-articles: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-articles SERIES=azure_data_platform)
+endif
+	$(PY) scripts/prompt-cli.py generate-articles $(call resolve_series,$(SERIES))
+
+generate-assets: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-assets SERIES=azure_data_platform EP=1)
+endif
+ifndef EP
+	$(error EP is required. Example: make generate-assets SERIES=azure_data_platform EP=1)
+endif
+	$(PY) scripts/prompt-cli.py generate-image $(call resolve_series,$(SERIES)) $(EP)
+	$(PY) scripts/prompt-cli.py generate-article $(call resolve_series,$(SERIES)) $(EP)
+
+generate-series-cover: $(VENV)/bin/activate
+ifndef SERIES
+	$(error SERIES is required. Example: make generate-series-cover SERIES=azure_data_platform)
+endif
+	$(PY) scripts/prompt-cli.py generate-series-cover $(call resolve_series,$(SERIES))
+
+clean-generated:
 	rm -rf generated
+
+clean: clean-generated
 	rm -rf $(VENV)
