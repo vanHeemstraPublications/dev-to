@@ -29,8 +29,10 @@ DEFAULT_CONFIG = {
     "image_max_file_size_kb": 400,
     "image_whitespace_margin_percent": 15,
     "image_title_safe_left_right_percent": 12,
-    "image_title_safe_top_percent": 14,
-    "image_title_safe_bottom_percent": 12,
+    # DEV.to cover images are frequently cropped (especially on top) depending
+    # on layout and viewport. Use conservative safe areas for any typography.
+    "image_title_safe_top_percent": 24,
+    "image_title_safe_bottom_percent": 14,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -230,6 +232,7 @@ def build_title_safety_block(series_name, episode_number, title, config):
     return (
         "DEV.to title safety requirements:\n"
         "- This image will be used as a DEV.to article header/banner.\n"
+        "- DEV.to often crops the top/bottom edges of cover images.\n"
         "- Keep all text fully readable inside a conservative safe area.\n"
         "- Do not place important text near the extreme edges.\n"
         f"- Keep title typography at least {lr}% away from the left and right "
@@ -237,8 +240,9 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Keep title typography at least {top}% away from the top edge.\n"
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
-        "- Place the main title block in the upper-middle area, not flush "
-        "against the top border.\n"
+        "- Do NOT place any text in the top safe-margin area.\n"
+        "- Place the title block lower than you normally would: upper-middle, "
+        "not near the top border.\n"
         "- Keep the subtitle clearly below the main title with generous "
         "spacing.\n"
         "- Use slightly smaller typography rather than oversized typography "
