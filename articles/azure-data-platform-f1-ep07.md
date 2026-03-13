@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🥈 Episode 7 — Silver Refinement
+# 🥈 Episode 7 — Silver Refinement (Delta Lake transforms)
 
 > *"Raw race fuel burns, but it burns dirty. Race engineers refine it to the precise specification the engine needs — clean, consistent, and perfectly measured."*
 

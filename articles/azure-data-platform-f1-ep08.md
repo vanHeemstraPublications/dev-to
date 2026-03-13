@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🥇 Episode 8 — Gold Aggregation
+# 🥇 Episode 8 — Gold Aggregation (Business-ready data)
 
 > *"The race strategist doesn't look at raw telemetry. They look at a dashboard: tyre degradation curve, gap to leader, pit window. Aggregated. Actionable. Now."*
 

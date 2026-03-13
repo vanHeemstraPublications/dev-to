@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🖥️ Episode 9 — The Cockpit
+# 🖥️ Episode 9 — The Cockpit (Databricks Notebooks & Jobs)
 
 > *"The cockpit is where the driver and the car become one. Every button, every display, every control is purpose-built for speed and precision."*
 

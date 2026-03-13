@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🚛 Episode 3 — Fuel Logistics
+# 🚛 Episode 3 — Fuel Logistics (Azure Data Factory)
 
 > *"The best fuel in the world is useless if it never reaches the car."*
 

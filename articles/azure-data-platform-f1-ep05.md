@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# ⚙️ Episode 5 — The Engine
+# ⚙️ Episode 5 — The Engine (Apache Spark)
 
 > *"You don't need to be an engine builder to be a world champion driver. But understanding how your engine works makes you faster."*
 

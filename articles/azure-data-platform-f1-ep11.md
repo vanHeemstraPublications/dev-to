@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 📡 Episode 11 — Telemetry
+# 📡 Episode 11 — Telemetry (Monitoring & observability)
 
 > *"An F1 car sends 300 data points per second back to the garage. If you're not monitoring your data platform with the same intensity, you're racing blind."*
 
