@@ -27,12 +27,14 @@ DEFAULT_CONFIG = {
     "image_aspect_ratio": "100:42",
     "image_format": "WebP",
     "image_max_file_size_kb": 400,
-    "image_whitespace_margin_percent": 15,
+    # DEV.to cover images can be shown with extra cropping. Increase overall
+    # whitespace so the composition survives various viewports.
+    "image_whitespace_margin_percent": 20,
     "image_title_safe_left_right_percent": 12,
     # DEV.to cover images are frequently cropped (especially on top) depending
     # on layout and viewport. Use conservative safe areas for any typography.
-    "image_title_safe_top_percent": 32,
-    "image_title_safe_bottom_percent": 14,
+    "image_title_safe_top_percent": 40,
+    "image_title_safe_bottom_percent": 16,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -249,6 +251,10 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "if needed.\n"
         "- Do not let any letter, banner, or ornament touch the image edge.\n"
         "- The full title and subtitle must be completely visible.\n\n"
+        "Placement target (important):\n"
+        f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
+        "- Place the series title so its cap-height starts below that zone.\n"
+        "- Place the subtitle below the series title (not above).\n\n"
         "Exact text to include:\n"
         "Top title:\n"
         f"\"{series_name}\"\n\n"
