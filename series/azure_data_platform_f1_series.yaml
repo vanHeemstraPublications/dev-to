@@ -20,111 +20,111 @@ episodes:
   title: Episode 1
   slug: episode-1
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Welcome to the Factory
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Factory Tour
+  - Platform Overview
 - number: 2
   title: Episode 2
   slug: episode-2
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Fuel Tank
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Fuel Tank
+  - Raw Data Storage
 - number: 3
   title: Episode 3
   slug: episode-3
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Fuel Logistics
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Fuel Logistics
+  - Data Ingestion
 - number: 4
   title: Episode 4
   slug: episode-4
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Race Car
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Race Car
+  - Data Processing
 - number: 5
   title: Episode 5
   slug: episode-5
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Engine
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Engine
+  - Data Processing
 - number: 6
   title: Episode 6
   slug: episode-6
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Pit Lane
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Pit Lane
+  - Data Governance
 - number: 7
   title: Episode 7
   slug: episode-7
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Silver Refinement
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Silver Refinement
+  - Data Transformation
 - number: 8
   title: Episode 8
   slug: episode-8
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Gold Aggregation
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Gold Aggregation
+  - Business-Ready Data Products
 - number: 9
   title: Episode 9
   slug: episode-9
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Cockpit
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Cockpit
+  - Data Processing
 - number: 10
   title: Episode 10
   slug: episode-10
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Race Strategy
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Race Strategy
+  - Data Governance
 - number: 11
   title: Episode 11
   slug: episode-11
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Telemetry
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Telemetry
+  - Data Monitoring
 - number: 12
   title: Episode 12
   slug: episode-12
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Wind Tunnel
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Wind Tunnel
+  - Data Processing
 - number: 13
   title: Episode 13
   slug: episode-13
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: Race Broadcast
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - Race Broadcast
+  - Data Visualization
 - number: 14
   title: Episode 14
   slug: episode-14
   metaphor: Formula 1
-  center_action: describe the key action for this episode here
+  center_action: The Championship
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Championship
+  - The Complete Lakehouse Architecture
