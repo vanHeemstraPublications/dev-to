@@ -36,6 +36,12 @@ Supporting Props
 - cargo inventory ledger
 
 
+Local Image Path
+images/container_harbour_series/episode-11.webp
+
+Public Cover Image URL
+https://raw.githubusercontent.com/software-journey/kubernetes/main/images/container_harbour_series/episode-11.webp
+
 --------------------------------------------------
 
 ChatGPT Image Prompt
@@ -107,7 +113,7 @@ DEV.to title safety requirements:
 Placement target (important):
 - Treat the top 14% of the image as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~65% of image height.
+- Aim for the title block center around ~51% of image height.
 - Place the subtitle below the series title (not above).
 
 Exact text to include:
@@ -187,12 +193,24 @@ Article requirements:
 - produce a complete dev.to-ready markdown article
 - include frontmatter similar to the examples in the repository:
   yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
 - include explanations of the code
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
+
+Suggested frontmatter example:
+---
+title: "Episode 11: Volumes — The Cargo Warehouse"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Welcome to container harbour!"
+cover_image: "https://raw.githubusercontent.com/software-journey/kubernetes/main/images/container_harbour_series/episode-11.webp"
+---
 
 Suggested structure:
 1. humorous opening hook

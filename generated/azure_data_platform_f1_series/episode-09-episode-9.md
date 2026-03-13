@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 9 - Episode 9
+Episode: 9 - The Cockpit
 Slug: episode-9
 
 Canvas
@@ -33,6 +33,12 @@ Supporting Props
 - The Cockpit
 - Data Processing
 
+
+Local Image Path
+images/azure_data_platform_f1_series/episode-09.webp
+
+Public Cover Image URL
+https://raw.githubusercontent.com/software-journey/azure-data-platform/main/images/azure_data_platform_f1_series/episode-09.webp
 
 --------------------------------------------------
 
@@ -105,7 +111,7 @@ DEV.to title safety requirements:
 Placement target (important):
 - Treat the top 52% of the image as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~65% of image height.
+- Aim for the title block center around ~67% of image height.
 - Place the subtitle below the series title (not above).
 
 Exact text to include:
@@ -152,7 +158,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 9: Episode 9
+Episode 9: The Cockpit
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly
@@ -185,12 +191,24 @@ Article requirements:
 - produce a complete dev.to-ready markdown article
 - include frontmatter similar to the examples in the repository:
   yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
 - include explanations of the code
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
+
+Suggested frontmatter example:
+---
+title: "Episode 9: The Cockpit"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Azure Data Platform F1 Series"
+cover_image: "https://raw.githubusercontent.com/software-journey/azure-data-platform/main/images/azure_data_platform_f1_series/episode-09.webp"
+---
 
 Suggested structure:
 1. humorous opening hook
