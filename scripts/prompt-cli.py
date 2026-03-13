@@ -29,12 +29,12 @@ DEFAULT_CONFIG = {
     "image_max_file_size_kb": 400,
     # DEV.to cover images can be shown with extra cropping. Increase overall
     # whitespace so the composition survives various viewports.
-    "image_whitespace_margin_percent": 20,
+    "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
     # DEV.to cover images are frequently cropped (especially on top) depending
     # on layout and viewport. Use conservative safe areas for any typography.
-    "image_title_safe_top_percent": 40,
-    "image_title_safe_bottom_percent": 16,
+    "image_title_safe_top_percent": 48,
+    "image_title_safe_bottom_percent": 18,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -243,8 +243,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
         "- Do NOT place any text in the top safe-margin area.\n"
-        "- Place the entire title block clearly below the top crop zone "
-        "(upper-middle; noticeably lower than typical header designs).\n"
+        "- Place the entire title block in the visual middle band of the "
+        "image (not the top third).\n"
         "- Keep the subtitle clearly below the main title with generous "
         "spacing.\n"
         "- Use slightly smaller typography rather than oversized typography "
@@ -254,6 +254,7 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "Placement target (important):\n"
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
         "- Place the series title so its cap-height starts below that zone.\n"
+        "- Aim for the title block center around ~60% of image height.\n"
         "- Place the subtitle below the series title (not above).\n\n"
         "Exact text to include:\n"
         "Top title:\n"
