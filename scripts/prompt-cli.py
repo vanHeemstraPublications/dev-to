@@ -954,6 +954,8 @@ def bootstrap_series(series_file):
             "whitespace_margin_percent": (
                 DEFAULT_CONFIG["image_whitespace_margin_percent"]
             ),
+            # Required by scripts/prompt-lint.py (used by other tooling too).
+            "prompt_template": "prompts/PROMPT_TEMPLATE.md",
             "series_config": str(config_path),
         },
         "defaults": {

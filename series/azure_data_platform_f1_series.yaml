@@ -6,6 +6,7 @@ series:
   resolution: 1000x420
   aspect_ratio: '100:42'
   whitespace_margin_percent: 15
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
   series_config: config/azure-data-platform-f1-series.json
 defaults:
   setting: Formula 1
