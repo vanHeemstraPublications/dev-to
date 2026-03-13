@@ -4,6 +4,17 @@ This file is generated from the YAML files in `series/`.
 
 ## Available Series
 
+### Azure Data Platform F1 Series
+
+- id: `azure_data_platform_f1_series`
+- type: dev_to_series
+- source file: `series/azure_data_platform_f1_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: ``
+- setting: Formula 1
+- lighting: bright cinematic atmosphere
+- episodes: 14
+
 ### Welcome to container harbour!
 
 - id: `container_harbour_series`
@@ -24,5 +35,16 @@ This file is generated from the YAML files in `series/`.
 - deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: Hollywood film set at sunset
 - lighting: warm cinematic storytelling environment
+- episodes: 15
+
+### To The Moon Terraform Series
+
+- id: `to_the_moon_terraform_series`
+- type: dev_to_series
+- source file: `series/to_the_moon_terraform_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: ``
+- setting: space mission
+- lighting: bright space sky with stars
 - episodes: 15
 

@@ -956,6 +956,8 @@ def bootstrap_series(series_file):
             ),
             # Required by scripts/prompt-lint.py (used by other tooling too).
             "prompt_template": "prompts/PROMPT_TEMPLATE.md",
+            # Default deterministic image generation settings.
+            "deterministic_config": "config/IMAGE_GENERATION_CONFIG.yaml",
             "series_config": str(config_path),
         },
         "defaults": {

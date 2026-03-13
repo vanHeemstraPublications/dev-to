@@ -19,136 +19,127 @@ defaults:
 episodes:
 - number: 1
   title: Episode 1
-  display_title: Episode 1
+  display_title: The Audacity of Going to the Moon
   slug: episode-1
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Audacity of Going to the Moon
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Moon Mission
+  - Terraform
 - number: 2
   title: Episode 2
-  display_title: Episode 2
+  display_title: Mission Architecture (Providers & Resources)
   slug: episode-2
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Mission Architecture (Providers & Resources)
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Providers & Resources
 - number: 3
   title: Episode 3
-  display_title: Episode 3
+  display_title: The Blueprint (Variables & Outputs)
   slug: episode-3
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Blueprint (Variables & Outputs)
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Variables & Outputs
 - number: 4
   title: Episode 4
-  display_title: Episode 4
+  display_title: The Pre-Flight Checklist (terraform plan)
   slug: episode-4
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Pre-Flight Checklist (terraform plan)
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - terraform plan
 - number: 5
   title: Episode 5
-  display_title: Episode 5
+  display_title: Launch Sequence (terraform apply & the State File)
   slug: episode-5
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Launch Sequence (terraform apply & the State File)
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - terraform apply & the State File
 - number: 6
   title: Episode 6
-  display_title: Episode 6
+  display_title: The Modular Rocket
   slug: episode-6
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Modular Rocket
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Terraform Modules
 - number: 7
   title: Episode 7
-  display_title: Episode 7
+  display_title: Mission Control Systems
   slug: episode-7
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Mission Control Systems
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Remote State & Backends
 - number: 8
   title: Episode 8
-  display_title: Episode 8
+  display_title: The Crew Manifest
   slug: episode-8
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Crew Manifest
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Workspaces & Environments
 - number: 9
   title: Episode 9
-  display_title: Episode 9
+  display_title: Mid-Course Corrections
   slug: episode-9
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Mid-Course Corrections
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - terraform import
 - number: 10
   title: Episode 10
-  display_title: Episode 10
+  display_title: Docking Procedure
   slug: episode-10
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Docking Procedure
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Dependencies & depends_on
 - number: 11
   title: Episode 11
-  display_title: Episode 11
+  display_title: Life Support Systems
   slug: episode-11
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Life Support Systems
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - count, for_each, dynamic blocks
 - number: 12
   title: Episode 12
-  display_title: Episode 12
+  display_title: The Landing
   slug: episode-12
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: The Landing
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - CI/CD with Terraform
 - number: 13
   title: Episode 13
-  display_title: Episode 13
+  display_title: Moon Surface Operations
   slug: episode-13
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Moon Surface Operations
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - Provisioners & local-exec
 - number: 14
   title: Episode 14
-  display_title: Episode 14
+  display_title: Return to Earth
   slug: episode-14
   metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
+  center_action: Return to Earth
   supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
-- number: 15
-  title: Episode 15
-  display_title: Episode 15
-  slug: episode-15
-  metaphor: Planning a Mission to the Moon and Going There
-  center_action: describe the key action for this episode here
-  supporting_props:
-  - placeholder prop 1
-  - placeholder prop 2
+  - The Saturn V Rocket
+  - terraform destroy
