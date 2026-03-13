@@ -89,12 +89,14 @@ Style requirements:
 
 DEV.to title safety requirements:
 - This image will be used as a DEV.to article header/banner.
+- DEV.to often crops the top/bottom edges of cover images.
 - Keep all text fully readable inside a conservative safe area.
 - Do not place important text near the extreme edges.
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 14% away from the top edge.
-- Keep title typography at least 12% away from the bottom edge.
-- Place the main title block in the upper-middle area, not flush against the top border.
+- Keep title typography at least 24% away from the top edge.
+- Keep title typography at least 14% away from the bottom edge.
+- Do NOT place any text in the top safe-margin area.
+- Place the title block lower than you normally would: upper-middle, not near the top border.
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
 - Do not let any letter, banner, or ornament touch the image edge.
