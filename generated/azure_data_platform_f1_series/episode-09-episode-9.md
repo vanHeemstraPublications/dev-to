@@ -11,7 +11,7 @@ Canvas
 orientation: landscape
 resolution: 1000x420
 aspect ratio: 100:42
-whitespace margin: 15%
+whitespace margin: 20%
 
 Defaults
 setting: Formula 1
@@ -50,7 +50,7 @@ Canvas requirements:
 - resolution: 1000x420
 - aspect ratio: 100:42
 - landscape banner composition
-- about 15% whitespace around the
+- about 20% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
@@ -93,14 +93,19 @@ DEV.to title safety requirements:
 - Keep all text fully readable inside a conservative safe area.
 - Do not place important text near the extreme edges.
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 32% away from the top edge.
-- Keep title typography at least 14% away from the bottom edge.
+- Keep title typography at least 40% away from the top edge.
+- Keep title typography at least 16% away from the bottom edge.
 - Do NOT place any text in the top safe-margin area.
 - Place the entire title block clearly below the top crop zone (upper-middle; noticeably lower than typical header designs).
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
 - Do not let any letter, banner, or ornament touch the image edge.
 - The full title and subtitle must be completely visible.
+
+Placement target (important):
+- Treat the top 40% of the image as a NO-TEXT zone.
+- Place the series title so its cap-height starts below that zone.
+- Place the subtitle below the series title (not above).
 
 Exact text to include:
 Top title:

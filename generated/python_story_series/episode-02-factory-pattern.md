@@ -104,6 +104,11 @@ DEV.to title safety requirements:
 - Do not let any letter, banner, or ornament touch the image edge.
 - The full title and subtitle must be completely visible.
 
+Placement target (important):
+- Treat the top 14% of the image as a NO-TEXT zone.
+- Place the series title so its cap-height starts below that zone.
+- Place the subtitle below the series title (not above).
+
 Exact text to include:
 Top title:
 "Like Stories? Love Python!"
