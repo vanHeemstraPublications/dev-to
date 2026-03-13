@@ -27,11 +27,11 @@ Episode Metaphor
 Formula 1
 
 Center Action
-describe the key action for this episode here
+Fuel Logistics
 
 Supporting Props
-- placeholder prop 1
-- placeholder prop 2
+- Fuel Logistics
+- Data Ingestion
 
 
 --------------------------------------------------
@@ -71,7 +71,7 @@ Visual metaphor:
 Formula 1
 
 Center action:
-describe the key action for this episode here
+Fuel Logistics
 
 Composition guidance:
 - left third: main presenter or guide
@@ -80,7 +80,7 @@ Composition guidance:
 - background: supporting environment for the series
 
 Supporting props to include:
-placeholder prop 1, placeholder prop 2
+Fuel Logistics, Data Ingestion
 
 Style requirements:
 - cinematic digital illustration, highly detailed, storybook realism, polished composition
@@ -159,7 +159,7 @@ Primary metaphor:
 Formula 1
 
 Episode-specific action:
-describe the key action for this episode here
+Fuel Logistics
 
 Scene / setting inspiration:
 Formula 1
@@ -171,7 +171,7 @@ Visual inspiration:
 - background: supporting environment for the series
 
 Useful props / concepts to weave into the explanation:
-placeholder prop 1, placeholder prop 2
+Fuel Logistics, Data Ingestion
 
 Article requirements:
 - produce a complete dev.to-ready markdown article
