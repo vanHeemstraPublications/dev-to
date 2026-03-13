@@ -98,7 +98,7 @@ DEV.to title safety requirements:
 - Keep title typography at least 14% away from the top edge.
 - Keep title typography at least 12% away from the bottom edge.
 - Do NOT place any text in the top safe-margin area.
-- Place the entire title block clearly below the top crop zone (upper-middle; noticeably lower than typical header designs).
+- Place the entire title block in the visual middle band of the image (not the top third).
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
 - Do not let any letter, banner, or ornament touch the image edge.
@@ -107,6 +107,7 @@ DEV.to title safety requirements:
 Placement target (important):
 - Treat the top 14% of the image as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
+- Aim for the title block center around ~60% of image height.
 - Place the subtitle below the series title (not above).
 
 Exact text to include:
