@@ -93,10 +93,10 @@ DEV.to title safety requirements:
 - Keep all text fully readable inside a conservative safe area.
 - Do not place important text near the extreme edges.
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 24% away from the top edge.
+- Keep title typography at least 32% away from the top edge.
 - Keep title typography at least 14% away from the bottom edge.
 - Do NOT place any text in the top safe-margin area.
-- Place the title block lower than you normally would: upper-middle, not near the top border.
+- Place the entire title block clearly below the top crop zone (upper-middle; noticeably lower than typical header designs).
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
 - Do not let any letter, banner, or ornament touch the image edge.

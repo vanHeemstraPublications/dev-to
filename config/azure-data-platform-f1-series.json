@@ -11,7 +11,7 @@
   "image_max_file_size_kb": 400,
   "image_whitespace_margin_percent": 15,
   "image_title_safe_left_right_percent": 12,
-  "image_title_safe_top_percent": 24,
+  "image_title_safe_top_percent": 32,
   "image_title_safe_bottom_percent": 14,
   "image_style": "cinematic digital illustration, highly detailed, storybook realism, polished composition",
   "article_structure": [
