@@ -42,6 +42,8 @@ DEFAULT_CONFIG = {
     "article_humor_style": "playful and witty",
     "article_code_language": "Python",
     "article_frontmatter_required": True,
+    "devto_organization": "the-software-s-journey",
+    "article_title_prefix": "",
     "image_resolution": "1000x420",
     "image_aspect_ratio": "100:42",
     "image_format": "WebP",
@@ -62,7 +64,8 @@ DEFAULT_CONFIG = {
     "image_public_base_url": "",
     "image_public_branch": "main",
     "articles_local_dir": "articles",
-    "article_filename_template": "episode-{episode_number:02d}-{slug}.md",
+    # Prefer predictable filenames: <series-slug>-episode-01.md
+    "article_filename_template": "{series_slug}-{episode_label}.md",
     "image_filename_template": "episode-{episode_number:02d}.webp",
     "series_cover_filename": "series-cover.webp",
     "article_structure": [
@@ -431,7 +434,6 @@ def build_series_cover_prompt(data, config):
     lighting = defaults.get("lighting", "")
 
     left_third = composition.get("left_third", "")
-    center = composition.get("center", "")
     right_third = composition.get("right_third", "")
     background = composition.get("background", "")
 
@@ -511,6 +513,21 @@ def get_articles_local_dir(series, config):
     return Path(config["articles_local_dir"]) / series_id
 
 
+def get_series_slug(series):
+    """
+    Slug used for outward-facing filenames.
+
+    Convention: series ids end with "_series". We strip that suffix and then
+    slugify, so:
+      to_the_moon_terraform_series -> to-the-moon-terraform
+    """
+
+    series_id = (series.get("id") or "").strip() or "unknown_series"
+    if series_id.endswith("_series"):
+        series_id = series_id[: -len("_series")]
+    return slugify(series_id)
+
+
 def get_episode_image_filename(episode, config):
     return config["image_filename_template"].format(
         episode_number=int(episode["number"]),
@@ -553,9 +570,14 @@ def get_series_cover_image_url(series, config):
     )
 
 
-def get_article_filename(episode, config):
+def get_article_filename(series, episode, config):
+    episode_number = int(episode["number"])
+    episode_label = f"episode-{episode_number:02d}"
+    series_slug = get_series_slug(series)
     return config["article_filename_template"].format(
-        episode_number=int(episode["number"]),
+        series_slug=series_slug,
+        episode_label=episode_label,
+        episode_number=episode_number,
         slug=episode.get("slug", ""),
     )
 
@@ -563,17 +585,46 @@ def get_article_filename(episode, config):
 def get_article_output_path(series, episode, config):
     articles_dir = get_articles_local_dir(series, config)
     articles_dir.mkdir(parents=True, exist_ok=True)
-    return articles_dir / get_article_filename(episode, config)
+    return articles_dir / get_article_filename(series, episode, config)
+
+
+def derive_article_title_prefix(series):
+    """
+    Derive a stable DEV.to title prefix from the series name.
+
+    Example:
+      "To The Moon Terraform Series" -> "To The Moon Terraform"
+
+    Heuristic:
+    - If the series name ends with "Series", drop only that trailing word.
+    """
+
+    series_name = (series.get("name") or "").strip()
+    if not series_name:
+        return get_series_slug(series)
+
+    tokens = series_name.split()
+    if len(tokens) >= 2 and tokens[-1].lower() == "series":
+        tokens = tokens[:-1]
+
+    return " ".join(tokens)
+
+
+def build_devto_article_title(series, episode, config):
+    prefix = (config.get("article_title_prefix") or "").strip()
+    if not prefix:
+        prefix = derive_article_title_prefix(series)
+    return f"{prefix} Ep.{int(episode['number'])}"
 
 
 def build_frontmatter_hint(series, episode, config):
     cover_image_url = get_episode_cover_image_url(series, episode, config)
     series_name = series.get("name", "")
-    title = episode_image_title(episode)
+    title = build_devto_article_title(series, episode, config)
 
     lines = [
         "---",
-        f'title: "Episode {episode["number"]}: {title}"',
+        f'title: "{title}"',
         "published: false",
         'description: "Add article description here."',
         'tags: ["add", "tags", "here"]',
@@ -1042,23 +1093,27 @@ def generate_series_cover(data):
 
 def build_article_markdown_stub(data, episode, config):
     series = data.get("series", {})
-    title = episode_image_title(episode)
+    title = build_devto_article_title(series, episode, config)
     series_name = series.get("name", "")
     cover_image_url = get_episode_cover_image_url(series, episode, config)
+    organization = (config.get("devto_organization") or "").strip()
 
     if not cover_image_url:
         cover_image_url = "REPLACE_WITH_PUBLIC_IMAGE_URL"
 
     return f"""---
-title: "Episode {episode["number"]}: {title}"
+title: "{title}"
+part: {int(episode["number"])}
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]
 series: "{series_name}"
 cover_image: "{cover_image_url}"
+canonical_url: ""
+organization: "{organization}"
 ---
 
-# Episode {episode["number"]}: {title}
+# {title}
 
 Write your article here.
 """
@@ -1216,7 +1271,9 @@ def print_usage():
     print("Usage:")
     print("  python scripts/prompt-cli.py list-series")
     print("  python scripts/prompt-cli.py generate <series_file>")
-    print("  python scripts/prompt-cli.py generate <series_file> <episode_number>")
+    print(
+        "  python scripts/prompt-cli.py generate <series_file> <episode_number>"
+    )
     print("  python scripts/prompt-cli.py generate-image <series_file> "
           "<episode_number>")
     print("  python scripts/prompt-cli.py generate-images <series_file>")
@@ -1231,7 +1288,9 @@ def print_usage():
     print("  files are created interactively.")
     print("- Episode images are saved in images/<series_id>/")
     print("- Article stubs are saved in articles/<series_id>/")
-    print("- DEV.to cover_image uses a public absolute URL, not /images/...")
+    print(
+        "- DEV.to cover_image uses a public absolute URL, not /images/..."
+    )
     print("")
 
 

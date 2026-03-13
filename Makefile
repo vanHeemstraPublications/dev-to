@@ -13,11 +13,13 @@ SERIES_FILES := $(filter-out $(SERIES_DIR)/SERIES_INDEX.yaml,$(wildcard $(SERIES
 # Resolve SERIES argument to a YAML path.
 # Accepts:
 # - SERIES=series/foo.yaml
-# - SERIES=foo.yaml          -> series/foo.yaml
-# - SERIES=foo               -> series/foo_series.yaml
-# - SERIES=foo_series        -> series/foo_series.yaml
+# - SERIES=foo.yaml                   -> series/foo.yaml
+# - SERIES=foo or SERIES=foo_series   -> series/foo_series.yaml
+# - SERIES=foo-bar                    -> series/foo_bar_series.yaml
+#
+# Note: we normalize '-' to '_' so you can pass slugs.
 define resolve_series
-$(if $(findstring /,$(1)),$(1),$(SERIES_DIR)/$(if $(filter %.yaml,$(1)),$(1),$(if $(filter %_series,$(1)),$(1),$(1)_series).yaml))
+$(if $(findstring /,$(1)),$(1),$(SERIES_DIR)/$(if $(filter %.yaml,$(1)),$(subst -,_,$(1)),$(if $(filter %_series,$(subst -,_,$(1))),$(subst -,_,$(1)),$(subst -,_,$(1))_series).yaml))
 endef
 
 # -------------------------------------------
