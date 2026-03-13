@@ -52,6 +52,9 @@ DEFAULT_CONFIG = {
     "image_quality": "medium",
     "image_background": "opaque",
     "image_generation_size": "1536x1024",
+    # When we crop the model output to 1000x420, avoid cutting off the top
+    # where the title often lives. Use a top-anchored crop for height crops.
+    "image_crop_anchor_y": "top",  # "top" | "center" | "bottom"
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
     "image_title_safe_top_percent": 52,
@@ -984,7 +987,7 @@ def bootstrap_series(series_file):
     print("")
 
 
-def crop_to_aspect(img, target_ratio):
+def crop_to_aspect(img, target_ratio, anchor_y="center"):
     width, height = img.size
     current_ratio = width / height
 
@@ -994,7 +997,12 @@ def crop_to_aspect(img, target_ratio):
         img = img.crop((left, 0, left + new_width, height))
     else:
         new_height = int(width / target_ratio)
-        top = (height - new_height) // 2
+        if anchor_y == "top":
+            top = 0
+        elif anchor_y == "bottom":
+            top = height - new_height
+        else:
+            top = (height - new_height) // 2
         img = img.crop((0, top, width, top + new_height))
 
     return img
@@ -1040,7 +1048,11 @@ def generate_image_file(prompt, config, out_path):
     target_height = int(height_str)
     target_ratio = target_width / target_height
 
-    img = crop_to_aspect(img, target_ratio)
+    anchor_y = (config.get("image_crop_anchor_y") or "center").strip().lower()
+    if anchor_y not in {"top", "center", "bottom"}:
+        anchor_y = "center"
+
+    img = crop_to_aspect(img, target_ratio, anchor_y=anchor_y)
     img = img.resize((target_width, target_height), Image.LANCZOS)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1272,7 +1284,8 @@ def print_usage():
     print("  python scripts/prompt-cli.py list-series")
     print("  python scripts/prompt-cli.py generate <series_file>")
     print(
-        "  python scripts/prompt-cli.py generate <series_file> <episode_number>"
+        "  python scripts/prompt-cli.py generate <series_file> "
+        "<episode_number>"
     )
     print("  python scripts/prompt-cli.py generate-image <series_file> "
           "<episode_number>")
