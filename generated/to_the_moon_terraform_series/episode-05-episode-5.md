@@ -4,7 +4,7 @@ Series ID: to_the_moon_terraform_series
 Series Name: To The Moon Terraform Series
 Series Type: dev_to_series
 
-Episode: 5 - Episode 5
+Episode: 5 - Launch Sequence (terraform apply & the State File)
 Slug: episode-5
 
 Canvas
@@ -27,11 +27,11 @@ Episode Metaphor
 Planning a Mission to the Moon and Going There
 
 Center Action
-describe the key action for this episode here
+Launch Sequence (terraform apply & the State File)
 
 Supporting Props
-- placeholder prop 1
-- placeholder prop 2
+- The Saturn V Rocket
+- terraform apply & the State File
 
 
 Local Image Path
@@ -50,7 +50,7 @@ Series title:
 "To The Moon Terraform Series"
 
 Episode subtitle:
-"Episode 5: Episode 5"
+"Episode 5: Launch Sequence (terraform apply & the State File)"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -77,7 +77,7 @@ Visual metaphor:
 Planning a Mission to the Moon and Going There
 
 Center action:
-describe the key action for this episode here
+Launch Sequence (terraform apply & the State File)
 
 Composition guidance:
 - left third: main presenter or guide
@@ -86,7 +86,7 @@ Composition guidance:
 - background: supporting environment for the series
 
 Supporting props to include:
-placeholder prop 1, placeholder prop 2
+The Saturn V Rocket, terraform apply & the State File
 
 Style requirements:
 - cinematic digital illustration, highly detailed, storybook realism, polished composition
@@ -119,7 +119,7 @@ Top title:
 "To The Moon Terraform Series"
 
 Subtitle:
-"Episode 5: Episode 5"
+"Episode 5: Launch Sequence (terraform apply & the State File)"
 Reference repository for the series concept:
 https://github.com/software-journey/terraform
 
@@ -158,7 +158,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 5: Episode 5
+Episode 5: Launch Sequence (terraform apply & the State File)
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly
@@ -173,7 +173,7 @@ Primary metaphor:
 Planning a Mission to the Moon and Going There
 
 Episode-specific action:
-describe the key action for this episode here
+Launch Sequence (terraform apply & the State File)
 
 Scene / setting inspiration:
 space mission
@@ -185,7 +185,7 @@ Visual inspiration:
 - background: supporting environment for the series
 
 Useful props / concepts to weave into the explanation:
-placeholder prop 1, placeholder prop 2
+The Saturn V Rocket, terraform apply & the State File
 
 Article requirements:
 - produce a complete dev.to-ready markdown article

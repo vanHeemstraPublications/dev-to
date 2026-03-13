@@ -4,7 +4,7 @@ Series ID: to_the_moon_terraform_series
 Series Name: To The Moon Terraform Series
 Series Type: dev_to_series
 
-Episode: 13 - Episode 13
+Episode: 13 - Moon Surface Operations
 Slug: episode-13
 
 Canvas
@@ -27,11 +27,11 @@ Episode Metaphor
 Planning a Mission to the Moon and Going There
 
 Center Action
-describe the key action for this episode here
+Moon Surface Operations
 
 Supporting Props
-- placeholder prop 1
-- placeholder prop 2
+- The Saturn V Rocket
+- Provisioners & local-exec
 
 
 Local Image Path
@@ -50,7 +50,7 @@ Series title:
 "To The Moon Terraform Series"
 
 Episode subtitle:
-"Episode 13: Episode 13"
+"Episode 13: Moon Surface Operations"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -77,7 +77,7 @@ Visual metaphor:
 Planning a Mission to the Moon and Going There
 
 Center action:
-describe the key action for this episode here
+Moon Surface Operations
 
 Composition guidance:
 - left third: main presenter or guide
@@ -86,7 +86,7 @@ Composition guidance:
 - background: supporting environment for the series
 
 Supporting props to include:
-placeholder prop 1, placeholder prop 2
+The Saturn V Rocket, Provisioners & local-exec
 
 Style requirements:
 - cinematic digital illustration, highly detailed, storybook realism, polished composition
@@ -119,7 +119,7 @@ Top title:
 "To The Moon Terraform Series"
 
 Subtitle:
-"Episode 13: Episode 13"
+"Episode 13: Moon Surface Operations"
 Reference repository for the series concept:
 https://github.com/software-journey/terraform
 
@@ -158,7 +158,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 13: Episode 13
+Episode 13: Moon Surface Operations
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly
@@ -173,7 +173,7 @@ Primary metaphor:
 Planning a Mission to the Moon and Going There
 
 Episode-specific action:
-describe the key action for this episode here
+Moon Surface Operations
 
 Scene / setting inspiration:
 space mission
@@ -185,7 +185,7 @@ Visual inspiration:
 - background: supporting environment for the series
 
 Useful props / concepts to weave into the explanation:
-placeholder prop 1, placeholder prop 2
+The Saturn V Rocket, Provisioners & local-exec
 
 Article requirements:
 - produce a complete dev.to-ready markdown article
