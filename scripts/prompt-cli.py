@@ -203,6 +203,25 @@ def get_episode(data, episode_number):
     return None
 
 
+_DISPLAY_TITLE_PLACEHOLDER = "add display title here"
+
+
+def episode_image_title(episode):
+    """
+    Title to use in image prompt subtitle.
+
+    We prefer an explicit `display_title` so that `center_action` can be used
+    purely for scene/action description without also becoming the title.
+    """
+
+    display_title = (episode.get("display_title") or "").strip()
+    if display_title:
+        return display_title
+
+    # Backwards-compatible fallback for older series files.
+    return (episode.get("title") or "").strip()
+
+
 def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
@@ -240,7 +259,7 @@ def build_image_prompt(data, episode, config):
     composition = defaults.get("composition", {})
 
     series_name = series.get("name", "")
-    title = episode.get("title", "")
+    title = episode_image_title(episode)
     metaphor = episode.get("metaphor", "")
     center_action = episode.get("center_action", "")
 
@@ -599,6 +618,7 @@ def bootstrap_series(series_file):
             {
                 "number": number,
                 "title": episode_title,
+                "display_title": "add display title here",
                 "slug": episode_slug,
                 "metaphor": base_metaphor,
                 "center_action": (

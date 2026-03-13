@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 5 - Episode 5
+Episode: 5 - The Engine
 Slug: episode-5
 
 Canvas
@@ -44,7 +44,7 @@ Series title:
 "Azure Data Platform F1 Series"
 
 Episode subtitle:
-"Episode 5: Episode 5"
+"Episode 5: The Engine"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -105,7 +105,7 @@ Top title:
 "Azure Data Platform F1 Series"
 
 Subtitle:
-"Episode 5: Episode 5"
+"Episode 5: The Engine"
 Reference repository for the series concept:
 https://github.com/software-journey/azure-data-platform
 
@@ -144,7 +144,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 5: Episode 5
+Episode 5: The Engine
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly

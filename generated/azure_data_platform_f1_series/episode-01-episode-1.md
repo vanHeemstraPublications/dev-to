@@ -44,7 +44,7 @@ Series title:
 "Azure Data Platform F1 Series"
 
 Episode subtitle:
-"Episode 1: Episode 1"
+"Episode 1: Welcome to the Factory"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -105,7 +105,7 @@ Top title:
 "Azure Data Platform F1 Series"
 
 Subtitle:
-"Episode 1: Episode 1"
+"Episode 1: Welcome to the Factory"
 Reference repository for the series concept:
 https://github.com/software-journey/azure-data-platform
 

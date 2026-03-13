@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 10 - Episode 10
+Episode: 10 - Race Strategy
 Slug: episode-10
 
 Canvas
@@ -44,7 +44,7 @@ Series title:
 "Azure Data Platform F1 Series"
 
 Episode subtitle:
-"Episode 10: Episode 10"
+"Episode 10: Race Strategy"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -105,7 +105,7 @@ Top title:
 "Azure Data Platform F1 Series"
 
 Subtitle:
-"Episode 10: Episode 10"
+"Episode 10: Race Strategy"
 Reference repository for the series concept:
 https://github.com/software-journey/azure-data-platform
 
@@ -144,7 +144,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 10: Episode 10
+Episode 10: Race Strategy
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly
