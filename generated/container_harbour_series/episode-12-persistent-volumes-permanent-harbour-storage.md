@@ -204,7 +204,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 12: Persistent Volumes — Permanent Harbour Storage"
+title: "Welcome to container harbour! Ep.12"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

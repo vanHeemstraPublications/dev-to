@@ -204,7 +204,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 1: What is Kubernetes, really?"
+title: "Welcome to container harbour! Ep.1"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

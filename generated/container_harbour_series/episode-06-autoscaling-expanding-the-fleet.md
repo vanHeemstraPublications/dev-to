@@ -204,7 +204,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 6: Autoscaling — Expanding the Fleet"
+title: "Welcome to container harbour! Ep.6"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

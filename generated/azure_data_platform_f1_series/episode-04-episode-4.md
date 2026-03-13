@@ -202,7 +202,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 4: The Race Car"
+title: "Azure Data Platform F1 Ep.4"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

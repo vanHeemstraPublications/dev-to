@@ -204,7 +204,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 14: Template Method Pattern"
+title: "Like Stories? Love Python! Ep.14"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

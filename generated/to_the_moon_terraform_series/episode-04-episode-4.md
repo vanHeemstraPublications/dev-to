@@ -202,7 +202,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 4: Episode 4"
+title: "To The Moon Terraform Ep.4"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]

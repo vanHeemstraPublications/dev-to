@@ -204,7 +204,7 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Episode 13: Nodes — The Harbour Piers"
+title: "Welcome to container harbour! Ep.13"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]
