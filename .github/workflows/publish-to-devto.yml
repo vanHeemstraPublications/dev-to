@@ -5,10 +5,11 @@ on:
     branches:
       - main
     paths:
-      - 'articles/*.md'
-      - 'images/*.png'
-      - 'images/*.jpg'
-      - 'images/*.jpeg'
+      - 'articles/**/*.md'
+      - 'images/**/*.png'
+      - 'images/**/*.jpg'
+      - 'images/**/*.jpeg'
+      - 'images/**/*.webp'
   workflow_dispatch:
 
 jobs:
@@ -52,17 +53,17 @@ jobs:
         id: changed-files
         run: |
           # Get list of changed markdown files
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/*.md' || echo "")
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles' | grep -E '\.md$' || true)
           
           # If images changed, find articles that reference those images
-          CHANGED_IMAGES=$(git diff --name-only HEAD~1 HEAD -- 'images/*.png' 'images/*.jpg' 'images/*.jpeg' 2>/dev/null || echo "")
+          CHANGED_IMAGES=$(git diff --name-only HEAD~1 HEAD -- 'images' | grep -E '\.(png|jpg|jpeg|webp)$' || true)
           if [ -n "$CHANGED_IMAGES" ]; then
             echo "Images changed: $CHANGED_IMAGES"
             # Find articles that reference the changed images
             for img in $CHANGED_IMAGES; do
               img_basename=$(basename "$img")
               # Find articles that reference this image
-              matching_articles=$(grep -l "$img_basename" articles/*.md 2>/dev/null || echo "")
+              matching_articles=$(grep -rl --include='*.md' "$img_basename" articles 2>/dev/null || true)
               if [ -n "$matching_articles" ]; then
                 CHANGED_FILES="$CHANGED_FILES"$'\n'"$matching_articles"
               fi

@@ -405,7 +405,7 @@ def main():
             print("ERROR: 'articles' directory not found")
             sys.exit(1)
         
-        markdown_files = list(articles_dir.glob("*.md"))
+        markdown_files = list(articles_dir.rglob("*.md"))
         if not markdown_files:
             print("No markdown files found in 'articles' directory")
             sys.exit(0)
