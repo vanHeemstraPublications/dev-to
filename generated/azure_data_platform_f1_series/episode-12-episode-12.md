@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 12 - The Wind Tunnel
+Episode: 12 - Episode 12
 Slug: episode-12
 
 Canvas
@@ -144,7 +144,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 12: The Wind Tunnel
+Episode 12: Episode 12
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly

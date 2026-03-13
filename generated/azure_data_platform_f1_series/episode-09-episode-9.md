@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 9 - The Cockpit
+Episode: 9 - Episode 9
 Slug: episode-9
 
 Canvas
@@ -144,7 +144,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 9: The Cockpit
+Episode 9: Episode 9
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly

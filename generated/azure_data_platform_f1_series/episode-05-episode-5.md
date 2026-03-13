@@ -4,7 +4,7 @@ Series ID: azure_data_platform_f1_series
 Series Name: Azure Data Platform F1 Series
 Series Type: dev_to_series
 
-Episode: 5 - The Engine
+Episode: 5 - Episode 5
 Slug: episode-5
 
 Canvas
@@ -144,7 +144,7 @@ Series type:
 dev_to_series
 
 Episode:
-Episode 5: The Engine
+Episode 5: Episode 5
 
 Writing style requirements:
 - tone: light-hearted, humorous, beginner-friendly
