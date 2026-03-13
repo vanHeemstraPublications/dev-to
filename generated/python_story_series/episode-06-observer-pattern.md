@@ -107,7 +107,7 @@ DEV.to title safety requirements:
 Placement target (important):
 - Treat the top 14% of the image as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~60% of image height.
+- Aim for the title block center around ~65% of image height.
 - Place the subtitle below the series title (not above).
 
 Exact text to include:
