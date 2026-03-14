@@ -92,5 +92,7 @@ jobs:
           DEVTO_DELAY_SECONDS: "5"
           DEVTO_MAX_RETRIES: "6"
           DEVTO_RETRY_BASE_SLEEP_SECONDS: "2"
+          DEVTO_ORG_SLUG: ${{ secrets.DEVTO_ORG_SLUG }}
+          DEVTO_ORG_ID: ${{ secrets.DEVTO_ORG_ID }}
         run: |
           $PYTHON scripts/publish_to_devto.py
