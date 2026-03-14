@@ -1,6 +1,6 @@
 ---
 title: "Fast Infrastructure: Understanding Crossplane like a Fast Food Restaurant"
-published: true
+published: false
 description: "A deep dive into solving infrastructure-as-code using composition of crossplane"
 tags: ["crossplane", "infrastructure-as-code", "cloud-computing", "tutorial"]
 series: "Infrastructure as Code Adventures"
