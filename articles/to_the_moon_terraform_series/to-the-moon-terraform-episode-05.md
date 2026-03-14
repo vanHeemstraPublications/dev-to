@@ -8,7 +8,7 @@ series: "To The Moon Terraform Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
+ 
 > *"T-minus 10. Nine. Eight. Ignition sequence start. Six. Five. Four. Three. Two. One. Zero. All engines running. Liftoff. We have a liftoff."*
 
 > *"In that moment — that single, irreversible moment — the mission ceased to be a plan and became a fact."*
