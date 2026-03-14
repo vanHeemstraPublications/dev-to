@@ -8,6 +8,7 @@ DEV.to API Documentation: https://developers.forem.com/api/v1
 
 import os
 import sys
+import time
 import requests
 import frontmatter
 from pathlib import Path
@@ -26,6 +27,55 @@ class DevToPublisher:
             "api-key": api_key,
             "Content-Type": "application/json"
         }
+
+    def _request_with_retry(
+        self,
+        method: str,
+        url: str,
+        *,
+        json: Optional[Dict] = None,
+    ) -> requests.Response:
+        timeout_s = int(os.environ.get("DEVTO_HTTP_TIMEOUT_SECONDS", "30"))
+        max_retries = int(os.environ.get("DEVTO_MAX_RETRIES", "6"))
+        base_sleep_s = float(os.environ.get("DEVTO_RETRY_BASE_SLEEP_SECONDS", "2"))
+
+        last_exc: Optional[Exception] = None
+        for attempt in range(max_retries):
+            try:
+                resp = requests.request(
+                    method,
+                    url,
+                    headers=self.headers,
+                    json=json,
+                    timeout=timeout_s,
+                )
+
+                if resp.status_code in {429, 500, 502, 503, 504}:
+                    retry_after = resp.headers.get("Retry-After")
+                    if retry_after and retry_after.isdigit():
+                        sleep_s = int(retry_after)
+                    else:
+                        sleep_s = base_sleep_s * (2 ** attempt)
+                    print(
+                        f"  Retrying DEV.to request ({resp.status_code}) in "
+                        f"{sleep_s:.0f}s..."
+                    )
+                    time.sleep(sleep_s)
+                    continue
+
+                return resp
+            except requests.exceptions.RequestException as exc:
+                last_exc = exc
+                sleep_s = base_sleep_s * (2 ** attempt)
+                print(
+                    f"  Network error talking to DEV.to, retrying in "
+                    f"{sleep_s:.0f}s..."
+                )
+                time.sleep(sleep_s)
+
+        if last_exc:
+            raise last_exc
+        raise requests.exceptions.RequestException("DEV.to request failed")
     
     @staticmethod
     def sanitize_tags(tags: List[str]) -> List[str]:
@@ -48,24 +98,26 @@ class DevToPublisher:
     
     def get_user_info(self) -> Dict:
         """Retrieve authenticated user information."""
-        response = requests.get(
+        response = self._request_with_retry(
+            "GET",
             f"{self.base_url}/users/me",
-            headers=self.headers
         )
         response.raise_for_status()
         return response.json()
     
     def get_my_articles(self) -> List[Dict]:
         """Get list of user's published articles."""
-        response = requests.get(
+        response = self._request_with_retry(
+            "GET",
             f"{self.base_url}/articles/me/all",
-            headers=self.headers
         )
         response.raise_for_status()
         return response.json()
     
     def get_my_organizations(self) -> List[Dict]:
         """Get list of user's organizations."""
+        # Forem/DEV.to API does not reliably expose "list my orgs" for API keys.
+        # We keep this method best-effort; callers should handle [].
         # Try different API endpoints for organizations
         endpoints = [
             f"{self.base_url}/organizations",
@@ -75,7 +127,7 @@ class DevToPublisher:
         
         for endpoint in endpoints:
             try:
-                response = requests.get(endpoint, headers=self.headers)
+                response = self._request_with_retry("GET", endpoint)
                 response.raise_for_status()
                 orgs = response.json()
                 # Handle different response formats
@@ -89,8 +141,7 @@ class DevToPublisher:
             except requests.exceptions.RequestException:
                 continue
         
-        # If all endpoints fail, raise the last error
-        raise requests.exceptions.RequestException("Could not fetch organizations from any endpoint")
+        return []
     
     def create_article(
         self,
@@ -149,10 +200,10 @@ class DevToPublisher:
         if organization_id:
             article_data["article"]["organization_id"] = organization_id
         
-        response = requests.post(
+        response = self._request_with_retry(
+            "POST",
             f"{self.base_url}/articles",
-            headers=self.headers,
-            json=article_data
+            json=article_data,
         )
         response.raise_for_status()
         return response.json()
@@ -211,10 +262,10 @@ class DevToPublisher:
         if organization_id is not None:
             article_data["article"]["organization_id"] = organization_id
         
-        response = requests.put(
+        response = self._request_with_retry(
+            "PUT",
             f"{self.base_url}/articles/{article_id}",
-            headers=self.headers,
-            json=article_data
+            json=article_data,
         )
         
         # Provide better error messages
@@ -372,19 +423,32 @@ def main():
         sys.exit(1)
     
     # Get user's organizations
-    try:
-        organizations = publisher.get_my_organizations()
-        # Handle different organization response formats
-        if isinstance(organizations, list):
-            org_dict = {org.get('slug'): org.get('id') for org in organizations if org.get('slug') and org.get('id')}
-            print(f"✓ Loaded {len(organizations)} organizations")
-        else:
-            print(f"Warning: Unexpected organizations response format: {type(organizations)}")
-            org_dict = {}
-    except requests.exceptions.RequestException as e:
-        print(f"Warning: Could not load organizations: {e}")
-        print("  Continuing without organization lookup - will use organization_id from existing articles if available")
-        org_dict = {}
+    org_dict: Dict[str, int] = {}
+    organizations = publisher.get_my_organizations()
+    if isinstance(organizations, list) and organizations:
+        org_dict = {
+            org.get("slug"): org.get("id")
+            for org in organizations
+            if org.get("slug") and org.get("id")
+        }
+        print(f"✓ Loaded {len(organizations)} organizations")
+    else:
+        print(
+            "Warning: Could not load organizations from API."
+        )
+        print(
+            "  Continuing without organization lookup - will publish to personal "
+            "account unless you set organization_id in frontmatter or provide "
+            "DEVTO_ORG_SLUG/DEVTO_ORG_ID."
+        )
+
+    # Optional: provide organization slug->id mapping via environment variables
+    # (useful when the API can't list organizations for the given API key).
+    env_org_slug = (os.environ.get("DEVTO_ORG_SLUG") or "").strip()
+    env_org_id_raw = (os.environ.get("DEVTO_ORG_ID") or "").strip()
+    if env_org_slug and env_org_id_raw.isdigit():
+        org_dict[env_org_slug] = int(env_org_id_raw)
+        print(f"✓ Using organization mapping from env for slug: {env_org_slug}")
     
     # Determine which files to process
     # Check for files from environment variable (set by GitHub Actions)
@@ -413,6 +477,7 @@ def main():
     
     # Process each article
     success_count = 0
+    delay_s = float(os.environ.get("DEVTO_DELAY_SECONDS", "3"))
     for md_file in markdown_files:
         print(f"\n📝 Processing: {md_file.name}")
         
@@ -571,6 +636,9 @@ def main():
             import traceback
             print(f"  Error details: {traceback.format_exc()}")
             continue
+        finally:
+            if delay_s > 0:
+                time.sleep(delay_s)
     
     print(f"\n{'='*50}")
     print(f"Processed {success_count} of {len(markdown_files)} articles")

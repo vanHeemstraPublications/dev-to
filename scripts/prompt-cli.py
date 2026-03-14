@@ -25,6 +25,7 @@ except ImportError:
 
 try:
     from openai import OpenAI
+    from openai import BadRequestError
 except ImportError:
     print("Missing dependency: openai")
     print("Install with: pip install openai")
@@ -1034,13 +1035,32 @@ def generate_image_file(prompt, config, out_path):
     ensure_openai_api_key()
     client = OpenAI()
 
-    result = client.images.generate(
-        model=config["image_model"],
-        prompt=prompt,
-        size=config["image_generation_size"],
-        quality=config["image_quality"],
-        background=config["image_background"],
-    )
+    try:
+        result = client.images.generate(
+            model=config["image_model"],
+            prompt=prompt,
+            size=config["image_generation_size"],
+            quality=config["image_quality"],
+            background=config["image_background"],
+        )
+    except BadRequestError as exc:
+        message = ""
+        try:
+            payload = exc.body or {}
+            err = payload.get("error") or {}
+            message = (err.get("message") or "").strip()
+        except Exception:
+            message = ""
+
+        if "Billing hard limit has been reached" in message:
+            print("")
+            print("OpenAI request failed: billing hard limit reached.")
+            print("Fix: increase your OpenAI project/org spend limit or use a")
+            print("different OPENAI_API_KEY with available budget.")
+            print("")
+            sys.exit(1)
+
+        raise
 
     img_base64 = result.data[0].b64_json
     img_bytes = base64.b64decode(img_base64)

@@ -89,6 +89,8 @@ jobs:
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           FILES_TO_PUBLISH: ${{ steps.changed-files.outputs.files }}
+          DEVTO_DELAY_SECONDS: "5"
+          DEVTO_MAX_RETRIES: "6"
+          DEVTO_RETRY_BASE_SLEEP_SECONDS: "2"
         run: |
           $PYTHON scripts/publish_to_devto.py
-          sleep 5  # Wait 5 seconds between files to void hitting Dev.to’s rate-limit
