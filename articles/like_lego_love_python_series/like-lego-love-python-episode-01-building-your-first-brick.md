@@ -1,6 +1,7 @@
 ---
 title: "Like LEGO? Love Python! 🧱🐍 Ep.1"
 published: false
+part: 1
 description: "Learn Python classes through the lens of LEGO bricks - because object-oriented programming is just building blocks with extra steps"
 tags: [python, beginners, tutorial, oop]
 cover_image: https://raw.githubusercontent.com/vanHeemstraSystems/learning-python-object-oriented/main/assets/lego-python-cover.png
