@@ -1,6 +1,6 @@
 ---
 title: "Any Customer Can Have Any Cloud Resource, Provided It Comes Off the Assembly Line: Crossplane v2 and the SIPOC Factory Floor"
-published: true
+published: false
 description: "Henry Ford revolutionised manufacturing with the assembly line. Crossplane v2 does the same for cloud infrastructure. Join us as old Henry walks us through Supplier, Input, Process, Output, Consumer — and explains why your platform team is basically running a factory floor, minus the child labour and questionable labour relations."
 tags: [crossplane, kubernetes, platformengineering, devops]
 series: "Infrastructure-as-Code Adventures"
