@@ -1,6 +1,6 @@
 ---
 title: "Like LEGO? Love Python! 🧱🐍 Ep.5"
-published: true
+published: false
 description: "Episode 5: The LEGO Instruction Manual (Abstraction) - When LEGO HQ tells you WHAT to build, but not HOW to build it!"
 tags: [python, beginners, oop, tutorial]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-lego-love-python-episode-05.png"
