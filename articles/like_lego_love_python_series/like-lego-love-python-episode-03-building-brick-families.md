@@ -1,6 +1,6 @@
 ---
 title: "Like LEGO? Love Python! 🧱🐍 Ep.3"
-published: true
+published: false
 description: "Episode 3: Building Brick Families (Inheritance) - When bricks inherit superpowers from their parents!"
 tags: [python, beginners, oop, tutorial]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/like-lego-love-python-episode-03.png"
