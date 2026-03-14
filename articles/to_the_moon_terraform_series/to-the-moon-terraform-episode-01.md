@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
+ 
 > *"Here, in the vast, indifferent blackness of space, something extraordinary is about to happen. Something that has never happened before in the four-billion-year history of this planet. A creature — small, fragile, made mostly of water — has decided to leave it."*
 
 ---
