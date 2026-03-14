@@ -1,5 +1,5 @@
 ---
-title: "To The Moon Terraform 🌕 Ep.4"
+title: "To The Moon Terraform Ep.4"
 part: 4
 published: false
 description: "Episode 4: The Pre-Flight Checklist (terraform plan)"
