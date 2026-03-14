@@ -1,5 +1,5 @@
 ---
-title: "To The Moon 🌕 Ep.3"
+title: "To The Moon Terraform 🌕 Ep.3"
 part: 3
 published: false
 description: "Episode 3: The Blueprint (Variables & Outputs)"
