@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
- 
+
 > *"The Saturn V was not one thing. It was three stages, a command module, a service module, and a lunar module — each designed independently, each tested independently, each capable of being replaced independently. The genius was not in any single component. The genius was in the interface between them."*
 
 ---
