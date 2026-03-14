@@ -1,11 +1,12 @@
 ---
 title: "The Gilded Rose Kata: Composition Over Inheritance"
-published: true
+published: false
+part: 1
 description: "A deep dive into solving the Gilded Rose refactoring kata using composition and the Strategy pattern instead of inheritance"
 tags: ["python", "designpatterns", "refactoring", "tutorial"]
-series: ""
-canonical_url: ""
+series: "Kata Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/gilded-rose-devto.jpg"
+canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
