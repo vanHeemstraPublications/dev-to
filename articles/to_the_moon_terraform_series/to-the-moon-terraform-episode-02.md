@@ -1,5 +1,5 @@
 ---
-title: "To The Moon 🌕 Ep.2"
+title: "To The Moon Terraform 🌕 Ep.2"
 part: 2
 published: false
 description: "Episode 2: Mission Architecture (Providers & Resources)"
