@@ -290,89 +290,83 @@ This file is generated from the YAML files in `series/`.
 
 - slug: `episode-1`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Audacity of Going to the Moon
 
 ### Episode 2: Episode 2
 
 - slug: `episode-2`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Mission Architecture (Providers & Resources)
 
 ### Episode 3: Episode 3
 
 - slug: `episode-3`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Blueprint (Variables & Outputs)
 
 ### Episode 4: Episode 4
 
 - slug: `episode-4`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Pre-Flight Checklist (terraform plan)
 
 ### Episode 5: Episode 5
 
 - slug: `episode-5`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Launch Sequence (terraform apply & the State File)
 
 ### Episode 6: Episode 6
 
 - slug: `episode-6`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Modular Rocket
 
 ### Episode 7: Episode 7
 
 - slug: `episode-7`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Mission Control Systems
 
 ### Episode 8: Episode 8
 
 - slug: `episode-8`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Crew Manifest
 
 ### Episode 9: Episode 9
 
 - slug: `episode-9`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Mid-Course Corrections
 
 ### Episode 10: Episode 10
 
 - slug: `episode-10`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Docking Procedure
 
 ### Episode 11: Episode 11
 
 - slug: `episode-11`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Life Support Systems
 
 ### Episode 12: Episode 12
 
 - slug: `episode-12`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: The Landing
 
 ### Episode 13: Episode 13
 
 - slug: `episode-13`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Moon Surface Operations
 
 ### Episode 14: Episode 14
 
 - slug: `episode-14`
 - metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
-
-### Episode 15: Episode 15
-
-- slug: `episode-15`
-- metaphor: Planning a Mission to the Moon and Going There
-- center action: describe the key action for this episode here
+- center action: Return to Earth
 

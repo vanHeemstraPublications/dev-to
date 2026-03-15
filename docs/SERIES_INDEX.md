@@ -46,5 +46,5 @@ This file is generated from the YAML files in `series/`.
 - deterministic config: ``
 - setting: space mission
 - lighting: bright space sky with stars
-- episodes: 15
+- episodes: 14
 
