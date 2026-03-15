@@ -10,7 +10,7 @@ This file is generated from the YAML files in `series/`.
 - type: dev_to_series
 - source file: `series/azure_data_platform_f1_series.yaml`
 - prompt template: `prompts/PROMPT_TEMPLATE.md`
-- deterministic config: ``
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: Formula 1
 - lighting: bright cinematic atmosphere
 - episodes: 14
@@ -43,7 +43,7 @@ This file is generated from the YAML files in `series/`.
 - type: dev_to_series
 - source file: `series/to_the_moon_terraform_series.yaml`
 - prompt template: `prompts/PROMPT_TEMPLATE.md`
-- deterministic config: ``
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: space mission
 - lighting: bright space sky with stars
 - episodes: 14
