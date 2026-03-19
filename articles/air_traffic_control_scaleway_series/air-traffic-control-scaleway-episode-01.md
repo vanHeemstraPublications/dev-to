@@ -1,13 +1,15 @@
------
+---
 
-## title: “Cleared for Approach: IAM on Scaleway ✈️🗼 Ep.1”
+title: "Cleared for Approach: IAM on Scaleway Ep.1"
 published: false
-description: “Episode 1 of the Air Traffic Control series: configure Identity and Access Management on Scaleway — who flies, who watches, and who stays on the ground. Explained in the voice of Thunderbirds.”
+description: "Episode 1 of the Air Traffic Control series: configure Identity and Access Management on Scaleway — who flies, who watches, and who stays on the ground. Explained in the voice of Thunderbirds."
 tags: [scaleway, cloud, iam, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/articles/air_traffic_control_scaleway_series/assets/episode-01-cover.png”
-series: “Air Traffic Control — Scaleway Cloud”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/articles/air_traffic_control_scaleway_series/assets/episode-01-cover.png"
+series: "Air Traffic Control — Scaleway Cloud"
+canonical_url: ""
+organization: "the-software-s-journey"
+
+---
 
 # Cleared for Approach: Identity and Access Management on Scaleway
 
