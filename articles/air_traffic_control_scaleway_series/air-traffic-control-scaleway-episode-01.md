@@ -5,7 +5,7 @@ published: false
 description: "Episode 1 of the Air Traffic Control series: configure Identity and Access Management on Scaleway — who flies, who watches, and who stays on the ground. Explained in the voice of Thunderbirds."
 tags: [scaleway, cloud, iam, security]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/air_traffic_control_scaleway_series/air-traffic-control-scaleway-episode-01.png"
-series: "Air Traffic Control Scaleway"
+series: "Air Traffic Control Scaleway Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 
