@@ -1,6 +1,6 @@
 ---
 
-title: "Cleared for Approach: IAM on Scaleway Ep.1"
+title: "Air Traffic Control Scaleway Ep.1"
 published: false
 description: "Episode 1 of the Air Traffic Control series: configure Identity and Access Management on Scaleway — who flies, who watches, and who stays on the ground. Explained in the voice of Thunderbirds."
 tags: [scaleway, cloud, iam, security]
