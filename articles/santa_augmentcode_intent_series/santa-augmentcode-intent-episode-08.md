@@ -1,5 +1,5 @@
 ---
-title: "Santa Augmentcode Intent Ep.8“
+title: "Santa Augmentcode Intent Ep.8"
 published: false
 part: 8
 description: "Father Christmas brings the series home: a complete walkthrough of an Intent session from first prompt to merged pull request. Everything comes together. Christmas is delivered."
