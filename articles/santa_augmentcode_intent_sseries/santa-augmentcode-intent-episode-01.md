@@ -1,11 +1,11 @@
 ---
-title: "Augmentcode Intent Santa Ep.1"
+title: "Santa Augmentcode Intent Ep.1"
 published: false
 part: 1
 description: "Father Christmas discovers Augment Intent and realises the North Pole has been doing multi-agent coordination all along. A warm introduction to the Intent workspace for developers."
 tags: [augmentcode, intent, aiagents, devtools]
-series: "Augmentcode Intent Santa Series"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/augmentcode_intent_santa_series/augmentcode-intent-santa-episode-01.png"
+series: "Santa Augmentcode Intent Series"
+cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-01.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
@@ -109,4 +109,4 @@ In the next episode, Father Christmas will introduce **The Master Gift List** â€
 
 -----
 
-*Part of the [Augmentcode Intent Santa](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the [Santa Augmentcode Intent](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
