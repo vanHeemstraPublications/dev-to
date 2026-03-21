@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
- 
+
 # Santa’s Secret Weapon: Welcome to the Workshop! 🎅 — Augment Intent, Episode 1
 
 > *Ho ho ho! Come in, come in — the fire is warm and the cocoa is hot. Pull up a stool and let Father Christmas tell you a story. Not about reindeer, not about presents — but about the most magical piece of software to land in the Workshop since the invention of the Nice List.*
