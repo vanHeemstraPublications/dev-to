@@ -109,4 +109,4 @@ In the next episode, Father Christmas will introduce **The Master Gift List** â€
 
 -----
 
-*Part of the [Santaâ€™s Workshop Runs on Intent](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the [Augmentcode Intent Santa](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
