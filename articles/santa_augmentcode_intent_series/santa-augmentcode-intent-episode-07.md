@@ -7,7 +7,7 @@ tags: [augmentcode, intent, multiagent, orchestration]
 series: "Santa Augmentcode Intent"
 cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-07.png"
 canonical_url: ""
-organization: “the-software-s-journey"
+organization: "the-software-s-journey"
 ---
 
 # Parallel Elves, Zero Chaos — Multi-Agent Orchestration 🎁 — Augment Intent, Episode 7
