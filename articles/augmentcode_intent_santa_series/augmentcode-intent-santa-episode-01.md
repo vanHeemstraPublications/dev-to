@@ -5,7 +5,7 @@ part: 1
 description: "Father Christmas discovers Augment Intent and realises the North Pole has been doing multi-agent coordination all along. A warm introduction to the Intent workspace for developers."
 tags: [augmentcode, intent, aiagents, devtools]
 series: "Augmentcode Intent Santa Series"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/augmentcode_intent_santa_series/augmentcode-intent-santa-episode-01.png”
+cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/augmentcode_intent_santa_series/augmentcode-intent-santa-episode-01.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
