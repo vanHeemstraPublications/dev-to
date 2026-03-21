@@ -1,11 +1,11 @@
 ---
-title: "Augmentcode Intent Santa Ep.2"
+title: "Santa Augmentcode Intent Ep.2"
 published: false
 part: 2
 description: "Father Christmas explains Living Specs — the beating heart of Intent that stays accurate as Elves work, and why your old PRD is like last year’s Christmas catalogue."
 tags: [augmentcode, intent, specdriven, aiagents]
-series: "Augmentcode Intent Santa Series"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/augmentcode_intent_santa_series/augmentcode-intent-santa-episode-02.png"
+series: "Santa Augmentcode Intent Series"
+cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent_series/Santa-augmentcode-intent-episode-02.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
@@ -137,4 +137,4 @@ In Episode 3, Father Christmas will introduce the most important relationship in
 
 -----
 
-*Part of the [Augmentcode Intent Santa](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the [Santa Augmentcode Intent](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
