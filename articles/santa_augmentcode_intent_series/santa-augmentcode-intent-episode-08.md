@@ -1,11 +1,11 @@
 ---
-title: “Santa Augmentcode Intent Ep.8"
+title: "Santa Augmentcode Intent Ep.8“
 published: false
 part: 8
 description: "Father Christmas brings the series home: a complete walkthrough of an Intent session from first prompt to merged pull request. Everything comes together. Christmas is delivered."
 tags: [augmentcode, intent, devworkflow, aiagents]
 series: "Santa Augmentcode Intent"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-08.png“
+cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-08.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
