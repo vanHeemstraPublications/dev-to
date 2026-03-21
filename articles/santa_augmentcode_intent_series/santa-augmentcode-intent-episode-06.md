@@ -1,8 +1,8 @@
 ---
-title: "Santa Augmentcode Intent Ep.6"
+title: "“anta Augmentcode Intent Ep.6“
 published: false
 part: 6
-description: "Father Christmas reveals the secret behind every Elf’s expertise: the Context Engine. Augment’s real-time codebase intelligence that gives every agent deep understanding of your entire stack.“
+description: "Father Christmas reveals the secret behind every Elf’s expertise: the Context Engine. Augment’s real-time codebase intelligence that gives every agent deep understanding of your entire stack."
 tags: [augmentcode, intent, contextengine, ai]
 series: "Santa Augmentcode Intent"
 cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-06.png"
