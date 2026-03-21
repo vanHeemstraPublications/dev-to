@@ -1,11 +1,11 @@
 ---
-title: "Augment Intent Santa Ep.1"
+title: "Augmentcode Intent Santa Ep.1"
 published: false
 part: 1
 description: "Father Christmas discovers Augment Intent and realises the North Pole has been doing multi-agent coordination all along. A warm introduction to the Intent workspace for developers."
 tags: [augmentcode, intent, aiagents, devtools]
-series: "Santa’s Workshop Runs on Intent"
-cover_image: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=1000"
+series: "Augmentcode Intent Santa Series"
+cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/augmentcode_intent_santa_series/augmentcode-intent-santa-episode-01.png”
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
