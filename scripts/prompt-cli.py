@@ -410,7 +410,7 @@ def is_enabled(value):
     return str(value).strip().lower() in {"1", "true", "yes", "on"}
 
 
-def build_post_overlay_text_block(series_name, episode_number, title):
+def build_post_overlay_text_block():
     return (
         "Typography handling:\n"
         "- Do NOT render the series title or episode subtitle inside the artwork.\n"
@@ -418,13 +418,12 @@ def build_post_overlay_text_block(series_name, episode_number, title):
         "footer strips anywhere in the image.\n"
         "- The CLI will add the final title text afterward as a deterministic "
         "overlay.\n"
-        "- Reserve a calm lower-middle lane for that overlay; keep faces, hands, "
+        "- Reserve a calm central horizontal lane for that overlay; keep faces, hands, "
         "and bright focal props out of it.\n"
         "- If papers, sticky notes, screens, signs, or labels appear, any writing "
-        "on them must remain tiny and illegible decorative scribble only.\n\n"
-        "Overlay text that will be added later:\n"
-        f"- Title: \"{series_name}\"\n"
-        f"- Subtitle: \"Episode {episode_number}: {title}\""
+        "on them must remain tiny and illegible decorative scribble only.\n"
+        "- Do not try to spell any part of the final title, subtitle, episode "
+        "number, or series name using decorative faux text."
     )
 
 
@@ -450,10 +449,12 @@ def build_image_prompt(data, episode, config):
     use_text_overlay = is_enabled(config.get("image_text_overlay_enabled"))
 
     if use_text_overlay:
-        title_guidance = build_post_overlay_text_block(
-            series_name,
-            episode["number"],
-            title,
+        title_guidance = build_post_overlay_text_block()
+        title_context = (
+            "All final banner typography will be added by the CLI after image "
+            "generation.\n"
+            "Do not render any title, subtitle, episode number, wordmark, or "
+            "footer caption in the artwork itself.\n"
         )
     else:
         title_guidance = build_title_safety_block(
@@ -461,6 +462,12 @@ def build_image_prompt(data, episode, config):
             episode["number"],
             title,
             config,
+        )
+        title_context = (
+            f"Series title for final banner:\n\"{series_name}\"\n\n"
+            f"Episode subtitle for final banner:\n"
+            f"\"Episode {episode['number']}: {title}\"\n\n"
+            "The final banner must read clearly when published on DEV.to.\n"
         )
     character_safety = build_character_safety_block()
 
@@ -475,13 +482,7 @@ def build_image_prompt(data, episode, config):
     return f"""
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title for final banner:
-"{series_name}"
-
-Episode subtitle for final banner:
-"Episode {episode['number']}: {title}"
-
-The final banner must read clearly when published on DEV.to.
+{title_context}
 
 Canvas requirements:
 - resolution: {config["image_resolution"]}
@@ -1252,35 +1253,129 @@ def fit_text_font(text, font_candidates, max_width, max_size, min_size, stroke_w
     return last_font, text_width, text_height
 
 
-def add_episode_text_overlay(img, series_name, subtitle):
-    width, height = img.size
-    max_text_width = int(width * 0.86)
-    bottom_margin = max(46, int(height * 0.13))
-    line_gap = max(10, int(height * 0.024))
+def fit_overlay_fonts(
+    series_name,
+    subtitle,
+    max_text_width,
+    max_block_height,
+    line_gap,
+    title_stroke,
+    subtitle_stroke,
+    height,
+):
+    title_max_size = min(60, int(height * 0.13))
+    title_min_size = max(24, int(height * 0.055))
+    subtitle_max_size = min(36, int(height * 0.08))
+    subtitle_min_size = max(18, int(height * 0.04))
 
-    title_stroke = 2
-    subtitle_stroke = 2
+    best = None
+
+    for title_size in range(title_max_size, title_min_size - 1, -2):
+        title_font = load_font(SERIF_BOLD_FONT_CANDIDATES, title_size)
+        title_width, title_height = measure_text(
+            series_name,
+            title_font,
+            stroke_width=title_stroke,
+        )
+        if title_width > max_text_width:
+            continue
+
+        capped_subtitle_max = min(subtitle_max_size, max(18, title_size - 10))
+        for subtitle_size in range(capped_subtitle_max, subtitle_min_size - 1, -2):
+            subtitle_font = load_font(SERIF_REGULAR_FONT_CANDIDATES, subtitle_size)
+            subtitle_width, subtitle_height = measure_text(
+                subtitle,
+                subtitle_font,
+                stroke_width=subtitle_stroke,
+            )
+            text_block_height = title_height + line_gap + subtitle_height
+            if subtitle_width <= max_text_width and text_block_height <= max_block_height:
+                return (
+                    title_font,
+                    title_width,
+                    title_height,
+                    subtitle_font,
+                    subtitle_width,
+                    subtitle_height,
+                    text_block_height,
+                )
+            best = (
+                title_font,
+                title_width,
+                title_height,
+                subtitle_font,
+                subtitle_width,
+                subtitle_height,
+                text_block_height,
+            )
+
+    if best is not None:
+        return best
 
     title_font, title_width, title_height = fit_text_font(
         series_name,
         SERIF_BOLD_FONT_CANDIDATES,
         max_text_width,
-        max_size=min(84, int(height * 0.17)),
-        min_size=max(34, int(height * 0.09)),
+        max_size=title_min_size,
+        min_size=title_min_size,
         stroke_width=title_stroke,
     )
-
     subtitle_font, subtitle_width, subtitle_height = fit_text_font(
         subtitle,
         SERIF_REGULAR_FONT_CANDIDATES,
         max_text_width,
-        max_size=min(52, int(height * 0.11)),
-        min_size=max(22, int(height * 0.05)),
+        max_size=subtitle_min_size,
+        min_size=subtitle_min_size,
         stroke_width=subtitle_stroke,
     )
-
     text_block_height = title_height + line_gap + subtitle_height
-    title_y = height - bottom_margin - text_block_height
+    return (
+        title_font,
+        title_width,
+        title_height,
+        subtitle_font,
+        subtitle_width,
+        subtitle_height,
+        text_block_height,
+    )
+
+
+def add_episode_text_overlay(img, series_name, subtitle, config):
+    width, height = img.size
+    lr = config.get("image_title_safe_left_right_percent", 12)
+    top = config.get("image_title_safe_top_percent", 40)
+    bottom = max(config.get("image_title_safe_bottom_percent", 40), 40)
+    safe_top_y = int(height * (top / 100))
+    safe_bottom_y = int(height * ((100 - bottom) / 100))
+    safe_band_height = max(72, safe_bottom_y - safe_top_y)
+    fit_band_height = max(60, safe_band_height - max(8, int(height * 0.02)))
+    max_text_width = int(width * ((100 - (lr * 2)) / 100))
+    line_gap = max(6, int(height * 0.016))
+
+    title_stroke = 2
+    subtitle_stroke = 2
+
+    (
+        title_font,
+        title_width,
+        title_height,
+        subtitle_font,
+        subtitle_width,
+        subtitle_height,
+        text_block_height,
+    ) = fit_overlay_fonts(
+        series_name,
+        subtitle,
+        max_text_width,
+        fit_band_height,
+        line_gap,
+        title_stroke,
+        subtitle_stroke,
+        height,
+    )
+
+    title_y = safe_top_y + max(0, (safe_band_height - text_block_height) // 2)
+    title_y = max(safe_top_y, title_y - max(6, int(height * 0.014)))
     subtitle_y = title_y + title_height + line_gap
 
     title_x = int((width - title_width) / 2)
@@ -1391,6 +1486,7 @@ def generate_image_file(prompt, config, out_path, overlay_text=None):
             img,
             overlay_text["title"],
             overlay_text["subtitle"],
+            config,
         )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
