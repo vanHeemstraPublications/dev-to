@@ -291,6 +291,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = max(config["image_title_safe_bottom_percent"], 40)
+    lower_text_boundary = max(top + 8, 100 - bottom - 2)
+    title_center = int(top + max(1, lower_text_boundary - top) * 0.42)
 
     return (
         "Typography handling:\n"
@@ -305,8 +307,15 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Keep title typography at least {top}% away from the top edge.\n"
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
-        "- Place the entire two-line title block exactly in the vertical middle "
-        "of the image so it remains visible in a wide DEV.to banner.\n"
+        "- Place the entire two-line title block in the middle safe band of the "
+        "image, slightly above the exact vertical center so the subtitle remains "
+        "fully visible in a wide DEV.to banner.\n"
+        f"- Aim for the center of the full two-line block around ~{title_center}% "
+        "of image height.\n"
+        f"- Keep the lowest visible text pixel above roughly {lower_text_boundary}% "
+        "image height.\n"
+        "- Interpret the block center as the center of the entire two-line title "
+        "block, not the first line and not the text baseline.\n"
         "- Center the title block horizontally.\n"
         "- Reserve a calm central horizontal lane for the title block; keep "
         "faces, hands, bright focal props, monitors, sparks, and important "
@@ -315,6 +324,10 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "- Use refined serif typography in warm ivory or parchment-white with a "
         "subtle dark outline or shadow for contrast.\n"
         "- Keep the title and subtitle tightly grouped as one centered block.\n"
+        "- Leave obvious empty background below the subtitle; do not let any "
+        "letter descender such as g, j, p, q, or y approach the bottom crop zone.\n"
+        "- If there is any tension between artistic composition and text safety, "
+        "move the title block upward rather than downward.\n"
         "- Do not place the text near the top edge or bottom edge.\n"
         "- Do not use the text as a footer, lower-third caption, sticky note, "
         "sign, or screen content.\n"
@@ -328,12 +341,17 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "- verify every letter in the title and subtitle is fully visible in the "
         "final 1000x420 banner\n"
         "- verify the exact two-line title block is clearly readable and centered "
-        "vertically in the final image\n"
+        "horizontally in the final image\n"
+        f"- verify the full two-line title block is centered around roughly "
+        f"{title_center}% image height, not sitting low like a footer\n"
         "- verify the centered title block stays well away from the top and "
         "bottom crop zones\n"
+        f"- verify the lowest visible text pixel stays above roughly "
+        f"{lower_text_boundary}% image height\n"
         "- if any part of the text is clipped, off-center, or hard to read, "
         "simplify the middle of the composition, move objects away from the "
-        "middle lane, and reduce font size slightly if needed"
+        "middle lane, move the text upward, and reduce font size slightly if "
+        "needed"
     )
 
 
@@ -432,8 +450,9 @@ def build_image_prompt(data, episode, config):
     title_context = (
         "Render the final banner typography inside the image itself.\n\n"
         "The image is not complete unless the exact two-line title text below "
-        "is visibly rendered in the final image, centered horizontally and "
-        "centered vertically:\n\n"
+        "is visibly rendered in the final image, centered horizontally and kept "
+        "slightly above true vertical center so the entire subtitle remains fully "
+        "visible:\n\n"
         f"{series_name}\n"
         f"Episode {episode['number']}: {title}\n"
     )
