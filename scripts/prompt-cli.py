@@ -329,20 +329,31 @@ def build_title_safety_block(series_name, episode_number, title, config):
 def build_character_safety_block():
     return (
         "Character framing requirements:\n"
-        "- Absolute priority: every main character's full face and full "
-        "headwear must remain completely visible.\n"
+        "- Non-negotiable rule: every main character's entire face, full "
+        "head, beard, hair, and all headwear must remain completely visible in "
+        "the final delivered banner image.\n"
+        "- Treat the image as a cover/banner that may be cropped slightly by "
+        "the platform at the top and bottom; compose defensively for that crop.\n"
+        "- Keep every main face inside a conservative character-safe rectangle: "
+        "roughly at least 12% in from the left/right edges, 15% below the top "
+        "edge, and 12% above the bottom edge.\n"
+        "- Treat the top roughly 15% of the canvas as a NO-FACE / NO-HAT zone "
+        "for main characters.\n"
         "- For banner illustrations with a lead presenter, default to waist-up, "
         "mid-shot, or three-quarter framing rather than a full standing figure.\n"
         "- Never crop the top of a head, hat, hair, forehead, eyes, cheeks, "
         "beard, or chin.\n"
         "- Leave obvious empty headroom above the tallest head or hat; keep at "
-        "least roughly 8-10% of image height as clear margin above the highest "
+        "least roughly 12-15% of image height as clear margin above the highest "
         "main character.\n"
         "- Keep important faces well inside a conservative character-safe area, "
         "away from every border, especially the top border.\n"
         "- If there is any conflict between showing more of a body and keeping "
         "the full face and head visible, crop lower on the body instead; never "
         "crop the face or top of the head.\n"
+        "- If any main face, beard, or hat would be even slightly clipped, make "
+        "the character smaller and move the character lower before showing more "
+        "of the body.\n"
         "- For lead presenters, prefer medium-shot or three-quarter framing "
         "instead of full-body framing when needed to preserve full face/head "
         "visibility.\n"
@@ -528,9 +539,9 @@ Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
-    - cropped or partially hidden faces
-    - heads, hats, or hair touching the top edge
-    - full-body framing that causes the top of a head or hat to be cut off
+- cropped or partially hidden faces
+- heads, hats, or hair touching the top edge
+- full-body framing that causes the top of a head or hat to be cut off
 - flat lighting
 - messy perspective
 - low-detail background
