@@ -329,20 +329,36 @@ def build_title_safety_block(series_name, episode_number, title, config):
 def build_character_safety_block():
     return (
         "Character framing requirements:\n"
-        "- Absolute priority: every main character's full face and full "
-        "headwear must remain completely visible.\n"
-        "- For banner illustrations with a lead presenter, default to waist-up, "
-        "mid-shot, or three-quarter framing rather than a full standing figure.\n"
+        "- Non-negotiable rule: every main character's entire face, full "
+        "head, beard, hair, and all headwear must remain completely visible in "
+        "the final delivered banner image.\n"
+        "- This rule overrides dramatic framing, character scale, background "
+        "detail, and showing more of the body.\n"
+        "- Treat the image as a cover/banner that may be cropped slightly by "
+        "the platform at the top and bottom; compose defensively for that crop.\n"
+        "- Keep every main face inside a conservative character-safe rectangle: "
+        "roughly at least 12% in from the left/right edges, 15% below the top "
+        "edge, and 12% above the bottom edge.\n"
+        "- Treat the top roughly 15% of the canvas as a NO-FACE / NO-HAT zone "
+        "for main characters.\n"
+        "- Keep the highest point of every main head or hat comfortably below "
+        "the top border, ideally at or below roughly the top 18-20% guide line.\n"
+        "- For banner illustrations with a lead presenter, use chest-up, "
+        "waist-up, seated, or three-quarter framing only; do not use a full-body "
+        "or full standing lead figure.\n"
         "- Never crop the top of a head, hat, hair, forehead, eyes, cheeks, "
         "beard, or chin.\n"
         "- Leave obvious empty headroom above the tallest head or hat; keep at "
-        "least roughly 8-10% of image height as clear margin above the highest "
+        "least roughly 12-15% of image height as clear margin above the highest "
         "main character.\n"
         "- Keep important faces well inside a conservative character-safe area, "
         "away from every border, especially the top border.\n"
         "- If there is any conflict between showing more of a body and keeping "
         "the full face and head visible, crop lower on the body instead; never "
         "crop the face or top of the head.\n"
+        "- If any main face, beard, or hat would be even slightly clipped, make "
+        "the character smaller and move the character lower before showing more "
+        "of the body.\n"
         "- For lead presenters, prefer medium-shot or three-quarter framing "
         "instead of full-body framing when needed to preserve full face/head "
         "visibility.\n"
@@ -412,6 +428,17 @@ Output requirements:
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
 
+Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- the primary presenter must read as chest-up, waist-up, seated, or
+  three-quarter framing only; do not depict the lead presenter as a tall
+  full-body standing figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
+
 Scene setting:
 {setting}
 
@@ -449,6 +476,8 @@ Avoid:
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
 - full-body framing that causes the top of a head or hat to be cut off
+- oversized foreground characters that consume too much vertical height
+- poster-style heroic full-body figures in a wide banner
 - generic stock-art look
 - flat lighting
 - messy perspective
@@ -456,6 +485,12 @@ Avoid:
 - accidental portrait orientation
 - oversized title text
 - cropped-looking typography
+
+Final acceptance check before finishing:
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
+- verify there is obvious empty space above the highest head or hat
+- if that check fails, reduce character scale and move the characters lower
 """.strip()
 
 
@@ -499,6 +534,16 @@ Output requirements:
 - target file size: under {config["image_max_file_size_kb"]} KB
 - optimized for fast web loading
 
+Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- any prominent foreground character must read as chest-up, waist-up, seated,
+  or three-quarter framing rather than a tall full-body figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
+
 Scene setting:
 {setting}
 
@@ -528,13 +573,21 @@ Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
-    - cropped or partially hidden faces
-    - heads, hats, or hair touching the top edge
-    - full-body framing that causes the top of a head or hat to be cut off
+- cropped or partially hidden faces
+- heads, hats, or hair touching the top edge
+- full-body framing that causes the top of a head or hat to be cut off
+- oversized foreground characters that consume too much vertical height
+- poster-style heroic full-body figures in a wide banner
 - flat lighting
 - messy perspective
 - low-detail background
 - oversized title text
+
+Final acceptance check before finishing:
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
+- verify there is obvious empty space above the highest head or hat
+- if that check fails, reduce character scale and move the characters lower
 """.strip()
 
 
