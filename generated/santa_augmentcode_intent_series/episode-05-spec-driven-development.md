@@ -48,8 +48,12 @@ ChatGPT Image Prompt
 
 Create a polished cinematic landscape banner illustration for a web article.
 
-All final banner typography will be added by the CLI after image generation.
-Do not render any title, subtitle, episode number, wordmark, or footer caption in the artwork itself.
+Render the final banner typography inside the image itself.
+
+The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and centered vertically:
+
+Santa Augmentcode Intent Series
+Episode 5: Spec-Driven Development
 
 
 Canvas requirements:
@@ -121,17 +125,35 @@ Character framing requirements:
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
 Typography handling:
-- Do NOT render the series title or episode subtitle inside the artwork.
-- Do NOT render any large readable words, captions, banners, logos, or footer strips anywhere in the image.
-- The CLI will add the final title text afterward as a deterministic overlay.
-- Reserve a calm central horizontal lane for that overlay; keep faces, hands, and bright focal props out of it.
+- Render the final banner typography inside the image itself.
+- The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
+- Render exactly this readable two-line title block inside the image:
+  - Santa Augmentcode Intent Series
+  - Episode 5: Spec-Driven Development
+- Keep title typography at least 12% away from the left and right edges.
+- Keep title typography at least 40% away from the top edge.
+- Keep title typography at least 40% away from the bottom edge.
+- Place the entire two-line title block exactly in the vertical middle of the image so it remains visible in a wide DEV.to banner.
+- Center the title block horizontally.
+- Reserve a calm central horizontal lane for the title block; keep faces, hands, bright focal props, monitors, sparks, and important objects out of that middle lane.
+- Make the text large, crisp, elegant, and fully legible.
+- Use refined serif typography in warm ivory or parchment-white with a subtle dark outline or shadow for contrast.
+- Keep the title and subtitle tightly grouped as one centered block.
+- Do not place the text near the top edge or bottom edge.
+- Do not use the text as a footer, lower-third caption, sticky note, sign, or screen content.
+- The centered title block must be the only large readable text in the image.
 - If papers, sticky notes, screens, signs, or labels appear, any writing on them must remain tiny and illegible decorative scribble only.
-- Do not try to spell any part of the final title, subtitle, episode number, or series name using decorative faux text.
+- Do not omit, paraphrase, restyle, or misspell the centered title text.
+
+Final text acceptance check before finishing:
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
+- verify the exact two-line title block is clearly readable and centered vertically in the final image
+- verify the centered title block stays well away from the top and bottom crop zones
+- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, and reduce font size slightly if needed
 
 Avoid:
 - visual clutter
 - unreadable text
-- footer-style lower-third title treatments
 - cramped composition
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
@@ -144,7 +166,7 @@ Avoid:
 - low-detail background
 - accidental portrait orientation
 - generated footer bars or lower-third title treatments
-- readable generated typography in the artwork
+- missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
