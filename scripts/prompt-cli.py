@@ -53,13 +53,13 @@ DEFAULT_CONFIG = {
     "image_quality": "medium",
     "image_background": "opaque",
     "image_generation_size": "1536x1024",
-    # When we crop the model output to 1000x420, avoid cutting off the top
-    # where the title often lives. Use a top-anchored crop for height crops.
-    "image_crop_anchor_y": "top",  # "top" | "center" | "bottom"
+    # When we crop the model output to 1000x420, preserve the middle band where
+    # both the title block and the main characters should live.
+    "image_crop_anchor_y": "center",  # "top" | "center" | "bottom"
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
-    "image_title_safe_top_percent": 52,
-    "image_title_safe_bottom_percent": 32,
+    "image_title_safe_top_percent": 40,
+    "image_title_safe_bottom_percent": 40,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -255,10 +255,6 @@ def episode_image_title(episode):
     return (episode.get("title") or "").strip()
 
 
-def episode_image_badge_text(episode_number):
-    return f"Episode {episode_number}"
-
-
 def derive_raw_github_images_base_url(repo_url, branch):
     """
     Convert a GitHub repository URL into a raw-content images base URL.
@@ -291,13 +287,12 @@ def derive_raw_github_images_base_url(repo_url, branch):
 
 
 def build_title_safety_block(series_name, episode_number, title, config):
-    episode_badge = episode_image_badge_text(episode_number)
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
-    bottom = max(config["image_title_safe_bottom_percent"], 32)
+    bottom = max(config["image_title_safe_bottom_percent"], 40)
     lower_text_boundary = 100 - bottom
     safe_band = max(1, 100 - top - bottom)
-    title_center = int(top + safe_band * 0.30)
+    title_center = int(top + safe_band * 0.50)
 
     return (
         "DEV.to title safety requirements:\n"
@@ -313,22 +308,22 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "- Do NOT place any text in the top safe-margin area.\n"
         f"- Treat the bottom {bottom}% of the image as a NO-TEXT zone too.\n"
         "- Place the entire title block in the visual middle band of the "
-        "image (not the top third).\n"
+        "image, never as a footer or lower-third caption.\n"
         "- Keep the entire two-line title block fully above the bottom "
         "no-text zone.\n"
-        "- If a second line of text is used, keep it to a very short episode "
-        "badge only.\n"
-        "- Do NOT render the full episode title as cover text. The detailed "
-        "episode title belongs in the article headline below the image.\n"
-        "- Keep the episode badge clearly below the main title with generous "
-        "spacing.\n"
-        "- Render the episode badge noticeably smaller than the main title, "
-        "roughly 40-50% of the title size.\n"
+        "- Keep the subtitle clearly below the main title with tight grouping so "
+        "both lines read as one compact title block.\n"
+        "- Render the subtitle smaller than the main title, roughly 45-60% of "
+        "the title size.\n"
         "- Use slightly smaller typography rather than oversized typography "
         "if needed.\n"
         "- If the full title block does not fit comfortably, reduce font size "
         "or move the text upward; never solve it by pushing the subtitle lower.\n"
         "- Never place the title block in the lower third of the image.\n"
+        "- Do NOT place text on the floor area, bottom vignette, lower border, "
+        "or inside a footer strip, ribbon, or plaque.\n"
+        "- Do NOT add a decorative divider line under the title if it extends "
+        "the text treatment downward.\n"
         "- Leave visible empty space below the subtitle; no part of any letter, "
         "including descenders like g, j, p, q, and y, may approach the bottom "
         "edge.\n"
@@ -338,6 +333,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
         f"- Treat everything below roughly {lower_text_boundary}% image height "
         "as a NO-TEXT zone.\n"
+        "- Keep the full title block between roughly the 42% and 60% height "
+        "lines of the image.\n"
         "- Place the series title so its cap-height starts just below the top "
         "no-text zone, not near the bottom of the safe band.\n"
         f"- Aim for the title block center around ~{title_center}% of image "
@@ -350,14 +347,15 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "- verify there is obvious empty space below the subtitle\n"
         f"- verify the lowest visible text pixel stays above roughly "
         f"{lower_text_boundary}% image height\n"
+        "- verify no footer bar, divider line, ribbon, plaque, or caption strip "
+        "sits below the subtitle\n"
         "- if any part of the text is clipped or too close to the bottom edge, "
         "move the text upward and/or reduce font size\n\n"
         "Exact text to include:\n"
         "Top title:\n"
         f"\"{series_name}\"\n\n"
-        "Small episode badge:\n"
-        f"\"{episode_badge}\"\n\n"
-        "Do not include the full episode title as text inside the image."
+        "Subtitle:\n"
+        f"\"Episode {episode_number}: {title}\""
     )
 
 
@@ -410,7 +408,6 @@ def build_image_prompt(data, episode, config):
 
     series_name = series.get("name", "")
     title = episode_image_title(episode)
-    episode_badge = episode_image_badge_text(episode["number"])
     metaphor = episode.get("metaphor", "")
     center_action = episode.get("center_action", "")
 
@@ -446,11 +443,13 @@ Create a polished cinematic landscape banner illustration for a web article.
 Series title:
 "{series_name}"
 
-Small episode badge:
-"{episode_badge}"
+Episode subtitle:
+"Episode {episode['number']}: {title}"
 
-Do not render the full episode title as cover text.
-The detailed episode title should remain in the article headline below the image.
+Place this two-line title block in the middle band of the image, not near the
+bottom edge.
+Do not use a footer strip, bottom banner, lower-third caption treatment, or
+decorative divider line beneath the title.
 
 Canvas requirements:
 - resolution: {config["image_resolution"]}
@@ -511,7 +510,7 @@ Style requirements:
 Avoid:
 - visual clutter
 - unreadable text
-- long cover subtitles
+- footer-style lower-third title treatments
 - cramped composition
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
