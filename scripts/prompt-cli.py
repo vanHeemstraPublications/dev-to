@@ -329,17 +329,24 @@ def build_title_safety_block(series_name, episode_number, title, config):
 def build_character_safety_block():
     return (
         "Character framing requirements:\n"
-        "- Keep every main character fully inside the frame.\n"
-        "- Every visible face must be fully shown: no cropped forehead, hat, "
-        "hair, eyes, cheeks, beard, or chin.\n"
-        "- Leave clear headroom above every main character; do not place heads "
-        "or hats near the top edge.\n"
-        "- Keep important faces comfortably away from all image borders, "
-        "especially the top border.\n"
-        "- If multiple characters are present, zoom out or move them lower in "
-        "the composition rather than cropping any face.\n"
-        "- Prefer mid-shot or full upper-body framing for presenters so the "
-        "entire face remains visible in the final banner."
+        "- Absolute priority: every main character's full face and full "
+        "headwear must remain completely visible.\n"
+        "- Never crop the top of a head, hat, hair, forehead, eyes, cheeks, "
+        "beard, or chin.\n"
+        "- Leave obvious empty headroom above the tallest head or hat; keep at "
+        "least roughly 8-10% of image height as clear margin above the highest "
+        "main character.\n"
+        "- Keep important faces well inside a conservative character-safe area, "
+        "away from every border, especially the top border.\n"
+        "- If there is any conflict between showing more of a body and keeping "
+        "the full face and head visible, crop lower on the body instead; never "
+        "crop the face or top of the head.\n"
+        "- For lead presenters, prefer medium-shot or three-quarter framing "
+        "instead of full-body framing when needed to preserve full face/head "
+        "visibility.\n"
+        "- If multiple characters are present, zoom out, reduce character scale, "
+        "or move characters lower in the composition rather than letting any "
+        "face or hat approach an edge."
     )
 
 
@@ -439,6 +446,7 @@ Avoid:
 - cramped composition
     - cropped or partially hidden faces
     - heads, hats, or hair touching the top edge
+    - full-body framing that causes the top of a head or hat to be cut off
 - generic stock-art look
 - flat lighting
 - messy perspective
@@ -520,6 +528,7 @@ Avoid:
 - cramped composition
     - cropped or partially hidden faces
     - heads, hats, or hair touching the top edge
+    - full-body framing that causes the top of a head or hat to be cut off
 - flat lighting
 - messy perspective
 - low-detail background
