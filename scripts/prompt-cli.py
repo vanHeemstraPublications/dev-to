@@ -59,7 +59,7 @@ DEFAULT_CONFIG = {
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
     "image_title_safe_top_percent": 52,
-    "image_title_safe_bottom_percent": 24,
+    "image_title_safe_bottom_percent": 32,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -289,10 +289,10 @@ def derive_raw_github_images_base_url(repo_url, branch):
 def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
-    bottom = max(config["image_title_safe_bottom_percent"], 24)
+    bottom = max(config["image_title_safe_bottom_percent"], 32)
     lower_text_boundary = 100 - bottom
     safe_band = max(1, 100 - top - bottom)
-    title_center = int(top + safe_band * 0.38)
+    title_center = int(top + safe_band * 0.30)
 
     return (
         "DEV.to title safety requirements:\n"
@@ -313,10 +313,13 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "no-text zone.\n"
         "- Keep the subtitle clearly below the main title with generous "
         "spacing.\n"
+        "- Render the subtitle noticeably smaller than the main title, roughly "
+        "55-65% of the title size.\n"
         "- Use slightly smaller typography rather than oversized typography "
         "if needed.\n"
         "- If the full title block does not fit comfortably, reduce font size "
         "or move the text upward; never solve it by pushing the subtitle lower.\n"
+        "- Never place the title block in the lower third of the image.\n"
         "- Leave visible empty space below the subtitle; no part of any letter, "
         "including descenders like g, j, p, q, and y, may approach the bottom "
         "edge.\n"
@@ -326,7 +329,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
         f"- Treat everything below roughly {lower_text_boundary}% image height "
         "as a NO-TEXT zone.\n"
-        "- Place the series title so its cap-height starts below that zone.\n"
+        "- Place the series title so its cap-height starts just below the top "
+        "no-text zone, not near the bottom of the safe band.\n"
         f"- Aim for the title block center around ~{title_center}% of image "
         "height.\n"
         "- If unsure, place the title block slightly higher rather than lower.\n"
@@ -335,6 +339,8 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "- verify every letter in the title and subtitle is fully visible in the "
         "final 1000x420 banner\n"
         "- verify there is obvious empty space below the subtitle\n"
+        f"- verify the lowest visible text pixel stays above roughly "
+        f"{lower_text_boundary}% image height\n"
         "- if any part of the text is clipped or too close to the bottom edge, "
         "move the text upward and/or reduce font size\n\n"
         "Exact text to include:\n"
@@ -585,8 +591,9 @@ Style requirements:
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
 - do not place text close to the top edge
-- treat the bottom 24% of the banner as a NO-TEXT zone
+- treat the bottom 32% of the banner as a NO-TEXT zone
 - keep the entire title/subtitle block fully above that bottom no-text zone
+- render any subtitle clearly smaller than the main title
 - leave visible empty space below the lowest text line
 - if the text block feels too tall, reduce font size or move it upward rather
   than placing it lower
@@ -613,6 +620,7 @@ Final acceptance check before finishing:
 - verify there is obvious empty space above the highest head or hat
 - verify every title/subtitle letter is fully visible with clear empty space
   below the text block
+- verify the lowest visible text pixel stays above roughly 68% image height
 - if that check fails, reduce character scale and move the characters lower
   and/or move the text upward or reduce text size
 """.strip()
