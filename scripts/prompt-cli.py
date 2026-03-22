@@ -17,7 +17,7 @@ except ImportError:
     sys.exit(1)
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageDraw, ImageFont
 except ImportError:
     print("Missing dependency: pillow")
     print("Install with: pip install pillow")
@@ -56,6 +56,7 @@ DEFAULT_CONFIG = {
     # When we crop the model output to 1000x420, preserve the middle band where
     # both the title block and the main characters should live.
     "image_crop_anchor_y": "center",  # "top" | "center" | "bottom"
+    "image_text_overlay_enabled": False,
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
     "image_title_safe_top_percent": 40,
@@ -401,6 +402,32 @@ def build_character_safety_block():
     )
 
 
+def is_enabled(value):
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def build_post_overlay_text_block(series_name, episode_number, title):
+    return (
+        "Typography handling:\n"
+        "- Do NOT render the series title or episode subtitle inside the artwork.\n"
+        "- Do NOT render any large readable words, captions, banners, logos, or "
+        "footer strips anywhere in the image.\n"
+        "- The CLI will add the final title text afterward as a deterministic "
+        "overlay.\n"
+        "- Reserve a calm lower-middle lane for that overlay; keep faces, hands, "
+        "and bright focal props out of it.\n"
+        "- If papers, sticky notes, screens, signs, or labels appear, any writing "
+        "on them must remain tiny and illegible decorative scribble only.\n\n"
+        "Overlay text that will be added later:\n"
+        f"- Title: \"{series_name}\"\n"
+        f"- Subtitle: \"Episode {episode_number}: {title}\""
+    )
+
+
 def build_image_prompt(data, episode, config):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
@@ -420,13 +447,21 @@ def build_image_prompt(data, episode, config):
     background = composition.get("background", "")
 
     props_text = ", ".join(episode.get("supporting_props", []))
+    use_text_overlay = is_enabled(config.get("image_text_overlay_enabled"))
 
-    title_safety = build_title_safety_block(
-        series_name,
-        episode["number"],
-        title,
-        config,
-    )
+    if use_text_overlay:
+        title_guidance = build_post_overlay_text_block(
+            series_name,
+            episode["number"],
+            title,
+        )
+    else:
+        title_guidance = build_title_safety_block(
+            series_name,
+            episode["number"],
+            title,
+            config,
+        )
     character_safety = build_character_safety_block()
 
     repo_url = config.get("github_repository_url", "")
@@ -440,16 +475,13 @@ def build_image_prompt(data, episode, config):
     return f"""
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:
+Series title for final banner:
 "{series_name}"
 
-Episode subtitle:
+Episode subtitle for final banner:
 "Episode {episode['number']}: {title}"
 
-Place this two-line title block in the middle band of the image, not near the
-bottom edge.
-Do not use a footer strip, bottom banner, lower-third caption treatment, or
-decorative divider line beneath the title.
+The final banner must read clearly when published on DEV.to.
 
 Canvas requirements:
 - resolution: {config["image_resolution"]}
@@ -505,7 +537,7 @@ Style requirements:
 
 {character_safety}
 
-{title_safety}{repo_block}
+{title_guidance}{repo_block}
 
 Avoid:
 - visual clutter
@@ -522,8 +554,8 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text
-- cropped-looking typography
+- generated footer bars or lower-third title treatments
+- readable generated typography in the artwork
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
@@ -1153,6 +1185,141 @@ def crop_to_aspect(img, target_ratio, anchor_y="center"):
     return img
 
 
+SERIF_BOLD_FONT_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
+    "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    "C:/Windows/Fonts/georgiab.ttf",
+    "C:/Windows/Fonts/timesbd.ttf",
+]
+
+SERIF_REGULAR_FONT_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Georgia.ttf",
+    "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "C:/Windows/Fonts/georgia.ttf",
+    "C:/Windows/Fonts/times.ttf",
+]
+
+
+def load_font(font_candidates, size):
+    for candidate in font_candidates:
+        try:
+            return ImageFont.truetype(candidate, size=size)
+        except Exception:
+            continue
+
+    try:
+        return ImageFont.truetype("DejaVuSerif.ttf", size=size)
+    except Exception:
+        return ImageFont.load_default()
+
+
+def measure_text(text, font, stroke_width=0):
+    probe = Image.new("RGB", (8, 8), "black")
+    draw = ImageDraw.Draw(probe)
+    left, top, right, bottom = draw.textbbox(
+        (0, 0),
+        text,
+        font=font,
+        stroke_width=stroke_width,
+    )
+    return right - left, bottom - top
+
+
+def fit_text_font(text, font_candidates, max_width, max_size, min_size, stroke_width=0):
+    last_font = None
+
+    for size in range(max_size, min_size - 1, -2):
+        font = load_font(font_candidates, size)
+        last_font = font
+        text_width, text_height = measure_text(
+            text,
+            font,
+            stroke_width=stroke_width,
+        )
+        if text_width <= max_width:
+            return font, text_width, text_height
+
+    if last_font is None:
+        last_font = load_font(font_candidates, min_size)
+
+    text_width, text_height = measure_text(
+        text,
+        last_font,
+        stroke_width=stroke_width,
+    )
+    return last_font, text_width, text_height
+
+
+def add_episode_text_overlay(img, series_name, subtitle):
+    width, height = img.size
+    max_text_width = int(width * 0.86)
+    bottom_margin = max(46, int(height * 0.13))
+    line_gap = max(10, int(height * 0.024))
+
+    title_stroke = 2
+    subtitle_stroke = 2
+
+    title_font, title_width, title_height = fit_text_font(
+        series_name,
+        SERIF_BOLD_FONT_CANDIDATES,
+        max_text_width,
+        max_size=min(84, int(height * 0.17)),
+        min_size=max(34, int(height * 0.09)),
+        stroke_width=title_stroke,
+    )
+
+    subtitle_font, subtitle_width, subtitle_height = fit_text_font(
+        subtitle,
+        SERIF_REGULAR_FONT_CANDIDATES,
+        max_text_width,
+        max_size=min(52, int(height * 0.11)),
+        min_size=max(22, int(height * 0.05)),
+        stroke_width=subtitle_stroke,
+    )
+
+    text_block_height = title_height + line_gap + subtitle_height
+    title_y = height - bottom_margin - text_block_height
+    subtitle_y = title_y + title_height + line_gap
+
+    title_x = int((width - title_width) / 2)
+    subtitle_x = int((width - subtitle_width) / 2)
+
+    base = img.convert("RGBA")
+    overlay = Image.new("RGBA", base.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    shadow_fill = (24, 12, 6, 180)
+    title_fill = (248, 238, 216, 255)
+    subtitle_fill = (247, 236, 214, 255)
+    stroke_fill = (70, 35, 18, 220)
+    shadow_offset = max(2, int(height * 0.006))
+
+    for text, font, x, y, fill, stroke_width in [
+        (series_name, title_font, title_x, title_y, title_fill, title_stroke),
+        (subtitle, subtitle_font, subtitle_x, subtitle_y, subtitle_fill, subtitle_stroke),
+    ]:
+        draw.text(
+            (x + shadow_offset, y + shadow_offset),
+            text,
+            font=font,
+            fill=shadow_fill,
+            stroke_width=stroke_width,
+            stroke_fill=shadow_fill,
+        )
+        draw.text(
+            (x, y),
+            text,
+            font=font,
+            fill=fill,
+            stroke_width=stroke_width,
+            stroke_fill=stroke_fill,
+        )
+
+    return Image.alpha_composite(base, overlay).convert("RGB")
+
+
 def compress_webp(img, path, max_kb):
     for quality in range(95, 15, -5):
         img.save(path, "WEBP", quality=quality)
@@ -1171,7 +1338,7 @@ def ensure_openai_api_key():
     return api_key
 
 
-def generate_image_file(prompt, config, out_path):
+def generate_image_file(prompt, config, out_path, overlay_text=None):
     ensure_openai_api_key()
     client = OpenAI()
 
@@ -1219,6 +1386,13 @@ def generate_image_file(prompt, config, out_path):
     img = crop_to_aspect(img, target_ratio, anchor_y=anchor_y)
     img = img.resize((target_width, target_height), Image.LANCZOS)
 
+    if overlay_text:
+        img = add_episode_text_overlay(
+            img,
+            overlay_text["title"],
+            overlay_text["subtitle"],
+        )
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     compress_webp(img, out_path, config["image_max_file_size_kb"])
 
@@ -1229,11 +1403,18 @@ def generate_episode_image(data, episode):
 
     prompt = build_image_prompt(data, episode, config)
     out_path = get_episode_image_path(series, episode, config)
+    overlay_text = None
+
+    if is_enabled(config.get("image_text_overlay_enabled")):
+        overlay_text = {
+            "title": series.get("name", ""),
+            "subtitle": f"Episode {episode['number']}: {episode_image_title(episode)}",
+        }
 
     prompt_path = out_path.with_suffix(".prompt.txt")
     prompt_path.write_text(prompt + "\n", encoding="utf-8")
 
-    generate_image_file(prompt, config, out_path)
+    generate_image_file(prompt, config, out_path, overlay_text=overlay_text)
 
     print(f"Generated image {out_path}")
     print(f"Saved prompt {prompt_path}")
