@@ -1,0 +1,109 @@
+series:
+  id: santa_augmentcode_intent_series
+  name: Santa Augmentcode Intent Series
+  type: augment_intent_explainer_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/santa_augmentcode_intent_episode_template.md
+  series_config: config/santa-augmentcode-intent-series.json
+
+defaults:
+  setting: cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
+  lighting: warm firelit Christmas workshop glow with polished storybook ambience
+  composition:
+    left_third: Father Christmas presenter explaining the lesson with calm authority
+    center: the core Augment Intent concept illustrated as active workshop collaboration
+    right_third: specialist elves collaborating with tools, terminals, and toy-like technical props
+    background: snowy workshop windows, shelves of prototypes, and orderly North Pole operations
+
+episodes:
+  - number: 1
+    title: Welcome to the Workshop
+    slug: welcome-to-the-workshop
+    metaphor: the North Pole workshop as an AI-native software studio
+    center_action: Father Christmas opens the workshop and introduces Intent as the coordinated command center
+    supporting_props:
+      - master gift list
+      - glowing workstation
+      - elf task board
+      - toy blueprints
+
+  - number: 2
+    title: The Master Gift List — Living Specs
+    slug: the-master-gift-list-living-specs
+    metaphor: a living gift ledger that updates as the workshop works
+    center_action: the master gift list updates in real time while elves consult it and Santa refines the plan
+    supporting_props:
+      - parchment spec
+      - pinned checklist
+      - ink quill beside laptop
+      - status ribbons
+
+  - number: 3
+    title: Coordinator & Specialist Agents
+    slug: coordinator-and-specialist-agents
+    metaphor: Santa coordinating specialists like a well-run Christmas delivery operation
+    center_action: Santa plans tasks while specialist elves execute and a verifier checks the output
+    supporting_props:
+      - assignment board
+      - elf role badges
+      - quality stamp
+      - handoff envelopes
+
+  - number: 4
+    title: Isolated Workspaces
+    slug: isolated-workspaces
+    metaphor: every elf has a separate workbench so tools and tasks never collide
+    center_action: parallel elves work at isolated benches connected to the same shared workshop knowledge
+    supporting_props:
+      - separate workbenches
+      - git worktree signposts
+      - tool chests
+      - branch labels
+
+  - number: 5
+    title: Spec-Driven Development
+    slug: spec-driven-development
+    metaphor: the written gift plan becomes the build schedule and the delivery contract
+    center_action: the living spec guides the build from kickoff to completion without last-minute surprises
+    supporting_props:
+      - milestone calendar
+      - acceptance checklist
+      - design notes
+      - delivery deadline clock
+
+  - number: 6
+    title: The Context Engine
+    slug: the-context-engine
+    metaphor: the workshop library that remembers every toy design, material, and pattern
+    center_action: the Context Engine surfaces the right codebase knowledge for each elf at the right moment
+    supporting_props:
+      - catalogue drawers
+      - glowing library shelves
+      - search lantern
+      - code scrolls
+
+  - number: 7
+    title: Multi-Agent Orchestration
+    slug: multi-agent-orchestration
+    metaphor: waves of elves moving in parallel with precise timing and no collisions
+    center_action: multiple specialist elves run in coordinated waves with clear dependencies and handoffs
+    supporting_props:
+      - orchestration board
+      - dependency strings
+      - signal bells
+      - queue markers
+
+  - number: 8
+    title: From Spec to Merged PR
+    slug: from-spec-to-merged-pr
+    metaphor: a full Christmas delivery run from wish list to gifts safely under the tree
+    center_action: the team moves from prompt and spec to verified changes, approval, and a merged pull request
+    supporting_props:
+      - pull request ribbon
+      - review checklist
+      - merged stamp
+      - sleigh delivery ledger
