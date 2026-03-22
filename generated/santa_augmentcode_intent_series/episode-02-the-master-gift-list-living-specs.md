@@ -48,11 +48,9 @@ ChatGPT Image Prompt
 
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:
-"Santa Augmentcode Intent Series"
+All final banner typography will be added by the CLI after image generation.
+Do not render any title, subtitle, episode number, wordmark, or footer caption in the artwork itself.
 
-Episode subtitle:
-"Episode 2: The Master Gift List — Living Specs"
 
 Canvas requirements:
 - resolution: 1000x420
@@ -122,48 +120,18 @@ Character framing requirements:
 - For lead presenters, prefer medium-shot or three-quarter framing instead of full-body framing when needed to preserve full face/head visibility.
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
-DEV.to title safety requirements:
-- This image will be used as a DEV.to article header/banner.
-- DEV.to often crops the top/bottom edges of cover images.
-- Keep all text fully readable inside a conservative safe area.
-- Do not place important text near the extreme edges.
-- Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 52% away from the top edge.
-- Keep title typography at least 24% away from the bottom edge.
-- Do NOT place any text in the top safe-margin area.
-- Treat the bottom 24% of the image as a NO-TEXT zone too.
-- Place the entire title block in the visual middle band of the image (not the top third).
-- Keep the entire two-line title block fully above the bottom no-text zone.
-- Keep the subtitle clearly below the main title with generous spacing.
-- Use slightly smaller typography rather than oversized typography if needed.
-- If the full title block does not fit comfortably, reduce font size or move the text upward; never solve it by pushing the subtitle lower.
-- Leave visible empty space below the subtitle; no part of any letter, including descenders like g, j, p, q, and y, may approach the bottom edge.
-- Do not let any letter, banner, or ornament touch the image edge.
-- The full title and subtitle must be completely visible.
-
-Placement target (important):
-- Treat the top 52% of the image as a NO-TEXT zone.
-- Treat everything below roughly 76% image height as a NO-TEXT zone.
-- Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~61% of image height.
-- If unsure, place the title block slightly higher rather than lower.
-- Place the subtitle below the series title (not above).
-
-Final text acceptance check before finishing:
-- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
-- verify there is obvious empty space below the subtitle
-- if any part of the text is clipped or too close to the bottom edge, move the text upward and/or reduce font size
-
-Exact text to include:
-Top title:
-"Santa Augmentcode Intent Series"
-
-Subtitle:
-"Episode 2: The Master Gift List — Living Specs"
+Typography handling:
+- Do NOT render the series title or episode subtitle inside the artwork.
+- Do NOT render any large readable words, captions, banners, logos, or footer strips anywhere in the image.
+- The CLI will add the final title text afterward as a deterministic overlay.
+- Reserve a calm central horizontal lane for that overlay; keep faces, hands, and bright focal props out of it.
+- If papers, sticky notes, screens, signs, or labels appear, any writing on them must remain tiny and illegible decorative scribble only.
+- Do not try to spell any part of the final title, subtitle, episode number, or series name using decorative faux text.
 
 Avoid:
 - visual clutter
 - unreadable text
+- footer-style lower-third title treatments
 - cramped composition
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
@@ -175,8 +143,8 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text
-- cropped-looking typography
+- generated footer bars or lower-third title treatments
+- readable generated typography in the artwork
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
