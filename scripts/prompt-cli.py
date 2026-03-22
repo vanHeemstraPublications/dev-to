@@ -331,6 +331,8 @@ def build_character_safety_block():
         "Character framing requirements:\n"
         "- Absolute priority: every main character's full face and full "
         "headwear must remain completely visible.\n"
+        "- For banner illustrations with a lead presenter, default to waist-up, "
+        "mid-shot, or three-quarter framing rather than a full standing figure.\n"
         "- Never crop the top of a head, hat, hair, forehead, eyes, cheeks, "
         "beard, or chin.\n"
         "- Leave obvious empty headroom above the tallest head or hat; keep at "
@@ -436,17 +438,17 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
-    {character_safety}
+{character_safety}
 
-    {title_safety}{repo_block}
+{title_safety}{repo_block}
 
 Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
-    - cropped or partially hidden faces
-    - heads, hats, or hair touching the top edge
-    - full-body framing that causes the top of a head or hat to be cut off
+- cropped or partially hidden faces
+- heads, hats, or hair touching the top edge
+- full-body framing that causes the top of a head or hat to be cut off
 - generic stock-art look
 - flat lighting
 - messy perspective
@@ -514,7 +516,7 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a series banner
 
-    {character_safety}
+{character_safety}
 
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
