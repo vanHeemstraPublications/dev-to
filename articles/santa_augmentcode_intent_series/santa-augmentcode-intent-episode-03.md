@@ -5,16 +5,13 @@ part: 3
 description: "Father Christmas explains the elegant division of labour inside Intent: the Coordinator Agent plans and delegates, Specialist Agents execute, and the Verifier checks. Just like Christmas."
 tags: [augmentcode, intent, aiagents, agentic]
 series: "Santa Augmentcode Intent"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-03.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-03.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 # Santa Plans, Elves Build — Coordinator & Specialist Agents 🧝 — Augment Intent, Episode 3
 
-> *A common misconception about the North Pole is that I build all the toys. I do not. I tried that once in 1742. It was catastrophic. What I do — what I have always done — is understand what needs to be built, break it into sensible pieces, assign the right Elf to each piece, and make sure the whole thing comes together correctly. That is the job of Father Christmas. And, as it turns out, that is also the job of the Coordinator Agent in Augment Intent.*
-
------
+> A common misconception about the North Pole is that I build all the toys. I do not. I tried that once in 1742. It was catastrophic. What I do — what I have always done — is understand what needs to be built, break it into sensible pieces, assign the right Elf to each piece, and make sure the whole thing comes together correctly. That is the job of Father Christmas. And, as it turns out, that is also the job of the Coordinator Agent in Augment Intent.
 
 ## The Fundamental Division of Labour
 
@@ -22,18 +19,16 @@ There is a reason the Workshop has roles. An Elf who is brilliant at carving woo
 
 Augment Intent formalises this insight into a three-part agent architecture:
 
-|Role                          |Intent Name                 |North Pole Equivalent|
-|------------------------------|----------------------------|---------------------|
-|Plans, delegates, aligns      |**Coordinator**             |Father Christmas     |
-|Executes a specific task      |**Specialist / Implementor**|Craft Elves          |
-|Checks output against the spec|**Verifier**                |Quality Control Elves|
-|Explores feasibility          |**Investigate Agent**       |Scout Elves          |
-|Finds and fixes failures      |**Debug Agent**             |Repair Elves         |
-|Reviews code quality          |**Code Review Agent**       |Senior Elves         |
+| Role | Intent Name | North Pole Equivalent |
+| --- | --- | --- |
+| Plans, delegates, aligns | Coordinator | Father Christmas |
+| Executes a specific task | Specialist / Implementor | Craft Elves |
+| Checks output against the spec | Verifier | Quality Control Elves |
+| Explores feasibility | Investigate Agent | Scout Elves |
+| Finds and fixes failures | Debug Agent | Repair Elves |
+| Reviews code quality | Code Review Agent | Senior Elves |
 
 Each role is available as a named Specialist inside Intent. You can use the built-in roster or bring your own.
-
------
 
 ## What the Coordinator Does
 
@@ -49,8 +44,6 @@ The Coordinator is the first Agent you interact with in Intent. You give it a go
 
 **Step 5 — Run the Verifier.** Once implementation is complete, the Coordinator spawns the Verifier Agent, which checks the output against the spec’s success criteria. If something fails, the Coordinator sends it back to the relevant Specialist.
 
------
-
 ## What the Specialists Do
 
 Specialists are focused. Each one has a single job and the full Context Engine behind it.
@@ -62,8 +55,6 @@ A **Verify Specialist** receives the spec’s success criteria and the completed
 A **Debug Specialist** receives a failing test, a stack trace, and the relevant code. Its only job is to find and fix the root cause.
 
 None of these Specialists needs to know about the other tasks in the session. The Coordinator holds the big picture. The Specialists hold deep focus.
-
------
 
 ## The Conversation Pattern
 
@@ -110,31 +101,25 @@ Coordinator → Gateway Middleware Elf:
 
 No human needed to manage any of that. Pepper set the goal. Father Christmas ran the workshop.
 
------
-
 ## Choosing the Right Model for Each Role
 
 One of Intent’s most practical features is that you can assign different AI models to different roles. Not every task benefits from the most powerful (and most expensive) model.
 
-|Task                              |Recommended Model Tier  |Why                                                 |
-|----------------------------------|------------------------|----------------------------------------------------|
-|Coordinator — initial architecture|Opus (high reasoning)   |Complex decomposition requires deep thinking        |
-|Implementor — routine code        |Sonnet (fast, efficient)|Well-scoped tasks need speed, not heavy reasoning   |
-|Verifier                          |Sonnet or Opus          |Depends on spec complexity                          |
-|Debug                             |Opus                    |Root-cause analysis benefits from thorough reasoning|
+| Task | Recommended Model Tier | Why |
+| --- | --- | --- |
+| Coordinator — initial architecture | Opus (high reasoning) | Complex decomposition requires deep thinking |
+| Implementor — routine code | Sonnet (fast, efficient) | Well-scoped tasks need speed, not heavy reasoning |
+| Verifier | Sonnet or Opus | Depends on spec complexity |
+| Debug | Opus | Root-cause analysis benefits from thorough reasoning |
 
 Father Christmas always uses his best judgment for the biggest decisions and delegates the routine work to whichever Elf is quickest. Intent works the same way.
 
------
-
 ## SIPOC: Coordinator → Specialists → Verifier
 
-|            |S — Suppliers                                          |I — Inputs                                            |P — Process                                                                              |O — Outputs                                        |C — Customers                             |
-|------------|-------------------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------|
-|**Who/What**|Developer, Context Engine, AI models                   |Goal statement, living spec, codebase, model selection|Coordinator plans → Specialists implement in parallel → Verifier checks → loop until done|Verified, spec-compliant implementation, merged PR |Engineering team, product owner, end users|
-|**Workshop**|Pepper, the Workshop’s knowledge base, Elf skill roster|“Implement JWT auth”                                  |Santa assigns → Elves build simultaneously → QC Elf inspects → rework if needed          |Wrapped, quality-checked gifts ready for the sleigh|Children worldwide                        |
-
------
+|  | S — Suppliers | I — Inputs | P — Process | O — Outputs | C — Customers |
+| --- | --- | --- | --- | --- | --- |
+| Who/What | Developer, Context Engine, AI models | Goal statement, living spec, codebase, model selection | Coordinator plans → Specialists implement in parallel → Verifier checks → loop until done | Verified, spec-compliant implementation, merged PR | Engineering team, product owner, end users |
+| Workshop | Pepper, the Workshop’s knowledge base, Elf skill roster | “Implement JWT auth” | Santa assigns → Elves build simultaneously → QC Elf inspects → rework if needed | Wrapped, quality-checked gifts ready for the sleigh | Children worldwide |
 
 ## What Can Go Wrong (And How Intent Handles It)
 
@@ -144,16 +129,10 @@ Intent’s response is always to route the problem back through the spec. The Co
 
 The developer only needs to intervene when the Coordinator surfaces a decision that requires **human judgment** — a product question, a risk acceptance, a business constraint that was not in the original spec. Everything else is handled in the Workshop.
 
------
-
 ## What Comes Next
 
 In Episode 4, we will visit each Elf’s private workbench — the **isolated workspace** that Intent creates for every agent, ensuring no two Elves ever clobber each other’s work. Git worktrees, parallel branches, and the magic of resumable sessions.
 
-> *Every great team needs great coordination. I have been coordinating for over a thousand years. I am pleased that software has finally caught up.*
-> 
-> **Ho ho ho! 🎅**
+> Every great team needs great coordination. I have been coordinating for over a thousand years. I am pleased that software has finally caught up.Ho ho ho! 🎅
 
------
-
-*Part of the [Santa Augmentcode Intent](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*

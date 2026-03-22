@@ -129,19 +129,30 @@ DEV.to title safety requirements:
 - Do not place important text near the extreme edges.
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 52% away from the top edge.
-- Keep title typography at least 18% away from the bottom edge.
+- Keep title typography at least 24% away from the bottom edge.
 - Do NOT place any text in the top safe-margin area.
+- Treat the bottom 24% of the image as a NO-TEXT zone too.
 - Place the entire title block in the visual middle band of the image (not the top third).
+- Keep the entire two-line title block fully above the bottom no-text zone.
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
+- If the full title block does not fit comfortably, reduce font size or move the text upward; never solve it by pushing the subtitle lower.
+- Leave visible empty space below the subtitle; no part of any letter, including descenders like g, j, p, q, and y, may approach the bottom edge.
 - Do not let any letter, banner, or ornament touch the image edge.
 - The full title and subtitle must be completely visible.
 
 Placement target (important):
 - Treat the top 52% of the image as a NO-TEXT zone.
+- Treat everything below roughly 76% image height as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~67% of image height.
+- Aim for the title block center around ~61% of image height.
+- If unsure, place the title block slightly higher rather than lower.
 - Place the subtitle below the series title (not above).
+
+Final text acceptance check before finishing:
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
+- verify there is obvious empty space below the subtitle
+- if any part of the text is clipped or too close to the bottom edge, move the text upward and/or reduce font size
 
 Exact text to include:
 Top title:

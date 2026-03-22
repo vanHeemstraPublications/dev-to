@@ -59,7 +59,7 @@ DEFAULT_CONFIG = {
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
     "image_title_safe_top_percent": 52,
-    "image_title_safe_bottom_percent": 18,
+    "image_title_safe_bottom_percent": 24,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -289,8 +289,10 @@ def derive_raw_github_images_base_url(repo_url, branch):
 def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
-    bottom = config["image_title_safe_bottom_percent"]
-    title_center = int(top + (100 - top - bottom) / 2)
+    bottom = max(config["image_title_safe_bottom_percent"], 24)
+    lower_text_boundary = 100 - bottom
+    safe_band = max(1, 100 - top - bottom)
+    title_center = int(top + safe_band * 0.38)
 
     return (
         "DEV.to title safety requirements:\n"
@@ -304,20 +306,37 @@ def build_title_safety_block(series_name, episode_number, title, config):
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
         "- Do NOT place any text in the top safe-margin area.\n"
+        f"- Treat the bottom {bottom}% of the image as a NO-TEXT zone too.\n"
         "- Place the entire title block in the visual middle band of the "
         "image (not the top third).\n"
+        "- Keep the entire two-line title block fully above the bottom "
+        "no-text zone.\n"
         "- Keep the subtitle clearly below the main title with generous "
         "spacing.\n"
         "- Use slightly smaller typography rather than oversized typography "
         "if needed.\n"
+        "- If the full title block does not fit comfortably, reduce font size "
+        "or move the text upward; never solve it by pushing the subtitle lower.\n"
+        "- Leave visible empty space below the subtitle; no part of any letter, "
+        "including descenders like g, j, p, q, and y, may approach the bottom "
+        "edge.\n"
         "- Do not let any letter, banner, or ornament touch the image edge.\n"
         "- The full title and subtitle must be completely visible.\n\n"
         "Placement target (important):\n"
         f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
+        f"- Treat everything below roughly {lower_text_boundary}% image height "
+        "as a NO-TEXT zone.\n"
         "- Place the series title so its cap-height starts below that zone.\n"
         f"- Aim for the title block center around ~{title_center}% of image "
         "height.\n"
+        "- If unsure, place the title block slightly higher rather than lower.\n"
         "- Place the subtitle below the series title (not above).\n\n"
+        "Final text acceptance check before finishing:\n"
+        "- verify every letter in the title and subtitle is fully visible in the "
+        "final 1000x420 banner\n"
+        "- verify there is obvious empty space below the subtitle\n"
+        "- if any part of the text is clipped or too close to the bottom edge, "
+        "move the text upward and/or reduce font size\n\n"
         "Exact text to include:\n"
         "Top title:\n"
         f"\"{series_name}\"\n\n"
@@ -566,6 +585,11 @@ Style requirements:
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
 - do not place text close to the top edge
+- treat the bottom 24% of the banner as a NO-TEXT zone
+- keep the entire title/subtitle block fully above that bottom no-text zone
+- leave visible empty space below the lowest text line
+- if the text block feels too tall, reduce font size or move it upward rather
+  than placing it lower
 - do not let text or ornaments touch the image edge
 - keep the title fully visible
 
@@ -587,7 +611,10 @@ Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
   final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
+- verify every title/subtitle letter is fully visible with clear empty space
+  below the text block
 - if that check fails, reduce character scale and move the characters lower
+  and/or move the text upward or reduce text size
 """.strip()
 
 

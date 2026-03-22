@@ -1,86 +1,112 @@
 # Prompt Bundle
 
-Series ID: santa_augmentcode_intent_seriesSeries Name: Santa Augmentcode Intent SeriesSeries Type: augment_intent_explainer_series
+Series ID: santa_augmentcode_intent_series
+Series Name: Santa Augmentcode Intent Series
+Series Type: augment_intent_explainer_series
 
-Episode: 1 - Welcome to the WorkshopSlug: welcome-to-the-workshop
+Episode: 1 - Welcome to the Workshop
+Slug: welcome-to-the-workshop
 
-Canvasorientation: landscaperesolution: 1000x420aspect ratio: 100:42whitespace margin: 24%
+Canvas
+orientation: landscape
+resolution: 1000x420
+aspect ratio: 100:42
+whitespace margin: 24%
 
-Defaultssetting: cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypeslighting: warm firelit Christmas workshop glow with polished storybook ambience
+Defaults
+setting: cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
+lighting: warm firelit Christmas workshop glow with polished storybook ambience
 
-Compositionleft third: Father Christmas presenter shown waist-up or in a three-quarter shot, positioned comfortably lower in frame with obvious headroom above the hat, explaining the lesson with calm authoritycenter: the core Augment Intent concept illustrated as active workshop collaborationright third: specialist elves collaborating with tools, terminals, and toy-like technical propsbackground: snowy workshop windows, shelves of prototypes, and orderly North Pole operations
+Composition
+left third: Father Christmas presenter shown waist-up or in a three-quarter shot, positioned comfortably lower in frame with obvious headroom above the hat, explaining the lesson with calm authority
+center: the core Augment Intent concept illustrated as active workshop collaboration
+right third: specialist elves collaborating with tools, terminals, and toy-like technical props
+background: snowy workshop windows, shelves of prototypes, and orderly North Pole operations
 
-Episode Metaphorthe North Pole workshop as an AI-native software studio
+Episode Metaphor
+the North Pole workshop as an AI-native software studio
 
-Center ActionFather Christmas opens the workshop and introduces Intent as the coordinated command center
+Center Action
+Father Christmas opens the workshop and introduces Intent as the coordinated command center
 
 Supporting Props
-
 - master gift list
 - glowing workstation
 - elf task board
 - toy blueprints
 
-Local Image Pathimages/santa_augmentcode_intent_series/episode-01.webp
 
-Public Cover Image URL[UPDATE_PUBLIC_COVER_IMAGE_URL]
+Local Image Path
+images/santa_augmentcode_intent_series/episode-01.webp
+
+Public Cover Image URL
+[UPDATE_PUBLIC_COVER_IMAGE_URL]
+
+--------------------------------------------------
 
 ChatGPT Image Prompt
 
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:"Santa Augmentcode Intent Series"
+Series title:
+"Santa Augmentcode Intent Series"
 
-Episode subtitle:"Episode 1: Welcome to the Workshop"
+Episode subtitle:
+"Episode 1: Welcome to the Workshop"
 
 Canvas requirements:
-
 - resolution: 1000x420
 - aspect ratio: 100:42
 - landscape banner composition
-- about 24% whitespace around theartwork
+- about 24% whitespace around the
+  artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-
 - export format: WebP
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
 
 Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- the primary presenter must read as chest-up, waist-up, seated, or
+  three-quarter framing only; do not depict the lead presenter as a tall
+  full-body standing figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
 
-- this is a wide banner, not a poster; compose the main characters smaller andlower in frame than instinct suggests
-- the primary presenter must read as chest-up, waist-up, seated, orthree-quarter framing only; do not depict the lead presenter as a tallfull-body standing figure
-- sacrifice body visibility, extra props, or background detail beforesacrificing full face, full head, or full hat visibility
-- the image is invalid if any main face, beard, hair, or headwear is close tothe top edge or could be clipped by banner cropping
+Scene setting:
+cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
 
-Scene setting:cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
+Lighting and atmosphere:
+warm firelit Christmas workshop glow with polished storybook ambience
 
-Lighting and atmosphere:warm firelit Christmas workshop glow with polished storybook ambience
+Visual metaphor:
+the North Pole workshop as an AI-native software studio
 
-Visual metaphor:the North Pole workshop as an AI-native software studio
-
-Center action:Father Christmas opens the workshop and introduces Intent as the coordinated command center
+Center action:
+Father Christmas opens the workshop and introduces Intent as the coordinated command center
 
 Composition guidance:
-
 - left third: Father Christmas presenter shown waist-up or in a three-quarter shot, positioned comfortably lower in frame with obvious headroom above the hat, explaining the lesson with calm authority
 - center: the core Augment Intent concept illustrated as active workshop collaboration
 - right third: specialist elves collaborating with tools, terminals, and toy-like technical props
 - background: snowy workshop windows, shelves of prototypes, and orderly North Pole operations
 
-Supporting props to include:master gift list, glowing workstation, elf task board, toy blueprints
+Supporting props to include:
+master gift list, glowing workstation, elf task board, toy blueprints
 
 Style requirements:
-
 - cinematic digital illustration, highly detailed, polished storybook realism, cosy Christmas workshop atmosphere, warm festive lighting
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
 Character framing requirements:
-
 - Non-negotiable rule: every main character's entire face, full head, beard, hair, and all headwear must remain completely visible in the final delivered banner image.
 - This rule overrides dramatic framing, character scale, background detail, and showing more of the body.
 - Treat the image as a cover/banner that may be cropped slightly by the platform at the top and bottom; compose defensively for that crop.
@@ -97,34 +123,45 @@ Character framing requirements:
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
 DEV.to title safety requirements:
-
 - This image will be used as a DEV.to article header/banner.
 - DEV.to often crops the top/bottom edges of cover images.
 - Keep all text fully readable inside a conservative safe area.
 - Do not place important text near the extreme edges.
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 52% away from the top edge.
-- Keep title typography at least 18% away from the bottom edge.
+- Keep title typography at least 24% away from the bottom edge.
 - Do NOT place any text in the top safe-margin area.
+- Treat the bottom 24% of the image as a NO-TEXT zone too.
 - Place the entire title block in the visual middle band of the image (not the top third).
+- Keep the entire two-line title block fully above the bottom no-text zone.
 - Keep the subtitle clearly below the main title with generous spacing.
 - Use slightly smaller typography rather than oversized typography if needed.
+- If the full title block does not fit comfortably, reduce font size or move the text upward; never solve it by pushing the subtitle lower.
+- Leave visible empty space below the subtitle; no part of any letter, including descenders like g, j, p, q, and y, may approach the bottom edge.
 - Do not let any letter, banner, or ornament touch the image edge.
 - The full title and subtitle must be completely visible.
 
 Placement target (important):
-
 - Treat the top 52% of the image as a NO-TEXT zone.
+- Treat everything below roughly 76% image height as a NO-TEXT zone.
 - Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~67% of image height.
+- Aim for the title block center around ~61% of image height.
+- If unsure, place the title block slightly higher rather than lower.
 - Place the subtitle below the series title (not above).
 
-Exact text to include:Top title:"Santa Augmentcode Intent Series"
+Final text acceptance check before finishing:
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
+- verify there is obvious empty space below the subtitle
+- if any part of the text is clipped or too close to the bottom edge, move the text upward and/or reduce font size
 
-Subtitle:"Episode 1: Welcome to the Workshop"
+Exact text to include:
+Top title:
+"Santa Augmentcode Intent Series"
+
+Subtitle:
+"Episode 1: Welcome to the Workshop"
 
 Avoid:
-
 - visual clutter
 - unreadable text
 - cramped composition
@@ -142,29 +179,36 @@ Avoid:
 - cropped-looking typography
 
 Final acceptance check before finishing:
-
-- verify every main face, head, beard, hair, and hat is fully visible in thefinal 1000x420 banner composition
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
+--------------------------------------------------
+
 Claude / ChatGPT Article Prompt
 
-I have created a repository that contains markdown articles published todev.to.
+I have created a repository that contains markdown articles published to
+dev.to.
 
-The articles live in:[https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/](https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/)
+The articles live in:
+https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/
 
-Please inspect the formatting style used in those articles, especially thefrontmatter.
+Please inspect the formatting style used in those articles, especially the
+frontmatter.
 
 Now create the following article.
 
-Series:Santa Augmentcode Intent Series
+Series:
+Santa Augmentcode Intent Series
 
-Series type:augment_intent_explainer_series
+Series type:
+augment_intent_explainer_series
 
-Episode:Episode 1: Welcome to the Workshop
+Episode:
+Episode 1: Welcome to the Workshop
 
 Writing style requirements:
-
 - tone: warm, storybook-like, technically clear, beginner-friendly, and gently humorous
 - humor style: Father Christmas fireside narration with cosy wit, festive metaphors, and confident technical explanations
 - beginner-friendly
@@ -173,26 +217,30 @@ Writing style requirements:
 - include explanations of the code
 - use a memorable metaphor consistently throughout the article
 
-Primary metaphor:the North Pole workshop as an AI-native software studio
+Primary metaphor:
+the North Pole workshop as an AI-native software studio
 
-Episode-specific action:Father Christmas opens the workshop and introduces Intent as the coordinated command center
+Episode-specific action:
+Father Christmas opens the workshop and introduces Intent as the coordinated command center
 
-Scene / setting inspiration:cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
+Scene / setting inspiration:
+cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
 
 Visual inspiration:
-
 - left third: Father Christmas presenter shown waist-up or in a three-quarter shot, positioned comfortably lower in frame with obvious headroom above the hat, explaining the lesson with calm authority
 - center: the core Augment Intent concept illustrated as active workshop collaboration
 - right third: specialist elves collaborating with tools, terminals, and toy-like technical props
 - background: snowy workshop windows, shelves of prototypes, and orderly North Pole operations
 
-Useful props / concepts to weave into the explanation:master gift list, glowing workstation, elf task board, toy blueprints
+Useful props / concepts to weave into the explanation:
+master gift list, glowing workstation, elf task board, toy blueprints
 
 Article requirements:
-
 - produce a complete dev.to-ready markdown article
-- include frontmatter similar to the examples in the repository:yes
-- use this cover_image URL approach:use a PUBLIC absolute URL, not a local repository path
+- include frontmatter similar to the examples in the repository:
+  yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
@@ -200,12 +248,17 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
-## Suggested frontmatter example:
-
-## title: "Santa Augmentcode Intent Ep.1"published: falsedescription: "Add article description here."tags: ["add", "tags", "here"]series: "Santa Augmentcode Intent Series"cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"
+Suggested frontmatter example:
+---
+title: "Santa Augmentcode Intent Ep.1"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Santa Augmentcode Intent Series"
+cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"
+---
 
 Suggested structure:
-
 1. cosy festive opening hook from Father Christmas
 2. introduce the workshop metaphor for the episode
 3. explain the Augment Intent concept step-by-step
@@ -214,8 +267,9 @@ Suggested structure:
 6. recap the core takeaway
 7. end with a teaser for the next episode
 
-SIPOC requirement:Please include a section in the article that explains the concept using theSIPOC pattern:
-
+SIPOC requirement:
+Please include a section in the article that explains the concept using the
+SIPOC pattern:
 - Supplier
 - Input
 - Process
@@ -223,13 +277,16 @@ SIPOC requirement:Please include a section in the article that explains the conc
 - Consumer
 
 For the SIPOC section:
-
 - explain each SIPOC element in simple language
-- map each SIPOC element both to the real technical concept and to themetaphor used in the article
+- map each SIPOC element both to the real technical concept and to the
+  metaphor used in the article
 - make the SIPOC section practical and easy to understand
 - prefer a compact table or bullet structure if that improves readability
 
-Output:Return the complete article in markdown including frontmatter.
+Output:
+Return the complete article in markdown including frontmatter.
+
+--------------------------------------------------
 
 Series GitHub Repository
 
