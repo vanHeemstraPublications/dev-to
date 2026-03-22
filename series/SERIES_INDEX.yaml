@@ -13,3 +13,6 @@ series:
 - id: to_the_moon_terraform_series
   name: To The Moon Terraform Series
   file: series/to_the_moon_terraform_series.yaml
+- id: santa_augmentcode_intent_series
+  name: Santa Augmentcode Intent Series
+  file: series/santa_augmentcode_intent_series.yaml
