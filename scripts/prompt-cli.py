@@ -1374,8 +1374,7 @@ def add_episode_text_overlay(img, series_name, subtitle, config):
         height,
     )
 
-    title_y = safe_top_y + max(0, (safe_band_height - text_block_height) // 2)
-    title_y = max(safe_top_y, title_y - max(6, int(height * 0.014)))
+    title_y = max(0, ((height - text_block_height) // 2) - max(4, int(height * 0.01)))
     subtitle_y = title_y + title_height + line_gap
 
     title_x = int((width - title_width) / 2)
