@@ -10,7 +10,7 @@ This file is generated from the YAML files in `series/`.
 - type: dev_to_series
 - source file: `series/azure_data_platform_f1_series.yaml`
 - prompt template: `prompts/PROMPT_TEMPLATE.md`
-- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- deterministic config: ``
 - setting: Formula 1
 - lighting: bright cinematic atmosphere
 - episodes: 14
@@ -37,13 +37,24 @@ This file is generated from the YAML files in `series/`.
 - lighting: warm cinematic storytelling environment
 - episodes: 15
 
+### Santa Augmentcode Intent Series
+
+- id: `santa_augmentcode_intent_series`
+- type: augment_intent_explainer_series
+- source file: `series/santa_augmentcode_intent_series.yaml`
+- prompt template: `prompts/santa_augmentcode_intent_episode_template.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
+- lighting: warm firelit Christmas workshop glow with polished storybook ambience
+- episodes: 8
+
 ### To The Moon Terraform Series
 
 - id: `to_the_moon_terraform_series`
 - type: dev_to_series
 - source file: `series/to_the_moon_terraform_series.yaml`
 - prompt template: `prompts/PROMPT_TEMPLATE.md`
-- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- deterministic config: ``
 - setting: space mission
 - lighting: bright space sky with stars
 - episodes: 14

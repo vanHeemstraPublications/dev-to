@@ -281,6 +281,59 @@ This file is generated from the YAML files in `series/`.
 - metaphor: a film critic visiting different departments to analyze their work
 - center action: a critic moves between departments evaluating different aspects of the production
 
+## Santa Augmentcode Intent Series
+
+- series id: `santa_augmentcode_intent_series`
+- source file: `series/santa_augmentcode_intent_series.yaml`
+
+### Episode 1: Welcome to the Workshop
+
+- slug: `welcome-to-the-workshop`
+- metaphor: the North Pole workshop as an AI-native software studio
+- center action: Father Christmas opens the workshop and introduces Intent as the coordinated command center
+
+### Episode 2: The Master Gift List — Living Specs
+
+- slug: `the-master-gift-list-living-specs`
+- metaphor: a living gift ledger that updates as the workshop works
+- center action: the master gift list updates in real time while elves consult it and Santa refines the plan
+
+### Episode 3: Coordinator & Specialist Agents
+
+- slug: `coordinator-and-specialist-agents`
+- metaphor: Santa coordinating specialists like a well-run Christmas delivery operation
+- center action: Santa plans tasks while specialist elves execute and a verifier checks the output
+
+### Episode 4: Isolated Workspaces
+
+- slug: `isolated-workspaces`
+- metaphor: every elf has a separate workbench so tools and tasks never collide
+- center action: parallel elves work at isolated benches connected to the same shared workshop knowledge
+
+### Episode 5: Spec-Driven Development
+
+- slug: `spec-driven-development`
+- metaphor: the written gift plan becomes the build schedule and the delivery contract
+- center action: the living spec guides the build from kickoff to completion without last-minute surprises
+
+### Episode 6: The Context Engine
+
+- slug: `the-context-engine`
+- metaphor: the workshop library that remembers every toy design, material, and pattern
+- center action: the Context Engine surfaces the right codebase knowledge for each elf at the right moment
+
+### Episode 7: Multi-Agent Orchestration
+
+- slug: `multi-agent-orchestration`
+- metaphor: waves of elves moving in parallel with precise timing and no collisions
+- center action: multiple specialist elves run in coordinated waves with clear dependencies and handoffs
+
+### Episode 8: From Spec to Merged PR
+
+- slug: `from-spec-to-merged-pr`
+- metaphor: a full Christmas delivery run from wish list to gifts safely under the tree
+- center action: the team moves from prompt and spec to verified changes, approval, and a merged pull request
+
 ## To The Moon Terraform Series
 
 - series id: `to_the_moon_terraform_series`
