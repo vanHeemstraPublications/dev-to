@@ -1424,6 +1424,28 @@ def compress_webp(img, path, max_kb):
     img.save(path, "WEBP", quality=20)
 
 
+def save_output_image(img, out_path, config):
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    suffix = out_path.suffix.lower()
+    if suffix == ".webp":
+        compress_webp(img, out_path, config["image_max_file_size_kb"])
+        return
+
+    if suffix == ".png":
+        img.save(out_path, "PNG")
+        return
+
+    if suffix in {".jpg", ".jpeg"}:
+        img.convert("RGB").save(out_path, "JPEG", quality=95)
+        return
+
+    print(f"Unsupported image output format: {out_path.suffix}")
+    print("Use .png, .jpg, .jpeg, or .webp")
+    sys.exit(1)
+
+
 def ensure_openai_api_key():
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
@@ -1488,8 +1510,7 @@ def generate_image_file(prompt, config, out_path, overlay_text=None):
             config,
         )
 
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    compress_webp(img, out_path, config["image_max_file_size_kb"])
+    save_output_image(img, out_path, config)
 
 
 def generate_episode_image(data, episode):
@@ -1665,6 +1686,58 @@ def generate_single_image(series_file, episode_number):
     generate_episode_image(data, episode)
 
 
+def overlay_single_image(series_file, episode_number, input_path, output_path=None):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    input_path = Path(input_path)
+    if not input_path.exists():
+        print(f"Input image not found: {input_path}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episode = get_episode(data, episode_number)
+
+    if not episode:
+        print(f"Episode {episode_number} not found.")
+        sys.exit(1)
+
+    series = data.get("series", {})
+    config = load_series_config(series)
+    img = Image.open(input_path).convert("RGB")
+
+    width_str, height_str = config["image_resolution"].lower().split("x")
+    target_width = int(width_str)
+    target_height = int(height_str)
+    target_ratio = target_width / target_height
+
+    anchor_y = (config.get("image_crop_anchor_y") or "center").strip().lower()
+    if anchor_y not in {"top", "center", "bottom"}:
+        anchor_y = "center"
+
+    img = crop_to_aspect(img, target_ratio, anchor_y=anchor_y)
+    img = img.resize((target_width, target_height), Image.LANCZOS)
+    img = add_episode_text_overlay(
+        img,
+        series.get("name", ""),
+        f"Episode {episode['number']}: {episode_image_title(episode)}",
+        config,
+    )
+
+    if output_path:
+        out_path = Path(output_path)
+    else:
+        out_path = input_path.with_name(
+            f"{input_path.stem}-overlay{input_path.suffix or '.png'}"
+        )
+
+    save_output_image(img, out_path, config)
+    print(f"Overlay image saved to {out_path}")
+
+
 def generate_all_images(series_file):
     series_file = Path(series_file)
 
@@ -1729,6 +1802,10 @@ def print_usage():
     )
     print("  python scripts/prompt-cli.py generate-image <series_file> "
           "<episode_number>")
+    print(
+        "  python scripts/prompt-cli.py overlay-image <series_file> "
+        "<episode_number> <input_image> [output_image]"
+    )
     print("  python scripts/prompt-cli.py generate-images <series_file>")
     print("  python scripts/prompt-cli.py generate-article <series_file> "
           "<episode_number>")
@@ -1780,6 +1857,16 @@ def main():
             return
 
         generate_single_image(sys.argv[2], sys.argv[3])
+        return
+
+    if command == "overlay-image":
+        if len(sys.argv) < 5:
+            print("Missing arguments.")
+            print_usage()
+            return
+
+        output_path = sys.argv[5] if len(sys.argv) > 5 else None
+        overlay_single_image(sys.argv[2], sys.argv[3], sys.argv[4], output_path)
         return
 
     if command == "generate-images":
