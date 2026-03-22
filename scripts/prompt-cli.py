@@ -326,6 +326,23 @@ def build_title_safety_block(series_name, episode_number, title, config):
     )
 
 
+def build_character_safety_block():
+    return (
+        "Character framing requirements:\n"
+        "- Keep every main character fully inside the frame.\n"
+        "- Every visible face must be fully shown: no cropped forehead, hat, "
+        "hair, eyes, cheeks, beard, or chin.\n"
+        "- Leave clear headroom above every main character; do not place heads "
+        "or hats near the top edge.\n"
+        "- Keep important faces comfortably away from all image borders, "
+        "especially the top border.\n"
+        "- If multiple characters are present, zoom out or move them lower in "
+        "the composition rather than cropping any face.\n"
+        "- Prefer mid-shot or full upper-body framing for presenters so the "
+        "entire face remains visible in the final banner."
+    )
+
+
 def build_image_prompt(data, episode, config):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
@@ -352,6 +369,7 @@ def build_image_prompt(data, episode, config):
         title,
         config,
     )
+    character_safety = build_character_safety_block()
 
     repo_url = config.get("github_repository_url", "")
     repo_block = ""
@@ -411,12 +429,16 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
-{title_safety}{repo_block}
+    {character_safety}
+
+    {title_safety}{repo_block}
 
 Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
+    - cropped or partially hidden faces
+    - heads, hats, or hair touching the top edge
 - generic stock-art look
 - flat lighting
 - messy perspective
@@ -440,6 +462,7 @@ def build_series_cover_prompt(data, config):
     left_third = composition.get("left_third", "")
     right_third = composition.get("right_third", "")
     background = composition.get("background", "")
+    character_safety = build_character_safety_block()
 
     return f"""
 Create a polished cinematic landscape banner illustration for a web article
@@ -483,6 +506,8 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a series banner
 
+    {character_safety}
+
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
 - do not place text close to the top edge
@@ -493,6 +518,8 @@ Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
+    - cropped or partially hidden faces
+    - heads, hats, or hair touching the top edge
 - flat lighting
 - messy perspective
 - low-detail background
