@@ -326,6 +326,32 @@ def build_title_safety_block(series_name, episode_number, title, config):
     )
 
 
+def build_character_safety_block():
+    return (
+        "Character framing requirements:\n"
+        "- Absolute priority: every main character's full face and full "
+        "headwear must remain completely visible.\n"
+        "- For banner illustrations with a lead presenter, default to waist-up, "
+        "mid-shot, or three-quarter framing rather than a full standing figure.\n"
+        "- Never crop the top of a head, hat, hair, forehead, eyes, cheeks, "
+        "beard, or chin.\n"
+        "- Leave obvious empty headroom above the tallest head or hat; keep at "
+        "least roughly 8-10% of image height as clear margin above the highest "
+        "main character.\n"
+        "- Keep important faces well inside a conservative character-safe area, "
+        "away from every border, especially the top border.\n"
+        "- If there is any conflict between showing more of a body and keeping "
+        "the full face and head visible, crop lower on the body instead; never "
+        "crop the face or top of the head.\n"
+        "- For lead presenters, prefer medium-shot or three-quarter framing "
+        "instead of full-body framing when needed to preserve full face/head "
+        "visibility.\n"
+        "- If multiple characters are present, zoom out, reduce character scale, "
+        "or move characters lower in the composition rather than letting any "
+        "face or hat approach an edge."
+    )
+
+
 def build_image_prompt(data, episode, config):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
@@ -352,6 +378,7 @@ def build_image_prompt(data, episode, config):
         title,
         config,
     )
+    character_safety = build_character_safety_block()
 
     repo_url = config.get("github_repository_url", "")
     repo_block = ""
@@ -411,12 +438,17 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
+{character_safety}
+
 {title_safety}{repo_block}
 
 Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
+- cropped or partially hidden faces
+- heads, hats, or hair touching the top edge
+- full-body framing that causes the top of a head or hat to be cut off
 - generic stock-art look
 - flat lighting
 - messy perspective
@@ -440,6 +472,7 @@ def build_series_cover_prompt(data, config):
     left_third = composition.get("left_third", "")
     right_third = composition.get("right_third", "")
     background = composition.get("background", "")
+    character_safety = build_character_safety_block()
 
     return f"""
 Create a polished cinematic landscape banner illustration for a web article
@@ -483,6 +516,8 @@ Style requirements:
 - visually striking but not overcrowded
 - designed specifically as a series banner
 
+{character_safety}
+
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
 - do not place text close to the top edge
@@ -493,6 +528,9 @@ Avoid:
 - visual clutter
 - unreadable text
 - cramped composition
+    - cropped or partially hidden faces
+    - heads, hats, or hair touching the top edge
+    - full-body framing that causes the top of a head or hat to be cut off
 - flat lighting
 - messy perspective
 - low-detail background
