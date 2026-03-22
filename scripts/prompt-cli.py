@@ -291,72 +291,49 @@ def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = max(config["image_title_safe_bottom_percent"], 40)
-    lower_text_boundary = 100 - bottom
-    safe_band = max(1, 100 - top - bottom)
-    title_center = int(top + safe_band * 0.50)
 
     return (
-        "DEV.to title safety requirements:\n"
-        "- This image will be used as a DEV.to article header/banner.\n"
-        "- DEV.to often crops the top/bottom edges of cover images.\n"
-        "- Keep all text fully readable inside a conservative safe area.\n"
-        "- Do not place important text near the extreme edges.\n"
+        "Typography handling:\n"
+        "- Render the final banner typography inside the image itself.\n"
+        "- The image is not complete unless the exact two-line title text "
+        "below is visibly rendered in the final image.\n"
+        "- Render exactly this readable two-line title block inside the image:\n"
+        f"  - {series_name}\n"
+        f"  - Episode {episode_number}: {title}\n"
         f"- Keep title typography at least {lr}% away from the left and right "
         "edges.\n"
         f"- Keep title typography at least {top}% away from the top edge.\n"
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
-        "- Do NOT place any text in the top safe-margin area.\n"
-        f"- Treat the bottom {bottom}% of the image as a NO-TEXT zone too.\n"
-        "- Place the entire title block in the visual middle band of the "
-        "image, never as a footer or lower-third caption.\n"
-        "- Keep the entire two-line title block fully above the bottom "
-        "no-text zone.\n"
-        "- Keep the subtitle clearly below the main title with tight grouping so "
-        "both lines read as one compact title block.\n"
-        "- Render the subtitle smaller than the main title, roughly 45-60% of "
-        "the title size.\n"
-        "- Use slightly smaller typography rather than oversized typography "
-        "if needed.\n"
-        "- If the full title block does not fit comfortably, reduce font size "
-        "or move the text upward; never solve it by pushing the subtitle lower.\n"
-        "- Never place the title block in the lower third of the image.\n"
-        "- Do NOT place text on the floor area, bottom vignette, lower border, "
-        "or inside a footer strip, ribbon, or plaque.\n"
-        "- Do NOT add a decorative divider line under the title if it extends "
-        "the text treatment downward.\n"
-        "- Leave visible empty space below the subtitle; no part of any letter, "
-        "including descenders like g, j, p, q, and y, may approach the bottom "
-        "edge.\n"
-        "- Do not let any letter, banner, or ornament touch the image edge.\n"
-        "- The full title and subtitle must be completely visible.\n\n"
-        "Placement target (important):\n"
-        f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
-        f"- Treat everything below roughly {lower_text_boundary}% image height "
-        "as a NO-TEXT zone.\n"
-        "- Keep the full title block between roughly the 42% and 60% height "
-        "lines of the image.\n"
-        "- Place the series title so its cap-height starts just below the top "
-        "no-text zone, not near the bottom of the safe band.\n"
-        f"- Aim for the title block center around ~{title_center}% of image "
-        "height.\n"
-        "- If unsure, place the title block slightly higher rather than lower.\n"
-        "- Place the subtitle below the series title (not above).\n\n"
+        "- Place the entire two-line title block exactly in the vertical middle "
+        "of the image so it remains visible in a wide DEV.to banner.\n"
+        "- Center the title block horizontally.\n"
+        "- Reserve a calm central horizontal lane for the title block; keep "
+        "faces, hands, bright focal props, monitors, sparks, and important "
+        "objects out of that middle lane.\n"
+        "- Make the text large, crisp, elegant, and fully legible.\n"
+        "- Use refined serif typography in warm ivory or parchment-white with a "
+        "subtle dark outline or shadow for contrast.\n"
+        "- Keep the title and subtitle tightly grouped as one centered block.\n"
+        "- Do not place the text near the top edge or bottom edge.\n"
+        "- Do not use the text as a footer, lower-third caption, sticky note, "
+        "sign, or screen content.\n"
+        "- The centered title block must be the only large readable text in the "
+        "image.\n"
+        "- If papers, sticky notes, screens, signs, or labels appear, any "
+        "writing on them must remain tiny and illegible decorative scribble only.\n"
+        "- Do not omit, paraphrase, restyle, or misspell the centered title "
+        "text.\n\n"
         "Final text acceptance check before finishing:\n"
         "- verify every letter in the title and subtitle is fully visible in the "
         "final 1000x420 banner\n"
-        "- verify there is obvious empty space below the subtitle\n"
-        f"- verify the lowest visible text pixel stays above roughly "
-        f"{lower_text_boundary}% image height\n"
-        "- verify no footer bar, divider line, ribbon, plaque, or caption strip "
-        "sits below the subtitle\n"
-        "- if any part of the text is clipped or too close to the bottom edge, "
-        "move the text upward and/or reduce font size\n\n"
-        "Exact text to include:\n"
-        "Top title:\n"
-        f"\"{series_name}\"\n\n"
-        "Subtitle:\n"
-        f"\"Episode {episode_number}: {title}\""
+        "- verify the exact two-line title block is clearly readable and centered "
+        "vertically in the final image\n"
+        "- verify the centered title block stays well away from the top and "
+        "bottom crop zones\n"
+        "- if any part of the text is clipped, off-center, or hard to read, "
+        "simplify the middle of the composition, move objects away from the "
+        "middle lane, and reduce font size slightly if needed"
     )
 
 
@@ -446,29 +423,20 @@ def build_image_prompt(data, episode, config):
     background = composition.get("background", "")
 
     props_text = ", ".join(episode.get("supporting_props", []))
-    use_text_overlay = is_enabled(config.get("image_text_overlay_enabled"))
-
-    if use_text_overlay:
-        title_guidance = build_post_overlay_text_block()
-        title_context = (
-            "All final banner typography will be added by the CLI after image "
-            "generation.\n"
-            "Do not render any title, subtitle, episode number, wordmark, or "
-            "footer caption in the artwork itself.\n"
-        )
-    else:
-        title_guidance = build_title_safety_block(
-            series_name,
-            episode["number"],
-            title,
-            config,
-        )
-        title_context = (
-            f"Series title for final banner:\n\"{series_name}\"\n\n"
-            f"Episode subtitle for final banner:\n"
-            f"\"Episode {episode['number']}: {title}\"\n\n"
-            "The final banner must read clearly when published on DEV.to.\n"
-        )
+    title_guidance = build_title_safety_block(
+        series_name,
+        episode["number"],
+        title,
+        config,
+    )
+    title_context = (
+        "Render the final banner typography inside the image itself.\n\n"
+        "The image is not complete unless the exact two-line title text below "
+        "is visibly rendered in the final image, centered horizontally and "
+        "centered vertically:\n\n"
+        f"{series_name}\n"
+        f"Episode {episode['number']}: {title}\n"
+    )
     character_safety = build_character_safety_block()
 
     repo_url = config.get("github_repository_url", "")
@@ -543,7 +511,6 @@ Style requirements:
 Avoid:
 - visual clutter
 - unreadable text
-- footer-style lower-third title treatments
 - cramped composition
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
@@ -556,7 +523,7 @@ Avoid:
 - low-detail background
 - accidental portrait orientation
 - generated footer bars or lower-third title treatments
-- readable generated typography in the artwork
+- missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
@@ -1519,18 +1486,11 @@ def generate_episode_image(data, episode):
 
     prompt = build_image_prompt(data, episode, config)
     out_path = get_episode_image_path(series, episode, config)
-    overlay_text = None
-
-    if is_enabled(config.get("image_text_overlay_enabled")):
-        overlay_text = {
-            "title": series.get("name", ""),
-            "subtitle": f"Episode {episode['number']}: {episode_image_title(episode)}",
-        }
 
     prompt_path = out_path.with_suffix(".prompt.txt")
     prompt_path.write_text(prompt + "\n", encoding="utf-8")
 
-    generate_image_file(prompt, config, out_path, overlay_text=overlay_text)
+    generate_image_file(prompt, config, out_path)
 
     print(f"Generated image {out_path}")
     print(f"Saved prompt {prompt_path}")
