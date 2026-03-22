@@ -5,18 +5,13 @@ part: 4
 description: "Father Christmas explains how Intent gives every agent its own isolated workspace using Git worktrees — so parallel Elves never step on each other’s work."
 tags: [augmentcode, intent, git, devtools]
 series: "Santa Augmentcode Intent"
-cover_image: "https://raw.githubusercontent.com/software-journey/terraform/main/images/santa_augmentcode_intent/santa-augmentcode-intent-episode-04.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-04.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 # Every Elf Gets a Workbench — Isolated Workspaces 🔨 — Augment Intent, Episode 4
 
-> *In the early Workshop days, all the Elves shared one big table. It seemed efficient. It was a disaster. Jingle would sand a wheel just as Jangle reached for it. Twinkle’s paint would end up on Tinkle’s train set. The great Christmas Collision of 1889 — I do not wish to speak of it. The solution was obvious in retrospect: give every Elf their own workbench. Isolated, private, but connected to the same Master Gift List.*
-> 
-> *Augment Intent does the same thing. It just calls them workspaces.*
-
------
+> In the early Workshop days, all the Elves shared one big table. It seemed efficient. It was a disaster. Jingle would sand a wheel just as Jangle reached for it. Twinkle’s paint would end up on Tinkle’s train set. The great Christmas Collision of 1889 — I do not wish to speak of it. The solution was obvious in retrospect: give every Elf their own workbench. Isolated, private, but connected to the same Master Gift List.Augment Intent does the same thing. It just calls them workspaces.
 
 ## The Problem With Sharing a Codebase
 
@@ -27,8 +22,6 @@ Git was designed for humans working mostly in series. A branch is opened, worked
 AI agents are not human-paced. They can modify dozens of files in minutes. Under parallel multi-agent execution, the conflict rate rises faster than any team can manage manually.
 
 Intent solves this with **isolated workspaces backed by Git worktrees**.
-
------
 
 ## What Is a Git Worktree?
 
@@ -47,8 +40,6 @@ git worktree add ../auth-service-worktree feat/auth-service
 
 Intent automates all of this. When the Coordinator spawns a Specialist, Intent creates a dedicated worktree for that agent automatically. The Elf gets its own workbench. Other Elves cannot see its in-progress files. The files are isolated until the Elf is done and the Coordinator integrates the work.
 
------
-
 ## The Elf Workbench in Practice
 
 Imagine the Coordinator has spawned three Specialist Agents for the JWT authentication task from Episode 3:
@@ -63,8 +54,6 @@ Workshop Floor
 Each worktree contains a copy of the relevant files at the point the Elf starts. Changes made by Auth Token Elf in `auth-service/src/token-service.ts` are **invisible to Gateway Middleware Elf** until they are explicitly integrated. There are no accidental clobberings. No race conditions on file writes.
 
 The Coordinator tracks the state of each worktree. When both implementation Elves complete, it orchestrates the merge — resolving any conflicts at the spec level (because the interface contracts were declared there) rather than discovering them at the file level.
-
------
 
 ## Resumable Sessions: The Workshop Is Open When You Return
 
@@ -89,8 +78,6 @@ Intent workspace state on reopen (next morning):
 
 For Father Christmas, this means I can step away from the Workshop on December 23rd for a brief rest, return on the 24th, and find every Elf at their bench with their gifts half-wrapped exactly as I left them. The Workshop never forgets.
 
------
-
 ## The Unified Window: Code, Browser, Terminal, Git
 
 Isolation does not mean fragmentation. Intent keeps everything visible in **one window**:
@@ -104,16 +91,12 @@ You do not need to switch between VS Code, iTerm, Chrome, and SourceTree. The Wo
 
 This matters for agent work because agents need to **see results immediately**. A Specialist that modifies a React component can open the browser preview in the same window, verify the rendering, and either commit or adjust — without handing off to a human to check.
 
------
-
 ## SIPOC: Isolated Workspace Management
 
-|            |S — Suppliers                           |I — Inputs                                       |P — Process                                                                                                                                      |O — Outputs                                             |C — Customers                               |
-|------------|----------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|--------------------------------------------|
-|**Who/What**|Coordinator, Git repository, file system|Task assignment, branch name, starting file state|Coordinator spawns agent → Intent creates worktree → Agent works in isolation → Auto-commit saves progress → Coordinator integrates on completion|Isolated branch per agent, no conflicts, resumable state|Coordinator Agent, Developer, CI/CD pipeline|
-|**Workshop**|Father Christmas, the main toy vault    |Elf assignment, workbench materials              |Santa assigns bench → Elf gets private materials → works without interruption → gifts stored safely → Santa integrates at end                    |No collisions, no broken gifts, always resumable        |Quality Control, Head Elf Pepper, the Sleigh|
-
------
+|  | S — Suppliers | I — Inputs | P — Process | O — Outputs | C — Customers |
+| --- | --- | --- | --- | --- | --- |
+| Who/What | Coordinator, Git repository, file system | Task assignment, branch name, starting file state | Coordinator spawns agent → Intent creates worktree → Agent works in isolation → Auto-commit saves progress → Coordinator integrates on completion | Isolated branch per agent, no conflicts, resumable state | Coordinator Agent, Developer, CI/CD pipeline |
+| Workshop | Father Christmas, the main toy vault | Elf assignment, workbench materials | Santa assigns bench → Elf gets private materials → works without interruption → gifts stored safely → Santa integrates at end | No collisions, no broken gifts, always resumable | Quality Control, Head Elf Pepper, the Sleigh |
 
 ## Practical Tip: When to Merge
 
@@ -122,21 +105,15 @@ Father Christmas has one firm rule about workbenches: an Elf’s work stays on t
 In Intent terms: the Coordinator should not merge a Specialist’s branch until:
 
 1. The Specialist has reported completion.
-1. The Verifier Agent has confirmed compliance with the spec.
-1. Any interface contracts with other Elves have been respected.
+2. The Verifier Agent has confirmed compliance with the spec.
+3. Any interface contracts with other Elves have been respected.
 
 The spec is the checklist. When all boxes are ticked, the merge is safe.
-
------
 
 ## What Comes Next
 
 In Episode 5, Father Christmas will explain **Spec-Driven Development** — the philosophical shift that puts the living spec at the centre of the workflow and uses it to ensure everything finishes in time for Christmas. This is the *why* behind everything we have built so far.
 
-> *A tidy workbench is the sign of an organised mind. And an organised Workshop is the sign of gifts arriving on time.*
-> 
-> **Ho ho ho! 🎅**
+> A tidy workbench is the sign of an organised mind. And an organised Workshop is the sign of gifts arriving on time.Ho ho ho! 🎅
 
------
-
-*Part of the [Santa Augmentcode Intent](#) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
