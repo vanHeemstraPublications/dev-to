@@ -255,6 +255,10 @@ def episode_image_title(episode):
     return (episode.get("title") or "").strip()
 
 
+def episode_image_badge_text(episode_number):
+    return f"Episode {episode_number}"
+
+
 def derive_raw_github_images_base_url(repo_url, branch):
     """
     Convert a GitHub repository URL into a raw-content images base URL.
@@ -287,6 +291,7 @@ def derive_raw_github_images_base_url(repo_url, branch):
 
 
 def build_title_safety_block(series_name, episode_number, title, config):
+    episode_badge = episode_image_badge_text(episode_number)
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = max(config["image_title_safe_bottom_percent"], 32)
@@ -311,10 +316,14 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "image (not the top third).\n"
         "- Keep the entire two-line title block fully above the bottom "
         "no-text zone.\n"
-        "- Keep the subtitle clearly below the main title with generous "
+        "- If a second line of text is used, keep it to a very short episode "
+        "badge only.\n"
+        "- Do NOT render the full episode title as cover text. The detailed "
+        "episode title belongs in the article headline below the image.\n"
+        "- Keep the episode badge clearly below the main title with generous "
         "spacing.\n"
-        "- Render the subtitle noticeably smaller than the main title, roughly "
-        "55-65% of the title size.\n"
+        "- Render the episode badge noticeably smaller than the main title, "
+        "roughly 40-50% of the title size.\n"
         "- Use slightly smaller typography rather than oversized typography "
         "if needed.\n"
         "- If the full title block does not fit comfortably, reduce font size "
@@ -346,8 +355,9 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "Exact text to include:\n"
         "Top title:\n"
         f"\"{series_name}\"\n\n"
-        "Subtitle:\n"
-        f"\"Episode {episode_number}: {title}\""
+        "Small episode badge:\n"
+        f"\"{episode_badge}\"\n\n"
+        "Do not include the full episode title as text inside the image."
     )
 
 
@@ -400,6 +410,7 @@ def build_image_prompt(data, episode, config):
 
     series_name = series.get("name", "")
     title = episode_image_title(episode)
+    episode_badge = episode_image_badge_text(episode["number"])
     metaphor = episode.get("metaphor", "")
     center_action = episode.get("center_action", "")
 
@@ -435,8 +446,11 @@ Create a polished cinematic landscape banner illustration for a web article.
 Series title:
 "{series_name}"
 
-Episode subtitle:
-"Episode {episode['number']}: {title}"
+Small episode badge:
+"{episode_badge}"
+
+Do not render the full episode title as cover text.
+The detailed episode title should remain in the article headline below the image.
 
 Canvas requirements:
 - resolution: {config["image_resolution"]}
@@ -497,6 +511,7 @@ Style requirements:
 Avoid:
 - visual clutter
 - unreadable text
+- long cover subtitles
 - cramped composition
 - cropped or partially hidden faces
 - heads, hats, or hair touching the top edge
