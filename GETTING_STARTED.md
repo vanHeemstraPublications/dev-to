@@ -14,8 +14,6 @@ It generates and organizes:
 
 Each episode becomes a consistent production unit.
 
----
-
 Pipeline Overview
 
 Series definition
@@ -56,8 +54,6 @@ publish-to-dev workflow
 
 [DEV.to](http://DEV.to)
 
----
-
 Use the Makefile First
 
 The easiest way to use this project is through the `Makefile`.
@@ -86,8 +82,6 @@ To see all available commands:
 make help
 ```
 
----
-
 Important: [DEV.to](http://DEV.to) Cover Images Need a Public URL
 
 [DEV.to](http://DEV.to) frontmatter expects:
@@ -104,16 +98,12 @@ It does not resolve repository-local paths such as:
 
 For that reason, this repository uses two concepts:
 
-1. Local image storage in the repository
-  images//episode-01.webp
-2. Public image URL for [DEV.to](http://DEV.to) frontmatter
-  [https://raw.githubusercontent.com/](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)[/](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)[/](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)[/images/](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)[/episode-01.webp](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)
+1. Local image storage in the repositoryimages//episode-01.webp
+2. Public image URL for [DEV.to](http://DEV.to) frontmatter[https://raw.githubusercontent.com////images//episode-01.webp](https://raw.githubusercontent.com/<owner>/<repo>/<branch>/images/<series_id>/episode-01.webp)
 
 The CLI can derive the public image base URL automatically from the GitHub
 
 repository URL and branch.
-
----
 
 Recommended Repository Layout
 
@@ -162,8 +152,6 @@ Notes:
 - `generated/` contains prompt bundles.
 - [DEV.to](http://DEV.to) uses the public absolute image URL, not the local path.
 
----
-
 Installation
 
 Preferred:
@@ -187,8 +175,7 @@ Set your OpenAI API key:
 The CLI reads the environment variable `**OPENAI_API_KEY**`.
 
 - Get an API key from the OpenAI dashboard: `[https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)`
-- Store it safely in a password manager (recommended) and **do not commit it**
-to the repo.
+- Store it safely in a password manager (recommended) and **do not commit it**to the repo.
 
 Set it for your current terminal session:
 
@@ -196,10 +183,7 @@ Set it for your current terminal session:
 export OPENAI_API_KEY="your_api_key_here"
 ```
 
-Persist it (macOS zsh) by adding the same line to `~/.zshrc`, then restart your
-terminal.
-
----
+Persist it (macOS zsh) by adding the same line to `~/.zshrc`, then restart yourterminal.
 
 Creating a New Series
 
@@ -229,8 +213,6 @@ The wizard also asks for:
 - public image branch
 
 These are used to derive the [DEV.to](http://DEV.to)-compatible public image base URL.
-
----
 
 Example Setup
 
@@ -320,8 +302,6 @@ Public image branch:
 main
 ```
 
----
-
 Files Created Automatically
 
 The CLI creates:
@@ -337,8 +317,6 @@ It also updates:
 ```
 series/SERIES_INDEX.yaml
 ```
-
----
 
 How `title` and `display_title` Work
 
@@ -360,8 +338,7 @@ Example:
 Purpose:
 
 - `title` is a stable internal identifier
-- `display_title` is the human-friendly episode title used in banners and
-  article frontmatter
+- `display_title` is the human-friendly episode title used in banners andarticle frontmatter
 
 Automation behavior:
 
@@ -371,8 +348,6 @@ Automation behavior:
 - you can later change it per episode
 
 This avoids placeholder text accidentally appearing in generated prompts.
-
----
 
 Generating Prompt Bundles
 
@@ -408,8 +383,6 @@ Each bundle contains:
 - article prompt
 - local image path
 - public cover image URL
-
----
 
 Generating an Episode Banner Image
 
@@ -453,8 +426,6 @@ Image behavior:
 - exports as WebP
 - compresses to stay under configured size limit
 
----
-
 Generating a Series Cover
 
 Preferred:
@@ -483,8 +454,6 @@ The series cover is useful for:
 - general branding for the full series
 
 It is optional and separate from episode cover images.
-
----
 
 Generating Article Stubs
 
@@ -518,8 +487,6 @@ The generated frontmatter already includes a [DEV.to](http://DEV.to)-compatible
 
 `cover_image` field using a public absolute URL.
 
----
-
 Generating Both Assets for One Episode
 
 The easiest episode workflow is:
@@ -534,8 +501,6 @@ This generates:
 - the article stub
 
 That gives you the main publishable assets for one episode in a single step.
-
----
 
 Example Frontmatter
 
@@ -569,30 +534,22 @@ Do not replace `cover_image` with a local path like:
 
 [DEV.to](http://DEV.to) expects a public URL.
 
----
-
 Typical Workflow
 
-1. Create or update the series file
-  make generate SERIES=azure_data_platform
-2. Edit the series YAML and refine episode metadata
-  Especially:
-  - display_title
-  - metaphor
-  - center_action
-  - supporting_props
-3. Generate both assets for one episode
-  make generate-assets SERIES=azure_data_platform EP=1
-4. Optionally generate a reusable series cover
-  make generate-series-cover SERIES=azure_data_platform
-5. Replace the article body with the full article you want to publish
-6. Commit:
-  articles//...
-    images//...
-7. Push to GitHub
-8. Let the publishing workflow publish to [DEV.to](http://DEV.to)
+1. Create or update the series filemake generate SERIES=azure_data_platform
+2. Edit the series YAML and refine episode metadataEspecially:
 
----
+- display_title
+- metaphor
+- center_action
+- supporting_props
+
+1. Generate both assets for one episodemake generate-assets SERIES=azure_data_platform EP=1
+2. Optionally generate a reusable series covermake generate-series-cover SERIES=azure_data_platform
+3. Replace the article body with the full article you want to publish
+4. Commit:articles//...images//...
+5. Push to GitHub
+6. Let the publishing workflow publish to [DEV.to](http://DEV.to)
 
 Common Commands
 
@@ -668,19 +625,14 @@ Show help:
 make help
 ```
 
----
-
 Summary
 
 To create and publish a new episode with the easiest workflow:
 
-1. Run
-  make generate SERIES=azure_data_platform
+1. Runmake generate SERIES=azure_data_platform
 2. Refine the episode metadata in the series YAML
-3. Generate the publishable assets
-  make generate-assets SERIES=azure_data_platform EP=1
-4. Optionally generate the series cover
-  make generate-series-cover SERIES=azure_data_platform
+3. Generate the publishable assetsmake generate-assets SERIES=azure_data_platform EP=1
+4. Optionally generate the series covermake generate-series-cover SERIES=azure_data_platform
 5. Write or paste the final article body
 6. Commit and push
 
@@ -690,4 +642,3 @@ The automation keeps:
 - article files in one location
 - public [DEV.to](http://DEV.to) cover URLs consistent
 - prompt bundles reproducible
-
