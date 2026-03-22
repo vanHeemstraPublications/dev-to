@@ -48,11 +48,13 @@ ChatGPT Image Prompt
 
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:
-"Santa Augmentcode Intent Series"
+Render the final banner typography inside the image itself.
 
-Episode subtitle:
-"Episode 7: Multi-Agent Orchestration"
+The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and centered vertically:
+
+Santa Augmentcode Intent Series
+Episode 7: Multi-Agent Orchestration
+
 
 Canvas requirements:
 - resolution: 1000x420
@@ -122,44 +124,32 @@ Character framing requirements:
 - For lead presenters, prefer medium-shot or three-quarter framing instead of full-body framing when needed to preserve full face/head visibility.
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
-DEV.to title safety requirements:
-- This image will be used as a DEV.to article header/banner.
-- DEV.to often crops the top/bottom edges of cover images.
-- Keep all text fully readable inside a conservative safe area.
-- Do not place important text near the extreme edges.
+Typography handling:
+- Render the final banner typography inside the image itself.
+- The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
+- Render exactly this readable two-line title block inside the image:
+  - Santa Augmentcode Intent Series
+  - Episode 7: Multi-Agent Orchestration
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 52% away from the top edge.
-- Keep title typography at least 24% away from the bottom edge.
-- Do NOT place any text in the top safe-margin area.
-- Treat the bottom 24% of the image as a NO-TEXT zone too.
-- Place the entire title block in the visual middle band of the image (not the top third).
-- Keep the entire two-line title block fully above the bottom no-text zone.
-- Keep the subtitle clearly below the main title with generous spacing.
-- Use slightly smaller typography rather than oversized typography if needed.
-- If the full title block does not fit comfortably, reduce font size or move the text upward; never solve it by pushing the subtitle lower.
-- Leave visible empty space below the subtitle; no part of any letter, including descenders like g, j, p, q, and y, may approach the bottom edge.
-- Do not let any letter, banner, or ornament touch the image edge.
-- The full title and subtitle must be completely visible.
-
-Placement target (important):
-- Treat the top 52% of the image as a NO-TEXT zone.
-- Treat everything below roughly 76% image height as a NO-TEXT zone.
-- Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~61% of image height.
-- If unsure, place the title block slightly higher rather than lower.
-- Place the subtitle below the series title (not above).
+- Keep title typography at least 40% away from the top edge.
+- Keep title typography at least 40% away from the bottom edge.
+- Place the entire two-line title block exactly in the vertical middle of the image so it remains visible in a wide DEV.to banner.
+- Center the title block horizontally.
+- Reserve a calm central horizontal lane for the title block; keep faces, hands, bright focal props, monitors, sparks, and important objects out of that middle lane.
+- Make the text large, crisp, elegant, and fully legible.
+- Use refined serif typography in warm ivory or parchment-white with a subtle dark outline or shadow for contrast.
+- Keep the title and subtitle tightly grouped as one centered block.
+- Do not place the text near the top edge or bottom edge.
+- Do not use the text as a footer, lower-third caption, sticky note, sign, or screen content.
+- The centered title block must be the only large readable text in the image.
+- If papers, sticky notes, screens, signs, or labels appear, any writing on them must remain tiny and illegible decorative scribble only.
+- Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
 - verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
-- verify there is obvious empty space below the subtitle
-- if any part of the text is clipped or too close to the bottom edge, move the text upward and/or reduce font size
-
-Exact text to include:
-Top title:
-"Santa Augmentcode Intent Series"
-
-Subtitle:
-"Episode 7: Multi-Agent Orchestration"
+- verify the exact two-line title block is clearly readable and centered vertically in the final image
+- verify the centered title block stays well away from the top and bottom crop zones
+- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, and reduce font size slightly if needed
 
 Avoid:
 - visual clutter
@@ -175,8 +165,8 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text
-- cropped-looking typography
+- generated footer bars or lower-third title treatments
+- missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the

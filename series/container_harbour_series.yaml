@@ -8,7 +8,7 @@ series:
   whitespace_margin_percent: 15
   deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
   prompt_template: "prompts/kubernetes_episode_template.md"
-  series_config: "config/welcome-to-container-harbour.json"  
+  series_config: "config/welcome-to-container-harbour-series.json"
 
 defaults:
   setting: "Titanic-era container harbour at golden sunset"

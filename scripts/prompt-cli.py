@@ -17,7 +17,7 @@ except ImportError:
     sys.exit(1)
 
 try:
-    from PIL import Image
+    from PIL import Image, ImageDraw, ImageFont
 except ImportError:
     print("Missing dependency: pillow")
     print("Install with: pip install pillow")
@@ -53,13 +53,14 @@ DEFAULT_CONFIG = {
     "image_quality": "medium",
     "image_background": "opaque",
     "image_generation_size": "1536x1024",
-    # When we crop the model output to 1000x420, avoid cutting off the top
-    # where the title often lives. Use a top-anchored crop for height crops.
-    "image_crop_anchor_y": "top",  # "top" | "center" | "bottom"
+    # When we crop the model output to 1000x420, preserve the middle band where
+    # both the title block and the main characters should live.
+    "image_crop_anchor_y": "center",  # "top" | "center" | "bottom"
+    "image_text_overlay_enabled": False,
     "image_whitespace_margin_percent": 24,
     "image_title_safe_left_right_percent": 12,
-    "image_title_safe_top_percent": 52,
-    "image_title_safe_bottom_percent": 24,
+    "image_title_safe_top_percent": 40,
+    "image_title_safe_bottom_percent": 40,
     "image_style": (
         "cinematic digital illustration, highly detailed, "
         "storybook realism, polished composition"
@@ -289,59 +290,50 @@ def derive_raw_github_images_base_url(repo_url, branch):
 def build_title_safety_block(series_name, episode_number, title, config):
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
-    bottom = max(config["image_title_safe_bottom_percent"], 24)
-    lower_text_boundary = 100 - bottom
-    safe_band = max(1, 100 - top - bottom)
-    title_center = int(top + safe_band * 0.38)
+    bottom = max(config["image_title_safe_bottom_percent"], 40)
 
     return (
-        "DEV.to title safety requirements:\n"
-        "- This image will be used as a DEV.to article header/banner.\n"
-        "- DEV.to often crops the top/bottom edges of cover images.\n"
-        "- Keep all text fully readable inside a conservative safe area.\n"
-        "- Do not place important text near the extreme edges.\n"
+        "Typography handling:\n"
+        "- Render the final banner typography inside the image itself.\n"
+        "- The image is not complete unless the exact two-line title text "
+        "below is visibly rendered in the final image.\n"
+        "- Render exactly this readable two-line title block inside the image:\n"
+        f"  - {series_name}\n"
+        f"  - Episode {episode_number}: {title}\n"
         f"- Keep title typography at least {lr}% away from the left and right "
         "edges.\n"
         f"- Keep title typography at least {top}% away from the top edge.\n"
         f"- Keep title typography at least {bottom}% away from the bottom "
         "edge.\n"
-        "- Do NOT place any text in the top safe-margin area.\n"
-        f"- Treat the bottom {bottom}% of the image as a NO-TEXT zone too.\n"
-        "- Place the entire title block in the visual middle band of the "
-        "image (not the top third).\n"
-        "- Keep the entire two-line title block fully above the bottom "
-        "no-text zone.\n"
-        "- Keep the subtitle clearly below the main title with generous "
-        "spacing.\n"
-        "- Use slightly smaller typography rather than oversized typography "
-        "if needed.\n"
-        "- If the full title block does not fit comfortably, reduce font size "
-        "or move the text upward; never solve it by pushing the subtitle lower.\n"
-        "- Leave visible empty space below the subtitle; no part of any letter, "
-        "including descenders like g, j, p, q, and y, may approach the bottom "
-        "edge.\n"
-        "- Do not let any letter, banner, or ornament touch the image edge.\n"
-        "- The full title and subtitle must be completely visible.\n\n"
-        "Placement target (important):\n"
-        f"- Treat the top {top}% of the image as a NO-TEXT zone.\n"
-        f"- Treat everything below roughly {lower_text_boundary}% image height "
-        "as a NO-TEXT zone.\n"
-        "- Place the series title so its cap-height starts below that zone.\n"
-        f"- Aim for the title block center around ~{title_center}% of image "
-        "height.\n"
-        "- If unsure, place the title block slightly higher rather than lower.\n"
-        "- Place the subtitle below the series title (not above).\n\n"
+        "- Place the entire two-line title block exactly in the vertical middle "
+        "of the image so it remains visible in a wide DEV.to banner.\n"
+        "- Center the title block horizontally.\n"
+        "- Reserve a calm central horizontal lane for the title block; keep "
+        "faces, hands, bright focal props, monitors, sparks, and important "
+        "objects out of that middle lane.\n"
+        "- Make the text large, crisp, elegant, and fully legible.\n"
+        "- Use refined serif typography in warm ivory or parchment-white with a "
+        "subtle dark outline or shadow for contrast.\n"
+        "- Keep the title and subtitle tightly grouped as one centered block.\n"
+        "- Do not place the text near the top edge or bottom edge.\n"
+        "- Do not use the text as a footer, lower-third caption, sticky note, "
+        "sign, or screen content.\n"
+        "- The centered title block must be the only large readable text in the "
+        "image.\n"
+        "- If papers, sticky notes, screens, signs, or labels appear, any "
+        "writing on them must remain tiny and illegible decorative scribble only.\n"
+        "- Do not omit, paraphrase, restyle, or misspell the centered title "
+        "text.\n\n"
         "Final text acceptance check before finishing:\n"
         "- verify every letter in the title and subtitle is fully visible in the "
         "final 1000x420 banner\n"
-        "- verify there is obvious empty space below the subtitle\n"
-        "- if any part of the text is clipped or too close to the bottom edge, "
-        "move the text upward and/or reduce font size\n\n"
-        "Exact text to include:\n"
-        "Top title:\n"
-        f"\"{series_name}\"\n\n"
-        "Subtitle:\n"
-        f"\"Episode {episode_number}: {title}\""
+        "- verify the exact two-line title block is clearly readable and centered "
+        "vertically in the final image\n"
+        "- verify the centered title block stays well away from the top and "
+        "bottom crop zones\n"
+        "- if any part of the text is clipped, off-center, or hard to read, "
+        "simplify the middle of the composition, move objects away from the "
+        "middle lane, and reduce font size slightly if needed"
     )
 
 
@@ -387,6 +379,31 @@ def build_character_safety_block():
     )
 
 
+def is_enabled(value):
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def build_post_overlay_text_block():
+    return (
+        "Typography handling:\n"
+        "- Do NOT render the series title or episode subtitle inside the artwork.\n"
+        "- Do NOT render any large readable words, captions, banners, logos, or "
+        "footer strips anywhere in the image.\n"
+        "- The CLI will add the final title text afterward as a deterministic "
+        "overlay.\n"
+        "- Reserve a calm central horizontal lane for that overlay; keep faces, hands, "
+        "and bright focal props out of it.\n"
+        "- If papers, sticky notes, screens, signs, or labels appear, any writing "
+        "on them must remain tiny and illegible decorative scribble only.\n"
+        "- Do not try to spell any part of the final title, subtitle, episode "
+        "number, or series name using decorative faux text."
+    )
+
+
 def build_image_prompt(data, episode, config):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
@@ -406,12 +423,19 @@ def build_image_prompt(data, episode, config):
     background = composition.get("background", "")
 
     props_text = ", ".join(episode.get("supporting_props", []))
-
-    title_safety = build_title_safety_block(
+    title_guidance = build_title_safety_block(
         series_name,
         episode["number"],
         title,
         config,
+    )
+    title_context = (
+        "Render the final banner typography inside the image itself.\n\n"
+        "The image is not complete unless the exact two-line title text below "
+        "is visibly rendered in the final image, centered horizontally and "
+        "centered vertically:\n\n"
+        f"{series_name}\n"
+        f"Episode {episode['number']}: {title}\n"
     )
     character_safety = build_character_safety_block()
 
@@ -426,11 +450,7 @@ def build_image_prompt(data, episode, config):
     return f"""
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:
-"{series_name}"
-
-Episode subtitle:
-"Episode {episode['number']}: {title}"
+{title_context}
 
 Canvas requirements:
 - resolution: {config["image_resolution"]}
@@ -486,7 +506,7 @@ Style requirements:
 
 {character_safety}
 
-{title_safety}{repo_block}
+{title_guidance}{repo_block}
 
 Avoid:
 - visual clutter
@@ -502,8 +522,8 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text
-- cropped-looking typography
+- generated footer bars or lower-third title treatments
+- missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
@@ -585,8 +605,9 @@ Style requirements:
 Text safety requirements:
 - keep all text fully readable in a conservative central safe area
 - do not place text close to the top edge
-- treat the bottom 24% of the banner as a NO-TEXT zone
+- treat the bottom 32% of the banner as a NO-TEXT zone
 - keep the entire title/subtitle block fully above that bottom no-text zone
+- render any subtitle clearly smaller than the main title
 - leave visible empty space below the lowest text line
 - if the text block feels too tall, reduce font size or move it upward rather
   than placing it lower
@@ -613,6 +634,7 @@ Final acceptance check before finishing:
 - verify there is obvious empty space above the highest head or hat
 - verify every title/subtitle letter is fully visible with clear empty space
   below the text block
+- verify the lowest visible text pixel stays above roughly 68% image height
 - if that check fails, reduce character scale and move the characters lower
   and/or move the text upward or reduce text size
 """.strip()
@@ -1131,6 +1153,234 @@ def crop_to_aspect(img, target_ratio, anchor_y="center"):
     return img
 
 
+SERIF_BOLD_FONT_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
+    "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    "C:/Windows/Fonts/georgiab.ttf",
+    "C:/Windows/Fonts/timesbd.ttf",
+]
+
+SERIF_REGULAR_FONT_CANDIDATES = [
+    "/System/Library/Fonts/Supplemental/Georgia.ttf",
+    "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "C:/Windows/Fonts/georgia.ttf",
+    "C:/Windows/Fonts/times.ttf",
+]
+
+
+def load_font(font_candidates, size):
+    for candidate in font_candidates:
+        try:
+            return ImageFont.truetype(candidate, size=size)
+        except Exception:
+            continue
+
+    try:
+        return ImageFont.truetype("DejaVuSerif.ttf", size=size)
+    except Exception:
+        return ImageFont.load_default()
+
+
+def measure_text(text, font, stroke_width=0):
+    probe = Image.new("RGB", (8, 8), "black")
+    draw = ImageDraw.Draw(probe)
+    left, top, right, bottom = draw.textbbox(
+        (0, 0),
+        text,
+        font=font,
+        stroke_width=stroke_width,
+    )
+    return right - left, bottom - top
+
+
+def fit_text_font(text, font_candidates, max_width, max_size, min_size, stroke_width=0):
+    last_font = None
+
+    for size in range(max_size, min_size - 1, -2):
+        font = load_font(font_candidates, size)
+        last_font = font
+        text_width, text_height = measure_text(
+            text,
+            font,
+            stroke_width=stroke_width,
+        )
+        if text_width <= max_width:
+            return font, text_width, text_height
+
+    if last_font is None:
+        last_font = load_font(font_candidates, min_size)
+
+    text_width, text_height = measure_text(
+        text,
+        last_font,
+        stroke_width=stroke_width,
+    )
+    return last_font, text_width, text_height
+
+
+def fit_overlay_fonts(
+    series_name,
+    subtitle,
+    max_text_width,
+    max_block_height,
+    line_gap,
+    title_stroke,
+    subtitle_stroke,
+    height,
+):
+    title_max_size = min(60, int(height * 0.13))
+    title_min_size = max(24, int(height * 0.055))
+    subtitle_max_size = min(36, int(height * 0.08))
+    subtitle_min_size = max(18, int(height * 0.04))
+
+    best = None
+
+    for title_size in range(title_max_size, title_min_size - 1, -2):
+        title_font = load_font(SERIF_BOLD_FONT_CANDIDATES, title_size)
+        title_width, title_height = measure_text(
+            series_name,
+            title_font,
+            stroke_width=title_stroke,
+        )
+        if title_width > max_text_width:
+            continue
+
+        capped_subtitle_max = min(subtitle_max_size, max(18, title_size - 10))
+        for subtitle_size in range(capped_subtitle_max, subtitle_min_size - 1, -2):
+            subtitle_font = load_font(SERIF_REGULAR_FONT_CANDIDATES, subtitle_size)
+            subtitle_width, subtitle_height = measure_text(
+                subtitle,
+                subtitle_font,
+                stroke_width=subtitle_stroke,
+            )
+            text_block_height = title_height + line_gap + subtitle_height
+            if subtitle_width <= max_text_width and text_block_height <= max_block_height:
+                return (
+                    title_font,
+                    title_width,
+                    title_height,
+                    subtitle_font,
+                    subtitle_width,
+                    subtitle_height,
+                    text_block_height,
+                )
+            best = (
+                title_font,
+                title_width,
+                title_height,
+                subtitle_font,
+                subtitle_width,
+                subtitle_height,
+                text_block_height,
+            )
+
+    if best is not None:
+        return best
+
+    title_font, title_width, title_height = fit_text_font(
+        series_name,
+        SERIF_BOLD_FONT_CANDIDATES,
+        max_text_width,
+        max_size=title_min_size,
+        min_size=title_min_size,
+        stroke_width=title_stroke,
+    )
+    subtitle_font, subtitle_width, subtitle_height = fit_text_font(
+        subtitle,
+        SERIF_REGULAR_FONT_CANDIDATES,
+        max_text_width,
+        max_size=subtitle_min_size,
+        min_size=subtitle_min_size,
+        stroke_width=subtitle_stroke,
+    )
+    text_block_height = title_height + line_gap + subtitle_height
+    return (
+        title_font,
+        title_width,
+        title_height,
+        subtitle_font,
+        subtitle_width,
+        subtitle_height,
+        text_block_height,
+    )
+
+
+def add_episode_text_overlay(img, series_name, subtitle, config):
+    width, height = img.size
+    lr = config.get("image_title_safe_left_right_percent", 12)
+    top = config.get("image_title_safe_top_percent", 40)
+    bottom = max(config.get("image_title_safe_bottom_percent", 40), 40)
+    safe_top_y = int(height * (top / 100))
+    safe_bottom_y = int(height * ((100 - bottom) / 100))
+    safe_band_height = max(72, safe_bottom_y - safe_top_y)
+    fit_band_height = max(60, safe_band_height - max(8, int(height * 0.02)))
+    max_text_width = int(width * ((100 - (lr * 2)) / 100))
+    line_gap = max(6, int(height * 0.016))
+
+    title_stroke = 2
+    subtitle_stroke = 2
+
+    (
+        title_font,
+        title_width,
+        title_height,
+        subtitle_font,
+        subtitle_width,
+        subtitle_height,
+        text_block_height,
+    ) = fit_overlay_fonts(
+        series_name,
+        subtitle,
+        max_text_width,
+        fit_band_height,
+        line_gap,
+        title_stroke,
+        subtitle_stroke,
+        height,
+    )
+
+    title_y = max(0, ((height - text_block_height) // 2) - max(4, int(height * 0.01)))
+    subtitle_y = title_y + title_height + line_gap
+
+    title_x = int((width - title_width) / 2)
+    subtitle_x = int((width - subtitle_width) / 2)
+
+    base = img.convert("RGBA")
+    overlay = Image.new("RGBA", base.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    shadow_fill = (24, 12, 6, 180)
+    title_fill = (248, 238, 216, 255)
+    subtitle_fill = (247, 236, 214, 255)
+    stroke_fill = (70, 35, 18, 220)
+    shadow_offset = max(2, int(height * 0.006))
+
+    for text, font, x, y, fill, stroke_width in [
+        (series_name, title_font, title_x, title_y, title_fill, title_stroke),
+        (subtitle, subtitle_font, subtitle_x, subtitle_y, subtitle_fill, subtitle_stroke),
+    ]:
+        draw.text(
+            (x + shadow_offset, y + shadow_offset),
+            text,
+            font=font,
+            fill=shadow_fill,
+            stroke_width=stroke_width,
+            stroke_fill=shadow_fill,
+        )
+        draw.text(
+            (x, y),
+            text,
+            font=font,
+            fill=fill,
+            stroke_width=stroke_width,
+            stroke_fill=stroke_fill,
+        )
+
+    return Image.alpha_composite(base, overlay).convert("RGB")
+
+
 def compress_webp(img, path, max_kb):
     for quality in range(95, 15, -5):
         img.save(path, "WEBP", quality=quality)
@@ -1141,6 +1391,28 @@ def compress_webp(img, path, max_kb):
     img.save(path, "WEBP", quality=20)
 
 
+def save_output_image(img, out_path, config):
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    suffix = out_path.suffix.lower()
+    if suffix == ".webp":
+        compress_webp(img, out_path, config["image_max_file_size_kb"])
+        return
+
+    if suffix == ".png":
+        img.save(out_path, "PNG")
+        return
+
+    if suffix in {".jpg", ".jpeg"}:
+        img.convert("RGB").save(out_path, "JPEG", quality=95)
+        return
+
+    print(f"Unsupported image output format: {out_path.suffix}")
+    print("Use .png, .jpg, .jpeg, or .webp")
+    sys.exit(1)
+
+
 def ensure_openai_api_key():
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
@@ -1149,7 +1421,7 @@ def ensure_openai_api_key():
     return api_key
 
 
-def generate_image_file(prompt, config, out_path):
+def generate_image_file(prompt, config, out_path, overlay_text=None):
     ensure_openai_api_key()
     client = OpenAI()
 
@@ -1197,8 +1469,15 @@ def generate_image_file(prompt, config, out_path):
     img = crop_to_aspect(img, target_ratio, anchor_y=anchor_y)
     img = img.resize((target_width, target_height), Image.LANCZOS)
 
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    compress_webp(img, out_path, config["image_max_file_size_kb"])
+    if overlay_text:
+        img = add_episode_text_overlay(
+            img,
+            overlay_text["title"],
+            overlay_text["subtitle"],
+            config,
+        )
+
+    save_output_image(img, out_path, config)
 
 
 def generate_episode_image(data, episode):
@@ -1367,6 +1646,58 @@ def generate_single_image(series_file, episode_number):
     generate_episode_image(data, episode)
 
 
+def overlay_single_image(series_file, episode_number, input_path, output_path=None):
+    series_file = Path(series_file)
+
+    if not series_file.exists():
+        print(f"Series file not found: {series_file}")
+        sys.exit(1)
+
+    input_path = Path(input_path)
+    if not input_path.exists():
+        print(f"Input image not found: {input_path}")
+        sys.exit(1)
+
+    data = load_yaml(series_file)
+    episode = get_episode(data, episode_number)
+
+    if not episode:
+        print(f"Episode {episode_number} not found.")
+        sys.exit(1)
+
+    series = data.get("series", {})
+    config = load_series_config(series)
+    img = Image.open(input_path).convert("RGB")
+
+    width_str, height_str = config["image_resolution"].lower().split("x")
+    target_width = int(width_str)
+    target_height = int(height_str)
+    target_ratio = target_width / target_height
+
+    anchor_y = (config.get("image_crop_anchor_y") or "center").strip().lower()
+    if anchor_y not in {"top", "center", "bottom"}:
+        anchor_y = "center"
+
+    img = crop_to_aspect(img, target_ratio, anchor_y=anchor_y)
+    img = img.resize((target_width, target_height), Image.LANCZOS)
+    img = add_episode_text_overlay(
+        img,
+        series.get("name", ""),
+        f"Episode {episode['number']}: {episode_image_title(episode)}",
+        config,
+    )
+
+    if output_path:
+        out_path = Path(output_path)
+    else:
+        out_path = input_path.with_name(
+            f"{input_path.stem}-overlay{input_path.suffix or '.png'}"
+        )
+
+    save_output_image(img, out_path, config)
+    print(f"Overlay image saved to {out_path}")
+
+
 def generate_all_images(series_file):
     series_file = Path(series_file)
 
@@ -1431,6 +1762,10 @@ def print_usage():
     )
     print("  python scripts/prompt-cli.py generate-image <series_file> "
           "<episode_number>")
+    print(
+        "  python scripts/prompt-cli.py overlay-image <series_file> "
+        "<episode_number> <input_image> [output_image]"
+    )
     print("  python scripts/prompt-cli.py generate-images <series_file>")
     print("  python scripts/prompt-cli.py generate-article <series_file> "
           "<episode_number>")
@@ -1482,6 +1817,16 @@ def main():
             return
 
         generate_single_image(sys.argv[2], sys.argv[3])
+        return
+
+    if command == "overlay-image":
+        if len(sys.argv) < 5:
+            print("Missing arguments.")
+            print_usage()
+            return
+
+        output_path = sys.argv[5] if len(sys.argv) > 5 else None
+        overlay_single_image(sys.argv[2], sys.argv[3], sys.argv[4], output_path)
         return
 
     if command == "generate-images":
