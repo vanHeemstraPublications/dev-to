@@ -11,6 +11,8 @@ organization: "the-software-s-journey"
 ---
 # The Gifts Are Under the Tree — From Spec to Merged PR 🎄
 
+Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+
 > Every year, on the morning of December 25th, I allow myself one quiet moment before the sleigh is unpacked and the Thank-You Letters start arriving. I sit in the empty Workshop, still warm from the night’s work, and look at the bare shelves where the gifts used to be. They are gone because they were delivered. Every one of them. On time, as specified, to the right address. That moment — that quiet confirmation that everything worked — is what we have been building towards in this entire series. Today, we deliver.
 
 ## The Complete Picture

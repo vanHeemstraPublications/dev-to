@@ -245,6 +245,11 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
+Repository callout requirement:
+- include this exact line immediately after the opening episode heading and before the main body text:
+  Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+
+
 Suggested frontmatter example:
 ---
 title: "Santa Augmentcode Intent Ep.7"
