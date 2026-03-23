@@ -5,7 +5,7 @@ part: 2
 description: "Father Christmas explains Living Specs — the beating heart of Intent that stays accurate as Elves work, and why your old PRD is like last year’s Christmas catalogue."
 tags: [augmentcode, intent, specdriven, aiagents]
 series: "Santa Augmentcode Intent Series"
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-02.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-02.webp"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
