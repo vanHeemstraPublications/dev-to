@@ -207,9 +207,11 @@ def load_series_config(series):
         if isinstance(loaded, dict):
             config.update(loaded)
 
-    # Article images are always generated/cropped to this final banner size.
-    config["image_resolution"] = DEFAULT_CONFIG["image_resolution"]
-    config["image_aspect_ratio"] = DEFAULT_CONFIG["image_aspect_ratio"]
+    # Article images always need an explicit final banner size. Use the
+    # series-specific value when present, otherwise fall back to the global
+    # default.
+    config.setdefault("image_resolution", DEFAULT_CONFIG["image_resolution"])
+    config.setdefault("image_aspect_ratio", DEFAULT_CONFIG["image_aspect_ratio"])
 
     if not config.get("image_public_base_url"):
         repo_url = config.get("github_repository_url", "").strip()
