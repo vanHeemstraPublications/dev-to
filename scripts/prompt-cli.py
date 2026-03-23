@@ -45,15 +45,15 @@ DEFAULT_CONFIG = {
     "article_frontmatter_required": True,
     "devto_organization": "the-software-s-journey",
     "article_title_prefix": "",
-    "image_resolution": "1930x814",
-    "image_aspect_ratio": "1930:814",
+    "image_resolution": "1000x420",
+    "image_aspect_ratio": "100:42",
     "image_format": "WebP",
     "image_max_file_size_kb": 400,
     "image_model": "gpt-image-1",
     "image_quality": "medium",
     "image_background": "opaque",
     "image_generation_size": "1536x1024",
-    # When we crop the model output to 1930x814, preserve the middle band where
+    # When we crop the model output to 1000x420, preserve the middle band where
     # both the title block and the main characters should live.
     "image_crop_anchor_y": "center",  # "top" | "center" | "bottom"
     "image_text_overlay_enabled": False,
