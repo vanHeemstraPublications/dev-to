@@ -3,8 +3,8 @@ series:
   name: Santa Augmentcode Intent Series
   type: augment_intent_explainer_series
   orientation: landscape
-  resolution: 2048x863
-  aspect_ratio: "2048:863"
+  resolution: 1000x420
+  aspect_ratio: "100:42"
   whitespace_margin_percent: 24
   deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
   prompt_template: prompts/santa_augmentcode_intent_episode_template.md

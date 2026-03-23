@@ -9,8 +9,8 @@ Slug: the-context-engine
 
 Canvas
 orientation: landscape
-resolution: 2048x863
-aspect ratio: 2048:863
+resolution: 1000x420
+aspect ratio: 100:42
 whitespace margin: 24%
 
 Defaults
@@ -37,7 +37,7 @@ Supporting Props
 
 
 Local Image Path
-images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-06.png
+images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-06.webp
 
 Public Cover Image URL
 [UPDATE_PUBLIC_COVER_IMAGE_URL]
@@ -57,24 +57,16 @@ Episode 6: The Context Engine
 
 
 Canvas requirements:
-- resolution: 2048x863
-- aspect ratio: 2048:863
+- resolution: 1000x420
+- aspect ratio: 100:42
 - landscape banner composition
-- preserve the requested banner aspect ratio exactly; do not fall back to a
-  standard default landscape frame such as 1536x1024 when a wider custom
-  banner canvas is requested
 - about 24% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-- export format: PNG
-- final delivered image must be exactly 2048x863 pixels
-- if the image tool first renders at a different internal size, crop and resize
-  the final image to exactly 2048x863 before returning it
-- keep the composition safe for that final crop/resize so no faces, hats, or
-  centered title text are lost or pushed into the crop zones
+- export format: WebP
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
@@ -159,7 +151,7 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-- verify every letter in the title and subtitle is fully visible in the final 2048x863 banner
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
 - verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
 - verify the centered title block stays well away from the top and bottom crop zones
@@ -185,10 +177,7 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 2048x863 banner composition
-- verify the delivered file itself is exactly 2048x863
-- if generation snapped to a different working size, crop/resize and re-check
-  the final delivered asset at exactly 2048x863
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
