@@ -9,8 +9,8 @@ Slug: factory-pattern
 
 Canvas
 orientation: landscape
-resolution: 1000x420
-aspect ratio: 100:42
+resolution: 1930x814
+aspect ratio: 1930:814
 whitespace margin: 15%
 
 Defaults
@@ -48,16 +48,21 @@ ChatGPT Image Prompt
 
 Create a polished cinematic landscape banner illustration for a web article.
 
-Series title:
-"Like Stories? Love Python!"
+Render the final banner typography inside the image itself.
 
-Episode subtitle:
-"Episode 2: Factory Pattern"
+The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
+
+Like Stories? Love Python!
+Episode 2: Factory Pattern
+
 
 Canvas requirements:
-- resolution: 1000x420
-- aspect ratio: 100:42
+- resolution: 1930x814
+- aspect ratio: 1930:814
 - landscape banner composition
+- preserve the requested banner aspect ratio exactly; do not fall back to a
+  standard default landscape frame such as 1536x1024 when a wider custom
+  banner canvas is requested
 - about 15% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
@@ -122,44 +127,39 @@ Character framing requirements:
 - For lead presenters, prefer medium-shot or three-quarter framing instead of full-body framing when needed to preserve full face/head visibility.
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
-DEV.to title safety requirements:
-- This image will be used as a DEV.to article header/banner.
-- DEV.to often crops the top/bottom edges of cover images.
-- Keep all text fully readable inside a conservative safe area.
-- Do not place important text near the extreme edges.
+Typography handling:
+- Render the final banner typography inside the image itself.
+- The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
+- Render exactly this readable two-line title block inside the image:
+  - Like Stories? Love Python!
+  - Episode 2: Factory Pattern
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 14% away from the top edge.
-- Keep title typography at least 24% away from the bottom edge.
-- Do NOT place any text in the top safe-margin area.
-- Treat the bottom 24% of the image as a NO-TEXT zone too.
-- Place the entire title block in the visual middle band of the image (not the top third).
-- Keep the entire two-line title block fully above the bottom no-text zone.
-- Keep the subtitle clearly below the main title with generous spacing.
-- Use slightly smaller typography rather than oversized typography if needed.
-- If the full title block does not fit comfortably, reduce font size or move the text upward; never solve it by pushing the subtitle lower.
-- Leave visible empty space below the subtitle; no part of any letter, including descenders like g, j, p, q, and y, may approach the bottom edge.
-- Do not let any letter, banner, or ornament touch the image edge.
-- The full title and subtitle must be completely visible.
-
-Placement target (important):
-- Treat the top 14% of the image as a NO-TEXT zone.
-- Treat everything below roughly 76% image height as a NO-TEXT zone.
-- Place the series title so its cap-height starts below that zone.
-- Aim for the title block center around ~37% of image height.
-- If unsure, place the title block slightly higher rather than lower.
-- Place the subtitle below the series title (not above).
+- Keep title typography at least 40% away from the bottom edge.
+- Place the entire two-line title block in the middle safe band of the image, slightly above the exact vertical center so the subtitle remains fully visible in a wide DEV.to banner.
+- Aim for the center of the full two-line block around ~32% of image height.
+- Keep the lowest visible text pixel above roughly 58% image height.
+- Interpret the block center as the center of the entire two-line title block, not the first line and not the text baseline.
+- Center the title block horizontally.
+- Reserve a calm central horizontal lane for the title block; keep faces, hands, bright focal props, monitors, sparks, and important objects out of that middle lane.
+- Make the text large, crisp, elegant, and fully legible.
+- Use refined serif typography in warm ivory or parchment-white with a subtle dark outline or shadow for contrast.
+- Keep the title and subtitle tightly grouped as one centered block.
+- Leave obvious empty background below the subtitle; do not let any letter descender such as g, j, p, q, or y approach the bottom crop zone.
+- If there is any tension between artistic composition and text safety, move the title block upward rather than downward.
+- Do not place the text near the top edge or bottom edge.
+- Do not use the text as a footer, lower-third caption, sticky note, sign, or screen content.
+- The centered title block must be the only large readable text in the image.
+- If papers, sticky notes, screens, signs, or labels appear, any writing on them must remain tiny and illegible decorative scribble only.
+- Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
-- verify there is obvious empty space below the subtitle
-- if any part of the text is clipped or too close to the bottom edge, move the text upward and/or reduce font size
-
-Exact text to include:
-Top title:
-"Like Stories? Love Python!"
-
-Subtitle:
-"Episode 2: Factory Pattern"
+- verify every letter in the title and subtitle is fully visible in the final 1930x814 banner
+- verify the exact two-line title block is clearly readable and centered horizontally in the final image
+- verify the full two-line title block is centered around roughly 32% image height, not sitting low like a footer
+- verify the centered title block stays well away from the top and bottom crop zones
+- verify the lowest visible text pixel stays above roughly 58% image height
+- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
 Reference repository for the series concept:
 https://github.com/software-journey/kubernetes
 
@@ -178,12 +178,12 @@ Avoid:
 - messy perspective
 - low-detail background
 - accidental portrait orientation
-- oversized title text
-- cropped-looking typography
+- generated footer bars or lower-third title treatments
+- missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1000x420 banner composition
+  final 1930x814 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
