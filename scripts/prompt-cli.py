@@ -45,15 +45,15 @@ DEFAULT_CONFIG = {
     "article_frontmatter_required": True,
     "devto_organization": "the-software-s-journey",
     "article_title_prefix": "",
-    "image_resolution": "1000x420",
-    "image_aspect_ratio": "100:42",
+    "image_resolution": "1930x814",
+    "image_aspect_ratio": "1930:814",
     "image_format": "WebP",
     "image_max_file_size_kb": 400,
     "image_model": "gpt-image-1",
     "image_quality": "medium",
     "image_background": "opaque",
     "image_generation_size": "1536x1024",
-    # When we crop the model output to 1000x420, preserve the middle band where
+    # When we crop the model output to 1930x814, preserve the middle band where
     # both the title block and the main characters should live.
     "image_crop_anchor_y": "center",  # "top" | "center" | "bottom"
     "image_text_overlay_enabled": False,
@@ -207,6 +207,10 @@ def load_series_config(series):
         if isinstance(loaded, dict):
             config.update(loaded)
 
+    # Article images are always generated/cropped to this final banner size.
+    config["image_resolution"] = DEFAULT_CONFIG["image_resolution"]
+    config["image_aspect_ratio"] = DEFAULT_CONFIG["image_aspect_ratio"]
+
     if not config.get("image_public_base_url"):
         repo_url = config.get("github_repository_url", "").strip()
         branch = config.get("image_public_branch", "main").strip() or "main"
@@ -288,6 +292,7 @@ def derive_raw_github_images_base_url(repo_url, branch):
 
 
 def build_title_safety_block(series_name, episode_number, title, config):
+    resolution = config["image_resolution"]
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = max(config["image_title_safe_bottom_percent"], 40)
@@ -339,7 +344,7 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "text.\n\n"
         "Final text acceptance check before finishing:\n"
         "- verify every letter in the title and subtitle is fully visible in the "
-        "final 1000x420 banner\n"
+        f"final {resolution} banner\n"
         "- verify the exact two-line title block is clearly readable and centered "
         "horizontally in the final image\n"
         f"- verify the full two-line title block is centered around roughly "
@@ -480,6 +485,9 @@ Canvas requirements:
 - resolution: {config["image_resolution"]}
 - aspect ratio: {config["image_aspect_ratio"]}
 - landscape banner composition
+- preserve the requested banner aspect ratio exactly; do not fall back to a
+  standard default landscape frame such as 1536x1024 when a wider custom
+  banner canvas is requested
 - about {config["image_whitespace_margin_percent"]}% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
@@ -487,6 +495,11 @@ Canvas requirements:
 
 Output requirements:
 - export format: {config["image_format"]}
+- final delivered image must be exactly {config["image_resolution"]} pixels
+- if the image tool first renders at a different internal size, crop and resize
+  the final image to exactly {config["image_resolution"]} before returning it
+- keep the composition safe for that final crop/resize so no faces, hats, or
+  centered title text are lost or pushed into the crop zones
 - target file size: under {config["image_max_file_size_kb"]} KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
@@ -551,7 +564,10 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1000x420 banner composition
+  final {config["image_resolution"]} banner composition
+- verify the delivered file itself is exactly {config["image_resolution"]}
+- if generation snapped to a different working size, crop/resize and re-check
+  the final delivered asset at exactly {config["image_resolution"]}
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 """.strip()
@@ -586,6 +602,9 @@ Canvas requirements:
 - resolution: {config["image_resolution"]}
 - aspect ratio: {config["image_aspect_ratio"]}
 - landscape banner composition
+- preserve the requested banner aspect ratio exactly; do not fall back to a
+  standard default landscape frame such as 1536x1024 when a wider custom
+  banner canvas is requested
 - about {config["image_whitespace_margin_percent"]}% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header or repository
@@ -594,6 +613,11 @@ Canvas requirements:
 
 Output requirements:
 - export format: {config["image_format"]}
+- final delivered image must be exactly {config["image_resolution"]} pixels
+- if the image tool first renders at a different internal size, crop and resize
+  the final image to exactly {config["image_resolution"]} before returning it
+- keep the composition safe for that final crop/resize so no faces, hats, or
+  centered title text are lost or pushed into the crop zones
 - target file size: under {config["image_max_file_size_kb"]} KB
 - optimized for fast web loading
 
@@ -654,7 +678,10 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1000x420 banner composition
+  final {config["image_resolution"]} banner composition
+- verify the delivered file itself is exactly {config["image_resolution"]}
+- if generation snapped to a different working size, crop/resize and re-check
+  the final delivered asset at exactly {config["image_resolution"]}
 - verify there is obvious empty space above the highest head or hat
 - verify every title/subtitle letter is fully visible with clear empty space
   below the text block

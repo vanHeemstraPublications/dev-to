@@ -4,7 +4,7 @@ published: false
 part: 3
 description: "Father Christmas explains the elegant division of labour inside Intent: the Coordinator Agent plans and delegates, Specialist Agents execute, and the Verifier checks. Just like Christmas."
 tags: [augmentcode, intent, aiagents, agentic]
-series: "Santa Augmentcode Intent"
+series: "Santa Augmentcode Intent Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-03.png"
 canonical_url: ""
 organization: "the-software-s-journey"

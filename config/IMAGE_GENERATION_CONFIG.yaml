@@ -1,6 +1,6 @@
 model: image-generation
-resolution: 1792x1024
-aspect_ratio: 16:9
+resolution: 1930x814
+aspect_ratio: 1930:814
 
 deterministic_settings:
   seed: 847261

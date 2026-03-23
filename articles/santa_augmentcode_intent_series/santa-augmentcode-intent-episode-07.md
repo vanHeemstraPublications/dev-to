@@ -4,7 +4,7 @@ published: false
 part: 7
 description: "Father Christmas explains how Intent orchestrates multiple agents running simultaneously without collisions, missed handoffs, or Christmas catastrophes. Waves, dependencies, and the art of elegant parallelism."
 tags: [augmentcode, intent, multiagent, orchestration]
-series: "Santa Augmentcode Intent"
+series: "Santa Augmentcode Intent Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-07.png"
 canonical_url: ""
 organization: "the-software-s-journey"

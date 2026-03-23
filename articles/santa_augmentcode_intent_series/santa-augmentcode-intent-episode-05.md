@@ -4,7 +4,7 @@ published: false
 part: 5
 description: "Father Christmas explains Spec-Driven Development: why the plan must become the product, how living specs prevent late-night disasters, and why the North Pole has always been spec-driven."
 tags: [augmentcode, intent, specdriven, softwaredevelopment]
-series: "Santa Augmentcode Intent"
+series: "Santa Augmentcode Intent Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-05.png"
 canonical_url: ""
 organization: "the-software-s-journey"
