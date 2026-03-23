@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-# The Master Gift List That Writes Itself 🎄 
+# The Master Gift List That Writes Itself 🎄
 
 > Every year, on the first of December, I sit at my great oak desk and open the Master Gift List. In the old days, I wrote it once and hoped for the best. By the fifteenth, it bore little resemblance to reality. An Elf had improvised. A supplier had changed a toy’s colour. Three children had written amended letters. The List lied to me — and I only found out on Christmas Eve.No more.
 

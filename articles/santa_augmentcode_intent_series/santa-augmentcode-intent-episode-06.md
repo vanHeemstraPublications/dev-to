@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-# The Workshop Knows Every Toy — The Context Engine 🧠 
+# The Workshop Knows Every Toy — The Context Engine 🧠
 
 > People often ask: how do the Elves know how to build anything? We do not run a formal university. There is no Elf Academy. The answer is the Workshop Library — a living collection of every toy blueprint, every material data sheet, every technique manual, and every lesson learned from every Christmas since 843 AD. When an Elf sits down at their workbench, they are not starting from scratch. They are standing on twelve centuries of accumulated knowledge. Augment calls their version of this the Context Engine. I call it essential.
 
