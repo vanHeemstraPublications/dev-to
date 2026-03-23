@@ -9,8 +9,8 @@ Slug: episode-5
 
 Canvas
 orientation: landscape
-resolution: 1930x814
-aspect ratio: 1930:814
+resolution: 1000x420
+aspect ratio: 100:42
 whitespace margin: 24%
 
 Defaults
@@ -55,8 +55,8 @@ Episode 5: Launch Sequence (terraform apply & the State File)
 
 
 Canvas requirements:
-- resolution: 1930x814
-- aspect ratio: 1930:814
+- resolution: 1000x420
+- aspect ratio: 100:42
 - landscape banner composition
 - about 24% whitespace around the
   artwork
@@ -129,11 +129,11 @@ Typography handling:
   - To The Moon Terraform Series
   - Episode 5: Launch Sequence (terraform apply & the State File)
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 52% away from the top edge.
+- Keep title typography at least 40% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.
 - Place the entire two-line title block in the middle safe band of the image, slightly above the exact vertical center so the subtitle remains fully visible in a wide DEV.to banner.
-- Aim for the center of the full two-line block around ~55% of image height.
-- Keep the lowest visible text pixel above roughly 60% image height.
+- Aim for the center of the full two-line block around ~47% of image height.
+- Keep the lowest visible text pixel above roughly 58% image height.
 - Interpret the block center as the center of the entire two-line title block, not the first line and not the text baseline.
 - Center the title block horizontally.
 - Reserve a calm central horizontal lane for the title block; keep faces, hands, bright focal props, monitors, sparks, and important objects out of that middle lane.
@@ -149,11 +149,11 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-- verify every letter in the title and subtitle is fully visible in the final 1930x814 banner
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
-- verify the full two-line title block is centered around roughly 55% image height, not sitting low like a footer
+- verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
 - verify the centered title block stays well away from the top and bottom crop zones
-- verify the lowest visible text pixel stays above roughly 60% image height
+- verify the lowest visible text pixel stays above roughly 58% image height
 - if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
 Reference repository for the series concept:
 https://github.com/software-journey/terraform
@@ -178,7 +178,7 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1930x814 banner composition
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 

@@ -9,9 +9,9 @@ Slug: command-pattern
 
 Canvas
 orientation: landscape
-resolution: 1930x814
-aspect ratio: 1930:814
-whitespace margin: 15%
+resolution: 1000x420
+aspect ratio: 100:42
+whitespace margin: 24%
 
 Defaults
 setting: Hollywood film set at sunset
@@ -57,10 +57,10 @@ Episode 8: Command Pattern
 
 
 Canvas requirements:
-- resolution: 1930x814
-- aspect ratio: 1930:814
+- resolution: 1000x420
+- aspect ratio: 100:42
 - landscape banner composition
-- about 15% whitespace around the
+- about 24% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
@@ -131,10 +131,10 @@ Typography handling:
   - Like Stories? Love Python!
   - Episode 8: Command Pattern
 - Keep title typography at least 12% away from the left and right edges.
-- Keep title typography at least 14% away from the top edge.
+- Keep title typography at least 40% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.
 - Place the entire two-line title block in the middle safe band of the image, slightly above the exact vertical center so the subtitle remains fully visible in a wide DEV.to banner.
-- Aim for the center of the full two-line block around ~32% of image height.
+- Aim for the center of the full two-line block around ~47% of image height.
 - Keep the lowest visible text pixel above roughly 58% image height.
 - Interpret the block center as the center of the entire two-line title block, not the first line and not the text baseline.
 - Center the title block horizontally.
@@ -151,9 +151,9 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-- verify every letter in the title and subtitle is fully visible in the final 1930x814 banner
+- verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
-- verify the full two-line title block is centered around roughly 32% image height, not sitting low like a footer
+- verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
 - verify the centered title block stays well away from the top and bottom crop zones
 - verify the lowest visible text pixel stays above roughly 58% image height
 - if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
@@ -180,7 +180,7 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1930x814 banner composition
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 

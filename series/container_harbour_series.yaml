@@ -3,9 +3,9 @@ series:
   name: "Welcome to container harbour!"
   type: kubernetes_explainer_series
   orientation: landscape
-  resolution: "1930x814"
-  aspect_ratio: "1930:814"
-  whitespace_margin_percent: 15
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
   deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
   prompt_template: "prompts/kubernetes_episode_template.md"
   series_config: "config/welcome-to-container-harbour-series.json"

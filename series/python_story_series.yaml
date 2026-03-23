@@ -3,9 +3,9 @@ series:
   name: "Like Stories? Love Python!"
   type: python_design_patterns
   orientation: landscape
-  resolution: "1930x814"
-  aspect_ratio: "1930:814"
-  whitespace_margin_percent: 15
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
   deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
   prompt_template: "prompts/python_story_episode_template.md"
   series_config: "config/like-stories-love-python-series.json"
