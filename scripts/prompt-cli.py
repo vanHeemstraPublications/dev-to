@@ -426,6 +426,7 @@ def build_image_prompt(data, episode, config):
     series = data.get("series", {})
     defaults = data.get("defaults", {})
     composition = defaults.get("composition", {})
+    overlay_enabled = is_enabled(config.get("image_text_overlay_enabled"))
 
     series_name = series.get("name", "")
     title = episode_image_title(episode)
@@ -441,21 +442,25 @@ def build_image_prompt(data, episode, config):
     background = composition.get("background", "")
 
     props_text = ", ".join(episode.get("supporting_props", []))
-    title_guidance = build_title_safety_block(
-        series_name,
-        episode["number"],
-        title,
-        config,
-    )
-    title_context = (
-        "Render the final banner typography inside the image itself.\n\n"
-        "The image is not complete unless the exact two-line title text below "
-        "is visibly rendered in the final image, centered horizontally and kept "
-        "slightly above true vertical center so the entire subtitle remains fully "
-        "visible:\n\n"
-        f"{series_name}\n"
-        f"Episode {episode['number']}: {title}\n"
-    )
+    if overlay_enabled:
+        title_guidance = build_post_overlay_text_block()
+        title_context = ""
+    else:
+        title_guidance = build_title_safety_block(
+            series_name,
+            episode["number"],
+            title,
+            config,
+        )
+        title_context = (
+            "Render the final banner typography inside the image itself.\n\n"
+            "The image is not complete unless the exact two-line title text below "
+            "is visibly rendered in the final image, centered horizontally and kept "
+            "slightly above true vertical center so the entire subtitle remains fully "
+            "visible:\n\n"
+            f"{series_name}\n"
+            f"Episode {episode['number']}: {title}\n"
+        )
     character_safety = build_character_safety_block()
 
     repo_url = config.get("github_repository_url", "")
@@ -1505,11 +1510,17 @@ def generate_episode_image(data, episode):
 
     prompt = build_image_prompt(data, episode, config)
     out_path = get_episode_image_path(series, episode, config)
+    overlay_text = None
+    if is_enabled(config.get("image_text_overlay_enabled")):
+        overlay_text = {
+            "title": series.get("name", ""),
+            "subtitle": f"Episode {episode['number']}: {episode_image_title(episode)}",
+        }
 
     prompt_path = out_path.with_suffix(".prompt.txt")
     prompt_path.write_text(prompt + "\n", encoding="utf-8")
 
-    generate_image_file(prompt, config, out_path)
+    generate_image_file(prompt, config, out_path, overlay_text=overlay_text)
 
     print(f"Generated image {out_path}")
     print(f"Saved prompt {prompt_path}")
