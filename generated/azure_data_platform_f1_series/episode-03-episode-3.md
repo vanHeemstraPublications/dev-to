@@ -246,6 +246,7 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
+
 Suggested frontmatter example:
 ---
 title: "Azure Data Platform F1 Ep.3"
