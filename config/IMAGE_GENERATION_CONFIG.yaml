@@ -1,6 +1,6 @@
 model: image-generation
-resolution: 1930x814
-aspect_ratio: 1930:814
+resolution: 1000x420
+aspect_ratio: 100:42
 
 deterministic_settings:
   seed: 847261
@@ -10,7 +10,7 @@ deterministic_settings:
 
 composition:
   layout: landscape
-  whitespace_margin: 15%
+  whitespace_margin: 24%
 
 lighting:
   style: golden_hour

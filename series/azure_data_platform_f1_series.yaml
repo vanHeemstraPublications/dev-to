@@ -3,9 +3,9 @@ series:
   name: Azure Data Platform F1 Series
   type: dev_to_series
   orientation: landscape
-  resolution: 1930x814
-  aspect_ratio: '1930:814'
-  whitespace_margin_percent: 15
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
   prompt_template: "prompts/PROMPT_TEMPLATE.md"
   series_config: config/azure-data-platform-f1-series.json
 defaults:
