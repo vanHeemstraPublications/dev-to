@@ -48,7 +48,7 @@ Create a polished cinematic landscape banner illustration for a web article.
 
 Render the final banner typography inside the image itself.
 
-The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and centered vertically:
+The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
 To The Moon Terraform Series
 Episode 14: Return to Earth
@@ -131,12 +131,17 @@ Typography handling:
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 52% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.
-- Place the entire two-line title block exactly in the vertical middle of the image so it remains visible in a wide DEV.to banner.
+- Place the entire two-line title block in the middle safe band of the image, slightly above the exact vertical center so the subtitle remains fully visible in a wide DEV.to banner.
+- Aim for the center of the full two-line block around ~55% of image height.
+- Keep the lowest visible text pixel above roughly 60% image height.
+- Interpret the block center as the center of the entire two-line title block, not the first line and not the text baseline.
 - Center the title block horizontally.
 - Reserve a calm central horizontal lane for the title block; keep faces, hands, bright focal props, monitors, sparks, and important objects out of that middle lane.
 - Make the text large, crisp, elegant, and fully legible.
 - Use refined serif typography in warm ivory or parchment-white with a subtle dark outline or shadow for contrast.
 - Keep the title and subtitle tightly grouped as one centered block.
+- Leave obvious empty background below the subtitle; do not let any letter descender such as g, j, p, q, or y approach the bottom crop zone.
+- If there is any tension between artistic composition and text safety, move the title block upward rather than downward.
 - Do not place the text near the top edge or bottom edge.
 - Do not use the text as a footer, lower-third caption, sticky note, sign, or screen content.
 - The centered title block must be the only large readable text in the image.
@@ -145,9 +150,11 @@ Typography handling:
 
 Final text acceptance check before finishing:
 - verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
-- verify the exact two-line title block is clearly readable and centered vertically in the final image
+- verify the exact two-line title block is clearly readable and centered horizontally in the final image
+- verify the full two-line title block is centered around roughly 55% image height, not sitting low like a footer
 - verify the centered title block stays well away from the top and bottom crop zones
-- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, and reduce font size slightly if needed
+- verify the lowest visible text pixel stays above roughly 60% image height
+- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
 Reference repository for the series concept:
 https://github.com/software-journey/terraform
 
