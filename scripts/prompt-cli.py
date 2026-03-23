@@ -39,6 +39,8 @@ DEFAULT_CONFIG = {
     "article_repository_url": (
         "https://github.com/vanHeemstraSystems/dev-to/articles/"
     ),
+    "article_source_code_repository_name": "",
+    "article_source_code_repository_url": "",
     "article_tone": "light-hearted, humorous, beginner-friendly",
     "article_humor_style": "playful and witty",
     "article_code_language": "Python",
@@ -808,6 +810,8 @@ def build_article_prompt(data, episode, config):
 
     github_url = config.get("github_repository_url", "")
     article_repo = config.get("article_repository_url", "")
+    source_repo_name = config.get("article_source_code_repository_name", "")
+    source_repo_url = config.get("article_source_code_repository_url", "")
     structure_block = build_article_structure_block(config)
 
     repo_reference = ""
@@ -815,6 +819,16 @@ def build_article_prompt(data, episode, config):
         repo_reference = (
             "\nSeries repository for reference:\n"
             f"{github_url}\n"
+        )
+
+    source_repo_block = ""
+    if source_repo_name and source_repo_url:
+        source_repo_block = (
+            "\nRepository callout requirement:\n"
+            "- include this exact line immediately after the opening episode "
+            "heading and before the main body text:\n"
+            f"  Accompanying source code repository: [`{source_repo_name}`]"
+            f"({source_repo_url})\n"
         )
 
     frontmatter_line = (
@@ -882,6 +896,7 @@ Article requirements:
 - include explanations of the code
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
+{source_repo_block}
 
 Suggested frontmatter example:
 {frontmatter_hint}
