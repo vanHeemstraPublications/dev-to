@@ -58,9 +58,6 @@ Canvas requirements:
 - resolution: 1930x814
 - aspect ratio: 1930:814
 - landscape banner composition
-- preserve the requested banner aspect ratio exactly; do not fall back to a
-  standard default landscape frame such as 1536x1024 when a wider custom
-  banner canvas is requested
 - about 24% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
@@ -68,11 +65,6 @@ Canvas requirements:
 
 Output requirements:
 - export format: WebP
-- final delivered image must be exactly 1930x814 pixels
-- if the image tool first renders at a different internal size, crop and resize
-  the final image to exactly 1930x814 before returning it
-- keep the composition safe for that final crop/resize so no faces, hats, or
-  centered title text are lost or pushed into the crop zones
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
@@ -187,9 +179,6 @@ Avoid:
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
   final 1930x814 banner composition
-- verify the delivered file itself is exactly 1930x814
-- if generation snapped to a different working size, crop/resize and re-check
-  the final delivered asset at exactly 1930x814
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
