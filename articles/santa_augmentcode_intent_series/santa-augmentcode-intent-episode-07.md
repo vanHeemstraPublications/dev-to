@@ -9,7 +9,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-# Parallel Elves, Zero Chaos — Multi-Agent Orchestration 🎁 — Augment Intent, Episode 7
+# Parallel Elves, Zero Chaos — Multi-Agent Orchestration 🎁
 
 > The secret to running a smooth Workshop is understanding the difference between work that can happen at the same time and work that cannot. You cannot paint a toy before it is carved. You cannot test a toy before it is assembled. But you can absolutely carve a hundred toys simultaneously, paint them in parallel once each is carved, and run quality checks in a third wave. The key is knowing the dependencies. The key, always, is the spec.
 
