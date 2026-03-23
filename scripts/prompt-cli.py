@@ -495,6 +495,11 @@ Canvas requirements:
 
 Output requirements:
 - export format: {config["image_format"]}
+- final delivered image must be exactly {config["image_resolution"]} pixels
+- if the image tool first renders at a different internal size, crop and resize
+  the final image to exactly {config["image_resolution"]} before returning it
+- keep the composition safe for that final crop/resize so no faces, hats, or
+  centered title text are lost or pushed into the crop zones
 - target file size: under {config["image_max_file_size_kb"]} KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
@@ -560,6 +565,9 @@ Avoid:
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
   final {config["image_resolution"]} banner composition
+- verify the delivered file itself is exactly {config["image_resolution"]}
+- if generation snapped to a different working size, crop/resize and re-check
+  the final delivered asset at exactly {config["image_resolution"]}
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 """.strip()
@@ -605,6 +613,11 @@ Canvas requirements:
 
 Output requirements:
 - export format: {config["image_format"]}
+- final delivered image must be exactly {config["image_resolution"]} pixels
+- if the image tool first renders at a different internal size, crop and resize
+  the final image to exactly {config["image_resolution"]} before returning it
+- keep the composition safe for that final crop/resize so no faces, hats, or
+  centered title text are lost or pushed into the crop zones
 - target file size: under {config["image_max_file_size_kb"]} KB
 - optimized for fast web loading
 
@@ -666,6 +679,9 @@ Avoid:
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
   final {config["image_resolution"]} banner composition
+- verify the delivered file itself is exactly {config["image_resolution"]}
+- if generation snapped to a different working size, crop/resize and re-check
+  the final delivered asset at exactly {config["image_resolution"]}
 - verify there is obvious empty space above the highest head or hat
 - verify every title/subtitle letter is fully visible with clear empty space
   below the text block
