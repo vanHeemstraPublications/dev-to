@@ -480,6 +480,9 @@ Canvas requirements:
 - resolution: {config["image_resolution"]}
 - aspect ratio: {config["image_aspect_ratio"]}
 - landscape banner composition
+- preserve the requested banner aspect ratio exactly; do not fall back to a
+  standard default landscape frame such as 1536x1024 when a wider custom
+  banner canvas is requested
 - about {config["image_whitespace_margin_percent"]}% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header
@@ -586,6 +589,9 @@ Canvas requirements:
 - resolution: {config["image_resolution"]}
 - aspect ratio: {config["image_aspect_ratio"]}
 - landscape banner composition
+- preserve the requested banner aspect ratio exactly; do not fall back to a
+  standard default landscape frame such as 1536x1024 when a wider custom
+  banner canvas is requested
 - about {config["image_whitespace_margin_percent"]}% whitespace around the
   artwork
 - clean readable layout suitable for a DEV.to article header or repository
