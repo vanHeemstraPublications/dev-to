@@ -4,7 +4,7 @@ published: false
 part: 4
 description: "Father Christmas explains how Intent gives every agent its own isolated workspace using Git worktrees — so parallel Elves never step on each other’s work."
 tags: [augmentcode, intent, git, devtools]
-series: "Santa Augmentcode Intent"
+series: "Santa Augmentcode Intent Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-04.png"
 canonical_url: ""
 organization: "the-software-s-journey"

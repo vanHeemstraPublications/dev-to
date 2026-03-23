@@ -288,6 +288,7 @@ def derive_raw_github_images_base_url(repo_url, branch):
 
 
 def build_title_safety_block(series_name, episode_number, title, config):
+    resolution = config["image_resolution"]
     lr = config["image_title_safe_left_right_percent"]
     top = config["image_title_safe_top_percent"]
     bottom = max(config["image_title_safe_bottom_percent"], 40)
@@ -339,7 +340,7 @@ def build_title_safety_block(series_name, episode_number, title, config):
         "text.\n\n"
         "Final text acceptance check before finishing:\n"
         "- verify every letter in the title and subtitle is fully visible in the "
-        "final 1000x420 banner\n"
+        f"final {resolution} banner\n"
         "- verify the exact two-line title block is clearly readable and centered "
         "horizontally in the final image\n"
         f"- verify the full two-line title block is centered around roughly "
@@ -554,7 +555,7 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1000x420 banner composition
+  final {config["image_resolution"]} banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 """.strip()
@@ -660,7 +661,7 @@ Avoid:
 
 Final acceptance check before finishing:
 - verify every main face, head, beard, hair, and hat is fully visible in the
-  final 1000x420 banner composition
+  final {config["image_resolution"]} banner composition
 - verify there is obvious empty space above the highest head or hat
 - verify every title/subtitle letter is fully visible with clear empty space
   below the text block

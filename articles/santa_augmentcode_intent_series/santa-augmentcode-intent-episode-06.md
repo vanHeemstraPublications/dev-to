@@ -4,7 +4,7 @@ published: false
 part: 6
 description: "Father Christmas reveals the secret behind every Elf’s expertise: the Context Engine. Augment’s real-time codebase intelligence that gives every agent deep understanding of your entire stack."
 tags: [augmentcode, intent, contextengine, ai]
-series: "Santa Augmentcode Intent"
+series: "Santa Augmentcode Intent Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/santa_augmentcode_intent_series/santa-augmentcode-intent-episode-06.png"
 canonical_url: ""
 organization: "the-software-s-journey"
