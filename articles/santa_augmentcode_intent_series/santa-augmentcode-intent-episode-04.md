@@ -11,6 +11,8 @@ organization: "the-software-s-journey"
 ---
 # Every Elf Gets a Workbench — Isolated Workspaces 🔨
 
+Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+
 > In the early Workshop days, all the Elves shared one big table. It seemed efficient. It was a disaster. Jingle would sand a wheel just as Jangle reached for it. Twinkle’s paint would end up on Tinkle’s train set. The great Christmas Collision of 1889 — I do not wish to speak of it. The solution was obvious in retrospect: give every Elf their own workbench. Isolated, private, but connected to the same Master Gift List.Augment Intent does the same thing. It just calls them workspaces.
 
 ## The Problem With Sharing a Codebase

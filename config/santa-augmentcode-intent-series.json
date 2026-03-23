@@ -1,6 +1,8 @@
 {
   "github_repository_url": "",
   "article_repository_url": "https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/",
+  "article_source_code_repository_name": "Santa Augmentcode Intent",
+  "article_source_code_repository_url": "https://github.com/software-journey/augmentcode-intent",
   "article_tone": "warm, storybook-like, technically clear, beginner-friendly, and gently humorous",
   "article_humor_style": "Father Christmas fireside narration with cosy wit, festive metaphors, and confident technical explanations",
   "article_code_language": "Markdown with shell, YAML, and JSON snippets where helpful",
