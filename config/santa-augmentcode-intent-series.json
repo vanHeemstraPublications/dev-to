@@ -16,7 +16,7 @@
   "image_background": "opaque",
   "image_generation_size": "1536x1024",
   "image_crop_anchor_y": "center",
-  "image_text_overlay_enabled": true,
+  "image_text_overlay_enabled": false,
   "image_whitespace_margin_percent": 24,
   "image_title_safe_left_right_percent": 12,
   "image_title_safe_top_percent": 40,
