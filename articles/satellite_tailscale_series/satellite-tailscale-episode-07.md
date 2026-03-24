@@ -6,6 +6,7 @@ tags: tailscale, rustdesk, remotedesktop, security
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🛰️ Satellite Tailscale — Episode 7: Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)
