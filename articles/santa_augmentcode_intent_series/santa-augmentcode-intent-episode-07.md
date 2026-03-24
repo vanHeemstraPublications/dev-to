@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Parallel Elves, Zero Chaos — Multi-Agent Orchestration 🎁
 
-Accompanying source code repository: `Santa Augmentcode Intent`
+Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
 
 > The secret to running a smooth Workshop is understanding the difference between work that can happen at the same time and work that cannot. You cannot paint a toy before it is carved. You cannot test a toy before it is assembled. But you can absolutely carve a hundred toys simultaneously, paint them in parallel once each is carved, and run quality checks in a third wave. The key is knowing the dependencies. The key, always, is the spec.
 
