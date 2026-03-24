@@ -144,4 +144,4 @@ In Episode 6, Father Christmas will explain the **Context Engine** — the magic
 
 > The plan is the product. Everything else is wrapping paper.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
