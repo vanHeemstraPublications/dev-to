@@ -1,5 +1,5 @@
 ---
-title: "🛰️ Satellite Tailscale — Episode 3: The Mobile Ground Station (iPad Mini)"
+title: "Satellite Tailscale — Ep. 3"
 published: false
 description: "Your iPad Mini is the roaming satellite dish — connecting from coffeeshops, airports, and hotel lobbies back to your Mac Mini at home. Let's get it into orbit."
 tags: tailscale, ipad, ios, mobile
