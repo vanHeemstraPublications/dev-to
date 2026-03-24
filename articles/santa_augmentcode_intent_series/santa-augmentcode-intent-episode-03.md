@@ -137,4 +137,4 @@ In Episode 4, we will visit each Elf’s private workbench — the **isolated wo
 
 > Every great team needs great coordination. I have been coordinating for over a thousand years. I am pleased that software has finally caught up.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
