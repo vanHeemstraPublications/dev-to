@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Finishing Before Christmas — Spec-Driven Development 📜
 
-Accompanying source code repository: `Santa Augmentcode Intent`
+Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
 
 > Do you know why Christmas always arrives on time? Not because I am superhuman. Not because the reindeer are faster than physics should allow. Christmas arrives on time because of one inviolable rule in the North Pole: nothing gets built until we agree, in writing, on what done looks like. We call it the Master Gift List. The world calls it Spec-Driven Development. The result is the same: no surprises on Christmas morning.
 
