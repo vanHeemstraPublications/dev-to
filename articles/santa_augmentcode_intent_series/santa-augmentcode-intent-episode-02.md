@@ -118,4 +118,4 @@ In Episode 3, Father Christmas will introduce the most important relationship in
 
 > The Master Gift List is only as good as the team that follows it. Fortunately, my team is excellent.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
