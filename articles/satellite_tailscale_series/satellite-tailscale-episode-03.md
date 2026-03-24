@@ -6,6 +6,7 @@ tags: tailscale, ipad, ios, mobile
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🛰️ Satellite Tailscale — Episode 3: The Mobile Ground Station (iPad Mini)
