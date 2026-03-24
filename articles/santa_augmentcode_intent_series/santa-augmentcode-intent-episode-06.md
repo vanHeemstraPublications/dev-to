@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.6"
-published: false
+published: true
 part: 6
 description: "Father Christmas reveals the secret behind every Elf’s expertise: the Context Engine. Augment’s real-time codebase intelligence that gives every agent deep understanding of your entire stack."
 tags: [augmentcode, intent, contextengine, ai]
@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # The Workshop Knows Every Toy — The Context Engine 🧠
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > People often ask: how do the Elves know how to build anything? We do not run a formal university. There is no Elf Academy. The answer is the Workshop Library — a living collection of every toy blueprint, every material data sheet, every technique manual, and every lesson learned from every Christmas since 843 AD. When an Elf sits down at their workbench, they are not starting from scratch. They are standing on twelve centuries of accumulated knowledge. Augment calls their version of this the Context Engine. I call it essential.
 
@@ -100,4 +100,4 @@ In Episode 7, we bring everything together: multiple Elves, working simultaneous
 
 > An Elf without context is an Elf making expensive guesses. Give them the Library. Give them the Context Engine. Watch them build miracles.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
