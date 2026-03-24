@@ -1,5 +1,5 @@
 ---
-title: "🛰️ Satellite Tailscale — Episode 7: Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)"
+title: "Satellite Tailscale — Ep.7"
 published: false
 description: "SSH is powerful, but sometimes you need to see the whole desktop. Combining Tailscale with RustDesk gives you full, fast, encrypted remote desktop access — no servers, no keys, no compromises."
 tags: tailscale, rustdesk, remotedesktop, security
