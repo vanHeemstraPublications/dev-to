@@ -1,5 +1,5 @@
 ---
-title: "🛰️ Satellite Tailscale — Episode 8: Orbital Maneuvers (Exit Nodes & Subnet Routing)"
+title: "Satellite Tailscale — Ep.8"
 published: false
 description: "Exit Nodes and Subnet Routing are Tailscale's most powerful capabilities — turning your Mac Mini M4 Pro into a gateway to your entire home network, and routing all your traffic through home when the coffeeshop Wi-Fi gets suspicious."
 tags: tailscale, exitnode, subnetrouting, networking
