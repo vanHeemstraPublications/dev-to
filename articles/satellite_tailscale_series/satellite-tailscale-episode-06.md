@@ -6,6 +6,7 @@ tags: tailscale, ssh, security, remoteaccess
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🛰️ Satellite Tailscale — Episode 6: Beaming Commands Across the Globe (Tailscale SSH)
