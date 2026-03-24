@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.8"
-published: false
+published: true
 part: 8
 description: "Father Christmas brings the series home: a complete walkthrough of an Intent session from first prompt to merged pull request. Everything comes together. Christmas is delivered."
 tags: [augmentcode, intent, devworkflow, aiagents]
@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # The Gifts Are Under the Tree — From Spec to Merged PR 🎄
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > Every year, on the morning of December 25th, I allow myself one quiet moment before the sleigh is unpacked and the Thank-You Letters start arriving. I sit in the empty Workshop, still warm from the night’s work, and look at the bare shelves where the gifts used to be. They are gone because they were delivered. Every one of them. On time, as specified, to the right address. That moment — that quiet confirmation that everything worked — is what we have been building towards in this entire series. Today, we deliver.
 
@@ -259,6 +259,6 @@ Augment’s documentation is at [docs.augmentcode.com](https://docs.augmentcode.
 
 > I have been doing this for over a thousand years. Every century, the tools improve. The quill gave way to the telegraph, the telegraph to the computer, and now the computer gives way to the agent. But the fundamental challenge has never changed: how do you coordinate complex, parallel work towards a shared goal, on an unmovable deadline, without chaos?The answer, in 1025 and in 2025, is the same: a clear plan, a good team, and the discipline to keep the plan honest.Augment Intent is the first software I have encountered that truly understands this. It puts the plan first. It keeps the plan honest. It coordinates the team without the Elves colliding. And it finishes on time.I am proud of everything we have built in this Workshop. I hope you will build something wonderful in yours.Merry Christmas, and Happy Coding.Ho ho ho! 🎅
 
-*This concludes the *[*Santa Augmentcode Intent*](#)* series. All eight episodes are available on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*This concludes the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. All eight episodes are available on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
 
 *Thank you for reading. May your specs be living and your merges be clean.*

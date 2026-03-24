@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.7"
-published: false
+published: true
 part: 7
 description: "Father Christmas explains how Intent orchestrates multiple agents running simultaneously without collisions, missed handoffs, or Christmas catastrophes. Waves, dependencies, and the art of elegant parallelism."
 tags: [augmentcode, intent, multiagent, orchestration]
@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Parallel Elves, Zero Chaos — Multi-Agent Orchestration 🎁
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > The secret to running a smooth Workshop is understanding the difference between work that can happen at the same time and work that cannot. You cannot paint a toy before it is carved. You cannot test a toy before it is assembled. But you can absolutely carve a hundred toys simultaneously, paint them in parallel once each is carved, and run quality checks in a third wave. The key is knowing the dependencies. The key, always, is the spec.
 

@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.1"
-published: false
+published: true
 part: 1
 description: "Father Christmas discovers Augment Intent and realises the North Pole has been doing multi-agent coordination all along. A warm introduction to the Intent workspace for developers."
 tags: [augmentcode, intent, aiagents, devtools]
@@ -92,4 +92,4 @@ In the next episode, Father Christmas will introduce **The Master Gift List** �
 
 > Until then: stay warm, write good specs, and remember — Christmas is only ever early for developers who plan ahead.Ho ho ho! 🎅
 
-*Part of the *[Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310)* series. Published on *[dev.to](https://dev.to)* under the *[the-software-s-journey](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*

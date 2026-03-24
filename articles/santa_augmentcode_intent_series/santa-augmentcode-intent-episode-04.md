@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.4"
-published: false
+published: true
 part: 4
 description: "Father Christmas explains how Intent gives every agent its own isolated workspace using Git worktrees — so parallel Elves never step on each other’s work."
 tags: [augmentcode, intent, git, devtools]
@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Every Elf Gets a Workbench — Isolated Workspaces 🔨
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > In the early Workshop days, all the Elves shared one big table. It seemed efficient. It was a disaster. Jingle would sand a wheel just as Jangle reached for it. Twinkle’s paint would end up on Tinkle’s train set. The great Christmas Collision of 1889 — I do not wish to speak of it. The solution was obvious in retrospect: give every Elf their own workbench. Isolated, private, but connected to the same Master Gift List.Augment Intent does the same thing. It just calls them workspaces.
 
@@ -118,4 +118,4 @@ In Episode 5, Father Christmas will explain **Spec-Driven Development** — the 
 
 > A tidy workbench is the sign of an organised mind. And an organised Workshop is the sign of gifts arriving on time.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*

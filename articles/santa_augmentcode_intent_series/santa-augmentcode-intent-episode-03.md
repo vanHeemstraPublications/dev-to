@@ -1,6 +1,6 @@
 ---
 title: "Santa Augmentcode Intent Ep.3"
-published: false
+published: true
 part: 3
 description: "Father Christmas explains the elegant division of labour inside Intent: the Coordinator Agent plans and delegates, Specialist Agents execute, and the Verifier checks. Just like Christmas."
 tags: [augmentcode, intent, aiagents, agentic]
@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Santa Plans, Elves Build — Coordinator & Specialist Agents 🧝
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > A common misconception about the North Pole is that I build all the toys. I do not. I tried that once in 1742. It was catastrophic. What I do — what I have always done — is understand what needs to be built, break it into sensible pieces, assign the right Elf to each piece, and make sure the whole thing comes together correctly. That is the job of Father Christmas. And, as it turns out, that is also the job of the Coordinator Agent in Augment Intent.
 
@@ -137,4 +137,4 @@ In Episode 4, we will visit each Elf’s private workbench — the **isolated wo
 
 > Every great team needs great coordination. I have been coordinating for over a thousand years. I am pleased that software has finally caught up.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
