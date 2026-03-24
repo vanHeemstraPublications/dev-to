@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # Santa Plans, Elves Build — Coordinator & Specialist Agents 🧝
 
-Accompanying source code repository: `Santa Augmentcode Intent`
+Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
 
 > A common misconception about the North Pole is that I build all the toys. I do not. I tried that once in 1742. It was catastrophic. What I do — what I have always done — is understand what needs to be built, break it into sensible pieces, assign the right Elf to each piece, and make sure the whole thing comes together correctly. That is the job of Father Christmas. And, as it turns out, that is also the job of the Coordinator Agent in Augment Intent.
 
