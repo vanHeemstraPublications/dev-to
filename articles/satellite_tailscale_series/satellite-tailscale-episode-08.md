@@ -6,6 +6,7 @@ tags: tailscale, exitnode, subnetrouting, networking
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 # 🛰️ Satellite Tailscale — Episode 8: Orbital Maneuvers (Exit Nodes & Subnet Routing)
