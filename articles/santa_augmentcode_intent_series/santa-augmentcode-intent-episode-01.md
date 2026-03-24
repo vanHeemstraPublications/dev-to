@@ -92,4 +92,4 @@ In the next episode, Father Christmas will introduce **The Master Gift List** �
 
 > Until then: stay warm, write good specs, and remember — Christmas is only ever early for developers who plan ahead.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
