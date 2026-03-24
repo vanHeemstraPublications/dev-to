@@ -1,7 +1,8 @@
 # Toolkit
 
 - Chat GPT/Claude: Prompting
-- Midjourney: Image Creation - 21:9 or 9:16 ratios recommended
+- ChatGPT: Image Creation from Long Prompts (like our article images)
+- Midjourney: Image Creation - 21:9 or 9:16 ratios recommended (does not support Long Prompts)
 - Seedream 4.5 and Nano Banana (both on Higgsfield): Editing and compositing
 - Higgsfield Cinema Studio/Kling 3.0
 - Luma Dream Machine (or Topaz): Video upscale to 4K
