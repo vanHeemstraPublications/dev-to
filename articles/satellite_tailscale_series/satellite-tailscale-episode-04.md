@@ -5,7 +5,7 @@ description: "Your Mac Mini M4 Pro is the mission-critical home station — alwa
 tags: tailscale, macos, macmini, homelab
 series: Satellite Tailscale
 cover_image: ""
-canonical_url: ""
+canonical_url: "organization: "the-software-s-journey"
 ---
 
 # 🛰️ Satellite Tailscale — Episode 4: Home Base (Mac Mini M4 Pro)
