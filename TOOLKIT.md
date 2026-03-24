@@ -8,3 +8,4 @@
 - Suno/Eleven Labs: Music/VO, narration and SFX
 - Adobe Premiere: Putting it altogether (previously used Adobe After Effects)
 - Youtube or TikTok Channels - I would recommend creating both for your content
+- dev.to: Publication
