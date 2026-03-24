@@ -119,4 +119,4 @@ In our final episode, Father Christmas walks you through the complete journey: f
 
 > An orchestra without a conductor is noise. With a conductor, it is music. The spec is the score. The Coordinator is the conductor. The Elves are the musicians. And the result, when everything works, is Christmas.Ho ho ho! 🎅
 
-*Part of the *[*Santa Augmentcode Intent*](#)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
