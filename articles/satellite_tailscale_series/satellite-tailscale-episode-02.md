@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 2: Launching the First Satellite
+# 🛰️ Episode 2: Launching the First Satellite
 
 > *"If it bleeds, we can kill it."*
 > — Arnold Schwarzenegger, Predator.
