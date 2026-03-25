@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 8: Orbital Maneuvers (Exit Nodes & Subnet Routing)
+# 🛰️ Episode 8: Orbital Maneuvers (Exit Nodes & Subnet Routing)
 
 > *"I'm a cybernetic organism. Living tissue over a metal endoskeleton."*
 > — T-800, Terminator 2.
