@@ -2,9 +2,9 @@
 title: "Satellite Tailscale — Ep.8"
 published: false
 description: "Exit Nodes and Subnet Routing are Tailscale's most powerful capabilities — turning your Mac Mini M4 Pro into a gateway to your entire home network, and routing all your traffic through home when the coffeeshop Wi-Fi gets suspicious."
-tags: tailscale, exitnode, subnetrouting, networking
-series: Satellite Tailscale
-cover_image: ""
+tags: [tailscale, exitnode, subnetrouting, networking]
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/satellite_tailscale_series/satellite-tailscale-episode-08.png"
+series: "Satellite Tailscale Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
