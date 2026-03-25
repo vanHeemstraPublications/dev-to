@@ -2,7 +2,7 @@
 title: "Satellite Tailscale — Ep.5"
 published: false
 description: "Mission Control is where your satellite network gets names, rules, and governance. MagicDNS gives your devices human-readable names. ACLs decide who can talk to whom. Let's run the control room."
-tags: tailscale, dns, acl, security
+tags: [tailscale, dns, acl, security]
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
