@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 1: Your Personal Satellite Network
+# 🛰️ Episode 1: Your Personal Satellite Network
 
 > *"Come with me if you want to connect."*
 > — Arnold Schwarzenegger, The Terminator (had he been a network engineer)
