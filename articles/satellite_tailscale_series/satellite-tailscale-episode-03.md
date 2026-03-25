@@ -3,8 +3,8 @@ title: "Satellite Tailscale — Ep. 3"
 published: false
 description: "Your iPad Mini is the roaming satellite dish — connecting from coffeeshops, airports, and hotel lobbies back to your Mac Mini at home. Let's get it into orbit."
 tags: [tailscale, ipad, ios, mobile]
-series: Satellite Tailscale
-cover_image: ""
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/satellite_tailscale_series/satellite-tailscale-episode-03.png"
+series: "Satellite Tailscale Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
