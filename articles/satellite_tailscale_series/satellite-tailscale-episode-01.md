@@ -2,7 +2,7 @@
 title: "Satellite Tailscale — Ep.1"
 published: false
 description: "What if your iPad Mini in a coffeeshop and your Mac Mini M4 at home were always connected, like satellites orbiting the same planet? Welcome to Tailscale."
-tags: tailscale, networking, vpn, security
+tags: [tailscale, networking, vpn, security]
 series: Satellite Tailscale
 cover_image: ""
 canonical_url: ""
