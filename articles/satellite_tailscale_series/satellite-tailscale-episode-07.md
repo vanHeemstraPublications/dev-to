@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 7: Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)
+# 🛰️ Episode 7: Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)
 
 > *"Remember me? I'm back."*
 > — Douglas Quaid (Arnold Schwarzenegger), Total Recall.
