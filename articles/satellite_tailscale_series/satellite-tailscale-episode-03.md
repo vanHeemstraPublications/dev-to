@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 3: The Mobile Ground Station (iPad Mini)
+# 🛰️ Episode 3: The Mobile Ground Station (iPad Mini)
 
 > *"I need your clothes, your boots, and your motorcycle."*
 > — Arnold Schwarzenegger, Terminator 2: Judgment Day.
