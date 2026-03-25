@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 6: Beaming Commands Across the Globe (Tailscale SSH)
+# 🛰️ Episode 6: Beaming Commands Across the Globe (Tailscale SSH)
 
 > *"Talk to the hand."*
 > — Arnold Schwarzenegger, Last Action Hero.
