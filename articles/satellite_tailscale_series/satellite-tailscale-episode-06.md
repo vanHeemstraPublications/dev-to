@@ -1,5 +1,6 @@
 ---
 title: "Satellite Tailscale — Ep.6"
+part: 6
 published: false
 description: "Tailscale SSH replaces key management with identity-aware access. From your iPad Mini in a coffeeshop to your Mac Mini M4 Pro at home — one command, no keys required."
 tags: [tailscale, ssh, security, remoteaccess]
