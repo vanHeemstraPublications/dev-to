@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 5: Mission Control (MagicDNS & ACLs)
+# 🛰️ Episode 5: Mission Control (MagicDNS & ACLs)
 
 > *"I know now why you cry. But it is something I can never do."*
 > — T-800, Terminator 2.
