@@ -1,10 +1,11 @@
 ---
 title: "Satellite Tailscale — Ep.1"
+part: 1
 published: false
 description: "What if your iPad Mini in a coffeeshop and your Mac Mini M4 at home were always connected, like satellites orbiting the same planet? Welcome to Tailscale."
 tags: [tailscale, networking, vpn, security]
-series: Satellite Tailscale
-cover_image: ""
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/satellite_tailscale_series/satellite-tailscale-episode-01.png"
+series: "Satellite Tailscale Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
