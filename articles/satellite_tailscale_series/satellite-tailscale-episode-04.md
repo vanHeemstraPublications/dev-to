@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 4: Home Base (Mac Mini M4 Pro)
+# 🛰️ Episode 4: Home Base (Mac Mini M4 Pro)
 
 > *"I'll be back."*
 > — Arnold Schwarzenegger, The Terminator.
