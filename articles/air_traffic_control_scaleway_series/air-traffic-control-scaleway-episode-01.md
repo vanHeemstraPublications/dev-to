@@ -1,5 +1,4 @@
 ---
-
 title: "Air Traffic Control Scaleway Ep.1"
 part: 1
 published: false
@@ -9,7 +8,6 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/ma
 series: "Air Traffic Control Scaleway Series"
 canonical_url: ""
 organization: "the-software-s-journey"
-
 ---
 
 # Cleared for Approach: Identity and Access Management on Scaleway
