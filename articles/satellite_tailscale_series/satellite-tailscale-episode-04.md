@@ -3,8 +3,8 @@ title: "Satellite Tailscale — Ep.4"
 published: false
 description: "Your Mac Mini M4 Pro is the mission-critical home station — always on, always reachable, always ready to receive your iPad Mini's signal from across the globe."
 tags: [tailscale, macos, macmini, homelab]
-series: Satellite Tailscale
-cover_image: ""
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/satellite_tailscale_series/satellite-tailscale-episode-04.png"
+series: "Satellite Tailscale Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
