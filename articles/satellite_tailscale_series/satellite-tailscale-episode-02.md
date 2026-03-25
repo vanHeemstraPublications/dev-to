@@ -1,5 +1,6 @@
 ---
 title: "Satellite Tailscale — Ep.2"
+part: 2
 published: false
 description: "Installing Tailscale on your first device is the moment your ground station goes live. Let's light the engines."
 tags: [tailscale, networking, installation, wireguard]
