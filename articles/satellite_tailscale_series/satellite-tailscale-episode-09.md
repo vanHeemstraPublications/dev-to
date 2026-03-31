@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🛰️ Satellite Tailscale — Episode 9: The Smart Home Ground Station (Tailscale in Home Assistant)
+# 🛰️ Episode 9: The Smart Home Ground Station (Tailscale in Home Assistant)
 
 > *“Get away from her, you witch!”*
 > — Ellen Ripley, Aliens (a Schwarzenegger contemporary production).
