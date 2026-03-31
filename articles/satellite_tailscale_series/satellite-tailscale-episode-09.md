@@ -1,7 +1,7 @@
 ---
 title: "Satellite Tailscale — Ep. 9"
-published: false
 part: 9
+published:  true
 description: "Your Home Assistant instance controls every light, thermostat, and camera in your home. With the Tailscale add-on installed, it joins your satellite network — accessible from your iPad Mini in any coffeeshop, anywhere on Earth."
 tags: [tailscale, homeassistant, smarthome, homelab]
 series: "Satellite Tailscale Series"
