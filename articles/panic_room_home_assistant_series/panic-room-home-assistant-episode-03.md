@@ -10,7 +10,7 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# 🔐 Building the Panic Room (Installing HAOS in Parallels)
+# 🔐 Panic Room — Episode 3: Building the Panic Room (Installing HAOS in Parallels)
 
 > *"It took them three months to build this room."*
 > — Burnham, Panic Room.
@@ -37,8 +37,8 @@ Take a breath. Make a coffee. Let us begin.
 |---|---|---|---|---|
 | Home Assistant project (GitHub releases) | Mac Mini M4 Pro running macOS Sequoia | Download HAOS aarch64 `.vmdk` image | HAOS VM running in Parallels | Every subsequent episode in this series |
 | Parallels Desktop (v19+) | `prl_convert` CLI tool (ships with Parallels) | Convert `.vmdk` → `.hdd` using `prl_convert` | Parallels-compatible HAOS disk image | Your first boot of Home Assistant |
-| GitHub (haos releases) | 64GB+ free disk space | Create Parallels VM → Configure networking → Boot | HAOS accessible at `homeassistant.local:8123` | You, seeing the onboarding screen |
-| Your home network (with DHCP) | 30–60 minutes of your time | First boot → wait for HAOS to initialise | A running, waiting-to-be-configured smart home platform | Episode 4: Onboarding |
+| GitHub (haos releases) | 64GB+ free disk space on Mac | Resize virtual disk to 64 GB **before first boot** | A data partition with room to breathe | Add-on Store (Tailscale, etc.) |
+| Your home network (with DHCP) | 30–60 minutes of your time | Create Parallels VM → Configure networking → Boot | HAOS accessible at `homeassistant.local:8123` | Episode 4: Onboarding |
 
 ---
 
@@ -114,6 +114,46 @@ The conversion takes 30–90 seconds depending on your disk speed. When it finis
 
 ---
 
+## 📐 Step 2b — Resize the Virtual Disk Before First Boot
+
+This step is not optional. Do not skip it.
+
+The HAOS `.vmdk` image ships from GitHub at roughly **6–7 GB** — just large enough to contain the OS partition layout with a minimal data partition. When `prl_convert` creates the `.hdd` file, it faithfully reproduces that same ~6–7 GB size. Your Mac Mini's 350 GB of free storage is irrelevant here; the VM sees only the virtual disk, and after the OS partitions are written, that virtual disk has essentially nothing left.
+
+The consequence: if you boot without resizing, the HAOS Supervisor will report **0.0 GB free** on the data partition. Any attempt to install an add-on — Tailscale, Terminal, anything — will fail with:
+
+```
+'AddonManager.install' blocked from execution, not enough free space (0.0GB) left on the device
+```
+
+The fix is to expand the virtual disk *before the first boot*, while it is still just a file on your Mac. HAOS will then detect the extra space on its very first boot and automatically expand the `hassos-data` partition to fill it.
+
+### Resize Using prl_disk_tool
+
+`prl_disk_tool` ships alongside `prl_convert` in the Parallels application bundle. In Terminal:
+
+```bash
+# Resize the .hdd to 64 GB (65536 MB)
+/Applications/Parallels\ Desktop.app/Contents/MacOS/prl_disk_tool resize \
+  --hdd ~/Downloads/haos.hdd \
+  --size 65536
+```
+
+Adjust the path if you saved `haos.hdd` somewhere other than `~/Downloads`. The resize takes a few seconds. Confirm the result:
+
+```bash
+/Applications/Parallels\ Desktop.app/Contents/MacOS/prl_disk_tool info \
+  --hdd ~/Downloads/haos.hdd
+```
+
+The output should show a disk size of **64 GB**.
+
+> 💡 **Why 64 GB?** It is a comfortable allocation for a Mac Mini M4 Pro — generous enough for core add-ons (Tailscale, Mosquitto, Node-RED, Whisper) and future additions like Frigate (local camera AI), while using only ~64 GB of your 350 GB+ available storage. HAOS will use this space on demand, not all at once.
+
+> 🔐 **The panic room analogy:** the original construction crew built the room to minimum spec — just enough steel to call it a panic room. We are reinforcing the walls before Meg moves in. Once she is inside, expansion is considerably more disruptive.
+
+---
+
 ## 🖥️ Step 3 — Create the Parallels VM
 
 1. Open **Parallels Desktop**.
@@ -169,9 +209,9 @@ A terminal window opens. You will see:
 Loading Home Assistant OS...
 ```
 
-Followed by a stream of Linux boot messages. Do not panic. (Panic later, if at all.) The first boot takes longer than subsequent ones — HAOS is initialising itself, resizing the filesystem to fill the allocated disk space, downloading the current version of Home Assistant Core, and configuring all its internal services.
+Followed by a stream of Linux boot messages. Do not panic. (Panic later, if at all.) The first boot takes longer than subsequent ones — HAOS is doing several things simultaneously: **expanding the `hassos-data` partition to fill your 64 GB virtual disk**, initialising itself, downloading the current version of Home Assistant Core, and configuring all its internal services.
 
-This process typically takes **5–10 minutes** on the first boot. During this time, you will see output like:
+This process typically takes **5–10 minutes** on the first boot. The partition expansion happens early and silently — you will see the filesystem resize messages scroll past in the boot console, then normal startup continues. During this time, you will see output like:
 
 ```
 [  OK  ] Started Home Assistant Supervisor.
@@ -191,7 +231,7 @@ System information
 Home Assistant URL: http://homeassistant.local:8123
 ```
 
-Note the IPv4 address. Note the URL. The panic room is standing.
+Note the IPv4 address. Note the URL. The panic room is standing — with solid walls.
 
 ---
 
@@ -213,7 +253,9 @@ http://192.168.1.XX:8123
 
 You will see the Home Assistant **onboarding screen** — a clean, calm interface asking you to prepare for setup.
 
-The panic room is built. The door is solid. The cameras are ready. All that remains is to turn on the lights, configure the system, and move in.
+Before diving into onboarding, do a quick sanity check: navigate to **Settings → System → Storage**. You should see roughly **55–60 GB available** (the 64 GB virtual disk, minus OS partitions). If it shows 0.0 GB, the partition expansion did not happen — shut down the VM, verify the `prl_disk_tool resize` step completed correctly, and try again.
+
+All good? The panic room is built. The door is solid. The cameras are ready. The walls are thick. All that remains is to turn on the lights, configure the system, and move in.
 
 That is Episode 4's job.
 
@@ -232,6 +274,14 @@ Also ensure Parallels Desktop itself is set to **Open at Login** in macOS:
 - System Settings → General → Login Items → add **Parallels Desktop**.
 
 Now, if your Mac Mini reboots (after a power cut, a macOS update), it will reboot, Parallels will launch, and HAOS will start automatically. The panic room is always on.
+
+### How to Shut Down the VM (When You Need To)
+
+For maintenance tasks — such as the disk resize above, or any future VM configuration changes — you need to shut down HAOS cleanly first. Three options, most graceful to least:
+
+1. **From the HA web UI** (best): **Settings → System → Hardware** → click the **Shut Down** button (power icon, top right). All services stop cleanly before the VM halts.
+2. **From the HAOS console**: click into the Parallels terminal window, press **Enter** for the `ha >` prompt, then type `ha host shutdown`.
+3. **From Parallels**: right-click the VM in Control Center → **Stop** (not Force Stop — that is the equivalent of pulling the power cord).
 
 ---
 
