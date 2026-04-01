@@ -4,8 +4,8 @@ part: 1
 published: false
 description: "Your home has more sensors than a thriller film set. Home Assistant is the control room — secure, local, and entirely yours. Welcome to the Panic Room."
 tags: [homeassistant, smarthome, automation, beginners]
-series: Panic Room Home Assistant Series
-cover_image: ""
+series: "Panic Room Home Assistant Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/panic_room_home_assistant_series/panic-room-home-assistant-episode-01.png"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
