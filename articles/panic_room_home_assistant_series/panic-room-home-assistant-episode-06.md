@@ -1,5 +1,6 @@
 ---
 title: "Panic Room — Ep.6"
+part: 6
 published: false
 description: "Meg Altman controlled the panic room from inside it. You control your smart home from your iPad Mini — in the coffeeshop, the airport, the train. The Home Assistant Companion App is your handheld control panel."
 tags: [homeassistant, companionapp, ipad, remoteaccess]
