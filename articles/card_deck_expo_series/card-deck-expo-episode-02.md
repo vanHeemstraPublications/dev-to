@@ -1,4 +1,4 @@
------
+---
 title: “🃏 Card Deck — Episode 2: Unboxing the Deck (Prerequisites & Project Creation)”
 published: false
 description: “Every deck starts in a sealed tuck box. This episode covers what you need installed before you can deal a single card — Node.js, the Expo CLI, and your first create-expo-app.”
@@ -6,13 +6,12 @@ tags: expo, reactnative, nodejs, setup
 series: Card Deck
 cover_image: “”
 canonical_url: “”
+---
 
 # 🃏 Card Deck — Episode 2: Unboxing the Deck (Prerequisites & Project Creation)
 
 > *“Before you can do a single card trick, you need to be able to do a perfect riffle shuffle. Not impressive. Not magic. Just mechanics. But everything else depends on it.”*
 > — Card magic, fundamentals.
-
------
 
 ## 📦 The Sealed Tuck Box
 
