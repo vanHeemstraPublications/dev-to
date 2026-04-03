@@ -7,7 +7,7 @@ tags: [tailscale, homeassistant, googlenest, smarthome]
 series: "Satellite Tailscale Series"
 cover_image: ""
 canonical_url: ""
-organization:"the-software-s-journey"
+organization: "the-software-s-journey"
 ---
 
 # 🛰️ The Home Screen (Google Nest Hub, Home Assistant & the Subnet That Makes It All Work)
