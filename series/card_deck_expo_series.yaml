@@ -1,0 +1,112 @@
+series:
+  id: card_deck_expo_series
+  name: "Card Deck Expo Series"
+  type: "expo_react_native_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/card-deck-expo-series.json"
+
+defaults:
+  setting: "elegant close-up card table and small theatre stage"
+  lighting: "dramatic spotlight with warm velvet-club ambience"
+  composition:
+    left_third: "card magician or presenter explaining the move"
+    center: "the featured deck metaphor or app-building action"
+    right_third: "assistant, props table, or audience reaction"
+    background: "velvet curtains, felt table, and performance stage"
+
+episodes:
+  - number: 1
+    title: "Your App Is a Bicycle Deck in Blue"
+    slug: "your-app-is-a-bicycle-deck-in-blue"
+    metaphor: "a fresh blue-backed deck introduces the idea that every app is a carefully ordered set of cards"
+    center_action: "fanning out a pristine deck to reveal the full app at a glance"
+    supporting_props:
+      - "blue-backed deck"
+      - "felt table"
+      - "magician's hands"
+  - number: 2
+    title: "Unboxing the Deck (Prerequisites & Project Creation)"
+    slug: "unboxing-the-deck-prerequisites-project-creation"
+    metaphor: "opening the tuck box and preparing the tools before any real card work can begin"
+    center_action: "opening a sealed deck and laying out the starter pieces"
+    supporting_props:
+      - "tuck box"
+      - "setup checklist"
+      - "starter cards"
+  - number: 3
+    title: "The Borrowed Practice Deck (Expo Go)"
+    slug: "the-borrowed-practice-deck-expo-go"
+    metaphor: "borrowing a ready-made practice deck lets you rehearse before printing your own"
+    center_action: "testing flourishes with a borrowed practice deck on a phone"
+    supporting_props:
+      - "practice deck"
+      - "phone screen"
+      - "demo stand"
+  - number: 4
+    title: "The Order of the Cards (Expo Router & File-Based Routing)"
+    slug: "the-order-of-the-cards-expo-router-file-based-routing"
+    metaphor: "the power of a trick depends on the exact order in which the cards are arranged"
+    center_action: "sorting cards into a precise sequence that controls the whole routine"
+    supporting_props:
+      - "ordered deck"
+      - "route map"
+      - "index cards"
+  - number: 5
+    title: "Suits and Hands (Stacks, Tabs & Navigation Layouts)"
+    slug: "suits-and-hands-stacks-tabs-navigation-layouts"
+    metaphor: "different hands and suits organize the deck into meaningful groups you can move through quickly"
+    center_action: "dealing cards into neat hands and grouped suits for navigation"
+    supporting_props:
+      - "stacked hands"
+      - "suit markers"
+      - "navigation mat"
+  - number: 6
+    title: "The Face Cards (Expo SDK — Camera, Notifications & Storage)"
+    slug: "the-face-cards-expo-sdk-camera-notifications-storage"
+    metaphor: "the face cards are the special powers that make the deck do memorable things"
+    center_action: "revealing powerful face cards that unlock device features"
+    supporting_props:
+      - "face cards"
+      - "camera lens"
+      - "notification tokens"
+  - number: 7
+    title: "Your Custom Back Design (Development Builds)"
+    slug: "your-custom-back-design-development-builds"
+    metaphor: "a custom card back turns a generic deck into one that is unmistakably yours"
+    center_action: "printing a personalized card back for the working deck"
+    supporting_props:
+      - "card press"
+      - "ink rollers"
+      - "prototype deck"
+  - number: 8
+    title: "Dealing at the Real Table (Dev Build on a Physical Phone)"
+    slug: "dealing-at-the-real-table-dev-build-on-a-physical-phone"
+    metaphor: "the trick only truly counts when the deck is in your hands at the real table"
+    center_action: "performing the deck routine live on a physical phone"
+    supporting_props:
+      - "real card table"
+      - "phone cradle"
+      - "audience seat"
+  - number: 9
+    title: "The Printing Press (EAS Build — Production Binaries)"
+    slug: "the-printing-press-eas-build-production-binaries"
+    metaphor: "a printing press turns the practiced trick into polished decks ready for distribution"
+    center_action: "running finished decks through a precision printing press"
+    supporting_props:
+      - "printing press"
+      - "wrapped decks"
+      - "quality stamps"
+  - number: 10
+    title: "The Card Shop (EAS Submit, OTA Updates & Workflows)"
+    slug: "the-card-shop-eas-submit-ota-updates-workflows"
+    metaphor: "the final deck reaches the card shop, where it is stocked, updated, and kept ready for customers"
+    center_action: "placing finished decks into a polished storefront workflow"
+    supporting_props:
+      - "shop shelves"
+      - "shipping labels"
+      - "update ledger"

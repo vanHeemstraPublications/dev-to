@@ -1,0 +1,94 @@
+series:
+  id: chocolate_factory_paperclip_series
+  name: "Chocolate Factory Paperclip Series"
+  type: "ai_company_builder_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/chocolate-factory-paperclip-series.json"
+
+defaults:
+  setting: "whimsical chocolate factory full of conveyor belts and invention rooms"
+  lighting: "golden storybook factory light with sparkling highlights"
+  composition:
+    left_third: "factory guide or founder presenting the process"
+    center: "the featured factory-room metaphor and product action"
+    right_third: "workers, agents, or supporting machinery"
+    background: "pipes, candy machinery, and imaginative production rooms"
+
+episodes:
+  - number: 1
+    title: "The Golden Ticket"
+    slug: "the-golden-ticket"
+    metaphor: "a golden ticket grants entry into a remarkable factory where everything is orchestrated for you"
+    center_action: "holding up the golden ticket at the factory gate"
+    supporting_props:
+      - "golden ticket"
+      - "factory gate"
+      - "welcoming guide"
+  - number: 2
+    title: "Finding the Factory (Installation & Onboarding)"
+    slug: "finding-the-factory-installation-onboarding"
+    metaphor: "the first challenge is locating the factory and learning how to step inside"
+    center_action: "arriving at the factory entrance and beginning onboarding"
+    supporting_props:
+      - "factory map"
+      - "entry badges"
+      - "front desk"
+  - number: 3
+    title: "The Tour Begins (Dashboard, Companies & Org Charts)"
+    slug: "the-tour-begins-dashboard-companies-org-charts"
+    metaphor: "the opening tour reveals the control room, company map, and the people behind the machinery"
+    center_action: "walking through the control gallery that explains the whole factory"
+    supporting_props:
+      - "dashboard wall"
+      - "org chart board"
+      - "company directory"
+  - number: 4
+    title: "Meet the Oompa Loompas (Agents, Adapters & Heartbeats)"
+    slug: "meet-the-oompa-loompas-agents-adapters-heartbeats"
+    metaphor: "the tiny specialized workers keep the factory moving through rhythms, adapters, and coordination"
+    center_action: "meeting the worker teams that keep each station alive"
+    supporting_props:
+      - "oompa loompas"
+      - "heartbeat gauges"
+      - "adapter pipes"
+  - number: 5
+    title: "The Chocolate Rooms (Projects, Goals & Tasks)"
+    slug: "the-chocolate-rooms-projects-goals-tasks"
+    metaphor: "each chocolate room has a purpose, a target, and a list of work that must be completed"
+    center_action: "opening a room-by-room plan for coordinated factory work"
+    supporting_props:
+      - "room signs"
+      - "goal board"
+      - "task trays"
+  - number: 6
+    title: "The Secret Recipe Book (Skills & Runtime Injection)"
+    slug: "the-secret-recipe-book-skills-runtime-injection"
+    metaphor: "a recipe book tells each station exactly which capabilities and ingredients to inject at the right time"
+    center_action: "consulting the master recipe book to load the right skills"
+    supporting_props:
+      - "recipe book"
+      - "ingredient jars"
+      - "skill labels"
+  - number: 7
+    title: "The Great Glass Elevator (Clipmart & Company Templates)"
+    slug: "the-great-glass-elevator-clipmart-company-templates"
+    metaphor: "a glass elevator gives you fast access to reusable patterns and prebuilt factory layouts"
+    center_action: "riding upward through a catalogue of reusable factory templates"
+    supporting_props:
+      - "glass elevator"
+      - "template shelves"
+      - "catalogue cards"
+  - number: 8
+    title: "You've Won the Factory (Running a Zero-Human Company)"
+    slug: "youve-won-the-factory-running-a-zero-human-company"
+    metaphor: "the prize is a factory so well designed it can run with almost no human intervention"
+    center_action: "taking ownership of a factory that runs itself"
+    supporting_props:
+      - "winner's key"
+      - "autonomous production line"
+      - "control balcony"

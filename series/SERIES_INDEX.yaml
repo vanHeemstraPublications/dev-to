@@ -16,3 +16,27 @@ series:
 - id: santa_augmentcode_intent_series
   name: Santa Augmentcode Intent Series
   file: series/santa_augmentcode_intent_series.yaml
+- id: air_traffic_control_scaleway_series
+  name: Air Traffic Control Scaleway Series
+  file: series/air_traffic_control_scaleway_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: card_deck_expo_series
+  name: Card Deck Expo Series
+  file: series/card_deck_expo_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: chocolate_factory_paperclip_series
+  name: Chocolate Factory Paperclip Series
+  file: series/chocolate_factory_paperclip_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: like_lego_love_python_series
+  name: Like LEGO? Love Python!
+  file: series/like_lego_love_python_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: panic_room_home_assistant_series
+  name: Panic Room Home Assistant Series
+  file: series/panic_room_home_assistant_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: satellite_tailscale_series
+  name: Satellite Tailscale Series
+  file: series/satellite_tailscale_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
