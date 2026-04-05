@@ -1,0 +1,94 @@
+series:
+  id: panic_room_home_assistant_series
+  name: "Panic Room Home Assistant Series"
+  type: "home_automation_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/panic-room-home-assistant-series.json"
+
+defaults:
+  setting: "secure modern home and panic room control center"
+  lighting: "calm cinematic interior light with dashboard glow"
+  composition:
+    left_third: "homeowner or integrator explaining the setup"
+    center: "the featured room, device, or automation action"
+    right_third: "supporting sensors, tablets, or security hardware"
+    background: "floor plans, smart-home dashboards, and reinforced walls"
+
+episodes:
+  - number: 1
+    title: "The House That Thinks for Itself"
+    slug: "the-house-that-thinks-for-itself"
+    metaphor: "a panic room becomes the brains of a home that can sense and respond on its own"
+    center_action: "revealing a secure room that quietly controls the whole house"
+    supporting_props:
+      - "smart-home dashboard"
+      - "reinforced door"
+      - "sensor map"
+  - number: 2
+    title: "Choosing Your Panic Room Hardware"
+    slug: "choosing-your-panic-room-hardware"
+    metaphor: "building a reliable safe room starts with the right walls, panels, and control hardware"
+    center_action: "laying out the hardware choices for a dependable control room"
+    supporting_props:
+      - "mini PC"
+      - "power backup"
+      - "hardware checklist"
+  - number: 3
+    title: "Building the Panic Room (Installing HAOS in Parallels)"
+    slug: "building-the-panic-room-installing-haos-in-parallels"
+    metaphor: "the protected room is built inside a controlled environment before the rest of the system moves in"
+    center_action: "assembling the core control room inside a contained virtual space"
+    supporting_props:
+      - "virtual machine console"
+      - "construction blueprint"
+      - "control rack"
+  - number: 4
+    title: "Moving In (Onboarding, Areas & First Integrations)"
+    slug: "moving-in-onboarding-areas-first-integrations"
+    metaphor: "after the room is built, each zone, device, and routine must be moved into its proper place"
+    center_action: "mapping the home into rooms and plugging in the first devices"
+    supporting_props:
+      - "floor plan"
+      - "room labels"
+      - "integration icons"
+  - number: 5
+    title: "The Independent Phone Line (Tailscale Integration)"
+    slug: "the-independent-phone-line-tailscale-integration"
+    metaphor: "a private secure line keeps the panic room reachable even when the outside world is noisy"
+    center_action: "connecting the panic room to a private communications line"
+    supporting_props:
+      - "private tunnel"
+      - "secure handset"
+      - "network badge"
+  - number: 6
+    title: "The Mobile Command Post (Companion App on iPad Mini)"
+    slug: "the-mobile-command-post-companion-app-on-ipad-mini"
+    metaphor: "a portable command post lets you carry the panic room controls wherever you go"
+    center_action: "operating the home's secure controls from a compact mobile tablet"
+    supporting_props:
+      - "tablet dashboard"
+      - "portable stand"
+      - "status widgets"
+  - number: 7
+    title: "The House Thinks for Itself (Automations & Scenes)"
+    slug: "the-house-thinks-for-itself-automations-scenes"
+    metaphor: "carefully scripted scenes let the house react like a trained security team"
+    center_action: "triggering smart scenes that coordinate lights, locks, and alerts automatically"
+    supporting_props:
+      - "automation cards"
+      - "lighting scene panel"
+      - "lock controls"
+  - number: 8
+    title: "The Real Alarm System (Ajax Security Integration)"
+    slug: "the-real-alarm-system-ajax-security-integration"
+    metaphor: "the finished panic room connects to a professional alarm layer that turns awareness into action"
+    center_action: "arming a serious security system from the home control center"
+    supporting_props:
+      - "alarm keypad"
+      - "motion sensors"
+      - "security siren"

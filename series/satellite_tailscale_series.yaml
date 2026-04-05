@@ -1,0 +1,121 @@
+series:
+  id: satellite_tailscale_series
+  name: "Satellite Tailscale Series"
+  type: "networking_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/satellite-tailscale-series.json"
+
+defaults:
+  setting: "retro-futuristic mission control and orbital operations room"
+  lighting: "cool cinematic starlight with glowing control panels"
+  composition:
+    left_third: "mission commander or guide at the console"
+    center: "the featured satellite-network action"
+    right_third: "ground station, device, or supporting operator"
+    background: "Earth, starfield, radar screens, and orbital diagrams"
+
+episodes:
+  - number: 1
+    title: "Your Personal Satellite Network"
+    slug: "your-personal-satellite-network"
+    metaphor: "a private satellite constellation links all of your devices into one trusted network"
+    center_action: "plotting a personal orbital network around the globe"
+    supporting_props:
+      - "satellite map"
+      - "Earth globe"
+      - "network console"
+  - number: 2
+    title: "Launching the First Satellite"
+    slug: "launching-the-first-satellite"
+    metaphor: "the first node enters orbit and proves the mission can work"
+    center_action: "launching the first network satellite into stable orbit"
+    supporting_props:
+      - "launch gantry"
+      - "orbital path"
+      - "mission checklist"
+  - number: 3
+    title: "The Mobile Ground Station (iPad Mini)"
+    slug: "the-mobile-ground-station-ipad-mini"
+    metaphor: "a small field terminal becomes a capable ground station for the whole constellation"
+    center_action: "using a compact tablet as a mobile ground station"
+    supporting_props:
+      - "tablet console"
+      - "antenna dish"
+      - "field case"
+  - number: 4
+    title: "Home Base (Mac Mini M4 Pro)"
+    slug: "home-base-mac-mini-m4-pro"
+    metaphor: "every satellite mission needs a dependable home base coordinating traffic and tools"
+    center_action: "setting up a polished desktop command base for the network"
+    supporting_props:
+      - "desktop control node"
+      - "base station lights"
+      - "rack shelf"
+  - number: 5
+    title: "Mission Control (MagicDNS & ACLs)"
+    slug: "mission-control-magicdns-acls"
+    metaphor: "mission control assigns call signs and permissions so every craft knows where it belongs"
+    center_action: "labeling satellites and defining who may communicate with whom"
+    supporting_props:
+      - "call-sign board"
+      - "access matrix"
+      - "control headset"
+  - number: 6
+    title: "Beaming Commands Across the Globe (Tailscale SSH)"
+    slug: "beaming-commands-across-the-globe-tailscale-ssh"
+    metaphor: "secure command signals are beamed from mission control to faraway satellites"
+    center_action: "sending remote commands through a protected communications beam"
+    supporting_props:
+      - "command uplink"
+      - "terminal screen"
+      - "signal dish"
+  - number: 7
+    title: "Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)"
+    slug: "full-remote-desktop-across-hemispheres-tailscale-rustdesk"
+    metaphor: "a full live video link makes a distant control room feel like it is right beside you"
+    center_action: "opening a complete remote desktop link between distant stations"
+    supporting_props:
+      - "mirrored screens"
+      - "video uplink"
+      - "dual hemispheres map"
+  - number: 8
+    title: "Orbital Maneuvers (Exit Nodes & Subnet Routing)"
+    slug: "orbital-maneuvers-exit-nodes-subnet-routing"
+    metaphor: "orbital transfers and route relays move traffic through the best path across the constellation"
+    center_action: "redirecting network traffic through relay satellites and planned orbital routes"
+    supporting_props:
+      - "maneuver chart"
+      - "relay node"
+      - "route arrows"
+  - number: 9
+    title: "The Smart Home Ground Station (Tailscale in Home Assistant)"
+    slug: "the-smart-home-ground-station-tailscale-in-home-assistant"
+    metaphor: "the home becomes a connected ground station inside the wider satellite network"
+    center_action: "linking a smart-home dashboard into the orbital network"
+    supporting_props:
+      - "home dashboard"
+      - "ground antenna"
+      - "network badge"
+  - number: 10
+    title: "Ground Control (Tailscale on the UniFi Dream Machine Pro)"
+    slug: "ground-control-tailscale-on-the-unifi-dream-machine-pro"
+    metaphor: "ground control hardens the network edge so every launch and landing stays orderly"
+    center_action: "mounting network control hardware into the main ground rack"
+    supporting_props:
+      - "rack unit"
+      - "status LEDs"
+      - "control panel"
+  - number: 11
+    title: "The Home Screen (Google Nest Hub, Home Assistant & the Subnet That Makes It All Work)"
+    slug: "the-home-screen-google-nest-hub-home-assistant-the-subnet-that-makes-it-all-work"
+    metaphor: "the final mission display brings every orbiting service together into one simple surface"
+    center_action: "showing the whole network on a polished home screen display"
+    supporting_props:
+      - "smart display"
+      - "subnet map"
+      - "orbit dashboard"

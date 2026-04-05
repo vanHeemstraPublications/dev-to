@@ -2,6 +2,65 @@
 
 This file is generated from the YAML files in `series/`.
 
+## Air Traffic Control Scaleway Series
+
+- series id: `air_traffic_control_scaleway_series`
+- source file: `series/air_traffic_control_scaleway_series.yaml`
+
+### Episode 1: Cleared for Approach: Identity and Access Management on Scaleway
+
+- slug: `cleared-for-approach-identity-and-access-management-on-scaleway`
+- metaphor: airport control verifies pilot identity and flight plans before granting access to controlled airspace
+- center action: clearing an incoming crew through identity and access checks
+
+### Episode 2: Cleared for Takeoff: Compute Instances on Scaleway
+
+- slug: `cleared-for-takeoff-compute-instances-on-scaleway`
+- metaphor: the tower assigns the right aircraft and runway for each mission
+- center action: dispatching the right compute aircraft for a specific workload
+
+### Episode 3: The Right Aircraft for the Right Mission: Elastic Metal on Scaleway
+
+- slug: `the-right-aircraft-for-the-right-mission-elastic-metal-on-scaleway`
+- metaphor: different aircraft classes are matched to the mission profile with no wasted capacity
+- center action: selecting the right high-performance aircraft for a demanding route
+
+### Episode 4: Unmanned Missions: Serverless Functions and Containers on Scaleway
+
+- slug: `unmanned-missions-serverless-functions-and-containers-on-scaleway`
+- metaphor: autonomous drones and pre-packed cargo pods handle work without a full crewed aircraft
+- center action: launching lightweight automated missions from the control tower
+
+### Episode 5: The Cargo Hold: Object Storage on Scaleway
+
+- slug: `the-cargo-hold-object-storage-on-scaleway`
+- metaphor: a vast cargo hold keeps parcels safe, organized, and ready for retrieval
+- center action: loading and cataloging cargo crates into long-term storage
+
+### Episode 6: Mission Memory: Managed Databases on Scaleway
+
+- slug: `mission-memory-managed-databases-on-scaleway`
+- metaphor: flight records, logs, and mission memory are maintained in a reliable operations archive
+- center action: consulting a protected operations record room for live decisions
+
+### Episode 7: Secure Corridors: Private Networks on Scaleway
+
+- slug: `secure-corridors-private-networks-on-scaleway`
+- metaphor: restricted taxiways and corridors let approved aircraft move safely without public interference
+- center action: routing aircraft through protected private air corridors
+
+### Episode 8: Fleet Command: Kubernetes Kapsule and Kosmos on Scaleway
+
+- slug: `fleet-command-kubernetes-kapsule-and-kosmos-on-scaleway`
+- metaphor: one command room orchestrates an entire fleet of aircraft across multiple formations
+- center action: coordinating many flights from a unified fleet command desk
+
+### Episode 9: Eyes on the Fleet: Observability with Scaleway Cockpit
+
+- slug: `eyes-on-the-fleet-observability-with-scaleway-cockpit`
+- metaphor: radar screens and cockpit telemetry keep every aircraft visible and measurable in real time
+- center action: watching the whole fleet through a wall of observability screens
+
 ## Azure Data Platform F1 Series
 
 - series id: `azure_data_platform_f1_series`
@@ -90,6 +149,124 @@ This file is generated from the YAML files in `series/`.
 - slug: `episode-14`
 - metaphor: Formula 1
 - center action: The Championship
+
+## Card Deck Expo Series
+
+- series id: `card_deck_expo_series`
+- source file: `series/card_deck_expo_series.yaml`
+
+### Episode 1: Your App Is a Bicycle Deck in Blue
+
+- slug: `your-app-is-a-bicycle-deck-in-blue`
+- metaphor: a fresh blue-backed deck introduces the idea that every app is a carefully ordered set of cards
+- center action: fanning out a pristine deck to reveal the full app at a glance
+
+### Episode 2: Unboxing the Deck (Prerequisites & Project Creation)
+
+- slug: `unboxing-the-deck-prerequisites-project-creation`
+- metaphor: opening the tuck box and preparing the tools before any real card work can begin
+- center action: opening a sealed deck and laying out the starter pieces
+
+### Episode 3: The Borrowed Practice Deck (Expo Go)
+
+- slug: `the-borrowed-practice-deck-expo-go`
+- metaphor: borrowing a ready-made practice deck lets you rehearse before printing your own
+- center action: testing flourishes with a borrowed practice deck on a phone
+
+### Episode 4: The Order of the Cards (Expo Router & File-Based Routing)
+
+- slug: `the-order-of-the-cards-expo-router-file-based-routing`
+- metaphor: the power of a trick depends on the exact order in which the cards are arranged
+- center action: sorting cards into a precise sequence that controls the whole routine
+
+### Episode 5: Suits and Hands (Stacks, Tabs & Navigation Layouts)
+
+- slug: `suits-and-hands-stacks-tabs-navigation-layouts`
+- metaphor: different hands and suits organize the deck into meaningful groups you can move through quickly
+- center action: dealing cards into neat hands and grouped suits for navigation
+
+### Episode 6: The Face Cards (Expo SDK — Camera, Notifications & Storage)
+
+- slug: `the-face-cards-expo-sdk-camera-notifications-storage`
+- metaphor: the face cards are the special powers that make the deck do memorable things
+- center action: revealing powerful face cards that unlock device features
+
+### Episode 7: Your Custom Back Design (Development Builds)
+
+- slug: `your-custom-back-design-development-builds`
+- metaphor: a custom card back turns a generic deck into one that is unmistakably yours
+- center action: printing a personalized card back for the working deck
+
+### Episode 8: Dealing at the Real Table (Dev Build on a Physical Phone)
+
+- slug: `dealing-at-the-real-table-dev-build-on-a-physical-phone`
+- metaphor: the trick only truly counts when the deck is in your hands at the real table
+- center action: performing the deck routine live on a physical phone
+
+### Episode 9: The Printing Press (EAS Build — Production Binaries)
+
+- slug: `the-printing-press-eas-build-production-binaries`
+- metaphor: a printing press turns the practiced trick into polished decks ready for distribution
+- center action: running finished decks through a precision printing press
+
+### Episode 10: The Card Shop (EAS Submit, OTA Updates & Workflows)
+
+- slug: `the-card-shop-eas-submit-ota-updates-workflows`
+- metaphor: the final deck reaches the card shop, where it is stocked, updated, and kept ready for customers
+- center action: placing finished decks into a polished storefront workflow
+
+## Chocolate Factory Paperclip Series
+
+- series id: `chocolate_factory_paperclip_series`
+- source file: `series/chocolate_factory_paperclip_series.yaml`
+
+### Episode 1: The Golden Ticket
+
+- slug: `the-golden-ticket`
+- metaphor: a golden ticket grants entry into a remarkable factory where everything is orchestrated for you
+- center action: holding up the golden ticket at the factory gate
+
+### Episode 2: Finding the Factory (Installation & Onboarding)
+
+- slug: `finding-the-factory-installation-onboarding`
+- metaphor: the first challenge is locating the factory and learning how to step inside
+- center action: arriving at the factory entrance and beginning onboarding
+
+### Episode 3: The Tour Begins (Dashboard, Companies & Org Charts)
+
+- slug: `the-tour-begins-dashboard-companies-org-charts`
+- metaphor: the opening tour reveals the control room, company map, and the people behind the machinery
+- center action: walking through the control gallery that explains the whole factory
+
+### Episode 4: Meet the Oompa Loompas (Agents, Adapters & Heartbeats)
+
+- slug: `meet-the-oompa-loompas-agents-adapters-heartbeats`
+- metaphor: the tiny specialized workers keep the factory moving through rhythms, adapters, and coordination
+- center action: meeting the worker teams that keep each station alive
+
+### Episode 5: The Chocolate Rooms (Projects, Goals & Tasks)
+
+- slug: `the-chocolate-rooms-projects-goals-tasks`
+- metaphor: each chocolate room has a purpose, a target, and a list of work that must be completed
+- center action: opening a room-by-room plan for coordinated factory work
+
+### Episode 6: The Secret Recipe Book (Skills & Runtime Injection)
+
+- slug: `the-secret-recipe-book-skills-runtime-injection`
+- metaphor: a recipe book tells each station exactly which capabilities and ingredients to inject at the right time
+- center action: consulting the master recipe book to load the right skills
+
+### Episode 7: The Great Glass Elevator (Clipmart & Company Templates)
+
+- slug: `the-great-glass-elevator-clipmart-company-templates`
+- metaphor: a glass elevator gives you fast access to reusable patterns and prebuilt factory layouts
+- center action: riding upward through a catalogue of reusable factory templates
+
+### Episode 8: You've Won the Factory (Running a Zero-Human Company)
+
+- slug: `youve-won-the-factory-running-a-zero-human-company`
+- metaphor: the prize is a factory so well designed it can run with almost no human intervention
+- center action: taking ownership of a factory that runs itself
 
 ## Welcome to container harbour!
 
@@ -185,6 +362,94 @@ This file is generated from the YAML files in `series/`.
 - slug: `helm-the-harbour-blueprint`
 - metaphor: a blueprint used to quickly construct identical harbour installations
 - center action: engineers unroll architectural blueprints showing how to replicate an entire harbour setup
+
+## Like LEGO? Love Python!
+
+- series id: `like_lego_love_python_series`
+- source file: `series/like_lego_love_python_series.yaml`
+
+### Episode 1: Building Your First Brick (Defining Classes)
+
+- slug: `building-your-first-brick`
+- metaphor: defining a class is like designing the first reusable LEGO brick
+- center action: assembling the very first brick and showing its defining studs and shape
+
+### Episode 2: Keeping Your Secrets Safe
+
+- slug: `keeping-your-secrets-safe`
+- metaphor: encapsulation is like hiding a brick's internal structure while keeping the useful connectors exposed
+- center action: locking away the inner mechanics of a special brick while keeping its surface simple
+
+### Episode 3: Building Brick Families (Inheritance)
+
+- slug: `building-brick-families`
+- metaphor: inheritance is a family of bricks sharing a common base shape with special variations
+- center action: grouping related bricks around one shared parent design
+
+### Episode 4: Many Bricks, One Action (Polymorphism)
+
+- slug: `many-bricks-one-action`
+- metaphor: polymorphism is one building instruction working across many different brick types
+- center action: demonstrating one action that works across multiple brick shapes
+
+### Episode 5: The LEGO Instruction Manual (Abstraction)
+
+- slug: `the-lego-instruction-manual`
+- metaphor: abstraction is the instruction manual that tells builders what matters without exposing every manufacturing detail
+- center action: following a clean instruction manual while the hidden complexity stays behind the scenes
+
+## Panic Room Home Assistant Series
+
+- series id: `panic_room_home_assistant_series`
+- source file: `series/panic_room_home_assistant_series.yaml`
+
+### Episode 1: The House That Thinks for Itself
+
+- slug: `the-house-that-thinks-for-itself`
+- metaphor: a panic room becomes the brains of a home that can sense and respond on its own
+- center action: revealing a secure room that quietly controls the whole house
+
+### Episode 2: Choosing Your Panic Room Hardware
+
+- slug: `choosing-your-panic-room-hardware`
+- metaphor: building a reliable safe room starts with the right walls, panels, and control hardware
+- center action: laying out the hardware choices for a dependable control room
+
+### Episode 3: Building the Panic Room (Installing HAOS in Parallels)
+
+- slug: `building-the-panic-room-installing-haos-in-parallels`
+- metaphor: the protected room is built inside a controlled environment before the rest of the system moves in
+- center action: assembling the core control room inside a contained virtual space
+
+### Episode 4: Moving In (Onboarding, Areas & First Integrations)
+
+- slug: `moving-in-onboarding-areas-first-integrations`
+- metaphor: after the room is built, each zone, device, and routine must be moved into its proper place
+- center action: mapping the home into rooms and plugging in the first devices
+
+### Episode 5: The Independent Phone Line (Tailscale Integration)
+
+- slug: `the-independent-phone-line-tailscale-integration`
+- metaphor: a private secure line keeps the panic room reachable even when the outside world is noisy
+- center action: connecting the panic room to a private communications line
+
+### Episode 6: The Mobile Command Post (Companion App on iPad Mini)
+
+- slug: `the-mobile-command-post-companion-app-on-ipad-mini`
+- metaphor: a portable command post lets you carry the panic room controls wherever you go
+- center action: operating the home's secure controls from a compact mobile tablet
+
+### Episode 7: The House Thinks for Itself (Automations & Scenes)
+
+- slug: `the-house-thinks-for-itself-automations-scenes`
+- metaphor: carefully scripted scenes let the house react like a trained security team
+- center action: triggering smart scenes that coordinate lights, locks, and alerts automatically
+
+### Episode 8: The Real Alarm System (Ajax Security Integration)
+
+- slug: `the-real-alarm-system-ajax-security-integration`
+- metaphor: the finished panic room connects to a professional alarm layer that turns awareness into action
+- center action: arming a serious security system from the home control center
 
 ## Like Stories? Love Python!
 
@@ -333,6 +598,77 @@ This file is generated from the YAML files in `series/`.
 - slug: `from-spec-to-merged-pr`
 - metaphor: a full Christmas delivery run from wish list to gifts safely under the tree
 - center action: the team moves from prompt and spec to verified changes, approval, and a merged pull request
+
+## Satellite Tailscale Series
+
+- series id: `satellite_tailscale_series`
+- source file: `series/satellite_tailscale_series.yaml`
+
+### Episode 1: Your Personal Satellite Network
+
+- slug: `your-personal-satellite-network`
+- metaphor: a private satellite constellation links all of your devices into one trusted network
+- center action: plotting a personal orbital network around the globe
+
+### Episode 2: Launching the First Satellite
+
+- slug: `launching-the-first-satellite`
+- metaphor: the first node enters orbit and proves the mission can work
+- center action: launching the first network satellite into stable orbit
+
+### Episode 3: The Mobile Ground Station (iPad Mini)
+
+- slug: `the-mobile-ground-station-ipad-mini`
+- metaphor: a small field terminal becomes a capable ground station for the whole constellation
+- center action: using a compact tablet as a mobile ground station
+
+### Episode 4: Home Base (Mac Mini M4 Pro)
+
+- slug: `home-base-mac-mini-m4-pro`
+- metaphor: every satellite mission needs a dependable home base coordinating traffic and tools
+- center action: setting up a polished desktop command base for the network
+
+### Episode 5: Mission Control (MagicDNS & ACLs)
+
+- slug: `mission-control-magicdns-acls`
+- metaphor: mission control assigns call signs and permissions so every craft knows where it belongs
+- center action: labeling satellites and defining who may communicate with whom
+
+### Episode 6: Beaming Commands Across the Globe (Tailscale SSH)
+
+- slug: `beaming-commands-across-the-globe-tailscale-ssh`
+- metaphor: secure command signals are beamed from mission control to faraway satellites
+- center action: sending remote commands through a protected communications beam
+
+### Episode 7: Full Remote Desktop Across Hemispheres (Tailscale + RustDesk)
+
+- slug: `full-remote-desktop-across-hemispheres-tailscale-rustdesk`
+- metaphor: a full live video link makes a distant control room feel like it is right beside you
+- center action: opening a complete remote desktop link between distant stations
+
+### Episode 8: Orbital Maneuvers (Exit Nodes & Subnet Routing)
+
+- slug: `orbital-maneuvers-exit-nodes-subnet-routing`
+- metaphor: orbital transfers and route relays move traffic through the best path across the constellation
+- center action: redirecting network traffic through relay satellites and planned orbital routes
+
+### Episode 9: The Smart Home Ground Station (Tailscale in Home Assistant)
+
+- slug: `the-smart-home-ground-station-tailscale-in-home-assistant`
+- metaphor: the home becomes a connected ground station inside the wider satellite network
+- center action: linking a smart-home dashboard into the orbital network
+
+### Episode 10: Ground Control (Tailscale on the UniFi Dream Machine Pro)
+
+- slug: `ground-control-tailscale-on-the-unifi-dream-machine-pro`
+- metaphor: ground control hardens the network edge so every launch and landing stays orderly
+- center action: mounting network control hardware into the main ground rack
+
+### Episode 11: The Home Screen (Google Nest Hub, Home Assistant & the Subnet That Makes It All Work)
+
+- slug: `the-home-screen-google-nest-hub-home-assistant-the-subnet-that-makes-it-all-work`
+- metaphor: the final mission display brings every orbiting service together into one simple surface
+- center action: showing the whole network on a polished home screen display
 
 ## To The Moon Terraform Series
 

@@ -1,0 +1,67 @@
+series:
+  id: like_lego_love_python_series
+  name: "Like LEGO? Love Python!"
+  type: "python_learning_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/like-lego-love-python-series.json"
+
+defaults:
+  setting: "bright creative brick workshop and build table"
+  lighting: "clean playful studio light with colorful reflections"
+  composition:
+    left_third: "master builder or guide explaining the concept"
+    center: "the featured brick-building action that embodies the Python topic"
+    right_third: "finished models, instruction pieces, or supporting builds"
+    background: "shelves of bricks, instruction manuals, and a tidy workshop bench"
+
+episodes:
+  - number: 1
+    title: "Building Your First Brick (Defining Classes)"
+    slug: "building-your-first-brick"
+    metaphor: "defining a class is like designing the first reusable LEGO brick"
+    center_action: "assembling the very first brick and showing its defining studs and shape"
+    supporting_props:
+      - "basic brick"
+      - "stud layout"
+      - "instruction card"
+  - number: 2
+    title: "Keeping Your Secrets Safe"
+    slug: "keeping-your-secrets-safe"
+    metaphor: "encapsulation is like hiding a brick's internal structure while keeping the useful connectors exposed"
+    center_action: "locking away the inner mechanics of a special brick while keeping its surface simple"
+    supporting_props:
+      - "sealed compartment"
+      - "protected brick core"
+      - "builder gloves"
+  - number: 3
+    title: "Building Brick Families (Inheritance)"
+    slug: "building-brick-families"
+    metaphor: "inheritance is a family of bricks sharing a common base shape with special variations"
+    center_action: "grouping related bricks around one shared parent design"
+    supporting_props:
+      - "parent brick"
+      - "variant bricks"
+      - "family chart"
+  - number: 4
+    title: "Many Bricks, One Action (Polymorphism)"
+    slug: "many-bricks-one-action"
+    metaphor: "polymorphism is one building instruction working across many different brick types"
+    center_action: "demonstrating one action that works across multiple brick shapes"
+    supporting_props:
+      - "mixed brick set"
+      - "shared instruction sheet"
+      - "demo model"
+  - number: 5
+    title: "The LEGO Instruction Manual (Abstraction)"
+    slug: "the-lego-instruction-manual"
+    metaphor: "abstraction is the instruction manual that tells builders what matters without exposing every manufacturing detail"
+    center_action: "following a clean instruction manual while the hidden complexity stays behind the scenes"
+    supporting_props:
+      - "instruction manual"
+      - "unfinished model"
+      - "covered mechanism"

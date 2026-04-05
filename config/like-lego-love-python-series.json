@@ -1,0 +1,8 @@
+{
+  "article_repository_url": "https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/",
+  "article_tone": "friendly, playful, and beginner-friendly",
+  "article_humor_style": "toy-brick metaphors with warm, clever teaching humor",
+  "article_code_language": "Python",
+  "article_filename_template": "{series_slug}-{episode_label}-{slug}.md",
+  "image_style": "cinematic digital illustration, highly detailed, colorful toy-workshop realism, polished educational composition"
+}
