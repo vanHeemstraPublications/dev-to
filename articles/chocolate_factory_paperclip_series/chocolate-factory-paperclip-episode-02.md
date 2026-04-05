@@ -1,6 +1,6 @@
 ---
 title: "Charlie's Chocolate Factory Paperclip — Ep.2"
-part: 1
+part: 2
 published: false
 description: ""
 tags: [paperclip]
