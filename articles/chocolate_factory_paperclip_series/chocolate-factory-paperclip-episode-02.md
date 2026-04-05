@@ -1,4 +1,16 @@
-# 🏭 Charlie's Chocolate Factory — Episode 2: Finding the Factory (Installation & Onboarding)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.2"
+part: 1
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-02.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🏭 Finding the Factory (Installation & Onboarding)
 
 > *"The factory is yours, Charlie. The whole factory — and everything in it."*
 > — Willy Wonka.
