@@ -1,4 +1,16 @@
-# 🗺️ Charlie's Chocolate Factory — Episode 3: The Tour Begins (Dashboard, Companies & Org Charts)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.3"
+part: 3
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-03.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🗺️ The Tour Begins (Dashboard, Companies & Org Charts)
 
 > *"We have so much time and so little to see! Wait — strike that — reverse it."*
 > — Willy Wonka.
