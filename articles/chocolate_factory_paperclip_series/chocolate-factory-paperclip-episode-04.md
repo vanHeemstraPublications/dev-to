@@ -1,4 +1,16 @@
-# 🫀 Charlie's Chocolate Factory — Episode 4: Meet the Oompa Loompas (Agents, Adapters & Heartbeats)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.4"
+part: 4
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-04.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🫀 Meet the Oompa Loompas (Agents, Adapters & Heartbeats)
 
 > *"The Oompa Loompas work day and night in the factory."*
 > — Willy Wonka.
