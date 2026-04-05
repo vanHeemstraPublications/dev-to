@@ -1,4 +1,16 @@
-# 📖 Charlie's Chocolate Factory — Episode 6: The Secret Recipe Book (Skills & Runtime Injection)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.6"
+part: 6
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-06.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 📖 The Secret Recipe Book (Skills & Runtime Injection)
 
 > *"A little nonsense now and then is relished by the wisest men."*
 > — Willy Wonka.
