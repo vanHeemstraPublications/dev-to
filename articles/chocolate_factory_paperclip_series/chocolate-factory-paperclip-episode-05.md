@@ -1,4 +1,16 @@
-# 🍬 Charlie's Chocolate Factory — Episode 5: The Chocolate Rooms (Projects, Goals & Tasks)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.5"
+part: 5
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-05.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🍬 The Chocolate Rooms (Projects, Goals & Tasks)
 
 > *"Every room in my factory is a room full of surprises."*
 > — Willy Wonka.
