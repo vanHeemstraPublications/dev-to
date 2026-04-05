@@ -1,4 +1,16 @@
-# 🛗 Charlie's Chocolate Factory — Episode 7: The Great Glass Elevator (Clipmart & Company Templates)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.7"
+part: 7
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-07.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🛗 The Great Glass Elevator (Clipmart & Company Templates)
 
 > *"Up and out!"*
 > — Willy Wonka, in the Great Glass Elevator.
