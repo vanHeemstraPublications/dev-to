@@ -1,0 +1,103 @@
+series:
+  id: air_traffic_control_scaleway_series
+  name: "Air Traffic Control Scaleway Series"
+  type: "cloud_platform_explainer_series"
+  orientation: landscape
+  resolution: "1000x420"
+  aspect_ratio: "100:42"
+  whitespace_margin_percent: 24
+  deterministic_config: "config/IMAGE_GENERATION_CONFIG.yaml"
+  prompt_template: "prompts/PROMPT_TEMPLATE.md"
+  series_config: "config/air-traffic-control-scaleway-series.json"
+
+defaults:
+  setting: "modern airport control tower, runway network, and operations center"
+  lighting: "clear cinematic sunrise with crisp radar glow"
+  composition:
+    left_third: "air traffic controller or guide at the tower console"
+    center: "aircraft movement that embodies the Scaleway service being explained"
+    right_third: "ground crew, secondary aircraft, or service operators"
+    background: "runways, radar walls, hangars, and airport skyline"
+
+episodes:
+  - number: 1
+    title: "Cleared for Approach: Identity and Access Management on Scaleway"
+    slug: "cleared-for-approach-identity-and-access-management-on-scaleway"
+    metaphor: "airport control verifies pilot identity and flight plans before granting access to controlled airspace"
+    center_action: "clearing an incoming crew through identity and access checks"
+    supporting_props:
+      - "clearance desk"
+      - "pilot credentials"
+      - "approach radar"
+  - number: 2
+    title: "Cleared for Takeoff: Compute Instances on Scaleway"
+    slug: "cleared-for-takeoff-compute-instances-on-scaleway"
+    metaphor: "the tower assigns the right aircraft and runway for each mission"
+    center_action: "dispatching the right compute aircraft for a specific workload"
+    supporting_props:
+      - "runway lights"
+      - "aircraft hangar"
+      - "departure board"
+  - number: 3
+    title: "The Right Aircraft for the Right Mission: Elastic Metal on Scaleway"
+    slug: "the-right-aircraft-for-the-right-mission-elastic-metal-on-scaleway"
+    metaphor: "different aircraft classes are matched to the mission profile with no wasted capacity"
+    center_action: "selecting the right high-performance aircraft for a demanding route"
+    supporting_props:
+      - "mission board"
+      - "specialized aircraft"
+      - "hangar technicians"
+  - number: 4
+    title: "Unmanned Missions: Serverless Functions and Containers on Scaleway"
+    slug: "unmanned-missions-serverless-functions-and-containers-on-scaleway"
+    metaphor: "autonomous drones and pre-packed cargo pods handle work without a full crewed aircraft"
+    center_action: "launching lightweight automated missions from the control tower"
+    supporting_props:
+      - "cargo pods"
+      - "flight drones"
+      - "remote dispatch console"
+  - number: 5
+    title: "The Cargo Hold: Object Storage on Scaleway"
+    slug: "the-cargo-hold-object-storage-on-scaleway"
+    metaphor: "a vast cargo hold keeps parcels safe, organized, and ready for retrieval"
+    center_action: "loading and cataloging cargo crates into long-term storage"
+    supporting_props:
+      - "freight containers"
+      - "manifest clipboard"
+      - "storage shelves"
+  - number: 6
+    title: "Mission Memory: Managed Databases on Scaleway"
+    slug: "mission-memory-managed-databases-on-scaleway"
+    metaphor: "flight records, logs, and mission memory are maintained in a reliable operations archive"
+    center_action: "consulting a protected operations record room for live decisions"
+    supporting_props:
+      - "flight logbooks"
+      - "black box archive"
+      - "database console"
+  - number: 7
+    title: "Secure Corridors: Private Networks on Scaleway"
+    slug: "secure-corridors-private-networks-on-scaleway"
+    metaphor: "restricted taxiways and corridors let approved aircraft move safely without public interference"
+    center_action: "routing aircraft through protected private air corridors"
+    supporting_props:
+      - "security gates"
+      - "encrypted radios"
+      - "fenced taxiway"
+  - number: 8
+    title: "Fleet Command: Kubernetes Kapsule and Kosmos on Scaleway"
+    slug: "fleet-command-kubernetes-kapsule-and-kosmos-on-scaleway"
+    metaphor: "one command room orchestrates an entire fleet of aircraft across multiple formations"
+    center_action: "coordinating many flights from a unified fleet command desk"
+    supporting_props:
+      - "fleet map"
+      - "squadron board"
+      - "orchestration console"
+  - number: 9
+    title: "Eyes on the Fleet: Observability with Scaleway Cockpit"
+    slug: "eyes-on-the-fleet-observability-with-scaleway-cockpit"
+    metaphor: "radar screens and cockpit telemetry keep every aircraft visible and measurable in real time"
+    center_action: "watching the whole fleet through a wall of observability screens"
+    supporting_props:
+      - "cockpit dashboards"
+      - "telemetry graphs"
+      - "radar wall"
