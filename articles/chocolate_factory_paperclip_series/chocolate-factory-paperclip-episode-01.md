@@ -1,4 +1,16 @@
-# 🎫 Charlie's Chocolate Factory — Episode 1: The Golden Ticket
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.1"
+part: 1
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-01.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🎫 The Golden Ticket
 
 > *"Oh! I've got a Golden Ticket!"*
 > — Charlie Bucket, Roald Dahl's Charlie and the Chocolate Factory.
