@@ -1,4 +1,16 @@
-# 🏆 Charlie's Chocolate Factory — Episode 8: You've Won the Factory (Running a Zero-Human Company)
+---
+title: "Charlie's Chocolate Factory Paperclip — Ep.8"
+part: 8
+published: false
+description: ""
+tags: [paperclip]
+series: "Chocolate Factory Paperclip Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublication/dev-to/main/images/chocolate_factory_paperclip_series/chcolate-factory-paperclip-episode-08.png"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
+
+# 🏆 You've Won the Factory (Running a Zero-Human Company)
 
 > *"Don't forget what happened to the man who suddenly got everything he always wanted."*
 > *"What happened?"*
