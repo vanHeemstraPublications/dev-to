@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 5: Suits and Hands (Stacks, Tabs & Navigation Layouts)”
+---
+title: "🃏 Card Deck — Episode 5: Suits and Hands (Stacks, Tabs & Navigation Layouts)"
 published: false
-description: “Suits are dealt in sequence or in parallel. Stacks push cards onto a pile; Tabs lay suits side by side. These two navigation patterns cover 90% of all mobile apps.”
+description: "Suits are dealt in sequence or in parallel. Stacks push cards onto a pile; Tabs lay suits side by side. These two navigation patterns cover 90% of all mobile apps."
 tags: expo, exporouter, navigation, tabs
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 5: Suits and Hands (Stacks, Tabs & Navigation Layouts)
 
 > *“In Poker, you are dealt five cards — your hand. In Blackjack, cards are added to your hand one at a time. Two completely different ways of managing the same deck. The cards are identical; the structure changes everything.”*
 > — Card games, navigation metaphor.
 
------
+---
 
 ## 🃏 Two Ways to Arrange the Cards
 

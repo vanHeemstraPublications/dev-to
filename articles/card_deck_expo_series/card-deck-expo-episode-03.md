@@ -1,12 +1,12 @@
------
-
-## title: “🃏 Card Deck — Episode 3: The Borrowed Practice Deck (Expo Go)”
+---
+title: "🃏 Card Deck — Episode 3: The Borrowed Practice Deck (Expo Go)"
 published: false
-description: “Before you print your own deck, you practise with a borrowed one. Expo Go is that borrowed deck — install it on your phone, scan a QR code, and your app appears instantly.”
+description: "Before you print your own deck, you practise with a borrowed one. Expo Go is that borrowed deck — install it on your phone, scan a QR code, and your app appears instantly."
 tags: expo, expogo, mobile, reactnative
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 3: The Borrowed Practice Deck (Expo Go)
 

@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 4: The Order of the Cards (Expo Router & File-Based Routing)”
+---
+title: "🃏 Card Deck — Episode 4: The Order of the Cards (Expo Router & File-Based Routing)"
 published: false
-description: “A deck with no order is just noise. Expo Router arranges your screens into a navigable structure — the app directory is your deck, each file is a card, and the layout files are the rules.”
+description: "A deck with no order is just noise. Expo Router arranges your screens into a navigable structure — the app directory is your deck, each file is a card, and the layout files are the rules."
 tags: expo, exporouter, navigation, reactnative
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 4: The Order of the Cards (Expo Router & File-Based Routing)
 
 > *“In a new deck order, the cards are arranged by suit, in sequence, from Ace to King. There is a reason for every position. When you understand the arrangement, you can control everything.”*
 > — Card magic, new deck order.
 
------
+---
 
 ## 📚 The New Deck Order
 

@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 10: The Card Shop (EAS Submit, OTA Updates & Workflows)”
+---
+title: "🃏 Card Deck — Episode 10: The Card Shop (EAS Submit, OTA Updates & Workflows)"
 published: false
-description: “The deck is printed. The courier delivers it to the card shop — the App Store and Google Play. And when a card needs replacing? OTA updates swap it silently, without reprinting the whole deck.”
+description: "The deck is printed. The courier delivers it to the card shop — the App Store and Google Play. And when a card needs replacing? OTA updates swap it silently, without reprinting the whole deck."
 tags: expo, eassubmit, otaupdates, reactnative
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 10: The Card Shop (EAS Submit, OTA Updates & Workflows)
 
 > *“The card manufacturer does not sell direct. They supply the card shops — the retailers who put decks in the hands of players around the world. Your job is to get the deck on the shelf.”*
 > — Playing card distribution.
 
------
+---
 
 ## 🏪 The Card Shop
 

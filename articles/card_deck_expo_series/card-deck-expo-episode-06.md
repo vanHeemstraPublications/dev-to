@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 6: The Face Cards (Expo SDK — Camera, Notifications & Storage)”
+---
+title: "🃏 Card Deck — Episode 6: The Face Cards (Expo SDK — Camera, Notifications & Storage)"
 published: false
-description: “Face cards carry the most value. The Expo SDK is your deck’s face cards — Camera, Push Notifications, Local Storage, Location, and more, all production-ready and one install away.”
+description: "Face cards carry the most value. The Expo SDK is your deck’s face cards — Camera, Push Notifications, Local Storage, Location, and more, all production-ready and one install away."
 tags: expo, sdk, camera, notifications
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 6: The Face Cards (Expo SDK — Camera, Notifications & Storage)
 
 > *“In most card games, the face cards — Jack, Queen, King — carry disproportionate value. Three cards out of thirteen, yet they determine the outcome of most hands.”*
 > — Card games, face card weighting.
 
------
+---
 
 ## 👑 The Face Cards
 

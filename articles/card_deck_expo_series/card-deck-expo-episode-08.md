@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 8: Dealing at the Real Table (Dev Build on a Physical Phone)”
+---
+title: "🃏 Card Deck — Episode 8: Dealing at the Real Table (Dev Build on a Physical Phone)"
 published: false
-description: “The custom deck is printed and in your hands. This episode is the complete workflow for running your development build on a real phone — connection, hot-reload, debugging, and common pitfalls.”
+description: "The custom deck is printed and in your hands. This episode is the complete workflow for running your development build on a real phone — connection, hot-reload, debugging, and common pitfalls."
 tags: expo, devbuild, physicaldevice, reactnative
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 8: Dealing at the Real Table (Dev Build on a Physical Phone)
 
 > *“Practising card handling in your bedroom is one thing. Dealing at a real card table, with real players, is where you discover what you actually know.”*
 > — Card handling, the reality gap.
 
------
+---
 
 ## 🃏 The Real Table
 
