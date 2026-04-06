@@ -29,7 +29,7 @@ jobs:
           HOST="${HOST#http://}"
           REMOTE="https://x-access-token:${GITHUB_TOKEN}@${HOST}/${GITHUB_REPOSITORY}.git"
 
-          git init .
+          git init --initial-branch=main .
           git remote add origin "${REMOTE}"
           git fetch --no-tags --prune --depth=2 origin "${GITHUB_REF}"
           git checkout --detach FETCH_HEAD
