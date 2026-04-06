@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 9: The Printing Press (EAS Build — Production Binaries)”
+---
+title: "🃏 Card Deck — Episode 9: The Printing Press (EAS Build — Production Binaries)"
 published: false
-description: “The proof deck is perfect. Now we run the printing press — EAS Build produces the finished, signed, production-grade binaries ready for the App Store and Google Play.”
+description: "The proof deck is perfect. Now we run the printing press — EAS Build produces the finished, signed, production-grade binaries ready for the App Store and Google Play."
 tags: expo, easbuild, production, ios
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 9: The Printing Press (EAS Build — Production Binaries)
 
 > *“The printing press does not improve the design. It replicates it — perfectly, consistently, at scale. The design must be finalised before the press runs.”*
 > — Playing card manufacturing.
 
------
+---
 
 ## 🖨️ The Printing Press
 

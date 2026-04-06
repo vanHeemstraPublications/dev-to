@@ -1,19 +1,19 @@
------
-
-## title: “🃏 Card Deck — Episode 7: Your Custom Back Design (Development Builds)”
+---
+title: "🃏 Card Deck — Episode 7: Your Custom Back Design (Development Builds)"
 published: false
-description: “The borrowed practice deck was fine for learning. Now you print your own — a development build is your custom Bicycle deck with your back design, your native modules, your bundle identifier.”
+description: "The borrowed practice deck was fine for learning. Now you print your own — a development build is your custom Bicycle deck with your back design, your native modules, your bundle identifier."
 tags: expo, devbuild, easbuild, reactnative
 series: Card Deck
-cover_image: “”
-canonical_url: “”
+cover_image: ""
+canonical_url: ""
+---
 
 # 🃏 Card Deck — Episode 7: Your Custom Back Design (Development Builds)
 
 > *“Every serious card worker eventually orders custom decks. The back design is theirs. The card stock is theirs. The finish is exactly what they need. It costs more and takes longer than borrowing a deck — but it handles exactly right.”*
 > — Custom playing card production.
 
------
+---
 
 ## 🎨 The Custom Back Design
 
