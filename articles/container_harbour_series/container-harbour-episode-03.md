@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.3"
+part: 3
 published: false
 description: "Episode 3: The Dockyard Blueprint — Nodes and the Cluster. The quays, the cranes, the management tower, and what happens when a whole section falls into the sea."
 tags: [kubernetes, beginners, devops, tutorial]
