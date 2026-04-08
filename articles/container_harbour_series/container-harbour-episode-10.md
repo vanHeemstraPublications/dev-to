@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.10"
+part: 10
 published: false
 description: "Episode 10: ID Badges and Security Guards — RBAC Explained. Not everyone gets cluster-admin. Especially not Dave. Especially not in production."
 tags: [kubernetes, beginners, devops, tutorial]
