@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.4"
+part: 4
 published: false
 description: "Episode 4: The Harbourmaster's Tower — the Control Plane explained. API Server, etcd, Scheduler, and Controller Manager walk into a bar. The bar is your cluster."
 tags: [kubernetes, beginners, devops, tutorial]
