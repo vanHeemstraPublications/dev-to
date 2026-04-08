@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.1"
+part: 1
 published: false
 description: "Episode 1: The Big Overview — Kubernetes is the Harbourmaster, your apps are freight containers, and somebody's gotta run this place!"
 tags: [kubernetes, beginners, devops, tutorial]
