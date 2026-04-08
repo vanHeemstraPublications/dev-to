@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.8"
+part: 8
 published: false
 description: "Episode 8: Sealed Cargo Manifests — ConfigMaps and Secrets. Because writing your database password in your Docker image is absolutely something that has happened and we must never speak of it again."
 tags: [kubernetes, beginners, devops, tutorial]
