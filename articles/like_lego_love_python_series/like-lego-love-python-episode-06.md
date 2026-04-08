@@ -1,5 +1,5 @@
 ---
-title: "Like LEGO? Love Python! 🧱🐍 Ep.N: The LEGO Parts Bin (Dependency Injection with punq)"
+title: "Like LEGO? Love Python! 🧱🐍 Ep.6"
 part: 6
 published: false
 description: "Episode 6: Discover how punq, Python’s unintrusive IoC container, is like a perfectly organised LEGO parts bin — you describe what brick you need, and the bin hands you exactly the right one."
@@ -12,7 +12,7 @@ organization: "the-software-s-journey"
 
 # Like LEGO? Love Python! 🧱🐍
 
-## Episode N: The LEGO Parts Bin (Dependency Injection with punq)
+## The LEGO Parts Bin (Dependency Injection with punq)
 
 You know that moment when you are in the middle of building a magnificent LEGO castle and you need a 2×4 red brick? A sensible person reaches into their **organised parts bin**, pulls out exactly the right brick, and continues building.
 
