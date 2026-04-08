@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.11"
+part: 11
 published: false
 description: "Episode 11: The Health Inspector Visits — Liveness and Readiness Probes. Is your app alive? Is it READY? Are you SURE? Kubernetes sends in the inspectors."
 tags: [kubernetes, beginners, devops, tutorial]
