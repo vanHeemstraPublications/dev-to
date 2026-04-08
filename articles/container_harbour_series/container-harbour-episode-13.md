@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.13"
+part: 13
 published: false
 description: "Episode 13: The Night Shift Nobody Talks About — Jobs and CronJobs. Some cargo only arrives on Tuesdays at 3am. Someone has to be there."
 tags: [kubernetes, beginners, devops, tutorial]
