@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.2"
+part: 2
 published: false
 description: "Episode 2: The Humble Freight Container — Meet the Pod, Kubernetes' most fundamental unit. It's smaller than you think and more important than you know!"
 tags: [kubernetes, beginners, devops, tutorial]
