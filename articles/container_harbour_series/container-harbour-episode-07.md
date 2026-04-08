@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.7"
+part: 7
 published: false
 description: "Episode 7: The Customs Office — Ingress Controllers and Routing Rules. One gate to rule them all, with TLS, path routing, and zero tolerance for confusion."
 tags: [kubernetes, beginners, devops, tutorial]
