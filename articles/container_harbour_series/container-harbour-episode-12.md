@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.12"
+part: 12
 published: false
 description: "Episode 12: Rush Hour at the Harbour — Autoscaling Under Pressure. Traffic doubled overnight and nobody woke up. HPA, VPA, and Cluster Autoscaler explained."
 tags: [kubernetes, beginners, devops, tutorial]
