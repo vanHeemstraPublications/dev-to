@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.9"
+part: 9
 published: false
 description: "Episode 9: The Long-Term Warehouse — Persistent Volumes and Storage. Your Pods die constantly. Your database refuses to. Somebody has to build the warehouse."
 tags: [kubernetes, beginners, devops, tutorial]
