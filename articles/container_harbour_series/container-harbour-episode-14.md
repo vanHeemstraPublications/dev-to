@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.14"
+part: 14
 published: false
 description: "Episode 14: Reserved Berths for Divas — StatefulSets. Databases need the same berth, the same name, the same storage, every single time. High maintenance? Absolutely. Worth it? Ask your data."
 tags: [kubernetes, beginners, devops, tutorial]
