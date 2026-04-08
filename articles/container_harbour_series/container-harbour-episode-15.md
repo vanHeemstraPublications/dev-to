@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.15"
+part: 15
 published: false
 description: "Episode 15: Leaving Harbour Gracefully — Rolling Updates and Zero Downtime Deployments. The grand finale. Change everything. Break nothing. Amaze everyone."
 tags: [kubernetes, beginners, devops, tutorial]
