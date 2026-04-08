@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.5"
+part: 5
 published: false
 description: "Episode 5: Forklift Operators Who Never Sleep — ReplicaSets and Deployments. Because manually managing Pods is a one-way ticket to a nervous breakdown."
 tags: [kubernetes, beginners, devops, tutorial]
