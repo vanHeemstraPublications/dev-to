@@ -1,5 +1,6 @@
 ---
 title: "Welcome to Container Harbour! 🚢 Ep.6"
+part: 6
 published: false
 description: "Episode 6: The Harbour Gates — Services and How Traffic Gets In. Pod IPs change every five minutes. Services don't. That's literally the entire genius."
 tags: [kubernetes, beginners, devops, tutorial]
