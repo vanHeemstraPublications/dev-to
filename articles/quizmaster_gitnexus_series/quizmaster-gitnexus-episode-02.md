@@ -1,15 +1,14 @@
------
-
-## title: “Quizmaster GitNexus! 🎙️ Ep.2: The Quizmaster Does Their Reading”
+---
+title: "Quizmaster GitNexus! 🎙️ Ep.2"
+part: 2
 published: false
-description: “Episode 2: Before the show, the Quizmaster reads every file. GitNexus’s 6-phase indexing pipeline — from file walk to hybrid search index — is how your codebase becomes a queryable knowledge graph that answers in one call.”
+description: "Episode 2: Before the show, the Quizmaster reads every file. GitNexus’s 6-phase indexing pipeline — from file walk to hybrid search index — is how your codebase becomes a queryable knowledge graph that answers in one call."
 tags: [ai, productivity, codenewbie, tooling]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/quizmaster-gitnexus-episode-02.png”
-series: “Quizmaster GitNexus!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Quizmaster GitNexus! 🎙️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/quizmaster-gitnexus-episode-02.png"
+series: "Quizmaster GitNexus Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 2: The Quizmaster Does Their Reading
 
