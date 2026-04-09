@@ -1,5 +1,5 @@
 ---
-title: "Quizmaster GitNexus! 🎙️ Ep.5: The Bonus Round”
+title: "Quizmaster GitNexus! 🎙️ Ep.5"
 part: 5
 published: false
 description: "Episode 5: The advanced tier. `cypher` gives raw graph query access. Seven MCP resources provide instant orientation. Two guided prompts structure complex workflows. Four auto-installed agent skills teach your AI to use the Quizmaster’s full capabilities."
