@@ -10,8 +10,6 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Quizmaster GitNexus! 🎙️
-
 ## Episode 3: Name That Symbol
 
 *“Fingers on buzzers. Your time starts… now.”*
