@@ -10,8 +10,6 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Quizmaster GitNexus! 🎙️
-
 ## Episode 1: Meet the Quizmaster
 
 *“Your starter for ten, no conferring…”*
