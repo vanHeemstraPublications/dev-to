@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.5: Replaying the Route”
+---
+title: "Cable Car Git! 🚡 Ep.5"
+part: 5
 published: false
-description: “Episode 5: Rebase moves a spur line’s cabins to a new starting point on the trunk — creating a clean, linear history without merge commits. Interactive rebase lets you rewrite, squash, and reorder cabins before they arrive.”
+description: "Episode 5: Rebase moves a spur line’s cabins to a new starting point on the trunk — creating a clean, linear history without merge commits. Interactive rebase lets you rewrite, squash, and reorder cabins before they arrive."
 tags: [git, intermediate, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-05.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-05.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: Replaying the Route
 
