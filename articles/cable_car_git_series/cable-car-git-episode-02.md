@@ -1,5 +1,5 @@
 ---
-title: "Cable Car Git! 🚡 Ep.2: Your First Cabin"
+title: "Cable Car Git! 🚡 Ep.2"
 part: 2
 published: false
 description: "Episode 2: Load your first parcels, seal your first cabin, dispatch it. `git init`, `git add`, `git commit`, `git status`, `git log` — the five commands that start every journey on the network."
