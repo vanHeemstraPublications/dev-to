@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.4: The Junction”
+---
+title: "Cable Car Git! 🚡 Ep.4"
+part: 4
 published: false
-description: “Episode 4: Spur lines come home. Fast-forward merge vs. merge commit, how conflicts happen and how to resolve them, and when to use `--no-ff`. The junction is where the real Git understanding happens.”
+description: "Episode 4: Spur lines come home. Fast-forward merge vs. merge commit, how conflicts happen and how to resolve them, and when to use `--no-ff`. The junction is where the real Git understanding happens."
 tags: [git, beginners, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-04.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-04.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 4: The Junction
 
