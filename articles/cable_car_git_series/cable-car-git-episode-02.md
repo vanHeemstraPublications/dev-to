@@ -10,8 +10,6 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Cable Car Git! 🚡
-
 ## Episode 2: Your First Cabin
 
 > *“The network exists. Now load the first cabin.”*
