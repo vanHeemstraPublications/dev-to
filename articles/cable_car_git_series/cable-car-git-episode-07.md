@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.7: The Remote Depot”
+---
+title: "Cable Car Git! 🚡 Ep.7"
+part: 7
 published: false
-description: “Episode 7: Your local network connects to the central depot. `git remote`, `git push`, `git pull`, `git fetch` — and the pull request workflow that lets teams review and merge across the world.”
+description: "Episode 7: Your local network connects to the central depot. `git remote`, `git push`, `git pull`, `git fetch` — and the pull request workflow that lets teams review and merge across the world."
 tags: [git, beginners, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-07.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-07.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 7: The Remote Depot
 
