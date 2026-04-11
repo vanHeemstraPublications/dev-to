@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.6: The Holding Locker”
+---
+title: "Cable Car Git! 🚡 Ep.6"
+part: 6
 published: false
-description: “Episode 6: The command you are probably underusing. git stash temporarily stores your unfinished parcels in a secure locker so you can switch lines, handle emergencies, and come back exactly where you left off — with every advanced trick explained.”
+description: "Episode 6: The command you are probably underusing. git stash temporarily stores your unfinished parcels in a secure locker so you can switch lines, handle emergencies, and come back exactly where you left off — with every advanced trick explained."
 tags: [git, beginners, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-06.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-06.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 6: The Holding Locker
 
