@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.8: Recovering Lost Parcels”
+---
+title: "Cable Car Git! 🚡 Ep.8"
+part: 8
 published: false
-description: “Episode 8: Nothing is truly lost in Git. `git reset`, `git revert`, `git cherry-pick`, and `git reflog` — the recovery tools that let you undo disasters, retrieve orphaned cabins, and surgically move individual parcels between lines.”
+description: "Episode 8: Nothing is truly lost in Git. `git reset`, `git revert`, `git cherry-pick`, and `git reflog` — the recovery tools that let you undo disasters, retrieve orphaned cabins, and surgically move individual parcels between lines."
 tags: [git, intermediate, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-08.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-08.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 8: Recovering Lost Parcels
 
