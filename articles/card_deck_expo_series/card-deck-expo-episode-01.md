@@ -9,7 +9,7 @@ cover_image: ""
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
+ 
 # 🃏 Your App Is a Bicycle Deck in Blue
 
 > *“A deck of cards is the most democratic object in the world. Fifty-two cards. Four suits. The same rules for everyone. And yet in the right hands, it can produce infinite surprises.”*
