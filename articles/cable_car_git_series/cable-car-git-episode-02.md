@@ -1,13 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.2: Your First Cabin”
+---
+title: "Cable Car Git! 🚡 Ep.2: Your First Cabin"
+part: 2
 published: false
-description: “Episode 2: Load your first parcels, seal your first cabin, dispatch it. `git init`, `git add`, `git commit`, `git status`, `git log` — the five commands that start every journey on the network.”
+description: "Episode 2: Load your first parcels, seal your first cabin, dispatch it. `git init`, `git add`, `git commit`, `git status`, `git log` — the five commands that start every journey on the network."
 tags: [git, beginners, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-02.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-02.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 # Cable Car Git! 🚡
 
