@@ -1,15 +1,14 @@
------
-
-## title: “Cable Car Git! 🚡 Ep.3: Building New Lines”
+---
+title: "Cable Car Git! 🚡 Ep.3"
+part: 3
 published: false
-description: “Episode 3: Branches are the spur lines that let two teams transport parcels in parallel without collisions. `git branch`, `git switch`, `git checkout` — build a new route, work in isolation, then prepare to merge.”
+description: "Episode 3: Branches are the spur lines that let two teams transport parcels in parallel without collisions. `git branch`, `git switch`, `git checkout` — build a new route, work in isolation, then prepare to merge."
 tags: [git, beginners, versioncontrol, tutorial]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-03.png”
-series: “Cable Car Git!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Cable Car Git! 🚡
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/cable-car-git-episode-03.png"
+series: "Cable Car Git Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: Building New Lines
 
