@@ -150,6 +150,59 @@ This file is generated from the YAML files in `series/`.
 - metaphor: Formula 1
 - center action: The Championship
 
+## Cable Car Git Series
+
+- series id: `cable_car_git_series`
+- source file: `series/cable_car_git_series.yaml`
+
+### Episode 1: Welcome to the Network
+
+- slug: `welcome-to-the-network`
+- metaphor: 
+- center action: 
+
+### Episode 2: Your First Cabin
+
+- slug: `your-first-cabin`
+- metaphor: 
+- center action: 
+
+### Episode 3: Building New Lines
+
+- slug: `building-new-lines`
+- metaphor: 
+- center action: 
+
+### Episode 4: The Junction
+
+- slug: `the-junction`
+- metaphor: 
+- center action: 
+
+### Episode 5: Replaying the Route
+
+- slug: `replaying-the-route`
+- metaphor: 
+- center action: 
+
+### Episode 6: The Holding Locker
+
+- slug: `the-holding-locker`
+- metaphor: 
+- center action: 
+
+### Episode 7: The Remote Depot
+
+- slug: `the-remote-depot`
+- metaphor: 
+- center action: 
+
+### Episode 8: Recovering Lost Parcels
+
+- slug: `recovering-lost-parcels`
+- metaphor: 
+- center action: 
+
 ## Card Deck Expo Series
 
 - series id: `card_deck_expo_series`
@@ -268,6 +321,17 @@ This file is generated from the YAML files in `series/`.
 - metaphor: the prize is a factory so well designed it can run with almost no human intervention
 - center action: taking ownership of a factory that runs itself
 
+## Code Smell Detective Series
+
+- series id: `code_smell_detective_series`
+- source file: `series/code_smell_detective_series.yaml`
+
+### Episode 1: Code Smell Detective Solves Gilded Rose Kata
+
+- slug: `code-smell-detective-solves-gilded-rose-kata`
+- metaphor: 
+- center action: 
+
 ## Welcome to container harbour!
 
 - series id: `container_harbour_series`
@@ -363,6 +427,76 @@ This file is generated from the YAML files in `series/`.
 - metaphor: a blueprint used to quickly construct identical harbour installations
 - center action: engineers unroll architectural blueprints showing how to replicate an entire harbour setup
 
+### Episode 16: The Shipyard Foreman
+
+- slug: `the-shipyard-foreman`
+- metaphor: Jenkins on Kubernetes is like a shipyard foreman assigning each build its own temporary dock crew and workspace
+- center action: dispatching a fresh build crew to a temporary dock that vanishes when the job is done
+
+## Infrastructure as Code Adventures
+
+- series id: `cross_plane_series`
+- source file: `series/cross_plane_series.yaml`
+
+### Episode 1: Crossplane Networking: Mind the Gap Between Your Cloud Resources
+
+- slug: `crossplane-networking-mind-the-gap-between-your-cloud-resources`
+- metaphor: 
+- center action: 
+
+### Episode 2: Any Customer Can Have Any Cloud Resource, Provided It Comes Off the Assembly Line: Crossplane v2 and the SIPOC Factory Floor
+
+- slug: `any-customer-can-have-any-cloud-resource-provided-it-comes-off-the-assembly-line-crossplane-v2-and-the-sipoc-factory-floor`
+- metaphor: 
+- center action: 
+
+### Episode 3: Crossplane Snapshot Testing: Your Infrastructure’s Photoshoot Session 📸
+
+- slug: `crossplane-snapshot-testing-your-infrastructure-s-photoshoot-session`
+- metaphor: 
+- center action: 
+
+### Episode 4: Defense in Depth of Cyber Carrots: A Bunny-Proof Guide to Cloud Security
+
+- slug: `defense-in-depth-of-cyber-carrots-a-bunny-proof-guide-to-cloud-security`
+- metaphor: 
+- center action: 
+
+### Episode 5: Fast Infrastructure: Understanding Crossplane like a Fast Food Restaurant
+
+- slug: `fast-infrastructure-understanding-crossplane-like-a-fast-food-restaurant`
+- metaphor: 
+- center action: 
+
+### Episode 6: Finding Crossplane's Black Box: A Flight Data Recorder for Your Infrastructure
+
+- slug: `finding-crossplane-s-black-box-a-flight-data-recorder-for-your-infrastructure`
+- metaphor: 
+- center action: 
+
+### Episode 7: Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control Plane
+
+- slug: `don-t-pass-go-without-crossview-a-monopoly-guide-to-crossplane-s-control-plane`
+- metaphor: 
+- center action: 
+
+### Episode 8: Testing Your Cloud Infrastructure Like IKEA Furniture: 6 Layers of Crossplane v2 Testing (PostgreSQL Example)
+
+- slug: `testing-your-cloud-infrastructure-like-ikea-furniture-6-layers-of-crossplane-v2-testing-postgresql-example`
+- metaphor: 
+- center action: 
+
+## Kata Series
+
+- series id: `kata_series`
+- source file: `series/kata_series.yaml`
+
+### Episode 1: The Gilded Rose Kata: Composition Over Inheritance
+
+- slug: `the-gilded-rose-kata-composition-over-inheritance`
+- metaphor: 
+- center action: 
+
 ## Like LEGO? Love Python!
 
 - series id: `like_lego_love_python_series`
@@ -397,6 +531,118 @@ This file is generated from the YAML files in `series/`.
 - slug: `the-lego-instruction-manual`
 - metaphor: abstraction is the instruction manual that tells builders what matters without exposing every manufacturing detail
 - center action: following a clean instruction manual while the hidden complexity stays behind the scenes
+
+### Episode 6: The LEGO Parts Bin (Dependency Injection with punq)
+
+- slug: `the-lego-parts-bin`
+- metaphor: dependency injection is like a tidy LEGO parts bin that hands you exactly the brick you need
+- center action: pulling the right brick from an organized parts bin to keep a build moving
+
+## Like Stories? Love Python!
+
+- series id: `like_stories_love_python_series`
+- source file: `series/like_stories_love_python_series.yaml`
+
+### Episode 1: Singleton Pattern
+
+- slug: `singleton-pattern`
+- metaphor: one unique character controlling access for everyone
+- center action: all actors must go through a single gatekeeper
+
+### Episode 2: Factory Pattern
+
+- slug: `factory-pattern`
+- metaphor: a producer creating different kinds of actors or props on demand
+- center action: a film prop workshop produces different items from one request
+
+### Episode 3: Builder Pattern
+
+- slug: `builder-pattern`
+- metaphor: a set being assembled in deliberate stages
+- center action: crew members build the scene piece by piece
+
+### Episode 4: Adapter Pattern
+
+- slug: `adapter-pattern`
+- metaphor: a translator helping two incompatible systems work together
+- center action: a character connects mismatched film equipment so the scene can continue
+
+### Episode 5: Decorator Pattern
+
+- slug: `decorator-pattern`
+- metaphor: a plain costume gaining more layers and features
+- center action: an actor is progressively enhanced with wardrobe and accessories
+
+### Episode 6: Observer Pattern
+
+- slug: `observer-pattern`
+- metaphor: multiple people watching one key event and reacting instantly
+- center action: crew members and actors react when a central signal changes
+
+### Episode 7: Strategy Pattern
+
+- slug: `strategy-pattern`
+- metaphor: different teams switching tactics to solve the same challenge
+- center action: actors test different approaches for filming the same scene
+
+### Episode 8: Command Pattern
+
+- slug: `command-pattern`
+- metaphor: instructions packaged and handed off for others to execute
+- center action: a director issues action cards that trigger different crew actions
+
+## Luxo Jr. ThingsBoard Series
+
+- series id: `luxo_jr_thingsboard_series`
+- source file: `series/luxo_jr_thingsboard_series.yaml`
+
+### Episode 1: The Prop That Came Alive
+
+- slug: `the-prop-that-came-alive`
+- metaphor: 
+- center action: 
+
+### Episode 2: Building the Set
+
+- slug: `building-the-set`
+- metaphor: 
+- center action: 
+
+### Episode 3: The Prop Speaks
+
+- slug: `the-prop-speaks`
+- metaphor: 
+- center action: 
+
+### Episode 4: The Prompt Book
+
+- slug: `the-prompt-book`
+- metaphor: 
+- center action: 
+
+### Episode 5: The Director’s Cue Sheet
+
+- slug: `the-director-s-cue-sheet`
+- metaphor: 
+- center action: 
+
+### Episode 6: Animating the Lamp
+
+- slug: `animating-the-lamp`
+- metaphor: 
+- center action: 
+
+### Episode 7: Two Stages, One Show
+
+- slug: `two-stages-one-show`
+- metaphor: 
+- center action: 
+
+### Episode 8: The Pixar Logo
+
+- slug: `the-pixar-logo`
+- metaphor: 
+- center action: 
 
 ## Panic Room Home Assistant Series
 
@@ -545,6 +791,47 @@ This file is generated from the YAML files in `series/`.
 - slug: `visitor-pattern`
 - metaphor: a film critic visiting different departments to analyze their work
 - center action: a critic moves between departments evaluating different aspects of the production
+
+## Quizmaster GitNexus Series
+
+- series id: `quizmaster_gitnexus_series`
+- source file: `series/quizmaster_gitnexus_series.yaml`
+
+### Episode 1: Meet the Quizmaster
+
+- slug: `meet-the-quizmaster`
+- metaphor: 
+- center action: 
+
+### Episode 2: The Quizmaster Does Their Reading
+
+- slug: `the-quizmaster-does-their-reading`
+- metaphor: 
+- center action: 
+
+### Episode 3: Name That Symbol
+
+- slug: `name-that-symbol`
+- metaphor: 
+- center action: 
+
+### Episode 4: The Lightning Round
+
+- slug: `the-lightning-round`
+- metaphor: 
+- center action: 
+
+### Episode 5: The Bonus Round
+
+- slug: `the-bonus-round`
+- metaphor: 
+- center action: 
+
+### Episode 6: Going Live
+
+- slug: `going-live`
+- metaphor: 
+- center action: 
 
 ## Santa Augmentcode Intent Series
 

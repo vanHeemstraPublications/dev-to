@@ -26,6 +26,17 @@ This file is generated from the YAML files in `series/`.
 - lighting: bright cinematic atmosphere
 - episodes: 14
 
+### Cable Car Git Series
+
+- id: `cable_car_git_series`
+- type: git_learning_series
+- source file: `series/cable_car_git_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: alpine cable car network with mountain stations and parcel cabins
+- lighting: clear high-altitude daylight with crisp mountain air
+- episodes: 8
+
 ### Card Deck Expo Series
 
 - id: `card_deck_expo_series`
@@ -48,6 +59,17 @@ This file is generated from the YAML files in `series/`.
 - lighting: golden storybook factory light with sparkling highlights
 - episodes: 8
 
+### Code Smell Detective Series
+
+- id: `code_smell_detective_series`
+- type: refactoring_series
+- source file: `series/code_smell_detective_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: noir detective office with evidence boards and code printouts
+- lighting: moody desk-lamp lighting with magnified clues
+- episodes: 1
+
 ### Welcome to container harbour!
 
 - id: `container_harbour_series`
@@ -57,7 +79,29 @@ This file is generated from the YAML files in `series/`.
 - deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: Titanic-era container harbour at golden sunset
 - lighting: warm cinematic maritime atmosphere
-- episodes: 15
+- episodes: 16
+
+### Infrastructure as Code Adventures
+
+- id: `cross_plane_series`
+- type: infrastructure_as_code_series
+- source file: `series/cross_plane_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: playful cloud engineering lab with diagrams, control panels, and infrastructure props
+- lighting: bright cinematic workshop light with technical dashboard glow
+- episodes: 8
+
+### Kata Series
+
+- id: `kata_series`
+- type: refactoring_kata_series
+- source file: `series/kata_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: coding dojo with whiteboards, test benches, and refactoring notes
+- lighting: focused workshop lighting with calm study atmosphere
+- episodes: 1
 
 ### Like LEGO? Love Python!
 
@@ -68,7 +112,29 @@ This file is generated from the YAML files in `series/`.
 - deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: bright creative brick workshop and build table
 - lighting: clean playful studio light with colorful reflections
-- episodes: 5
+- episodes: 6
+
+### Like Stories? Love Python!
+
+- id: `like_stories_love_python_series`
+- type: python_design_patterns
+- source file: `series/like_stories_love_python_series.yaml`
+- prompt template: `prompts/python_story_episode_template.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: Hollywood film set at sunset
+- lighting: warm cinematic storytelling environment
+- episodes: 8
+
+### Luxo Jr. ThingsBoard Series
+
+- id: `luxo_jr_thingsboard_series`
+- type: iot_platform_series
+- source file: `series/luxo_jr_thingsboard_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: Pixar-inspired animation stage with smart devices, lamps, and production props
+- lighting: warm studio stage lighting with a cinematic animation glow
+- episodes: 8
 
 ### Panic Room Home Assistant Series
 
@@ -91,6 +157,17 @@ This file is generated from the YAML files in `series/`.
 - setting: Hollywood film set at sunset
 - lighting: warm cinematic storytelling environment
 - episodes: 15
+
+### Quizmaster GitNexus Series
+
+- id: `quizmaster_gitnexus_series`
+- type: code_intelligence_series
+- source file: `series/quizmaster_gitnexus_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: classic quiz show stage fused with a code intelligence control room
+- lighting: bright studio spotlights with glowing terminals and scoreboards
+- episodes: 6
 
 ### Santa Augmentcode Intent Series
 
