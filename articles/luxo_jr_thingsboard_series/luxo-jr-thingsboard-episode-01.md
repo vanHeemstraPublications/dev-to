@@ -4,7 +4,7 @@ part: 1
 published: false
 description: "Episode 1: Luxo Jr. was just a desk lamp until Lasseter gave it joints, personality, and story. Your IoT device is just hardware until ThingsBoard gives it telemetry, attributes, dashboards, and rules. Meet the platform that animates your things."
 tags: [iot, thingsboard, beginners, homeautomation]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-01.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/luxo-jr-thingsboard-episode-01.png"
 series: "Luxo Jr. ThingsBoard Series"
 canonical_url: ""
 organization: "the-software-s-journey"
