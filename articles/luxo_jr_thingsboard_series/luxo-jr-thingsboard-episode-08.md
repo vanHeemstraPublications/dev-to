@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.8: The Pixar Logo”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.8"
+part: 8
 published: false
-description: “Episode 8: The moment the lamp hops onto the screen and stamps the letter ‘I’ — the production is live. ThingsBoard Edge for on-premises processing, production deployment considerations, and the full series map of everything you have built.”
+description: "Episode 8: The moment the lamp hops onto the screen and stamps the letter ‘I’ — the production is live. ThingsBoard Edge for on-premises processing, production deployment considerations, and the full series map of everything you have built."
 tags: [iot, thingsboard, production, homeautomation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-08.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-08.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 8: The Pixar Logo
 
