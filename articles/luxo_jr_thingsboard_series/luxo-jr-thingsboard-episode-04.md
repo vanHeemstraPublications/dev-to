@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.4: The Prompt Book”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.4"
+part: 4
 published: false
-description: “Episode 4: The director needs to see every prop’s state at a glance. ThingsBoard Dashboards are the prompt book — time-series charts, value gauges, alarm tables, maps, and control widgets, all wired to your device telemetry.”
+description: "Episode 4: The director needs to see every prop’s state at a glance. ThingsBoard Dashboards are the prompt book — time-series charts, value gauges, alarm tables, maps, and control widgets, all wired to your device telemetry."
 tags: [iot, thingsboard, dashboard, homeautomation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-04.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-04.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 4: The Prompt Book
 
