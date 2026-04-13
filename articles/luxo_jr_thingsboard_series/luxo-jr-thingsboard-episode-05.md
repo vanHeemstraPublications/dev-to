@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.5: The Director’s Cue Sheet”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.5"
+part: 5
 published: false
-description: “Episode 5: Luxo Jr. did not wait to be told to react — the slump when the ball deflated was automatic. ThingsBoard’s Rule Engine is the cue sheet: filter, transform, alarm, notify, command — automated reactions to anything your devices report.”
+description: "Episode 5: Luxo Jr. did not wait to be told to react — the slump when the ball deflated was automatic. ThingsBoard’s Rule Engine is the cue sheet: filter, transform, alarm, notify, command — automated reactions to anything your devices report."
 tags: [iot, thingsboard, ruleengine, homeautomation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-05.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-05.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: The Director’s Cue Sheet
 
