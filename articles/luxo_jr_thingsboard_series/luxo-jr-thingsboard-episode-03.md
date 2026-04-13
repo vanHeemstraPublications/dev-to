@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.3: The Prop Speaks”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.3"
+part: 3
 published: false
-description: “Episode 3: The lamp tilts its head — the first telemetry arrives. Connecting devices via MQTT and HTTP, telemetry vs attributes, access tokens, and the difference between a prop that just sits there and one that reports its state.”
+description: "Episode 3: The lamp tilts its head — the first telemetry arrives. Connecting devices via MQTT and HTTP, telemetry vs attributes, access tokens, and the difference between a prop that just sits there and one that reports its state."
 tags: [iot, thingsboard, mqtt, homeautomation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-03.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-03.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: The Prop Speaks
 
