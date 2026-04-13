@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.6: Animating the Lamp”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.6"
+part: 6
 published: false
-description: “Episode 6: Lasseter built Luxo Jr. over months. ThingsBoard’s AI Solution Creator builds your entire IoT prototype — entity profiles, dashboards, alarm rules, user roles — in under 10 minutes from a plain-language description.”
+description: "Episode 6: Lasseter built Luxo Jr. over months. ThingsBoard’s AI Solution Creator builds your entire IoT prototype — entity profiles, dashboards, alarm rules, user roles — in under 10 minutes from a plain-language description."
 tags: [iot, thingsboard, ai, homeautomation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-06.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-06.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 6: Animating the Lamp
 
