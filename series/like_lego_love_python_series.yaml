@@ -65,3 +65,13 @@ episodes:
       - "instruction manual"
       - "unfinished model"
       - "covered mechanism"
+
+  - number: 6
+    title: "The LEGO Parts Bin (Dependency Injection with punq)"
+    slug: "the-lego-parts-bin"
+    metaphor: "dependency injection is like a tidy LEGO parts bin that hands you exactly the brick you need"
+    center_action: "pulling the right brick from an organized parts bin to keep a build moving"
+    supporting_props:
+      - "sorted parts drawers"
+      - "2x4 red brick"
+      - "half-built castle"
