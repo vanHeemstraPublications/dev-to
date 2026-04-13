@@ -1,11 +1,11 @@
 ---
-title: "Luxo Jr Thingsboard 🎬 Ep.2"
+title: "Luxo Jr. Thingsboard 🎬 Ep.2"
 part: 2
 published: false
 description: "Episode 2: Before the lamp can perform, the stage must be built. ThingsBoard Devices, Assets, Device Profiles, and Relations — the physical world modelled as a hierarchy of entities, from building to room to sensor, all connected."
 tags: [iot, thingsboard, beginners, homeautomation]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-02.png"
-series: "Luxo Jr Thingsboard Series"
+series: "Luxo Jr. Thingsboard Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
