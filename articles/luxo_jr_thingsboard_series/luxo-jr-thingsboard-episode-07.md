@@ -1,15 +1,14 @@
------
-
-## title: “Stage Props! 🎬 Ep.7: Two Stages, One Show”
+---
+title: "Luxo Jr. ThingsBoard 🎬 Ep.7"
+part: 7
 published: false
-description: “Episode 7: Luxo Jr. bounces the ball between two stages. Home Assistant is your personal stage; ThingsBoard is the enterprise stage. Connect them via MQTT — HA publishes entity states, ThingsBoard ingests, visualises, and reacts at scale.”
+description: "Episode 7: Luxo Jr. bounces the ball between two stages. Home Assistant is your personal stage; ThingsBoard is the enterprise stage. Connect them via MQTT — HA publishes entity states, ThingsBoard ingests, visualises, and reacts at scale."
 tags: [iot, thingsboard, homeassistant, mqtt]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-07.png”
-series: “Stage Props!”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Stage Props! 🎬
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/stage-props-thingsboard-episode-07.png"
+series: "Luxo Jr. ThingsBoard Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 7: Two Stages, One Show
 
