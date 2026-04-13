@@ -1,0 +1,44 @@
+series:
+  id: luxo_jr_thingsboard_series
+  name: Luxo Jr. ThingsBoard Series
+  type: iot_platform_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: Pixar-inspired animation stage with smart devices, lamps, and production
+    props
+  lighting: warm studio stage lighting with a cinematic animation glow
+  composition:
+    left_third: director or presenter introducing the IoT scene
+    center: the animated device or ThingsBoard concept in motion
+    right_third: control consoles, dashboards, or supporting stage props
+    background: sound stage, lighting rigs, and storyboards
+episodes:
+- number: 1
+  title: The Prop That Came Alive
+  slug: the-prop-that-came-alive
+- number: 2
+  title: Building the Set
+  slug: building-the-set
+- number: 3
+  title: The Prop Speaks
+  slug: the-prop-speaks
+- number: 4
+  title: The Prompt Book
+  slug: the-prompt-book
+- number: 5
+  title: The Director’s Cue Sheet
+  slug: the-director-s-cue-sheet
+- number: 6
+  title: Animating the Lamp
+  slug: animating-the-lamp
+- number: 7
+  title: Two Stages, One Show
+  slug: two-stages-one-show
+- number: 8
+  title: The Pixar Logo
+  slug: the-pixar-logo

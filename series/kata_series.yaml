@@ -1,0 +1,22 @@
+series:
+  id: kata_series
+  name: Kata Series
+  type: refactoring_kata_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: coding dojo with whiteboards, test benches, and refactoring notes
+  lighting: focused workshop lighting with calm study atmosphere
+  composition:
+    left_third: mentor or kata practitioner explaining the exercise
+    center: the core kata problem being reshaped
+    right_third: tests, notes, or refactoring tools
+    background: dojo boards, laptops, and practice artifacts
+episodes:
+- number: 1
+  title: 'The Gilded Rose Kata: Composition Over Inheritance'
+  slug: the-gilded-rose-kata-composition-over-inheritance

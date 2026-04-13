@@ -1,0 +1,100 @@
+series:
+  id: like_stories_love_python_series
+  name: Like Stories? Love Python!
+  type: python_design_patterns
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/python_story_episode_template.md
+  series_config: config/like-stories-love-python-series.json
+defaults:
+  setting: Hollywood film set at sunset
+  lighting: warm cinematic storytelling environment
+  composition:
+    left_third: director or presenter explaining the concept
+    center: actors demonstrating the design pattern metaphor
+    right_third: film crew recording the scene
+    background: Hollywood hills and film studio environment
+episodes:
+- number: 1
+  title: Singleton Pattern
+  slug: singleton-pattern
+  metaphor: one unique character controlling access for everyone
+  center_action: all actors must go through a single gatekeeper
+  supporting_props:
+  - director chair
+  - clapperboard
+  - studio camera
+  - spotlights
+- number: 2
+  title: Factory Pattern
+  slug: factory-pattern
+  metaphor: a producer creating different kinds of actors or props on demand
+  center_action: a film prop workshop produces different items from one request
+  supporting_props:
+  - prop shelves
+  - workshop table
+  - script pages
+  - film crates
+- number: 3
+  title: Builder Pattern
+  slug: builder-pattern
+  metaphor: a set being assembled in deliberate stages
+  center_action: crew members build the scene piece by piece
+  supporting_props:
+  - blueprints
+  - set walls
+  - tool cart
+  - clapperboard
+- number: 4
+  title: Adapter Pattern
+  slug: adapter-pattern
+  metaphor: a translator helping two incompatible systems work together
+  center_action: a character connects mismatched film equipment so the scene can continue
+  supporting_props:
+  - cables
+  - connectors
+  - monitor
+  - lighting rig
+- number: 5
+  title: Decorator Pattern
+  slug: decorator-pattern
+  metaphor: a plain costume gaining more layers and features
+  center_action: an actor is progressively enhanced with wardrobe and accessories
+  supporting_props:
+  - costume rack
+  - makeup station
+  - wardrobe cart
+  - mirror lights
+- number: 6
+  title: Observer Pattern
+  slug: observer-pattern
+  metaphor: multiple people watching one key event and reacting instantly
+  center_action: crew members and actors react when a central signal changes
+  supporting_props:
+  - control panel
+  - monitors
+  - boom mic
+  - signal light
+- number: 7
+  title: Strategy Pattern
+  slug: strategy-pattern
+  metaphor: different teams switching tactics to solve the same challenge
+  center_action: actors test different approaches for filming the same scene
+  supporting_props:
+  - alternate scripts
+  - storyboards
+  - director notes
+  - camera dolly
+- number: 8
+  title: Command Pattern
+  slug: command-pattern
+  metaphor: instructions packaged and handed off for others to execute
+  center_action: a director issues action cards that trigger different crew actions
+  supporting_props:
+  - call sheets
+  - cue cards
+  - walkie-talkies
+  - clapperboard

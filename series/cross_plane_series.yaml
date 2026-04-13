@@ -1,0 +1,47 @@
+series:
+  id: cross_plane_series
+  name: Infrastructure as Code Adventures
+  type: infrastructure_as_code_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: playful cloud engineering lab with diagrams, control panels, and infrastructure
+    props
+  lighting: bright cinematic workshop light with technical dashboard glow
+  composition:
+    left_third: guide or engineer introducing the infrastructure metaphor
+    center: the featured Crossplane or cloud systems concept in action
+    right_third: supporting tools, diagrams, or secondary system operators
+    background: cloud blueprints, consoles, and whimsical training props
+episodes:
+- number: 1
+  title: 'Crossplane Networking: Mind the Gap Between Your Cloud Resources'
+  slug: crossplane-networking-mind-the-gap-between-your-cloud-resources
+- number: 2
+  title: 'Any Customer Can Have Any Cloud Resource, Provided It Comes Off the Assembly
+    Line: Crossplane v2 and the SIPOC Factory Floor'
+  slug: any-customer-can-have-any-cloud-resource-provided-it-comes-off-the-assembly-line-crossplane-v2-and-the-sipoc-factory-floor
+- number: 3
+  title: 'Crossplane Snapshot Testing: Your Infrastructure’s Photoshoot Session 📸'
+  slug: crossplane-snapshot-testing-your-infrastructure-s-photoshoot-session
+- number: 4
+  title: 'Defense in Depth of Cyber Carrots: A Bunny-Proof Guide to Cloud Security'
+  slug: defense-in-depth-of-cyber-carrots-a-bunny-proof-guide-to-cloud-security
+- number: 5
+  title: 'Fast Infrastructure: Understanding Crossplane like a Fast Food Restaurant'
+  slug: fast-infrastructure-understanding-crossplane-like-a-fast-food-restaurant
+- number: 6
+  title: 'Finding Crossplane''s Black Box: A Flight Data Recorder for Your Infrastructure'
+  slug: finding-crossplane-s-black-box-a-flight-data-recorder-for-your-infrastructure
+- number: 7
+  title: 'Don’t Pass GO Without Crossview: A Monopoly Guide to Crossplane’s Control
+    Plane'
+  slug: don-t-pass-go-without-crossview-a-monopoly-guide-to-crossplane-s-control-plane
+- number: 8
+  title: 'Testing Your Cloud Infrastructure Like IKEA Furniture: 6 Layers of Crossplane
+    v2 Testing (PostgreSQL Example)'
+  slug: testing-your-cloud-infrastructure-like-ikea-furniture-6-layers-of-crossplane-v2-testing-postgresql-example

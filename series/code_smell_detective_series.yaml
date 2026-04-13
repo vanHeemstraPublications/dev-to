@@ -1,0 +1,22 @@
+series:
+  id: code_smell_detective_series
+  name: Code Smell Detective Series
+  type: refactoring_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: noir detective office with evidence boards and code printouts
+  lighting: moody desk-lamp lighting with magnified clues
+  composition:
+    left_third: detective examining the codebase clues
+    center: the central code smell mystery under investigation
+    right_third: evidence board, case files, or suspect list
+    background: filing cabinets, corkboards, and rainy office windows
+episodes:
+- number: 1
+  title: Code Smell Detective Solves Gilded Rose Kata
+  slug: code-smell-detective-solves-gilded-rose-kata

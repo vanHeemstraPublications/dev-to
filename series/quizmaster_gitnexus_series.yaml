@@ -1,0 +1,37 @@
+series:
+  id: quizmaster_gitnexus_series
+  name: Quizmaster GitNexus Series
+  type: code_intelligence_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: classic quiz show stage fused with a code intelligence control room
+  lighting: bright studio spotlights with glowing terminals and scoreboards
+  composition:
+    left_third: quizmaster or host presenting the challenge
+    center: the featured GitNexus capability shown as the main round
+    right_third: contestant consoles, scoreboards, or analyst desks
+    background: studio set, buzzers, and architecture displays
+episodes:
+- number: 1
+  title: Meet the Quizmaster
+  slug: meet-the-quizmaster
+- number: 2
+  title: The Quizmaster Does Their Reading
+  slug: the-quizmaster-does-their-reading
+- number: 3
+  title: Name That Symbol
+  slug: name-that-symbol
+- number: 4
+  title: The Lightning Round
+  slug: the-lightning-round
+- number: 5
+  title: The Bonus Round
+  slug: the-bonus-round
+- number: 6
+  title: Going Live
+  slug: going-live

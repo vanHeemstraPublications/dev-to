@@ -40,3 +40,31 @@ series:
   name: Satellite Tailscale Series
   file: series/satellite_tailscale_series.yaml
   prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: cable_car_git_series
+  name: Cable Car Git Series
+  file: series/cable_car_git_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: code_smell_detective_series
+  name: Code Smell Detective Series
+  file: series/code_smell_detective_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: cross_plane_series
+  name: Infrastructure as Code Adventures
+  file: series/cross_plane_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: kata_series
+  name: Kata Series
+  file: series/kata_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: like_stories_love_python_series
+  name: Like Stories? Love Python!
+  file: series/like_stories_love_python_series.yaml
+  prompt_template: prompts/python_story_episode_template.md
+- id: luxo_jr_thingsboard_series
+  name: Luxo Jr. ThingsBoard Series
+  file: series/luxo_jr_thingsboard_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: quizmaster_gitnexus_series
+  name: Quizmaster GitNexus Series
+  file: series/quizmaster_gitnexus_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md

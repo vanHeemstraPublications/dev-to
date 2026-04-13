@@ -1,0 +1,43 @@
+series:
+  id: cable_car_git_series
+  name: Cable Car Git Series
+  type: git_learning_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+defaults:
+  setting: alpine cable car network with mountain stations and parcel cabins
+  lighting: clear high-altitude daylight with crisp mountain air
+  composition:
+    left_third: mountain guide or station operator explaining the route
+    center: the key cable car or parcel movement for the Git concept
+    right_third: supporting station crew or switching mechanism
+    background: snowy peaks, towers, cables, and depot buildings
+episodes:
+- number: 1
+  title: Welcome to the Network
+  slug: welcome-to-the-network
+- number: 2
+  title: Your First Cabin
+  slug: your-first-cabin
+- number: 3
+  title: Building New Lines
+  slug: building-new-lines
+- number: 4
+  title: The Junction
+  slug: the-junction
+- number: 5
+  title: Replaying the Route
+  slug: replaying-the-route
+- number: 6
+  title: The Holding Locker
+  slug: the-holding-locker
+- number: 7
+  title: The Remote Depot
+  slug: the-remote-depot
+- number: 8
+  title: Recovering Lost Parcels
+  slug: recovering-lost-parcels

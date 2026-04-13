@@ -183,4 +183,15 @@ episodes:
       - "rolled blueprints"
       - "construction tools"
       - "harbour scale model"
-      - "engineer drafting table"      
+      - "engineer drafting table"
+
+  - number: 16
+    title: "The Shipyard Foreman"
+    slug: "the-shipyard-foreman"
+    metaphor: "Jenkins on Kubernetes is like a shipyard foreman assigning each build its own temporary dock crew and workspace"
+    center_action: "dispatching a fresh build crew to a temporary dock that vanishes when the job is done"
+    supporting_props:
+      - "temporary dock"
+      - "clipboards"
+      - "tool crates"
+      - "harbour scheduler"
