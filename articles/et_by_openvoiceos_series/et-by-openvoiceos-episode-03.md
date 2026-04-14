@@ -1,15 +1,14 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.3: E.T. Phone Home”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.3"
+part: 3
 published: false
-description: “Episode 3: Ben Burtt built E.T.‘s voice from 18 sources — Pat Welsh, Debra Winger, raccoons, otters, a USC professor’s burp. OVOS builds synthetic voices from scratch using the same compositional logic: donor TTS → voice conversion → compact offline model. Zero recordings needed.”
+description: "Episode 3: Ben Burtt built E.T.‘s voice from 18 sources — Pat Welsh, Debra Winger, raccoons, otters, a USC professor’s burp. OVOS builds synthetic voices from scratch using the same compositional logic: donor TTS → voice conversion → compact offline model. Zero recordings needed."
 tags: [voice, openvoiceos, tts, synthvoice]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-03.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et_by_openvoiceos_series/et-openvoiceos-episode-03.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: E.T. Phone Home
 
