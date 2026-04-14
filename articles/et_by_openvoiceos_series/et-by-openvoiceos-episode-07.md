@@ -8,6 +8,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "E.T. by OpenVoiceOS Series"
 canonical_url: ""
 organization: "the-software-s-journey"
+---
 
 ## Episode 7: E.T. Goes Home
 
