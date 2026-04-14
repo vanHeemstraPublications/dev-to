@@ -1,15 +1,13 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.6: I’ll Be Right Here”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.6"
+part: 6
 published: false
-description: “Episode 6: E.T.’s most profound promise was not to phone home — it was to stay. OVOS + Home Assistant via Wyoming protocol is that promise: a voice assistant always present, always local, always yours. The dream team that makes your smart home speak.”
+description: "Episode 6: E.T.’s most profound promise was not to phone home — it was to stay. OVOS + Home Assistant via Wyoming protocol is that promise: a voice assistant always present, always local, always yours. The dream team that makes your smart home speak."
 tags: [voice, openvoiceos, homeassistant, wyoming]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-06.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et_by_openvoiceos_series/et-openvoiceos-episode-06.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
 
 ## Episode 6: I’ll Be Right Here
 
