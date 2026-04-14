@@ -1,15 +1,14 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.5: The Government Scientists”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.5"
+part: 5
 published: false
-description: “Episode 5: The government scientists want to study E.T., control him, lock him in a lab. The OVOS plugin system is the locked bedroom door. Every stage — wake word, STT, TTS, skills, hardware — is yours to choose, replace, and protect.”
+description: "Episode 5: The government scientists want to study E.T., control him, lock him in a lab. The OVOS plugin system is the locked bedroom door. Every stage — wake word, STT, TTS, skills, hardware — is yours to choose, replace, and protect."
 tags: [voice, openvoiceos, plugins, privacy]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-05.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et_by_openvoiceos_series/et-openvoiceos-episode-05.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: The Government Scientists
 
