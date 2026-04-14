@@ -1,15 +1,14 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.4: Elliott’s Bicycle”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.4"
+part: 4
 published: false
-description: “Episode 4: The moment Elliott’s bicycle rises over the treeline — the impossible becomes real. Installing OpenVoiceOS on a Raspberry Pi and watching it run fully offline is that moment. A complete voice assistant, on your desk, talking to no one but you.”
+description: "Episode 4: The moment Elliott’s bicycle rises over the treeline — the impossible becomes real. Installing OpenVoiceOS on a Raspberry Pi and watching it run fully offline is that moment. A complete voice assistant, on your desk, talking to no one but you."
 tags: [voice, openvoiceos, raspberrypi, selfhosted]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-04.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et_by_openvoiceos_series/et-openvoiceos-episode-04.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 4: Elliott’s Bicycle
 
