@@ -1,15 +1,14 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.2: He Can Talk! He Can Talk!”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.2"
+part: 2
 published: false
-description: “Episode 2: E.T. learned to speak by listening. OVOS listens for its wake word, converts speech to text, parses intent, and speaks a reply — entirely on your device. The complete voice pipeline, explained through E.T.’s journey from grunts to sentences.”
+description: "Episode 2: E.T. learned to speak by listening. OVOS listens for its wake word, converts speech to text, parses intent, and speaks a reply — entirely on your device. The complete voice pipeline, explained through E.T.’s journey from grunts to sentences."
 tags: [voice, openvoiceos, tts, stt]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-02.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et_by_openvoiceos_series/et-openvoiceos-episode-02.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 2: He Can Talk! He Can Talk!
 
