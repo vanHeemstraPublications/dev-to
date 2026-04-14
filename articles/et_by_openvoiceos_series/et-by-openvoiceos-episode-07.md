@@ -1,15 +1,13 @@
------
-
-## title: “E.T. by OpenVoiceOS! 👽 Ep.7: E.T. Goes Home”
+---
+title: "E.T. by OpenVoiceOS 👽 Ep.7"
+part: 7
 published: false
-description: “Episode 7: The ship returns. But E.T.’s promise stays. HiveMind distributed satellites, phoonnx next-gen TTS, protocol interoperability, and the community building voice for everyone. The alien went home. The voice stayed.”
+description: "Episode 7: The ship returns. But E.T.’s promise stays. HiveMind distributed satellites, phoonnx next-gen TTS, protocol interoperability, and the community building voice for everyone. The alien went home. The voice stayed."
 tags: [voice, openvoiceos, hivemind, community]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-openvoiceos-episode-07.png”
-series: “E.T. by OpenVoiceOS Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# E.T. by OpenVoiceOS! 👽
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-by-openvoiceos_series/et-openvoiceos-episode-07.png"
+series: "E.T. by OpenVoiceOS Series"
+canonical_url: ""
+organization: "the-software-s-journey"
 
 ## Episode 7: E.T. Goes Home
 
