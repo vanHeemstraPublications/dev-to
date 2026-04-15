@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.5: Save Data Over the Wire”
+---
+title: "Game on Djangular 🎮 Ep.5"
+part: 5
 published: false
-description: “Episode 5: The Django backend exchanges XML files with an external Linux server — catalogue updates, vault exports, audit feeds. Plain HTTP by default, HTTPS on demand. The xml_bridge app: lxml serialisation, requests HTTP client, configurable transport, and Django management commands to trigger syncs.”
+description: "Episode 5: The Django backend exchanges XML files with an external Linux server — catalogue updates, vault exports, audit feeds. Plain HTTP by default, HTTPS on demand. The xml_bridge app: lxml serialisation, requests HTTP client, configurable transport, and Django management commands to trigger syncs."
 tags: [django, python, xml, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-05.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-05.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: Save Data Over the Wire
 
