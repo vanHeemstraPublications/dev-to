@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.3: Your Login Token”
+---
+title: "Game on Djangular 🎮 Ep.3"
+part: 3
 published: false
-description: “Episode 3: Your guild membership card — JWT authentication in GameLib. djangorestframework-simplejwt on the Django side, an Angular HttpInterceptor that attaches the token automatically, route guards that protect the vault, and token refresh that keeps you logged in.”
+description: "Episode 3: Your guild membership card — JWT authentication in GameLib. djangorestframework-simplejwt on the Django side, an Angular HttpInterceptor that attaches the token automatically, route guards that protect the vault, and token refresh that keeps you logged in."
 tags: [django, angular, jwt, authentication]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-03.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-03.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: Your Login Token
 
