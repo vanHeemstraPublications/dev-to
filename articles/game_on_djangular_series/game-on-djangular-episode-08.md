@@ -1,15 +1,13 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.8: The Guild Registry”
+---
+title: "Game on Djangular 🎮 Ep.8"
 published: false
-description: “Episode 8: SailPoint IAM is the guild registry — the authoritative record of every identity and what they are permitted to do. Before GameLib’s Django backend exchanges XML with the Linux server, it asks SailPoint: does this identity have the catalogue_update entitlement? SCIM 2.0, access tokens, and zero-trust enforcement.”
+description: "Episode 8: SailPoint IAM is the guild registry — the authoritative record of every identity and what they are permitted to do. Before GameLib’s Django backend exchanges XML with the Linux server, it asks SailPoint: does this identity have the catalogue_update entitlement? SCIM 2.0, access tokens, and zero-trust enforcement."
 tags: [django, python, iam, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-08.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-08.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 8: The Guild Registry
 
