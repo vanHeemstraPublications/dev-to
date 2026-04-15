@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.6: Encrypting the Channel”
+---
+title: "Game on Djangular 🎮 Ep.6"
+part: 6
 published: false
-description: “Episode 6: One-way TLS secures the XML channel. Generate a self-signed CA, issue a server certificate for the Linux server, configure Nginx to serve HTTPS, and tell Django’s requests client to verify against your CA. The complete TLS setup from scratch.”
+description: "Episode 6: One-way TLS secures the XML channel. Generate a self-signed CA, issue a server certificate for the Linux server, configure Nginx to serve HTTPS, and tell Django’s requests client to verify against your CA. The complete TLS setup from scratch."
 tags: [django, python, tls, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-06.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-06.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 6: Encrypting the Channel
 
