@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.7: Both Sides of the Lock”
+---
+title: "Game on Djangular 🎮 Ep.7"
+part: 7
 published: false
-description: “Episode 7: Mutual TLS (mTLS) — both Django and the Linux server present certificates signed by the same CA. Generate a client certificate, configure requests with cert=(crt, key), update Nginx to require and verify client certs. The complete two-way handshake.”
+description: "Episode 7: Mutual TLS (mTLS) — both Django and the Linux server present certificates signed by the same CA. Generate a client certificate, configure requests with cert=(crt, key), update Nginx to require and verify client certs. The complete two-way handshake."
 tags: [django, python, mtls, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-07.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-07.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 7: Both Sides of the Lock
 
