@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.9: The Key Factory”
+---
+title: "Game on Djangular 🎮 Ep.9"
+part: 9
 published: false
-description: “Episode 9: PKI management with django-ca — the Certificate Authority that signs everything. Root CA, intermediate CA, certificate lifecycle, CRL publication, OCSP responder, rotation automation, and the complete PKI architecture for GameLib. Where all locks are made.”
+description: "Episode 9: PKI management with django-ca — the Certificate Authority that signs everything. Root CA, intermediate CA, certificate lifecycle, CRL publication, OCSP responder, rotation automation, and the complete PKI architecture for GameLib. Where all locks are made."
 tags: [django, python, pki, security]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-09.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-09.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 9: The Key Factory
 
