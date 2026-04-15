@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.2: Building the Game Catalogue”
+---
+title: "Game on Djangular 🎮 Ep.2"
+part: 2
 published: false
-description: “Episode 2: Every vault needs a catalogue. Game, Genre, UserGame, Review — Django models that mirror your library. DRF serializers that turn them into JSON. ViewSets that expose them as a REST API. The database layer of GameLib, built step by step.”
+description: "Episode 2: Every vault needs a catalogue. Game, Genre, UserGame, Review — Django models that mirror your library. DRF serializers that turn them into JSON. ViewSets that expose them as a REST API. The database layer of GameLib, built step by step."
 tags: [django, python, postgresql, drf]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-02.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/game_on_djangular_series/game-on-djangular-episode-02.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 2: Building the Game Catalogue
 
