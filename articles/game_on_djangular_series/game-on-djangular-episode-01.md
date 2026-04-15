@@ -1,15 +1,14 @@
------
-
-## title: “Game on Djangular! 🎮 Ep.1: Welcome to the Vault”
+---
+title: "Game on Djangular 🎮 Ep.1"
+part: 1
 published: false
-description: “Episode 1: GameLib is your digital game vault — track your backlog, log completions, write reviews. Powered by Django REST Framework and Angular, secured by JWT, connected by PostgreSQL. The Djangular stack, explained through the games you play.”
+description: "Episode 1: GameLib is your digital game vault — track your backlog, log completions, write reviews. Powered by Django REST Framework and Angular, secured by JWT, connected by PostgreSQL. The Djangular stack, explained through the games you play."
 tags: [django, angular, python, beginners]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular-gamelib-episode-01.png”
-series: “Game on Djangular Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Game on Djangular! 🎮
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/djangular_gamelib_series/djangular-gamelib-episode-01.png"
+series: "Game on Djangular Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 1: Welcome to the Vault
 
