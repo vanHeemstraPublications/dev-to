@@ -9,13 +9,9 @@ series: "Luxo Jr. ThingsBoard Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 1: The Prop That Came Alive
 
-> *“The question is not whether a lamp can have a personality. The question is whether you are willing to do the work to give it one.”*
-> — paraphrasing John Lasseter, very liberally
-
------
+> “The question is not whether a lamp can have a personality. The question is whether you are willing to do the work to give it one.”— paraphrasing John Lasseter, very liberally
 
 ## A Desk Lamp That Changed Everything 💡
 
@@ -29,17 +25,13 @@ This is the precise ambition of the IoT platform **ThingsBoard**: to take your p
 
 In this series, we build stage props. We give them personality. By Episode 8, they will perform.
 
------
-
 ## 🗂️ SIPOC — The Stage
 
-|**Suppliers**                                |**Inputs**                                                |**Process**                                                        |**Outputs**                                                             |**Customers**                                                                                               |
-|---------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-|Physical devices (sensors, actuators, meters)|Raw telemetry data: temperature, humidity, power, position|ThingsBoard: ingest, store, visualise, process, alert              |Live dashboards, alarm notifications, RPC commands, analytics           |Operators, homeowners, engineers, stakeholders — anyone who needs to *see and act on* what devices are doing|
-|Home Assistant (Ep.7)                        |Entity states and sensor readings via MQTT                |MQTT bridge: HA → ThingsBoard for enterprise-scale visualisation   |Enterprise dashboard showing all HA devices alongside industrial sensors|IT/OT teams bridging consumer smart home with professional IoT                                              |
-|ThingsBoard AI Solution Creator (Ep.6)       |A plain-language description of your use case             |AI agent: generates entity profiles, dashboards, alarm rules, roles|A working prototype of your IoT solution in under 10 minutes            |System integrators, explorers, business stakeholders doing PoC                                              |
-
------
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| Physical devices (sensors, actuators, meters) | Raw telemetry data: temperature, humidity, power, position | ThingsBoard: ingest, store, visualise, process, alert | Live dashboards, alarm notifications, RPC commands, analytics | Operators, homeowners, engineers, stakeholders — anyone who needs to see and act on what devices are doing |
+| Home Assistant (Ep.7) | Entity states and sensor readings via MQTT | MQTT bridge: HA → ThingsBoard for enterprise-scale visualisation | Enterprise dashboard showing all HA devices alongside industrial sensors | IT/OT teams bridging consumer smart home with professional IoT |
+| ThingsBoard AI Solution Creator (Ep.6) | A plain-language description of your use case | AI agent: generates entity profiles, dashboards, alarm rules, roles | A working prototype of your IoT solution in under 10 minutes | System integrators, explorers, business stakeholders doing PoC |
 
 ## The Stage Props Metaphor 🎭
 
@@ -55,21 +47,19 @@ Bring the prop onto the stage and give it context:
 
 This is exactly what ThingsBoard does to a physical sensor or actuator:
 
-|Stage props world                                |ThingsBoard world                                                     |
-|-------------------------------------------------|----------------------------------------------------------------------|
-|An inert prop in the prop house                  |A sensor with no platform — just hardware                             |
-|Giving the prop joints & articulation            |Registering a **Device** with a **Device Profile**                    |
-|The prop’s observable state                      |**Telemetry** — timestamped key-value data the device sends           |
-|The prop’s fixed characteristics                 |**Attributes** — static properties (location, model number, threshold)|
-|Grouping props on the same set                   |**Assets** — logical containers (rooms, floors, buildings)            |
-|The director’s prompt book                       |The **Dashboard** — master view of the whole production               |
-|A lighting cue (“if lamp > 50°C → warn director”)|An **Alarm Rule** — automated trigger on telemetry threshold          |
-|The director calling “Action!”                   |An **RPC command** — instructing a device to do something             |
-|The Pixar logo animation                         |Your finished, running, production-grade IoT solution                 |
+| Stage props world | ThingsBoard world |
+| --- | --- |
+| An inert prop in the prop house | A sensor with no platform — just hardware |
+| Giving the prop joints & articulation | Registering a Device with a Device Profile |
+| The prop’s observable state | Telemetry — timestamped key-value data the device sends |
+| The prop’s fixed characteristics | Attributes — static properties (location, model number, threshold) |
+| Grouping props on the same set | Assets — logical containers (rooms, floors, buildings) |
+| The director’s prompt book | The Dashboard — master view of the whole production |
+| A lighting cue (“if lamp > 50°C → warn director”) | An Alarm Rule — automated trigger on telemetry threshold |
+| The director calling “Action!” | An RPC command — instructing a device to do something |
+| The Pixar logo animation | Your finished, running, production-grade IoT solution |
 
 Luxo Jr. had one prop — a desk lamp — and gave it so much personality that it became a mascot seen before every Pixar film for forty years. You have sensors, meters, and controllers. ThingsBoard gives them the same treatment.
-
------
 
 ## What ThingsBoard Actually Is 🏗️
 
@@ -91,15 +81,13 @@ ThingsBoard is an **open-source IoT platform** for data collection, processing, 
 
 ### Which edition?
 
-|Edition                      |Best for                                                                  |Cost                  |
-|-----------------------------|--------------------------------------------------------------------------|----------------------|
-|**Community Edition (CE)**   |Self-hosted, learning, open-source projects                               |Free (Apache 2.0)     |
-|**Professional Edition (PE)**|Enterprise features: platform integrations, entity groups, white-labelling|Commercial licence    |
-|**Cloud**                    |Zero-setup SaaS — US or EU regions                                        |Free tier + paid plans|
+| Edition | Best for | Cost |
+| --- | --- | --- |
+| Community Edition (CE) | Self-hosted, learning, open-source projects | Free (Apache 2.0) |
+| Professional Edition (PE) | Enterprise features: platform integrations, entity groups, white-labelling | Commercial licence |
+| Cloud | Zero-setup SaaS — US or EU regions | Free tier + paid plans |
 
 For this series, everything works on Community Edition and Cloud. Where PE-specific features appear, they are labelled.
-
------
 
 ## ThingsBoard and Home Assistant: Two Stages, One Show 🏠
 
@@ -111,24 +99,20 @@ They are not competitors. They are collaborators. In Episode 7, we bridge them v
 
 The result: your home’s Luxo Jr. lamp plays alongside industrial-scale equipment on the same stage. The prompt book covers both.
 
------
-
 ## The Series Map: Eight Episodes 🎬
 
-|#|Episode                                         |Stage props concept             |
-|-|------------------------------------------------|--------------------------------|
-|1|*This one* — What ThingsBoard is                |The prop house and the stage    |
-|2|Devices, Assets, Profiles, Relations            |Building the set                |
-|3|MQTT, HTTP, telemetry, attributes               |The prop speaks                 |
-|4|Dashboards and widgets                          |The prompt book                 |
-|5|Rule Engine, alarms, notifications              |The director’s cue sheet        |
-|6|AI Solution Creator                             |Animating the lamp in 10 minutes|
-|7|Home Assistant ↔ ThingsBoard via MQTT           |Two stages, one show            |
-|8|Production deployment, ThingsBoard Edge, scaling|The Pixar logo — going live     |
+| # | Episode | Stage props concept |
+| --- | --- | --- |
+| 1 | This one — What ThingsBoard is | The prop house and the stage |
+| 2 | Devices, Assets, Profiles, Relations | Building the set |
+| 3 | MQTT, HTTP, telemetry, attributes | The prop speaks |
+| 4 | Dashboards and widgets | The prompt book |
+| 5 | Rule Engine, alarms, notifications | The director’s cue sheet |
+| 6 | AI Solution Creator | Animating the lamp in 10 minutes |
+| 7 | Home Assistant ↔ ThingsBoard via MQTT | Two stages, one show |
+| 8 | Production deployment, ThingsBoard Edge, scaling | The Pixar logo — going live |
 
 The prop house is open. The stage is set. In Episode 2, we build the first set and register our first device.
-
------
 
 **🔗 Resources**
 
@@ -137,7 +121,5 @@ The prop house is open. The stage is set. In Episode 2, we build the first set a
 - **ThingsBoard docs**: [thingsboard.io/docs](https://thingsboard.io/docs)
 - **AI Solution Creator blog post**: [thingsboard.io/blog/ai-solution-creator](https://thingsboard.io/blog/ai-solution-creator/)
 - **Luxo Jr. (Wikipedia)**: [en.wikipedia.org/wiki/Luxo_Jr.](https://en.wikipedia.org/wiki/Luxo_Jr._(character))
-
------
 
 *🎬 Stage Props! is a series about ThingsBoard — the IoT platform that gives your devices joints, personality, and behaviour, the way John Lasseter gave Luxo Jr. a soul.*
