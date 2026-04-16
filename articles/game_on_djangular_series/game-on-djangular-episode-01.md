@@ -190,7 +190,7 @@ In **Episode 2**, we open the database and build the models: Game, Genre, UserGa
 
 **🔗 Resources**
 
-- **GameLib repository**: [github.com/Elsa-Yanke/web-dev-project-2026](https://github.com/Elsa-Yanke/web-dev-project-2026)
+- **GameLib repository**: [github.com/software-journey/djangular](https://github.com/software-journey/djangular)
 - **Django REST Framework**: [django-rest-framework.org](https://www.django-rest-framework.org)
 - **Angular**: [angular.dev](https://angular.dev)
 - **djangorestframework-simplejwt**: [django-rest-framework-simplejwt.readthedocs.io](https://django-rest-framework-simplejwt.readthedocs.io)
