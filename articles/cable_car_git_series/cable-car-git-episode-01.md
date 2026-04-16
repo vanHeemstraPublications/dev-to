@@ -9,12 +9,9 @@ series: "Cable Car Git Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 1: Welcome to the Network
 
-> *“Understand the system, and the commands follow naturally.”*
-
------
+> “Understand the system, and the commands follow naturally.”
 
 ## Something Goes Wrong on Every Project Without It 😬
 
@@ -28,17 +25,13 @@ It was created by Linus Torvalds in 2005 for developing the Linux kernel. Today 
 
 But let’s not start with the commands. Let’s start with the *system* — because once you understand what Git is actually doing, the commands become obvious.
 
------
-
 ## 🗂️ SIPOC — The Transport Network
 
-|**Suppliers**                          |**Inputs**                       |**Process**                                           |**Outputs**                                                                             |**Customers**                                                      |
-|---------------------------------------|---------------------------------|------------------------------------------------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-|Developers (you, your team)            |Changed source files             |`git add` → stage changes; `git commit` → seal a cabin|A cabin (commit) carrying a snapshot of staged changes, dispatched along a line (branch)|Every developer pulling from the shared depot (remote)             |
-|The Git repository                     |The complete network history     |Branching, merging, rebasing, stashing                |A navigable, shareable record of every change since the project began                   |The project itself — its history, its integrity, its recoverability|
-|The remote depot (GitHub, GitLab, etc.)|Pushed cabins from all developers|`git push` / `git pull` to synchronise                |A shared, authoritative version of the network                                          |The team, CI/CD systems, deployment pipelines                      |
-
------
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| Developers (you, your team) | Changed source files | git add → stage changes; git commit → seal a cabin | A cabin (commit) carrying a snapshot of staged changes, dispatched along a line (branch) | Every developer pulling from the shared depot (remote) |
+| The Git repository | The complete network history | Branching, merging, rebasing, stashing | A navigable, shareable record of every change since the project began | The project itself — its history, its integrity, its recoverability |
+| The remote depot (GitHub, GitLab, etc.) | Pushed cabins from all developers | git push / git pull to synchronise | A shared, authoritative version of the network | The team, CI/CD systems, deployment pipelines |
 
 ## The Cable Car Network 🏔️
 
@@ -48,26 +41,24 @@ This network is your **Git repository**.
 
 Everything Git does maps precisely onto this network:
 
-|Cable car world                |Git world                                                              |
-|-------------------------------|-----------------------------------------------------------------------|
-|The network itself             |The Git repository (`.git/` directory)                                 |
-|A parcel or package            |A file or set of file changes                                          |
-|A cabin                        |A **commit** — sealed container carrying a snapshot of changes         |
-|The cable line / route         |A **branch** — a named sequence of cabins                              |
-|The main trunk line            |The `main` branch (formerly called `master`)                           |
-|A spur line off the trunk      |A **feature branch**                                                   |
-|The loading platform           |The **staging area** (index) — where you prepare parcels before sealing|
-|Dispatching a loaded cabin     |`git commit`                                                           |
-|The central depot              |The **remote** (GitHub, GitLab, Bitbucket)                             |
-|Sending cabins to the depot    |`git push`                                                             |
-|Receiving cabins from the depot|`git pull` / `git fetch`                                               |
-|Holding locker at the station  |`git stash` — temporary parcel storage                                 |
-|Two lines joining at a junction|A **merge**                                                            |
-|The network map / timetable    |`git log`                                                              |
+| Cable car world | Git world |
+| --- | --- |
+| The network itself | The Git repository (.git/ directory) |
+| A parcel or package | A file or set of file changes |
+| A cabin | A commit — sealed container carrying a snapshot of changes |
+| The cable line / route | A branch — a named sequence of cabins |
+| The main trunk line | The main branch (formerly called master) |
+| A spur line off the trunk | A feature branch |
+| The loading platform | The staging area (index) — where you prepare parcels before sealing |
+| Dispatching a loaded cabin | git commit |
+| The central depot | The remote (GitHub, GitLab, Bitbucket) |
+| Sending cabins to the depot | git push |
+| Receiving cabins from the depot | git pull / git fetch |
+| Holding locker at the station | git stash — temporary parcel storage |
+| Two lines joining at a junction | A merge |
+| The network map / timetable | git log |
 
 The beauty of this metaphor is that it captures Git’s core property: **nothing is ever lost**. Every cabin that was ever dispatched is still on the network. The full history of every route, every junction, every parcel that was ever loaded — all of it is preserved, navigable, and retrievable.
-
------
 
 ## The Three States of a Parcel 📦
 
@@ -90,8 +81,6 @@ you edit them          the platform, ready        cabins — committed
 
 **Repository** — when you run `git commit`, the loading platform is sealed into a cabin and dispatched. The cabin now exists permanently in the network’s history. You cannot change a dispatched cabin (you can only issue a corrective cabin later — more on that in Episode 8).
 
------
-
 ## What Is Actually Stored in a Cabin? 🎁
 
 This is where many tutorials skip something important. Git does not store *diffs* (the differences between versions). Git stores **snapshots** — a complete picture of every tracked file at the moment the commit was created.
@@ -104,8 +93,6 @@ Each commit (cabin) contains:
 - A **unique SHA-1 hash** — a 40-character identifier like `a3f9c12d...` that acts as the cabin’s unique ID
 
 When you look at a diff between two commits, Git is calculating it on demand by comparing two snapshots — not playing back a stored diff. This makes Git extraordinarily fast and resilient.
-
------
 
 ## The Network Map: Visualising the History 🗺️
 
@@ -125,8 +112,6 @@ Every cable car network has a map. Git’s map is the commit graph.
 - The branch split happened at `C` — that’s where the spur line left the main trunk
 
 This graph is the heart of everything Git does. Understanding it makes every command — merge, rebase, stash, cherry-pick — immediately logical.
-
------
 
 ## Installing Git and First Configuration ⚙️
 
@@ -166,35 +151,29 @@ git config --list
 # init.defaultBranch=main
 ```
 
------
-
 ## The Series Map: Eight Episodes 📋
 
 This series covers Git from network entry to advanced recovery operations:
 
-|#|Episode                                         |Cable car concept            |
-|-|------------------------------------------------|-----------------------------|
-|1|*This one* — What Git is and how it works       |Welcome to the network       |
-|2|`init`, `add`, `commit`, `status`, `log`        |Your first cabin             |
-|3|Branches, `switch`, `checkout`                  |Building new lines           |
-|4|Merge strategies, conflicts                     |Joining lines at the junction|
-|5|`rebase`, interactive rebase, squash            |Replaying the route          |
-|6|`stash` — the full picture                      |The holding locker           |
-|7|`remote`, `push`, `pull`, `fetch`, pull requests|The remote depot             |
-|8|`reset`, `revert`, `cherry-pick`, `reflog`      |Recovering lost parcels      |
+| # | Episode | Cable car concept |
+| --- | --- | --- |
+| 1 | This one — What Git is and how it works | Welcome to the network |
+| 2 | init, add, commit, status, log | Your first cabin |
+| 3 | Branches, switch, checkout | Building new lines |
+| 4 | Merge strategies, conflicts | Joining lines at the junction |
+| 5 | rebase, interactive rebase, squash | Replaying the route |
+| 6 | stash — the full picture | The holding locker |
+| 7 | remote, push, pull, fetch, pull requests | The remote depot |
+| 8 | reset, revert, cherry-pick, reflog | Recovering lost parcels |
 
 By Episode 8, you will understand not just *what* Git commands do, but *why* they work — because you will know the network.
 
 The first cabin leaves in Episode 2. Get your parcels ready.
-
------
 
 **🔗 Resources**
 
 - **Official Git documentation**: [git-scm.com/doc](https://git-scm.com/doc)
 - **Pro Git book** (free): [git-scm.com/book](https://git-scm.com/book/en/v2)
 - **Interactive Git tutorial**: [learngitbranching.js.org](https://learngitbranching.js.org)
-
------
 
 *🚡 Cable Car Git! is a series about Git — explained through the metaphor of a cable car parcel transport network, where every commit is a cabin and every branch is a route.*
