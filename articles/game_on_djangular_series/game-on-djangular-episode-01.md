@@ -63,10 +63,10 @@ The metaphor is exact, not decorative.
 
 ## The Project Structure 🗂️
 
-Based on the GameLib repository at [github.com/Elsa-Yanke/web-dev-project-2026](https://github.com/Elsa-Yanke/web-dev-project-2026):
+Based on the GameLib repository at [github.com/software-journey/djangular](https://github.com/software-journey/djangular):
 
 ```
-web-dev-project-2026/
+djangular/
 ├── backend/                    ← Django project
 │   ├── manage.py
 │   ├── gamelib/                ← Django settings/urls/wsgi
