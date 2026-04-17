@@ -1,7 +1,7 @@
 # Prompt Bundle
 
 Series ID: wizard_of_oz_warp_series
-Series Name: Warp of Oz Series
+Series Name: Wizard of Oz Warp Series
 Series Type: ai_terminal_workflow_series
 
 Episode: 8 - There's No Place Like Home
@@ -52,7 +52,7 @@ Render the final banner typography inside the image itself.
 
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
-Warp of Oz Series
+Wizard of Oz Warp Series
 Episode 8: There's No Place Like Home
 
 
@@ -128,7 +128,7 @@ Typography handling:
 - Render the final banner typography inside the image itself.
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
-  - Warp of Oz Series
+  - Wizard of Oz Warp Series
   - Episode 8: There's No Place Like Home
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 40% away from the top edge.
@@ -197,7 +197,7 @@ frontmatter.
 Now create the following article.
 
 Series:
-Warp of Oz Series
+Wizard of Oz Warp Series
 
 Series type:
 ai_terminal_workflow_series
@@ -248,11 +248,11 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Warp of Oz! 🌪️ Ep.8"
+title: "Wizard of Oz Warp! 🌪️ Ep.8"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]
-series: "Warp of Oz Series"
+series: "Wizard of Oz Warp Series"
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-08.png"
 ---
 

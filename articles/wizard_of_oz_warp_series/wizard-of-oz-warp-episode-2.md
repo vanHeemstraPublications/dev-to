@@ -1,14 +1,13 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.2"
+title: "Wizard of Oz Warp 🌪️ Ep.2"
 published: false
 description: "Episode 2: The Scarecrow didn't need a brain — he needed someone to tell him he had one. Warp's AI features work the same way: the # key, Active AI, Next Command, and Agent Mode turn your terminal session into a thinking collaborator. Build the task CRUD endpoints."
 tags: [warp, ai, terminal, python]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-02.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-02.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 2: The Scarecrow Gets a Brain
 
 > "If I only had a brain."— The Scarecrow, The Wizard of Oz (1939)

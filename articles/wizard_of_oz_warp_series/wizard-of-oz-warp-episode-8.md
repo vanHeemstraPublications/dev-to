@@ -1,14 +1,13 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.8"
+title: "Wizard of Oz Warp 🌪️ Ep.8"
 published: false
 description: "Episode 8: Dorothy tapped her heels three times and went home. You already have everything you need. MCP servers extend every agent, Warp Drive shares team knowledge, and the complete production workflow closes the yellow brick road. There's no place like home."
 tags: [warp, productivity, workflow, mcp]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-08.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-08.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 8: There's No Place Like Home
 
 > "There's no place like home. There's no place like home. There's no place like home."— Dorothy Gale, The Wizard of Oz (1939)
@@ -116,7 +115,7 @@ What lives in Warp Drive:
 | Object type | What it is | Example |
 | --- | --- | --- |
 | Workflows | Saved commands with parameters | uv run pytest {test_path} -v |
-| Prompts | Reusable agent prompts | Perform a security audit on @src/middleware/auth.py |
+| Prompts | Reusable agent prompts | Perform a security audit on src/middleware/auth.py |
 | Rules | Team-level agent guidelines | Always include tests with new API endpoints |
 | Notebooks | Markdown files with runnable commands | Development Setup for New Engineers.md |
 | Environment Variables | Shared dev variables (non-sensitive) | API_BASE_URL=http://localhost:8000 |

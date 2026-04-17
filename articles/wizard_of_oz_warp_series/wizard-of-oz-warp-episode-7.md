@@ -1,14 +1,13 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.7"
+title: "Wizard of Oz Warp 🌪️ Ep.7"
 published: false
 description: "Episode 7: Glinda told Dorothy she always had the power to go home. The ruby slippers were there all along. Augment Code Intent is that power: spec-driven multi-agent development that, combined with Warp, gives you the full stack of agentic coding. The slippers click three times."
 tags: [warp, augmentcode, agents, productivity]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-07.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-07.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 7: The Ruby Slippers — Augment Code Intent
 
 > "You've always had the power, my dear. You just had to learn it for yourself."— Glinda the Good Witch, The Wizard of Oz (1939)

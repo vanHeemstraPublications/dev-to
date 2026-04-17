@@ -1,10 +1,10 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.5"
+title: "Wizard of Oz Warp 🌪️ Ep.5"
 published: false
 description: "Episode 5: The flying monkeys didn't ask permission. They were dispatched, they acted, they reported back. Warp's dispatch mode is the same: autonomous agent execution without approval gates. Add a background task processor to the API — with full autonomy."
 tags: [warp, ai, agents, automation]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-05.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-05.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---

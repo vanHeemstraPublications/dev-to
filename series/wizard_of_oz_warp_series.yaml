@@ -1,6 +1,6 @@
 series:
   id: wizard_of_oz_warp_series
-  name: Warp of Oz Series
+  name: Wizard of Oz Warp Series
   type: ai_terminal_workflow_series
   orientation: landscape
   resolution: 1000x420

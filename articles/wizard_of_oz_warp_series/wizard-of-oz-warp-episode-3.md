@@ -1,10 +1,10 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.3"
+title: "Wizard of Oz Warp 🌪️ Ep.3"
 published: false
 description: "Episode 3: The Tin Man didn't need a new heart — he needed someone who believed he had one. WARP.md, Rules, and Skills give Warp's agent the soul of your project: conventions, patterns, and the memory of how your codebase thinks. Build authentication middleware."
 tags: [warp, terminal, ai, productivity]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-03.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-03.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---

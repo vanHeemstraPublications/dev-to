@@ -1,10 +1,10 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.4"
+title: "Wizard of Oz Warp 🌪️ Ep.4"
 published: false
 description: "Episode 4: The Cowardly Lion had courage all along — he just needed permission to use it. Warp's Agent pair mode lets you review every change before it lands, the code review panel is your safety net, and debugging an intentional error teaches you to read the diff before trusting it."
 tags: [warp, debugging, ai, workflow]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-04.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-04.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---

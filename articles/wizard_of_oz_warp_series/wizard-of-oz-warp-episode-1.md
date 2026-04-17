@@ -1,14 +1,13 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.1"
+title: "Wizard of Oz Warp 🌪️ Ep.1"
 published: false
 description: "Episode 1: Dorothy was bored in Kansas. You are bored in iTerm2. A tornado called Warp arrives, lifts you out of the grey terminal past, and drops you in a vividly new environment. Install Warp on your Mac Mini M4 Pro, understand blocks, and scaffold your first project."
 tags: [warp, terminal, macos, beginners]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-01.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
 ## Episode 1: Follow the Yellow Brick Road
 
 > "Toto, I've a feeling we're not in Kansas anymore."— Dorothy Gale, The Wizard of Oz (1939)
