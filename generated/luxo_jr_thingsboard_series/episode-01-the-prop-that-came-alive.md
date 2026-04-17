@@ -1,24 +1,44 @@
 # Prompt Bundle
 
-Series ID: luxo_jr_thingsboard_seriesSeries Name: Luxo Jr. ThingsBoard SeriesSeries Type: iot_platform_series
+Series ID: luxo_jr_thingsboard_series
+Series Name: Luxo Jr. ThingsBoard Series
+Series Type: iot_platform_series
 
-Episode: 1 - The Prop That Came AliveSlug: the-prop-that-came-alive
+Episode: 1 - The Prop That Came Alive
+Slug: the-prop-that-came-alive
 
-Canvasorientation: landscaperesolution: 1000x420aspect ratio: 100:42whitespace margin: 24%
+Canvas
+orientation: landscape
+resolution: 1000x420
+aspect ratio: 100:42
+whitespace margin: 24%
 
-Defaultssetting: Pixar-inspired animation stage with smart devices, lamps, and production propslighting: warm studio stage lighting with a cinematic animation glow
+Defaults
+setting: Pixar-inspired animation stage with smart devices, lamps, and production props
+lighting: warm studio stage lighting with a cinematic animation glow
 
-Compositionleft third: director or presenter introducing the IoT scenecenter: the animated device or ThingsBoard concept in motionright third: control consoles, dashboards, or supporting stage propsbackground: sound stage, lighting rigs, and storyboards
+Composition
+left third: director or presenter introducing the IoT scene
+center: the animated device or ThingsBoard concept in motion
+right third: control consoles, dashboards, or supporting stage props
+background: sound stage, lighting rigs, and storyboards
 
-Episode MetaphorNone
+Episode Metaphor
+None
 
-Center ActionNone
+Center Action
+None
 
 Supporting Props
 
-Local Image Pathimages/luxo_jr_thingsboard_series/episode-01.webp
 
-Public Cover Image URL[UPDATE_PUBLIC_COVER_IMAGE_URL]
+Local Image Path
+images/luxo_jr_thingsboard_series/episode-01.webp
+
+Public Cover Image URL
+[UPDATE_PUBLIC_COVER_IMAGE_URL]
+
+--------------------------------------------------
 
 ChatGPT Image Prompt
 
@@ -28,41 +48,49 @@ Render the final banner typography inside the image itself.
 
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
-Luxo Jr. ThingsBoard SeriesEpisode 1: The Prop That Came Alive
+Luxo Jr. ThingsBoard Series
+Episode 1: The Prop That Came Alive
+
 
 Canvas requirements:
-
 - resolution: 1000x420
 - aspect ratio: 100:42
 - landscape banner composition
-- about 24% whitespace around theartwork
+- about 24% whitespace around the
+  artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-
 - export format: WebP
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
 
 Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- the primary presenter must read as chest-up, waist-up, seated, or
+  three-quarter framing only; do not depict the lead presenter as a tall
+  full-body standing figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
 
-- this is a wide banner, not a poster; compose the main characters smaller andlower in frame than instinct suggests
-- the primary presenter must read as chest-up, waist-up, seated, orthree-quarter framing only; do not depict the lead presenter as a tallfull-body standing figure
-- sacrifice body visibility, extra props, or background detail beforesacrificing full face, full head, or full hat visibility
-- the image is invalid if any main face, beard, hair, or headwear is close tothe top edge or could be clipped by banner cropping
+Scene setting:
+Pixar-inspired animation stage with smart devices, lamps, and production props
 
-Scene setting:Pixar-inspired animation stage with smart devices, lamps, and production props
-
-Lighting and atmosphere:warm studio stage lighting with a cinematic animation glow
+Lighting and atmosphere:
+warm studio stage lighting with a cinematic animation glow
 
 Visual metaphor:
 
+
 Center action:
 
-Composition guidance:
 
+Composition guidance:
 - left third: director or presenter introducing the IoT scene
 - center: the animated device or ThingsBoard concept in motion
 - right third: control consoles, dashboards, or supporting stage props
@@ -70,14 +98,13 @@ Composition guidance:
 
 Supporting props to include:
 
-Style requirements:
 
+Style requirements:
 - cinematic digital illustration, highly detailed, storybook realism, polished composition
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
 Character framing requirements:
-
 - Non-negotiable rule: every main character's entire face, full head, beard, hair, and all headwear must remain completely visible in the final delivered banner image.
 - This rule overrides dramatic framing, character scale, background detail, and showing more of the body.
 - Treat the image as a cover/banner that may be cropped slightly by the platform at the top and bottom; compose defensively for that crop.
@@ -94,7 +121,6 @@ Character framing requirements:
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
 Typography handling:
-
 - Render the final banner typography inside the image itself.
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
@@ -121,7 +147,6 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-
 - verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
 - verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
@@ -130,7 +155,6 @@ Final text acceptance check before finishing:
 - if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
 
 Avoid:
-
 - visual clutter
 - unreadable text
 - cramped composition
@@ -148,29 +172,36 @@ Avoid:
 - missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
-
-- verify every main face, head, beard, hair, and hat is fully visible in thefinal 1000x420 banner composition
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
+--------------------------------------------------
+
 Claude / ChatGPT Article Prompt
 
-I have created a repository that contains markdown articles published todev.to.
+I have created a repository that contains markdown articles published to
+dev.to.
 
-The articles live in:[https://github.com/vanHeemstraSystems/dev-to/articles/](https://github.com/vanHeemstraSystems/dev-to/articles/)
+The articles live in:
+https://github.com/vanHeemstraSystems/dev-to/articles/
 
-Please inspect the formatting style used in those articles, especially thefrontmatter.
+Please inspect the formatting style used in those articles, especially the
+frontmatter.
 
 Now create the following article.
 
-Series:Luxo Jr. ThingsBoard Series
+Series:
+Luxo Jr. ThingsBoard Series
 
-Series type:iot_platform_series
+Series type:
+iot_platform_series
 
-Episode:Episode 1: The Prop That Came Alive
+Episode:
+Episode 1: The Prop That Came Alive
 
 Writing style requirements:
-
 - tone: light-hearted, humorous, beginner-friendly
 - humor style: playful and witty
 - beginner-friendly
@@ -181,12 +212,14 @@ Writing style requirements:
 
 Primary metaphor:
 
+
 Episode-specific action:
 
-Scene / setting inspiration:Pixar-inspired animation stage with smart devices, lamps, and production props
+
+Scene / setting inspiration:
+Pixar-inspired animation stage with smart devices, lamps, and production props
 
 Visual inspiration:
-
 - left third: director or presenter introducing the IoT scene
 - center: the animated device or ThingsBoard concept in motion
 - right third: control consoles, dashboards, or supporting stage props
@@ -194,11 +227,13 @@ Visual inspiration:
 
 Useful props / concepts to weave into the explanation:
 
-Article requirements:
 
+Article requirements:
 - produce a complete dev.to-ready markdown article
-- include frontmatter similar to the examples in the repository:yes
-- use this cover_image URL approach:use a PUBLIC absolute URL, not a local repository path
+- include frontmatter similar to the examples in the repository:
+  yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
@@ -206,12 +241,18 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
-## Suggested frontmatter example:
 
-## title: "Luxo Jr. ThingsBoard Ep.1"published: falsedescription: "Add article description here."tags: ["add", "tags", "here"]series: "Luxo Jr. ThingsBoard Series"cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"
+Suggested frontmatter example:
+---
+title: "Luxo Jr. ThingsBoard Ep.1"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Luxo Jr. ThingsBoard Series"
+cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"
+---
 
 Suggested structure:
-
 1. humorous opening hook
 2. introduce the metaphor
 3. explain the concept step-by-step
@@ -220,8 +261,9 @@ Suggested structure:
 6. recap the key idea
 7. end with a teaser for the next episode
 
-SIPOC requirement:Please include a section in the article that explains the concept using theSIPOC pattern:
-
+SIPOC requirement:
+Please include a section in the article that explains the concept using the
+SIPOC pattern:
 - Supplier
 - Input
 - Process
@@ -229,13 +271,16 @@ SIPOC requirement:Please include a section in the article that explains the conc
 - Consumer
 
 For the SIPOC section:
-
 - explain each SIPOC element in simple language
-- map each SIPOC element both to the real technical concept and to themetaphor used in the article
+- map each SIPOC element both to the real technical concept and to the
+  metaphor used in the article
 - make the SIPOC section practical and easy to understand
 - prefer a compact table or bullet structure if that improves readability
 
-Output:Return the complete article in markdown including frontmatter.
+Output:
+Return the complete article in markdown including frontmatter.
+
+--------------------------------------------------
 
 Series GitHub Repository
 
