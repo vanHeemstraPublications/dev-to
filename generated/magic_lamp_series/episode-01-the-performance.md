@@ -1,29 +1,48 @@
 # Prompt Bundle
 
-Series ID: magic_lamp_seriesSeries Name: Magic Lamp SeriesSeries Type: theatrical_animatronic_series
+Series ID: magic_lamp_series
+Series Name: Magic Lamp Series
+Series Type: theatrical_animatronic_series
 
-Episode: 1 - The PerformanceSlug: the-performance
+Episode: 1 - The Performance
+Slug: the-performance
 
-Canvasorientation: landscaperesolution: 1000x420aspect ratio: 100:42whitespace margin: 24%
+Canvas
+orientation: landscape
+resolution: 1000x420
+aspect ratio: 100:42
+whitespace margin: 24%
 
-Defaultssetting: intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gearlighting: warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
+Defaults
+setting: intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
+lighting: warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
 
-Compositionleft third: presenter, stagehand, or conductor explaining the cue or subsystemcenter: the lamp performing the episode's main action as the emotional focal pointright third: control rack, laptop, lighting desk, or musical cue supportbackground: black-box theatre, curtains, practical fixtures, and backstage rigging
+Composition
+left third: presenter, stagehand, or conductor explaining the cue or subsystem
+center: the lamp performing the episode's main action as the emotional focal point
+right third: control rack, laptop, lighting desk, or musical cue support
+background: black-box theatre, curtains, practical fixtures, and backstage rigging
 
-Episode Metaphoran ordinary desk lamp making its first entrance as a stage character
+Episode Metaphor
+an ordinary desk lamp making its first entrance as a stage character
 
-Center Actionthe lamp shifts from prop to performer under the first reveal
+Center Action
+the lamp shifts from prop to performer under the first reveal
 
 Supporting Props
-
 - piano stool
 - stage mark tape
 - cue sheet
 - servo rig
 
-Local Image Pathimages/magic_lamp_series/magic-lamp-episode-01.png
 
-Public Cover Image URL[https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png](https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png)
+Local Image Path
+images/magic_lamp_series/magic-lamp-episode-01.png
+
+Public Cover Image URL
+https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png
+
+--------------------------------------------------
 
 ChatGPT Image Prompt
 
@@ -33,56 +52,63 @@ Render the final banner typography inside the image itself.
 
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
-Magic Lamp SeriesEpisode 1: The Performance
+Magic Lamp Series
+Episode 1: The Performance
+
 
 Canvas requirements:
-
 - resolution: 1000x420
 - aspect ratio: 100:42
 - landscape banner composition
-- about 24% whitespace around theartwork
+- about 24% whitespace around the
+  artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-
 - export format: PNG
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
 
 Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- the primary presenter must read as chest-up, waist-up, seated, or
+  three-quarter framing only; do not depict the lead presenter as a tall
+  full-body standing figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
 
-- this is a wide banner, not a poster; compose the main characters smaller andlower in frame than instinct suggests
-- the primary presenter must read as chest-up, waist-up, seated, orthree-quarter framing only; do not depict the lead presenter as a tallfull-body standing figure
-- sacrifice body visibility, extra props, or background detail beforesacrificing full face, full head, or full hat visibility
-- the image is invalid if any main face, beard, hair, or headwear is close tothe top edge or could be clipped by banner cropping
+Scene setting:
+intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
 
-Scene setting:intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
+Lighting and atmosphere:
+warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
 
-Lighting and atmosphere:warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
+Visual metaphor:
+an ordinary desk lamp making its first entrance as a stage character
 
-Visual metaphor:an ordinary desk lamp making its first entrance as a stage character
-
-Center action:the lamp shifts from prop to performer under the first reveal
+Center action:
+the lamp shifts from prop to performer under the first reveal
 
 Composition guidance:
-
 - left third: presenter, stagehand, or conductor explaining the cue or subsystem
 - center: the lamp performing the episode's main action as the emotional focal point
 - right third: control rack, laptop, lighting desk, or musical cue support
 - background: black-box theatre, curtains, practical fixtures, and backstage rigging
 
-Supporting props to include:piano stool, stage mark tape, cue sheet, servo rig
+Supporting props to include:
+piano stool, stage mark tape, cue sheet, servo rig
 
 Style requirements:
-
 - cinematic digital illustration, highly detailed, theatrical animatronic realism, polished stage-performance composition
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
 Character framing requirements:
-
 - Non-negotiable rule: every main character's entire face, full head, beard, hair, and all headwear must remain completely visible in the final delivered banner image.
 - This rule overrides dramatic framing, character scale, background detail, and showing more of the body.
 - Treat the image as a cover/banner that may be cropped slightly by the platform at the top and bottom; compose defensively for that crop.
@@ -99,7 +125,6 @@ Character framing requirements:
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
 Typography handling:
-
 - Render the final banner typography inside the image itself.
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
@@ -126,16 +151,17 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-
 - verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
 - verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
 - verify the centered title block stays well away from the top and bottom crop zones
 - verify the lowest visible text pixel stays above roughly 58% image height
-- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if neededReference repository for the series concept:[https://github.com/vanHeemstraPublications/dev-to](https://github.com/vanHeemstraPublications/dev-to)
+- if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
+Reference repository for the series concept:
+https://github.com/vanHeemstraPublications/dev-to
+
 
 Avoid:
-
 - visual clutter
 - unreadable text
 - cramped composition
@@ -153,29 +179,36 @@ Avoid:
 - missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
-
-- verify every main face, head, beard, hair, and hat is fully visible in thefinal 1000x420 banner composition
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
+--------------------------------------------------
+
 Claude / ChatGPT Article Prompt
 
-I have created a repository that contains markdown articles published todev.to.
+I have created a repository that contains markdown articles published to
+dev.to.
 
-The articles live in:[https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/](https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/)
+The articles live in:
+https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/
 
-Please inspect the formatting style used in those articles, especially thefrontmatter.
+Please inspect the formatting style used in those articles, especially the
+frontmatter.
 
 Now create the following article.
 
-Series:Magic Lamp Series
+Series:
+Magic Lamp Series
 
-Series type:theatrical_animatronic_series
+Series type:
+theatrical_animatronic_series
 
-Episode:Episode 1: The Performance
+Episode:
+Episode 1: The Performance
 
 Writing style requirements:
-
 - tone: theatrical, technically clear, cinematic, and warmly instructive
 - humor style: stage-magician wit with polished backstage metaphors and light mischievous charm
 - beginner-friendly
@@ -184,26 +217,30 @@ Writing style requirements:
 - include explanations of the code
 - use a memorable metaphor consistently throughout the article
 
-Primary metaphor:an ordinary desk lamp making its first entrance as a stage character
+Primary metaphor:
+an ordinary desk lamp making its first entrance as a stage character
 
-Episode-specific action:the lamp shifts from prop to performer under the first reveal
+Episode-specific action:
+the lamp shifts from prop to performer under the first reveal
 
-Scene / setting inspiration:intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
+Scene / setting inspiration:
+intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
 
 Visual inspiration:
-
 - left third: presenter, stagehand, or conductor explaining the cue or subsystem
 - center: the lamp performing the episode's main action as the emotional focal point
 - right third: control rack, laptop, lighting desk, or musical cue support
 - background: black-box theatre, curtains, practical fixtures, and backstage rigging
 
-Useful props / concepts to weave into the explanation:piano stool, stage mark tape, cue sheet, servo rig
+Useful props / concepts to weave into the explanation:
+piano stool, stage mark tape, cue sheet, servo rig
 
 Article requirements:
-
 - produce a complete dev.to-ready markdown article
-- include frontmatter similar to the examples in the repository:yes
-- use this cover_image URL approach:use a PUBLIC absolute URL, not a local repository path
+- include frontmatter similar to the examples in the repository:
+  yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
@@ -211,12 +248,18 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
-## Suggested frontmatter example:
 
-## title: "Magic Lamp Ep.1"published: falsedescription: "Add article description here."tags: ["add", "tags", "here"]series: "Magic Lamp Series"cover_image: "[https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png](https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png)"
+Suggested frontmatter example:
+---
+title: "Magic Lamp Ep.1"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Magic Lamp Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/magic_lamp_series/magic-lamp-episode-01.png"
+---
 
 Suggested structure:
-
 1. theatrical opening that treats the lamp like a performer
 2. introduce the relevant subsystem as part of the stage act
 3. walk through the implementation with practical code and cue examples
@@ -224,8 +267,9 @@ Suggested structure:
 5. include a SIPOC section that maps the technical flow to the stage metaphor
 6. close with a short showman-like takeaway or teaser
 
-SIPOC requirement:Please include a section in the article that explains the concept using theSIPOC pattern:
-
+SIPOC requirement:
+Please include a section in the article that explains the concept using the
+SIPOC pattern:
 - Supplier
 - Input
 - Process
@@ -233,14 +277,19 @@ SIPOC requirement:Please include a section in the article that explains the conc
 - Consumer
 
 For the SIPOC section:
-
 - explain each SIPOC element in simple language
-- map each SIPOC element both to the real technical concept and to themetaphor used in the article
+- map each SIPOC element both to the real technical concept and to the
+  metaphor used in the article
 - make the SIPOC section practical and easy to understand
 - prefer a compact table or bullet structure if that improves readability
 
-Output:Return the complete article in markdown including frontmatter.Series repository for reference:[https://github.com/vanHeemstraPublications/dev-to](https://github.com/vanHeemstraPublications/dev-to)
+Output:
+Return the complete article in markdown including frontmatter.
+Series repository for reference:
+https://github.com/vanHeemstraPublications/dev-to
+
+--------------------------------------------------
 
 Series GitHub Repository
 
-[https://github.com/vanHeemstraPublications/dev-to](https://github.com/vanHeemstraPublications/dev-to)
+https://github.com/vanHeemstraPublications/dev-to

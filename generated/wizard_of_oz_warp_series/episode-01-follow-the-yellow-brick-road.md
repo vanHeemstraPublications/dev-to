@@ -1,29 +1,48 @@
 # Prompt Bundle
 
-Series ID: wizard_of_oz_warp_seriesSeries Name: Wizard of Oz Warp SeriesSeries Type: ai_terminal_workflow_series
+Series ID: wizard_of_oz_warp_series
+Series Name: Wizard of Oz Warp Series
+Series Type: ai_terminal_workflow_series
 
-Episode: 1 - Follow the Yellow Brick RoadSlug: follow-the-yellow-brick-road
+Episode: 1 - Follow the Yellow Brick Road
+Slug: follow-the-yellow-brick-road
 
-Canvasorientation: landscaperesolution: 1000x420aspect ratio: 100:42whitespace margin: 24%
+Canvas
+orientation: landscape
+resolution: 1000x420
+aspect ratio: 100:42
+whitespace margin: 24%
 
-Defaultssetting: whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow propslighting: cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
+Defaults
+setting: whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+lighting: cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
 
-Compositionleft third: Dorothy-like developer, guide, or companion introducing the workflow lessoncenter: the featured Warp or AI-workflow concept presented as the main magical revealright third: terminal panes, cloud control surfaces, or supportive Oz-themed technical propsbackground: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
+Composition
+left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
+center: the featured Warp or AI-workflow concept presented as the main magical reveal
+right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
+background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
-Episode Metaphorleaving a grey old terminal behind for a more guided and magical command-line journey
+Episode Metaphor
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
-Center ActionWarp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
+Center Action
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
 Supporting Props
-
 - yellow brick road
 - terminal blocks
 - tornado sky
 - starter project scaffold
 
-Local Image Pathimages/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png
 
-Public Cover Image URL[https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png](https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png)
+Local Image Path
+images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png
+
+Public Cover Image URL
+https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png
+
+--------------------------------------------------
 
 ChatGPT Image Prompt
 
@@ -33,56 +52,63 @@ Render the final banner typography inside the image itself.
 
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
-Wizard of Oz Warp SeriesEpisode 1: Follow the Yellow Brick Road
+Wizard of Oz Warp Series
+Episode 1: Follow the Yellow Brick Road
+
 
 Canvas requirements:
-
 - resolution: 1000x420
 - aspect ratio: 100:42
 - landscape banner composition
-- about 24% whitespace around theartwork
+- about 24% whitespace around the
+  artwork
 - clean readable layout suitable for a DEV.to article header
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-
 - export format: PNG
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
 
 Critical framing override (highest priority):
+- this is a wide banner, not a poster; compose the main characters smaller and
+  lower in frame than instinct suggests
+- the primary presenter must read as chest-up, waist-up, seated, or
+  three-quarter framing only; do not depict the lead presenter as a tall
+  full-body standing figure
+- sacrifice body visibility, extra props, or background detail before
+  sacrificing full face, full head, or full hat visibility
+- the image is invalid if any main face, beard, hair, or headwear is close to
+  the top edge or could be clipped by banner cropping
 
-- this is a wide banner, not a poster; compose the main characters smaller andlower in frame than instinct suggests
-- the primary presenter must read as chest-up, waist-up, seated, orthree-quarter framing only; do not depict the lead presenter as a tallfull-body standing figure
-- sacrifice body visibility, extra props, or background detail beforesacrificing full face, full head, or full hat visibility
-- the image is invalid if any main face, beard, hair, or headwear is close tothe top edge or could be clipped by banner cropping
+Scene setting:
+whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
 
-Scene setting:whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+Lighting and atmosphere:
+cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
 
-Lighting and atmosphere:cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
+Visual metaphor:
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
-Visual metaphor:leaving a grey old terminal behind for a more guided and magical command-line journey
-
-Center action:Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
+Center action:
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
 Composition guidance:
-
 - left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
 - center: the featured Warp or AI-workflow concept presented as the main magical reveal
 - right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
 - background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
-Supporting props to include:yellow brick road, terminal blocks, tornado sky, starter project scaffold
+Supporting props to include:
+yellow brick road, terminal blocks, tornado sky, starter project scaffold
 
 Style requirements:
-
 - cinematic digital illustration, highly detailed, polished storybook realism, Wizard of Oz wonder, terminal and cloud orchestration motifs
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
 Character framing requirements:
-
 - Non-negotiable rule: every main character's entire face, full head, beard, hair, and all headwear must remain completely visible in the final delivered banner image.
 - This rule overrides dramatic framing, character scale, background detail, and showing more of the body.
 - Treat the image as a cover/banner that may be cropped slightly by the platform at the top and bottom; compose defensively for that crop.
@@ -99,7 +125,6 @@ Character framing requirements:
 - If multiple characters are present, zoom out, reduce character scale, or move characters lower in the composition rather than letting any face or hat approach an edge.
 
 Typography handling:
-
 - Render the final banner typography inside the image itself.
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
@@ -126,7 +151,6 @@ Typography handling:
 - Do not omit, paraphrase, restyle, or misspell the centered title text.
 
 Final text acceptance check before finishing:
-
 - verify every letter in the title and subtitle is fully visible in the final 1000x420 banner
 - verify the exact two-line title block is clearly readable and centered horizontally in the final image
 - verify the full two-line title block is centered around roughly 47% image height, not sitting low like a footer
@@ -135,7 +159,6 @@ Final text acceptance check before finishing:
 - if any part of the text is clipped, off-center, or hard to read, simplify the middle of the composition, move objects away from the middle lane, move the text upward, and reduce font size slightly if needed
 
 Avoid:
-
 - visual clutter
 - unreadable text
 - cramped composition
@@ -153,29 +176,36 @@ Avoid:
 - missing, unreadable, misspelled, or off-center title text
 
 Final acceptance check before finishing:
-
-- verify every main face, head, beard, hair, and hat is fully visible in thefinal 1000x420 banner composition
+- verify every main face, head, beard, hair, and hat is fully visible in the
+  final 1000x420 banner composition
 - verify there is obvious empty space above the highest head or hat
 - if that check fails, reduce character scale and move the characters lower
 
+--------------------------------------------------
+
 Claude / ChatGPT Article Prompt
 
-I have created a repository that contains markdown articles published todev.to.
+I have created a repository that contains markdown articles published to
+dev.to.
 
-The articles live in:[https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/](https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/)
+The articles live in:
+https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/
 
-Please inspect the formatting style used in those articles, especially thefrontmatter.
+Please inspect the formatting style used in those articles, especially the
+frontmatter.
 
 Now create the following article.
 
-Series:Wizard of Oz Warp Series
+Series:
+Wizard of Oz Warp Series
 
-Series type:ai_terminal_workflow_series
+Series type:
+ai_terminal_workflow_series
 
-Episode:Episode 1: Follow the Yellow Brick Road
+Episode:
+Episode 1: Follow the Yellow Brick Road
 
 Writing style requirements:
-
 - tone: storybook, welcoming, technically clear, and lightly mischievous
 - humor style: Wizard of Oz metaphors with confident developer guidance and playful but readable showmanship
 - beginner-friendly
@@ -184,26 +214,30 @@ Writing style requirements:
 - include explanations of the code
 - use a memorable metaphor consistently throughout the article
 
-Primary metaphor:leaving a grey old terminal behind for a more guided and magical command-line journey
+Primary metaphor:
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
-Episode-specific action:Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
+Episode-specific action:
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
-Scene / setting inspiration:whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+Scene / setting inspiration:
+whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
 
 Visual inspiration:
-
 - left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
 - center: the featured Warp or AI-workflow concept presented as the main magical reveal
 - right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
 - background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
-Useful props / concepts to weave into the explanation:yellow brick road, terminal blocks, tornado sky, starter project scaffold
+Useful props / concepts to weave into the explanation:
+yellow brick road, terminal blocks, tornado sky, starter project scaffold
 
 Article requirements:
-
 - produce a complete dev.to-ready markdown article
-- include frontmatter similar to the examples in the repository:yes
-- use this cover_image URL approach:use a PUBLIC absolute URL, not a local repository path
+- include frontmatter similar to the examples in the repository:
+  yes
+- use this cover_image URL approach:
+  use a PUBLIC absolute URL, not a local repository path
 - include headings and subheadings
 - include humorous storytelling
 - include practical code examples
@@ -211,12 +245,18 @@ Article requirements:
 - ensure the article is engaging and readable
 - make the subject understandable for readers who are new to it
 
-## Suggested frontmatter example:
 
-## title: "Wizard of Oz Warp! 🌪️ Ep.1"published: falsedescription: "Add article description here."tags: ["add", "tags", "here"]series: "Wizard of Oz Warp Series"cover_image: "[https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png](https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png)"
+Suggested frontmatter example:
+---
+title: "Wizard of Oz Warp! 🌪️ Ep.1"
+published: false
+description: "Add article description here."
+tags: ["add", "tags", "here"]
+series: "Wizard of Oz Warp Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png"
+---
 
 Suggested structure:
-
 1. storybook opening anchored in a Wizard of Oz quote or scene
 2. introduce the episode's Warp or AI workflow concept via an Oz metaphor
 3. walk through the concrete implementation with practical examples and commands
@@ -224,8 +264,9 @@ Suggested structure:
 5. include a SIPOC section that maps the workflow to the Oz framing
 6. close with a short takeaway or teaser for the next stop on the road
 
-SIPOC requirement:Please include a section in the article that explains the concept using theSIPOC pattern:
-
+SIPOC requirement:
+Please include a section in the article that explains the concept using the
+SIPOC pattern:
 - Supplier
 - Input
 - Process
@@ -233,13 +274,16 @@ SIPOC requirement:Please include a section in the article that explains the conc
 - Consumer
 
 For the SIPOC section:
-
 - explain each SIPOC element in simple language
-- map each SIPOC element both to the real technical concept and to themetaphor used in the article
+- map each SIPOC element both to the real technical concept and to the
+  metaphor used in the article
 - make the SIPOC section practical and easy to understand
 - prefer a compact table or bullet structure if that improves readability
 
-Output:Return the complete article in markdown including frontmatter.
+Output:
+Return the complete article in markdown including frontmatter.
+
+--------------------------------------------------
 
 Series GitHub Repository
 
