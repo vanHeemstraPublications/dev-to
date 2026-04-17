@@ -1,0 +1,100 @@
+series:
+  id: wizard_of_oz_warp_series
+  name: Warp of Oz Series
+  type: ai_terminal_workflow_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+  series_config: config/wizard-of-oz-warp-series.json
+defaults:
+  setting: whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+  lighting: cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
+  composition:
+    left_third: Dorothy-like developer, guide, or companion introducing the workflow lesson
+    center: the featured Warp or AI-workflow concept presented as the main magical reveal
+    right_third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
+    background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
+episodes:
+- number: 1
+  title: Follow the Yellow Brick Road
+  slug: follow-the-yellow-brick-road
+  metaphor: leaving a grey old terminal behind for a more guided and magical command-line journey
+  center_action: Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
+  supporting_props:
+  - yellow brick road
+  - terminal blocks
+  - tornado sky
+  - starter project scaffold
+- number: 2
+  title: The Scarecrow Gets a Brain
+  slug: the-scarecrow-gets-a-brain
+  metaphor: the terminal gaining the confidence to think alongside the developer
+  center_action: Warp AI features turn uncertain command-line work into guided, articulate action
+  supporting_props:
+  - straw hat
+  - ai prompt bubble
+  - command palette
+  - model response cards
+- number: 3
+  title: The Tin Man Gets a Heart
+  slug: the-tin-man-gets-a-heart
+  metaphor: project rules and memory giving an agent care for the codebase it touches
+  center_action: WARP.md, rules, and skills transform generic automation into context-aware project behaviour
+  supporting_props:
+  - tin oil can
+  - rules scroll
+  - repository map
+  - memory ledger
+- number: 4
+  title: The Lion Gets Courage
+  slug: the-lion-gets-courage
+  metaphor: trusting an agent to act only after reading the battle plan and the diff
+  center_action: code review and pair mode give developers confidence to let the agent fix problems safely
+  supporting_props:
+  - lion medal
+  - diff panel
+  - bug specimen jar
+  - test scroll
+- number: 5
+  title: "Flying Monkeys — Dispatch Mode"
+  slug: flying-monkeys-dispatch-mode
+  metaphor: assistants sent on bounded missions that report back once the work is complete
+  center_action: dispatch mode lets the agent carry out a defined implementation autonomously and return with results
+  supporting_props:
+  - monkey courier satchel
+  - task docket
+  - background worker queue
+  - return report
+- number: 6
+  title: "The Emerald City — Oz Platform"
+  slug: the-emerald-city-oz-platform
+  metaphor: a glowing city of scheduled and cloud-run agents always ready behind the horizon
+  center_action: Oz platform concepts turn local agent work into persistent cloud orchestration
+  supporting_props:
+  - emerald skyline
+  - cloud console
+  - scheduler clock
+  - webhook beacon
+- number: 7
+  title: "The Ruby Slippers — Augment Code Intent"
+  slug: the-ruby-slippers-augment-code-intent
+  metaphor: discovering the coordination power that was available all along for multi-agent planning
+  center_action: Augment Code Intent appears as the orchestration layer for specs, specialists, and verification
+  supporting_props:
+  - ruby slippers
+  - living spec scroll
+  - parallel task cards
+  - verifier seal
+- number: 8
+  title: "There's No Place Like Home"
+  slug: theres-no-place-like-home
+  metaphor: bringing every tool, server, and workflow back into one cohesive daily practice
+  center_action: MCP servers, Warp Drive, and the full production workflow resolve into a complete home setup
+  supporting_props:
+  - home icon
+  - mcp plugboard
+  - shared knowledge shelf
+  - three-click charm

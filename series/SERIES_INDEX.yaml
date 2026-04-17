@@ -84,4 +84,3 @@ series:
   name: Warp of Oz Series
   file: series/wizard_of_oz_warp_series.yaml
   prompt_template: prompts/PROMPT_TEMPLATE.md
-
