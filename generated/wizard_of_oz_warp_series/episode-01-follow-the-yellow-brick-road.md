@@ -1,11 +1,11 @@
 # Prompt Bundle
 
-Series ID: luxo_jr_thingsboard_series
-Series Name: Luxo Jr. ThingsBoard Series
-Series Type: iot_platform_series
+Series ID: wizard_of_oz_warp_series
+Series Name: Warp of Oz Series
+Series Type: ai_terminal_workflow_series
 
-Episode: 1 - The Prop That Came Alive
-Slug: the-prop-that-came-alive
+Episode: 1 - Follow the Yellow Brick Road
+Slug: follow-the-yellow-brick-road
 
 Canvas
 orientation: landscape
@@ -14,29 +14,33 @@ aspect ratio: 100:42
 whitespace margin: 24%
 
 Defaults
-setting: Pixar-inspired animation stage with smart devices, lamps, and production props
-lighting: warm studio stage lighting with a cinematic animation glow
+setting: whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+lighting: cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
 
 Composition
-left third: director or presenter introducing the IoT scene
-center: the animated device or ThingsBoard concept in motion
-right third: control consoles, dashboards, or supporting stage props
-background: sound stage, lighting rigs, and storyboards
+left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
+center: the featured Warp or AI-workflow concept presented as the main magical reveal
+right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
+background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
 Episode Metaphor
-None
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
 Center Action
-None
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
 Supporting Props
+- yellow brick road
+- terminal blocks
+- tornado sky
+- starter project scaffold
 
 
 Local Image Path
-images/luxo_jr_thingsboard_series/episode-01.webp
+images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png
 
 Public Cover Image URL
-[UPDATE_PUBLIC_COVER_IMAGE_URL]
+https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png
 
 --------------------------------------------------
 
@@ -48,8 +52,8 @@ Render the final banner typography inside the image itself.
 
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
-Luxo Jr. ThingsBoard Series
-Episode 1: The Prop That Came Alive
+Warp of Oz Series
+Episode 1: Follow the Yellow Brick Road
 
 
 Canvas requirements:
@@ -62,7 +66,7 @@ Canvas requirements:
 - avoid clutter and keep the composition visually clear
 
 Output requirements:
-- export format: WebP
+- export format: PNG
 - target file size: under 400 KB
 - optimized for fast web loading
 - suitable for DEV.to cover image usage
@@ -79,28 +83,28 @@ Critical framing override (highest priority):
   the top edge or could be clipped by banner cropping
 
 Scene setting:
-Pixar-inspired animation stage with smart devices, lamps, and production props
+whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
 
 Lighting and atmosphere:
-warm studio stage lighting with a cinematic animation glow
+cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
 
 Visual metaphor:
-
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
 Center action:
-
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
 Composition guidance:
-- left third: director or presenter introducing the IoT scene
-- center: the animated device or ThingsBoard concept in motion
-- right third: control consoles, dashboards, or supporting stage props
-- background: sound stage, lighting rigs, and storyboards
+- left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
+- center: the featured Warp or AI-workflow concept presented as the main magical reveal
+- right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
+- background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
 Supporting props to include:
-
+yellow brick road, terminal blocks, tornado sky, starter project scaffold
 
 Style requirements:
-- cinematic digital illustration, highly detailed, storybook realism, polished composition
+- cinematic digital illustration, highly detailed, polished storybook realism, Wizard of Oz wonder, terminal and cloud orchestration motifs
 - visually striking but not overcrowded
 - designed specifically as a web article banner
 
@@ -124,8 +128,8 @@ Typography handling:
 - Render the final banner typography inside the image itself.
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
-  - Luxo Jr. ThingsBoard Series
-  - Episode 1: The Prop That Came Alive
+  - Warp of Oz Series
+  - Episode 1: Follow the Yellow Brick Road
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 40% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.
@@ -185,7 +189,7 @@ I have created a repository that contains markdown articles published to
 dev.to.
 
 The articles live in:
-https://github.com/vanHeemstraSystems/dev-to/articles/
+https://github.com/vanHeemstraPublications/dev-to/tree/main/articles/
 
 Please inspect the formatting style used in those articles, especially the
 frontmatter.
@@ -193,40 +197,40 @@ frontmatter.
 Now create the following article.
 
 Series:
-Luxo Jr. ThingsBoard Series
+Warp of Oz Series
 
 Series type:
-iot_platform_series
+ai_terminal_workflow_series
 
 Episode:
-Episode 1: The Prop That Came Alive
+Episode 1: Follow the Yellow Brick Road
 
 Writing style requirements:
-- tone: light-hearted, humorous, beginner-friendly
-- humor style: playful and witty
+- tone: storybook, welcoming, technically clear, and lightly mischievous
+- humor style: Wizard of Oz metaphors with confident developer guidance and playful but readable showmanship
 - beginner-friendly
 - explain complex concepts in simple terms
-- include code samples in Python
+- include code samples in Markdown with shell, Python, YAML, and AI workflow examples where helpful
 - include explanations of the code
 - use a memorable metaphor consistently throughout the article
 
 Primary metaphor:
-
+leaving a grey old terminal behind for a more guided and magical command-line journey
 
 Episode-specific action:
-
+Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
 
 Scene / setting inspiration:
-Pixar-inspired animation stage with smart devices, lamps, and production props
+whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
 
 Visual inspiration:
-- left third: director or presenter introducing the IoT scene
-- center: the animated device or ThingsBoard concept in motion
-- right third: control consoles, dashboards, or supporting stage props
-- background: sound stage, lighting rigs, and storyboards
+- left third: Dorothy-like developer, guide, or companion introducing the workflow lesson
+- center: the featured Warp or AI-workflow concept presented as the main magical reveal
+- right third: terminal panes, cloud control surfaces, or supportive Oz-themed technical props
+- background: yellow brick road, emerald city silhouettes, storm clouds, server glow, and theatrical fantasy scenery
 
 Useful props / concepts to weave into the explanation:
-
+yellow brick road, terminal blocks, tornado sky, starter project scaffold
 
 Article requirements:
 - produce a complete dev.to-ready markdown article
@@ -244,22 +248,21 @@ Article requirements:
 
 Suggested frontmatter example:
 ---
-title: "Luxo Jr. ThingsBoard Ep.1"
+title: "Warp of Oz! 🌪️ Ep.1"
 published: false
 description: "Add article description here."
 tags: ["add", "tags", "here"]
-series: "Luxo Jr. ThingsBoard Series"
-cover_image: "REPLACE_WITH_PUBLIC_IMAGE_URL"
+series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-01.png"
 ---
 
 Suggested structure:
-1. humorous opening hook
-2. introduce the metaphor
-3. explain the concept step-by-step
-4. include code examples
-5. include a SIPOC section
-6. recap the key idea
-7. end with a teaser for the next episode
+1. storybook opening anchored in a Wizard of Oz quote or scene
+2. introduce the episode's Warp or AI workflow concept via an Oz metaphor
+3. walk through the concrete implementation with practical examples and commands
+4. connect the tooling behaviour to day-to-day developer workflow
+5. include a SIPOC section that maps the workflow to the Oz framing
+6. close with a short takeaway or teaser for the next stop on the road
 
 SIPOC requirement:
 Please include a section in the article that explains the concept using the

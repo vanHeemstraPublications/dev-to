@@ -80,4 +80,7 @@ series:
   name: Game on Djangular Series
   file: series/game_on_djangular_series.yaml
   prompt_template: prompts/PROMPT_TEMPLATE.md
-
+- id: wizard_of_oz_warp_series
+  name: Warp of Oz Series
+  file: series/wizard_of_oz_warp_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
