@@ -1,0 +1,90 @@
+series:
+  id: et_by_openvoiceos_series
+  name: E.T. by OpenVoiceOS Series
+  type: voice_assistant_explainer_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+  series_config: config/et-by-openvoiceos-series.json
+defaults:
+  setting: Spielberg-inspired suburban night scenes blended with open-source voice assistant hardware and home-lab equipment
+  lighting: moonlit suburb glow, bicycle-sky wonder, and warm domestic device lighting
+  composition:
+    left_third: guide, kid inventor, or friendly alien introducing the voice assistant concept
+    center: the OVOS capability shown as the main emotional or technical reveal
+    right_third: home-lab equipment, device consoles, or supporting helpers
+    background: moonlit sky, suburban silhouettes, glowing devices, and open-source workshop details
+episodes:
+- number: 1
+  title: E.T. Has Arrived
+  slug: et-has-arrived
+  metaphor: an unexpected alien visitor arriving in the open-source suburbs
+  center_action: the strange but friendly newcomer is introduced as a voice assistant you can truly own
+  supporting_props:
+  - glowing ship light
+  - voice assistant terminal
+  - suburban shed
+  - signal beacon
+- number: 2
+  title: He Can Talk! He Can Talk!
+  slug: he-can-talk-he-can-talk
+  metaphor: a once-mysterious visitor learning to listen, understand, and speak back
+  center_action: the full OVOS wake-word, STT, intent, and TTS pipeline is shown as speech coming alive
+  supporting_props:
+  - microphone array
+  - waveform monitor
+  - speech bubble cue cards
+  - speaker grille
+- number: 3
+  title: E.T. Phone Home
+  slug: et-phone-home
+  metaphor: building a voice from many sources so a machine can sound familiar and grounded
+  center_action: compositional voice building turns a synthetic voice into a memorable identity
+  supporting_props:
+  - donor voice reels
+  - synthesis console
+  - conversion graph
+  - phoneme notes
+- number: 4
+  title: Elliott's Bicycle
+  slug: elliotts-bicycle
+  metaphor: a lightweight, balanced ride that keeps a voice assistant moving smoothly
+  center_action: service monitoring and coordination keep the system moving in one controlled direction
+  supporting_props:
+  - bicycle basket
+  - service dashboard
+  - balance gauge
+  - status lamp
+- number: 5
+  title: The Government Scientists
+  slug: the-government-scientists
+  metaphor: specialists crowding around a mysterious system to inspect, extend, and instrument it
+  center_action: skill installation and ecosystem tooling expand the assistant without losing control
+  supporting_props:
+  - pip command card
+  - lab badges
+  - specimen case
+  - plugin manifest
+- number: 6
+  title: I'll Be Right Here
+  slug: ill-be-right-here
+  metaphor: keeping a presence available through careful infrastructure and container orchestration
+  center_action: a containerized deployment keeps the assistant reliably available at home
+  supporting_props:
+  - Docker whale sticker
+  - deployment checklist
+  - home server rack
+  - heartbeat indicator
+- number: 7
+  title: E.T. Goes Home
+  slug: et-goes-home
+  metaphor: the system returns to its proper place with identity, continuity, and trust intact
+  center_action: the assistant's final configuration feels settled, personal, and ready for everyday life
+  supporting_props:
+  - glowing ramp
+  - home icon
+  - departure light
+  - calm night sky
