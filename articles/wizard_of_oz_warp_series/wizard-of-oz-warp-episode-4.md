@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.4: The Lion Gets Courage"
+title: "Warp of Oz! 🌪️ Ep.4"
 published: false
 description: "Episode 4: The Cowardly Lion had courage all along — he just needed permission to use it. Warp's Agent pair mode lets you review every change before it lands, the code review panel is your safety net, and debugging an intentional error teaches you to read the diff before trusting it."
 tags: [warp, debugging, ai, workflow]
@@ -8,14 +8,9 @@ series: "Warp of Oz Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
-# Warp of Oz! 🌪️
 ## Episode 4: The Lion Gets Courage
 
-> *"All right, I'll go in there for Dorothy. Wicked Witch or no Wicked Witch, guards or no guards, I'll tear them apart. I may not come out alive, but I'm going in there."*
-> — The Cowardly Lion, The Wizard of Oz (1939)
-
----
+> "All right, I'll go in there for Dorothy. Wicked Witch or no Wicked Witch, guards or no guards, I'll tear them apart. I may not come out alive, but I'm going in there."— The Cowardly Lion, The Wizard of Oz (1939)
 
 ## The Courage Problem 🦁
 
@@ -27,18 +22,14 @@ The answer is not to run blind. The answer is the **Code Review panel**, the **p
 
 This episode plants an intentional bug, lets the agent find and fix it, and teaches you to read every diff like the Cowardly Lion reading a battle plan before the charge.
 
----
-
 ## 🗂️ SIPOC — The Courage to Act
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
-| You (planting a bug deliberately) | A subtle logic error in `task_repo.py` | The server starts, tests fail in a non-obvious way | A broken endpoint with a misleading error message | The debugging session — Episode 4's main exercise |
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| You (planting a bug deliberately) | A subtle logic error in task_repo.py | The server starts, tests fail in a non-obvious way | A broken endpoint with a misleading error message | The debugging session — Episode 4's main exercise |
 | Warp Active AI | Non-zero exit code + stack trace in the terminal Block | Automatic Suggested Code Diff chip appears | A proposed fix in an expandable diff chip | You — review before accepting |
 | Warp Agent Mode (pair) | "Debug the failing task update endpoint" prompt | Agent reads the code, identifies the bug, proposes a fix | A file diff in the Code Review panel | You — review line by line before approving |
-| The Code Review panel (`Cmd-Shift-+`) | The proposed diff from any agent action | Visual before/after split view with syntax highlighting | Informed approval — you understand what lands | Your git history — no mysteries in the diff |
-
----
+| The Code Review panel (Cmd-Shift-+) | The proposed diff from any agent action | Visual before/after split view with syntax highlighting | Informed approval — you understand what lands | Your git history — no mysteries in the diff |
 
 ## Planting the Bug: The Wicked Witch Enters 🧙‍♀️
 
@@ -95,8 +86,6 @@ curl -s -X PATCH "http://localhost:8000/tasks/$TASK_ID" \
 
 The bug is subtle: the `updated_at` in the response is not actually updated. The task appears modified but the timestamp lies.
 
----
-
 ## Active AI to the Rescue: The Suggested Code Diff 🔧
 
 After the PATCH request returns an incorrect timestamp, look at the block output in Warp. Active AI analyses the response — it can infer from context (the Pydantic model definition + the response) that something is off.
@@ -115,8 +104,6 @@ Warp shows a unified diff:
 That is the correct fix. The `updated_at` should go into the `updates` dict so `model_copy` applies it along with the user-supplied fields.
 
 Click **Apply** in Warp's suggested diff chip. The file is updated.
-
----
 
 ## Agent Mode for Deeper Debugging 🔍
 
@@ -166,7 +153,6 @@ from src.main import app
 
 API_KEY = "dev-key-oz"
 HEADERS = {"X-API-Key": API_KEY, "Content-Type": "application/json"}
-
 
 @pytest.mark.asyncio
 async def test_update_refreshes_updated_at():
@@ -218,8 +204,6 @@ uv run pytest tests/test_task_updates.py -v
 # PASSED tests/test_task_updates.py::test_update_refreshes_updated_at
 ```
 
----
-
 ## The Code Review Panel: Reading Every Diff 📋
 
 Every time the agent makes a file change, open the Code Review panel:
@@ -227,12 +211,14 @@ Every time the agent makes a file change, open the Code Review panel:
 `Cmd-Shift-+`
 
 You see:
+
 - A file tree on the left listing all changed files
 - A split diff view: original on the left, proposed on the right
 - Added lines in green, removed lines in red
 - The ability to leave inline comments (click the `+` in the margin)
 
 Before approving any agent change, scroll through every changed file. Ask yourself:
+
 1. Does this change make sense given what I asked?
 2. Are there any lines I did not expect?
 3. Does it follow the conventions in `WARP.md`?
@@ -248,8 +234,6 @@ This function is now 40 lines — can we extract the date logic into a helper?
 ```
 
 The agent reads your comment and revises. Iterative review. The Cowardly Lion charging in, getting feedback, charging better.
-
----
 
 ## The Corrected `update` Method 🏆
 
@@ -270,8 +254,6 @@ def update(self, task_id: str, data: TaskUpdate) -> Optional[Task]:
 
 One line moved. One conceptual model corrected: in Pydantic v2, `model_copy(update=...)` is the way to produce a new instance with changed fields. Do not mutate first, then copy.
 
----
-
 ## Adding a `conftest.py` for Clean Test Isolation 🧹
 
 The agent also notices (if you ask) that tests share the module-level `task_repo` singleton. Tests will bleed into each other. It proposes:
@@ -282,7 +264,6 @@ The agent also notices (if you ask) that tests share the module-level `task_repo
 import pytest
 from src.repositories.task_repo import task_repo
 
-
 @pytest.fixture(autouse=True)
 def reset_task_repo():
     """Clear the in-memory task store before each test."""
@@ -290,8 +271,6 @@ def reset_task_repo():
     yield
     task_repo._store.clear()
 ```
-
----
 
 ## The Project Structure Now 📁
 
@@ -320,13 +299,10 @@ git commit -m "fix: correct updated_at mutation bug in task_repo — Ep.4 Lion"
 
 In **Episode 5**, the flying monkeys arrive. They go where the agent cannot go alone. Dispatch mode — autonomous operation without constant approval.
 
----
-
 **🔗 Resources**
+
 - **Warp Code Review panel**: [docs.warp.dev/agent-platform/local-agents/agent-mode](https://docs.warp.dev/agent-platform/local-agents/agent-mode)
 - **Pair vs. Dispatch mode**: [docs.warp.dev/agent-platform/local-agents](https://docs.warp.dev/agent-platform/local-agents/)
 - **pytest-asyncio**: [pytest-asyncio.readthedocs.io](https://pytest-asyncio.readthedocs.io)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment.*

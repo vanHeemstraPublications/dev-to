@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.5: Flying Monkeys — Dispatch Mode"
+title: "Warp of Oz! 🌪️ Ep.5"
 published: false
 description: "Episode 5: The flying monkeys didn't ask permission. They were dispatched, they acted, they reported back. Warp's dispatch mode is the same: autonomous agent execution without approval gates. Add a background task processor to the API — with full autonomy."
 tags: [warp, ai, agents, automation]
@@ -8,14 +8,9 @@ series: "Warp of Oz Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
-# Warp of Oz! 🌪️
 ## Episode 5: Flying Monkeys — Dispatch Mode
 
-> *"Fly! Fly! Fly!"*
-> — The Wicked Witch dispatching her monkeys, The Wizard of Oz (1939)
-
----
+> "Fly! Fly! Fly!"— The Wicked Witch dispatching her monkeys, The Wizard of Oz (1939)
 
 ## The Moment You Stop Supervising 🙈
 
@@ -29,17 +24,13 @@ But the flying monkeys did not stop at every tree to ask the Wicked Witch whethe
 
 Dispatch mode is earned trust. You use it after you understand what the agent does, after you have WARP.md defining the rules, after you have tests to catch mistakes. You use it for tasks that are well-defined and bounded. And you always review the final diff.
 
----
-
 ## 🗂️ SIPOC — The Flying Monkeys
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
 | You (dispatching the agent) | A clear, bounded objective + WARP.md constraints | Dispatch mode: agent acts without per-step approval, runs commands, writes files | A complete feature addition: background task processor + endpoints | The codebase — commit-ready after your final review |
 | Warp desktop notifications | Long-running agent task completion | Notification when agent needs attention or finishes | Pop-up + in-app notification | You — away from the terminal, get pinged when it matters |
-| The code review panel | Complete set of file changes from the dispatch run | `Cmd-Shift-+` shows full diff of everything the agent touched | A reviewable set of changes you accept, reject, or request revision on | Git history — you understand every line that lands |
-
----
+| The code review panel | Complete set of file changes from the dispatch run | Cmd-Shift-+ shows full diff of everything the agent touched | A reviewable set of changes you accept, reject, or request revision on | Git history — you understand every line that lands |
 
 ## Enabling Dispatch Mode ⚡
 
@@ -51,6 +42,7 @@ Switch modes in Agent Mode:
 The mode indicator appears at the top of the Agent Mode conversation. A lightning bolt icon means dispatch is active.
 
 You can also toggle it mid-conversation:
+
 ```
 # In Agent Mode:
 /dispatch on
@@ -59,18 +51,18 @@ You can also toggle it mid-conversation:
 Or from the keyboard: `Ctrl-Shift-I` toggles between pair and dispatch.
 
 **When to use dispatch:**
+
 - Well-defined tasks with clear success criteria
 - Tasks where the scope is bounded (one module, one feature, one test suite)
 - After `WARP.md` is in place so the agent has guardrails
 - When you are happy to review the final diff rather than each step
 
 **When to stay in pair mode:**
+
 - Security-sensitive changes (auth, secrets, permissions)
 - Database schema changes
 - Anything touching CI/CD or deployment config
 - Anything you would not review quickly in a final diff
-
----
 
 ## The Task: Add a Background Task Processor 🔄
 
@@ -104,8 +96,6 @@ Keep the worker simple — no persistence, no retries for now.
 
 Press `Ctrl-Shift-I` to enable dispatch. Press Enter. The flying monkeys fly.
 
----
-
 ## What Dispatch Mode Looks Like in the Terminal 🐒
 
 In dispatch mode, Warp's block output shows the agent's work as a stream:
@@ -137,8 +127,6 @@ In dispatch mode, Warp's block output shows the agent's work as a stream:
 
 A desktop notification pops up: **"Warp Agent completed a task"**.
 
----
-
 ## The Code the Agent Produces 📝
 
 ### Updated `src/models/task.py`
@@ -151,19 +139,16 @@ from enum import Enum
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 
-
 class TaskStatus(str, Enum):
     TODO        = "todo"
     IN_PROGRESS = "in_progress"
     DONE        = "done"
-
 
 class ProcessingStatus(str, Enum):
     QUEUED      = "queued"
     PROCESSING  = "processing"
     COMPLETED   = "completed"
     FAILED      = "failed"
-
 
 class Task(BaseModel):
     id:                str                      = Field(default_factory=lambda: str(uuid.uuid4()))
@@ -191,7 +176,6 @@ from src.models.task import ProcessingStatus, Task
 from src.schemas.task import TaskCreate, TaskUpdate
 
 logger = logging.getLogger(__name__)
-
 
 class TaskRepository:
     def __init__(self) -> None:
@@ -294,7 +278,6 @@ class TaskRepository:
         self._worker_task = asyncio.create_task(self.worker_loop())
         logger.info("Worker task created: %s", self._worker_task)
 
-
 task_repo = TaskRepository()
 ```
 
@@ -309,7 +292,6 @@ from src.repositories.task_repo import task_repo
 
 router = APIRouter(prefix="/tasks", tags=["processing"])
 
-
 @router.post("/{task_id}/process", response_model=Task)
 async def enqueue_task(task_id: str):
     """Add a task to the background processing queue."""
@@ -320,7 +302,6 @@ async def enqueue_task(task_id: str):
             detail=f"Task {task_id!r} not found.",
         )
     return result
-
 
 @router.get("/queue/status")
 async def get_queue_status():
@@ -347,7 +328,6 @@ logging.basicConfig(
     format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
 )
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Start background worker on startup; clean up on shutdown."""
@@ -355,7 +335,6 @@ async def lifespan(app: FastAPI):
     yield
     if task_repo._worker_task:
         task_repo._worker_task.cancel()
-
 
 app = FastAPI(
     title="Warp of Oz Tasks",
@@ -366,7 +345,6 @@ app = FastAPI(
 app.add_middleware(APIKeyMiddleware)
 app.include_router(tasks_router)
 app.include_router(processing_router)
-
 
 @app.get("/health")
 async def health_check():
@@ -379,8 +357,6 @@ async def health_check():
         "queue_depth": q["queue_length"],
     }
 ```
-
----
 
 ## Testing in the Terminal 🔬
 
@@ -412,11 +388,10 @@ curl -s "http://localhost:8000/tasks/$TASK_ID" \
 # processing_status: "completed" or "failed"
 ```
 
----
-
 ## The Final Review: Always Look Behind the Curtain 🔎
 
 After dispatch mode completes, open `Cmd-Shift-+`:
+
 - Verify `src/models/task.py` — is `ProcessingStatus` correctly defined?
 - Verify `task_repo.py` — is the worker using `asyncio.sleep` not `time.sleep`?
 - Verify `main.py` — is the lifespan context manager correct?
@@ -430,13 +405,10 @@ git commit -m "feat: add background task processing queue — Ep.5 Flying Monkey
 
 In **Episode 6**, we enter the Emerald City itself: Oz, Warp's cloud agent platform. Cloud agents, schedules, triggers, and the CLI.
 
----
-
 **🔗 Resources**
+
 - **Dispatch mode docs**: [docs.warp.dev/agent-platform/local-agents/agent-mode](https://docs.warp.dev/agent-platform/local-agents/agent-mode)
 - **FastAPI lifespan events**: [fastapi.tiangolo.com/advanced/events](https://fastapi.tiangolo.com/advanced/events/)
 - **asyncio.create_task**: [docs.python.org/3/library/asyncio-task.html](https://docs.python.org/3/library/asyncio-task.html)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment.*

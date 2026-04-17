@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.2: The Scarecrow Gets a Brain"
+title: "Warp of Oz! 🌪️ Ep.2"
 published: false
 description: "Episode 2: The Scarecrow didn't need a brain — he needed someone to tell him he had one. Warp's AI features work the same way: the # key, Active AI, Next Command, and Agent Mode turn your terminal session into a thinking collaborator. Build the task CRUD endpoints."
 tags: [warp, ai, terminal, python]
@@ -9,13 +9,9 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Warp of Oz! 🌪️
 ## Episode 2: The Scarecrow Gets a Brain
 
-> *"If I only had a brain."*
-> — The Scarecrow, The Wizard of Oz (1939)
-
----
+> "If I only had a brain."— The Scarecrow, The Wizard of Oz (1939)
 
 ## The Straw Man in Your Terminal 🌾
 
@@ -25,18 +21,14 @@ Most developers feel like this in the terminal. They know the thing they want to
 
 Warp's AI features are the Wizard's gift to the Scarecrow. Not a transplant — a recognition. The brain was always there.
 
----
-
 ## 🗂️ SIPOC — The Brain Arrives
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
-| You (typing `#` + natural language) | A description of what you want to do | Warp LLM converts intent to shell command | A ready-to-run command, review before pressing Enter | You — no more Stack Overflow for basic commands |
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| You (typing # + natural language) | A description of what you want to do | Warp LLM converts intent to shell command | A ready-to-run command, review before pressing Enter | You — no more Stack Overflow for basic commands |
 | Warp Active AI | Terminal session context (recent commands, exit codes, errors) | Proactive analysis → Suggested Code Diffs, Prompt Suggestions, Next Command | Inline suggestions and fix proposals | You — the terminal anticipates the next step |
-| Warp Agent Mode (local) | A multi-turn conversation prompt | Agent reads your codebase, writes code, runs commands, reviews diffs | Code changes applied to your repository | The `warp-of-oz-tasks` codebase — grows with each agent turn |
-| DRF serializers (project context) | Conversation context + task model definition | Agent generates CRUD endpoints + tests | `src/tasks/` module with models, router, schemas | The running FastAPI server |
-
----
+| Warp Agent Mode (local) | A multi-turn conversation prompt | Agent reads your codebase, writes code, runs commands, reviews diffs | Code changes applied to your repository | The warp-of-oz-tasks codebase — grows with each agent turn |
+| DRF serializers (project context) | Conversation context + task model definition | Agent generates CRUD endpoints + tests | src/tasks/ module with models, router, schemas | The running FastAPI server |
 
 ## The `#` Key: Natural Language in the Terminal 🧠
 
@@ -81,13 +73,12 @@ ls /nonexistent/path
 # Or propose creating the directory. Click the chip.
 ```
 
----
-
 ## Agent Mode: The Conversation 💬
 
 Agent Mode is Warp's built-in local agent. Open it with `Cmd-I` (or click the agent icon). This switches from terminal mode to a multi-turn conversation view.
 
 The agent:
+
 - Reads files in your working directory
 - Runs shell commands (with your approval in pair mode)
 - Edits files
@@ -136,8 +127,6 @@ Plan:
 
 After approval, the agent executes each step, proposing file edits you review in the **Code Review panel** (`Cmd-Shift-+`).
 
----
-
 ## The Code the Agent Writes 📝
 
 Let's trace what the agent produces. (You can write these manually if you prefer to understand them first.)
@@ -152,12 +141,10 @@ from enum import Enum
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 
-
 class TaskStatus(str, Enum):
     TODO        = "todo"
     IN_PROGRESS = "in_progress"
     DONE        = "done"
-
 
 class Task(BaseModel):
     id:          str         = Field(default_factory=lambda: str(uuid.uuid4()))
@@ -179,12 +166,10 @@ class Task(BaseModel):
 from pydantic import BaseModel, Field
 from .models.task import TaskStatus
 
-
 class TaskCreate(BaseModel):
     title:       str           = Field(..., min_length=1, max_length=200)
     description: str | None    = None
     status:      TaskStatus    = TaskStatus.TODO
-
 
 class TaskUpdate(BaseModel):
     title:       str | None    = Field(None, max_length=200)
@@ -201,7 +186,6 @@ from datetime import datetime, timezone
 from typing import Dict, Optional
 from src.models.task import Task
 from src.schemas.task import TaskCreate, TaskUpdate
-
 
 class TaskRepository:
     def __init__(self) -> None:
@@ -234,7 +218,6 @@ class TaskRepository:
         del self._store[task_id]
         return True
 
-
 # Module-level singleton for this episode
 task_repo = TaskRepository()
 ```
@@ -250,18 +233,15 @@ from src.repositories.task_repo import task_repo
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
 
-
 @router.get("/", response_model=list[Task])
 async def list_tasks():
     """Return all tasks — the whole yellow brick road."""
     return task_repo.list_all()
 
-
 @router.post("/", response_model=Task, status_code=status.HTTP_201_CREATED)
 async def create_task(data: TaskCreate):
     """Add a new task to the journey."""
     return task_repo.create(data)
-
 
 @router.get("/{task_id}", response_model=Task)
 async def get_task(task_id: str):
@@ -271,7 +251,6 @@ async def get_task(task_id: str):
         raise HTTPException(status_code=404, detail=f"Task {task_id!r} not found.")
     return task
 
-
 @router.patch("/{task_id}", response_model=Task)
 async def update_task(task_id: str, data: TaskUpdate):
     """Update a task's status or details."""
@@ -279,7 +258,6 @@ async def update_task(task_id: str, data: TaskUpdate):
     if not task:
         raise HTTPException(status_code=404, detail=f"Task {task_id!r} not found.")
     return task
-
 
 @router.delete("/{task_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_task(task_id: str):
@@ -306,7 +284,6 @@ app = FastAPI(
 
 app.include_router(tasks_router)
 
-
 @app.get("/health")
 async def health_check():
     return {
@@ -316,8 +293,6 @@ async def health_check():
         "version": app.version,
     }
 ```
-
----
 
 ## Testing the CRUD Endpoints 🧪
 
@@ -347,8 +322,6 @@ echo "Deleted: $?"
 
 Each `curl` in Warp is a Block. You can copy the output, navigate back to it, or `Cmd-Click` it to get AI analysis of the JSON response.
 
----
-
 ## The Code Review Panel: Toto Lifts the Curtain 🐕
 
 When the agent finishes making changes, open the Code Review panel with `Cmd-Shift-+`. You see a split view: before on the left, after on the right. Changed lines highlighted.
@@ -361,8 +334,6 @@ cd ~/projects/warp-of-oz-tasks
 git add .
 git commit -m "feat: add task CRUD endpoints — Ep.2 Scarecrow"
 ```
-
----
 
 ## The Project Structure Now 📁
 
@@ -386,13 +357,10 @@ git commit -m "feat: add task CRUD endpoints — Ep.2 Scarecrow"
 
 In **Episode 3**, the Tin Man joins the road. He needs a heart — not a new organ, but someone who cares enough to write down the rules. WARP.md, Rules, and Skills give Warp's agent the soul of your project.
 
----
-
 **🔗 Resources**
+
 - **Warp Agent Mode**: [docs.warp.dev/agent-platform/local-agents](https://docs.warp.dev/agent-platform/local-agents/)
 - **Active AI**: [docs.warp.dev/agent-platform/local-agents/active-ai](https://docs.warp.dev/agent-platform/local-agents/active-ai)
 - **FastAPI docs**: [fastapi.tiangolo.com](https://fastapi.tiangolo.com)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment, with Augment Code Intent as the ruby slippers.*

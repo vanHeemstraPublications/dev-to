@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.3: The Tin Man Gets a Heart"
+title: "Warp of Oz! 🌪️ Ep.3"
 published: false
 description: "Episode 3: The Tin Man didn't need a new heart — he needed someone who believed he had one. WARP.md, Rules, and Skills give Warp's agent the soul of your project: conventions, patterns, and the memory of how your codebase thinks. Build authentication middleware."
 tags: [warp, terminal, ai, productivity]
@@ -8,14 +8,9 @@ series: "Warp of Oz Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
-# Warp of Oz! 🌪️
 ## Episode 3: The Tin Man Gets a Heart
 
-> *"Hearts will never be practical until they can be made unbreakable."*
-> — The Wizard of Oz (1939)
-
----
+> "Hearts will never be practical until they can be made unbreakable."— The Wizard of Oz (1939)
 
 ## The Tin Man's Problem 🤖
 
@@ -25,18 +20,14 @@ Warp's agent, without guidance, is the Tin Man. It knows how to write Python. It
 
 **WARP.md, Rules, and Skills** are the heart. They are the project's memory, given to the agent at the start of every conversation.
 
----
-
 ## 🗂️ SIPOC — The Heart Is Written Down
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
-| You (the developer who knows the codebase) | Your conventions, patterns, preferences for this project | Write `WARP.md` at the project root | A rules file the agent reads at every session start | The agent — no longer guesses your style |
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| You (the developer who knows the codebase) | Your conventions, patterns, preferences for this project | Write WARP.md at the project root | A rules file the agent reads at every session start | The agent — no longer guesses your style |
 | Warp Drive (team knowledge) | Reusable guidelines for common behaviours | Create a Rule in Warp Drive Settings | A cloud-synced rule applied across all sessions for your team | Every team member's agent — consistent behaviour |
-| You (defining repeatable workflows) | A multi-step task that always follows the same pattern | Write a `SKILL.md` in `.warp/skills/` | An instruction set the agent invokes when the task matches | Agent Mode — invokes the skill automatically |
-| The agent (with WARP.md loaded) | A prompt to "add authentication middleware" | Agent follows project conventions from WARP.md | Auth middleware that matches the existing codebase style | `src/middleware/auth.py` — code that does not need refactoring |
-
----
+| You (defining repeatable workflows) | A multi-step task that always follows the same pattern | Write a SKILL.md in .warp/skills/ | An instruction set the agent invokes when the task matches | Agent Mode — invokes the skill automatically |
+| The agent (with WARP.md loaded) | A prompt to "add authentication middleware" | Agent follows project conventions from WARP.md | Auth middleware that matches the existing codebase style | src/middleware/auth.py — code that does not need refactoring |
 
 ## `WARP.md`: The Project's Constitution 📜
 
@@ -101,8 +92,6 @@ MARKDOWN
 
 This file now lives in the project. Every time you open Agent Mode with this project as the working directory, the agent reads it.
 
----
-
 ## Rules: Team-Level Memory in Warp Drive ☁️
 
 Rules are stored in Warp Drive and synced across your team. Unlike `WARP.md` (which is project-specific and version-controlled), Rules are persona-level or team-level guidelines that apply everywhere.
@@ -126,12 +115,10 @@ When writing Python code:
 - Use `ruff` for linting and `ruff format` for formatting (not `black`)
 ```
 
-5. Toggle: **Apply to Agent Mode** ✓
-6. Save
+1. Toggle: **Apply to Agent Mode** ✓
+2. Save
 
 This rule now applies to all your agent sessions, not just this project. It is the Tin Man's heart — it travels with you.
-
----
 
 ## Skills: Reusable Workflows the Agent Invokes 📖
 
@@ -174,8 +161,6 @@ Now when you type in Agent Mode:
 
 Warp auto-invokes the `add-endpoint` Skill and follows its 8-step workflow to create a complete `User` CRUD feature. Every time. Consistent. Correct.
 
----
-
 ## Using WARP.md to Add Authentication Middleware 🔑
 
 Now let's use the heart we gave the agent. With `WARP.md` in place, ask the agent to add authentication:
@@ -195,6 +180,7 @@ Based on the rules in WARP.md:
 ```
 
 Because the agent has read `WARP.md`, it already knows:
+
 - To use Pydantic Settings, not raw `os.environ`
 - To use `snake_case` JSON keys
 - To format 401 errors as `"Invalid or missing API key"`
@@ -212,7 +198,6 @@ Here is what the agent produces:
 from __future__ import annotations
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-
 class Settings(BaseSettings):
     """Settings loaded from environment variables.
 
@@ -226,7 +211,6 @@ class Settings(BaseSettings):
     @classmethod
     def from_env(cls) -> "Settings":
         return cls()
-
 
 settings = Settings()
 ```
@@ -251,7 +235,6 @@ logger = logging.getLogger(__name__)
 
 # Paths that bypass authentication
 PUBLIC_PATHS: set[str] = {"/health", "/docs", "/openapi.json", "/redoc"}
-
 
 class APIKeyMiddleware(BaseHTTPMiddleware):
     """Validate X-API-Key header on all non-public routes."""
@@ -306,7 +289,6 @@ app.add_middleware(APIKeyMiddleware)
 # Routers
 app.include_router(tasks_router)
 
-
 @app.get("/health")
 async def health_check():
     """Public health endpoint — no auth required."""
@@ -317,8 +299,6 @@ async def health_check():
         "version": app.version,
     }
 ```
-
----
 
 ## Testing Authentication 🔐
 
@@ -344,8 +324,6 @@ curl -s -X POST http://localhost:8000/tasks \
   -d '{"title": "Find the Emerald City", "status": "in_progress"}' \
   | python3 -m json.tool
 ```
-
----
 
 ## The Project Structure Now 📁
 
@@ -377,13 +355,10 @@ git commit -m "feat: add WARP.md, Skills, and API key auth — Ep.3 Tin Man"
 
 In **Episode 4**, the Cowardly Lion joins the road. He needs courage — the courage to let the agent act without constant supervision. Agent pair mode with code review.
 
----
-
 **🔗 Resources**
+
 - **WARP.md / Rules documentation**: [docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects](https://docs.warp.dev/knowledge-and-collaboration/warp-drive/ai-objects)
 - **Warp Drive**: [docs.warp.dev/knowledge-and-collaboration/warp-drive](https://docs.warp.dev/knowledge-and-collaboration/warp-drive/)
 - **pydantic-settings**: [docs.pydantic.dev/latest/concepts/pydantic_settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment.*

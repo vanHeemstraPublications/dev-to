@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.8: There's No Place Like Home"
+title: "Warp of Oz! 🌪️ Ep.8"
 published: false
 description: "Episode 8: Dorothy tapped her heels three times and went home. You already have everything you need. MCP servers extend every agent, Warp Drive shares team knowledge, and the complete production workflow closes the yellow brick road. There's no place like home."
 tags: [warp, productivity, workflow, mcp]
@@ -9,13 +9,9 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Warp of Oz! 🌪️
 ## Episode 8: There's No Place Like Home
 
-> *"There's no place like home. There's no place like home. There's no place like home."*
-> — Dorothy Gale, The Wizard of Oz (1939)
-
----
+> "There's no place like home. There's no place like home. There's no place like home."— Dorothy Gale, The Wizard of Oz (1939)
 
 ## The Three Clicks 💎
 
@@ -29,18 +25,14 @@ You have been in Warp for seven episodes. You installed it, learned blocks, gave
 
 The final episode is the three clicks: **MCP servers** that extend every agent, **Warp Drive** that makes the team's knowledge persistent, and the **complete production workflow** that brings everything home. After this, you have not learned a tool. You have changed how you work.
 
----
-
 ## 🗂️ SIPOC — Coming Home
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
 | MCP servers (GitHub, Linear, Sentry, custom) | Your external tooling landscape | Configure MCP servers in Warp → agents can query/act on external systems | Agents that know your issues, PRs, errors — without you pasting context | Every agent conversation — richer context automatically |
 | Warp Drive (team workspace) | Workflows, prompts, rules, environment variables | Save once → sync to all team members | Shared team knowledge that every agent uses | Your team — everyone's agent behaves consistently |
-| The complete `warp-of-oz-tasks` API | 7 episodes of iterative development | Run the full test suite, add production config, review the architecture | A tested, documented, production-ready service | The series, complete — you understand every line |
+| The complete warp-of-oz-tasks API | 7 episodes of iterative development | Run the full test suite, add production config, review the architecture | A tested, documented, production-ready service | The series, complete — you understand every line |
 | This series | The Yellow Brick Road walked end to end | A workflow internalised, not just demonstrated | Habits: blocks, AI, WARP.md, pair mode, dispatch, Oz, Intent | Your daily development practice |
-
----
 
 ## MCP Servers: The Yellow Brick Road Extends Everywhere 🌐
 
@@ -115,8 +107,6 @@ Implement the feature described in Linear issue OZ-47. Follow WARP.md convention
 
 The agent reads OZ-47 from Linear, understands the requirements, and starts implementing. No copy-paste. No context loss.
 
----
-
 ## Warp Drive: The Team's Shared Heart 💛
 
 **Warp Drive** is the team knowledge layer. Everything you save there is synced to all team members and available to every agent session.
@@ -124,12 +114,12 @@ The agent reads OZ-47 from Linear, understands the requirements, and starts impl
 What lives in Warp Drive:
 
 | Object type | What it is | Example |
-|---|---|---|
-| **Workflows** | Saved commands with parameters | `uv run pytest {test_path} -v` |
-| **Prompts** | Reusable agent prompts | `Perform a security audit on @src/middleware/auth.py` |
-| **Rules** | Team-level agent guidelines | `Always include tests with new API endpoints` |
-| **Notebooks** | Markdown files with runnable commands | `Development Setup for New Engineers.md` |
-| **Environment Variables** | Shared dev variables (non-sensitive) | `API_BASE_URL=http://localhost:8000` |
+| --- | --- | --- |
+| Workflows | Saved commands with parameters | uv run pytest {test_path} -v |
+| Prompts | Reusable agent prompts | Perform a security audit on @src/middleware/auth.py |
+| Rules | Team-level agent guidelines | Always include tests with new API endpoints |
+| Notebooks | Markdown files with runnable commands | Development Setup for New Engineers.md |
+| Environment Variables | Shared dev variables (non-sensitive) | API_BASE_URL=http://localhost:8000 |
 
 ### Creating a Team Workflow
 
@@ -165,8 +155,6 @@ This is the Toto Rule — always lift the curtain before accepting.
 
 Every developer on the team gets this rule. Every agent on the team follows it. The Tin Man's heart, distributed.
 
----
-
 ## The Production `warp-of-oz-tasks` Service 🚀
 
 Let's add the final production configurations and run the complete test suite:
@@ -197,7 +185,6 @@ from __future__ import annotations
 import logging
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-
 class Settings(BaseSettings):
     """Settings loaded from environment variables or .env file.
 
@@ -221,7 +208,6 @@ class Settings(BaseSettings):
             format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
         )
 
-
 settings = Settings()
 ```
 
@@ -244,14 +230,12 @@ from src.routers.processing import router as processing_router
 
 settings.configure_logging()
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     task_repo.start_worker()
     yield
     if task_repo._worker_task:
         task_repo._worker_task.cancel()
-
 
 app = FastAPI(
     title="Warp of Oz Tasks",
@@ -267,7 +251,6 @@ app = FastAPI(
 app.add_middleware(APIKeyMiddleware)
 app.include_router(tasks_router)
 app.include_router(processing_router)
-
 
 @app.get("/health")
 async def health_check():
@@ -314,8 +297,6 @@ uv run pytest tests/ -v --tb=short
 
 All green. The road is paved.
 
----
-
 ## The Complete Project Structure: The Full Map 🗺️
 
 ```
@@ -353,22 +334,18 @@ All green. The road is paved.
         └── processing.py   ← Ep.5: background task queue endpoints
 ```
 
----
-
 ## The Complete Workflow Map: The Road Behind You 🗺️
 
 | Episode | Oz parallel | Warp feature learned | Codebase milestone |
-|---|---|---|---|
-| 1 | Dorothy arrives in Oz | Blocks, `#` key, input editor | Health endpoint |
-| 2 | Scarecrow gets a brain | AI completions, Agent Mode, `Cmd-I` | Full CRUD endpoints |
+| --- | --- | --- | --- |
+| 1 | Dorothy arrives in Oz | Blocks, # key, input editor | Health endpoint |
+| 2 | Scarecrow gets a brain | AI completions, Agent Mode, Cmd-I | Full CRUD endpoints |
 | 3 | Tin Man gets a heart | WARP.md, Rules, Skills | Auth middleware |
 | 4 | Lion gets courage | Pair mode, Code Review panel, debugging | Bug fixed + regression test |
 | 5 | Flying monkeys dispatched | Dispatch mode, desktop notifications | Background task processor |
 | 6 | The Emerald City | Oz platform, CLI, cloud agents, schedules | Scheduled cleanup agent |
 | 7 | The ruby slippers | Augment Code Intent, living spec, Context Engine | Task tags + filtering |
 | 8 | There's no place like home | MCP servers, Warp Drive, production config | Complete production service |
-
----
 
 ## The Three Habits That Change Everything 💎
 
@@ -379,8 +356,6 @@ Walk away from this series with three habits:
 **2. Always review the diff.** Dispatch mode is powerful. Augment Intent is powerful. The Code Review panel is always the final gate. The Cowardly Lion does not charge blindly — he reads the battle plan. Toto always lifts the curtain.
 
 **3. Use the right tool for the scope.** Single-file quick fix → pair mode. Bounded autonomous task → dispatch. Cross-file feature with spec → Intent. Background automation → Oz. The road has different surfaces for different distances.
-
----
 
 ## There's No Place Like Home 🏠
 
@@ -412,16 +387,12 @@ You arrive at:
 
 The yellow brick road is complete.
 
----
-
 **🔗 Resources**
+
 - **Warp documentation**: [docs.warp.dev](https://docs.warp.dev)
 - **Oz platform**: [oz.warp.dev](https://oz.warp.dev)
 - **Augment Code Intent**: [augmentcode.com/product/intent](https://www.augmentcode.com/product/intent)
 - **MCP servers directory**: [mcp.so](https://mcp.so) — browse available MCP servers
-- **`warp-of-oz-tasks` repository**: [github.com/Elsa-Yanke/web-dev-project-2026](https://github.com/Elsa-Yanke/web-dev-project-2026) (inspiration)
+- `warp-of-oz-tasks`** repository**: [github.com/Elsa-Yanke/web-dev-project-2026](https://github.com/Elsa-Yanke/web-dev-project-2026) (inspiration)
 
----
-
-*🌪️ Warp of Oz Series — eight episodes, one yellow brick road, one Mac Mini M4 Pro, and the realisation that the power was always in your terminal.*
-*There's no place like home.*
+*🌪️ Warp of Oz Series — eight episodes, one yellow brick road, one Mac Mini M4 Pro, and the realisation that the power was always in your terminal.**There's no place like home.*

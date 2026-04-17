@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.1: Follow the Yellow Brick Road"
+title: "Warp of Oz! 🌪️ Ep.1"
 published: false
 description: "Episode 1: Dorothy was bored in Kansas. You are bored in iTerm2. A tornado called Warp arrives, lifts you out of the grey terminal past, and drops you in a vividly new environment. Install Warp on your Mac Mini M4 Pro, understand blocks, and scaffold your first project."
 tags: [warp, terminal, macos, beginners]
@@ -9,13 +9,9 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Warp of Oz! 🌪️
 ## Episode 1: Follow the Yellow Brick Road
 
-> *"Toto, I've a feeling we're not in Kansas anymore."*
-> — Dorothy Gale, The Wizard of Oz (1939)
-
----
+> "Toto, I've a feeling we're not in Kansas anymore."— Dorothy Gale, The Wizard of Oz (1939)
 
 ## The Grey Skies of Kansas 🌩️
 
@@ -25,17 +21,13 @@ You are Dorothy. You have been working in this Kansas for years. It works. Every
 
 Then the tornado arrives. It is called **Warp**.
 
----
-
 ## 🗂️ SIPOC — The Journey Begins
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
 | Warp installer (DMG) | Your Mac Mini M4 Pro, macOS Sequoia | Download → drag to Applications → launch → authenticate | A modern Agentic Development Environment running natively on Apple Silicon | You — with every future episode's workflow running here |
-| Your project idea | An empty directory | Scaffold `warp-of-oz-tasks` with `uv`, FastAPI, Python 3.12 | A running health endpoint at `http://localhost:8000/health` | The series codebase that grows across all 8 episodes |
+| Your project idea | An empty directory | Scaffold warp-of-oz-tasks with uv, FastAPI, Python 3.12 | A running health endpoint at http://localhost:8000/health | The series codebase that grows across all 8 episodes |
 | Warp's block system | Every command you run | Group command + output into a navigable atomic Block | A terminal session you can navigate, copy, search, and share | Your future self — no more scrolling through output walls |
-
----
 
 ## The Land of Oz: What Warp Actually Is 🏙️
 
@@ -48,8 +40,6 @@ It has two parts:
 **Oz** — the orchestration platform that lives at `oz.warp.dev`. Cloud agents that run in the background, triggered by Slack messages, GitHub PRs, Linear issues, or schedules. Oz is the Emerald City — not visible from Dorothy's first view of the munchkin country, but always glowing on the horizon.
 
 This episode is about arriving. The tornado. The yellow bricks. The first steps.
-
----
 
 ## Step 1: Install Warp on the Mac Mini M4 Pro 💻
 
@@ -83,8 +73,6 @@ uname -m
 # arm64   ← Apple Silicon, not x86_64
 ```
 
----
-
 ## The First Blocks: The Munchkins Welcome You 🌈
 
 The first thing you notice in Warp is that command output is not a river — it is **Blocks**.
@@ -108,8 +96,6 @@ ls -la ~
 ```
 
 This is the yellow brick road. Every step is paved.
-
----
 
 ## Setting Up the Series Project: `warp-of-oz-tasks` 🏗️
 
@@ -177,7 +163,6 @@ app = FastAPI(
     version="0.1.0",
 )
 
-
 @app.get("/health")
 async def health_check():
     """The Munchkins confirm you have arrived safely."""
@@ -237,8 +222,6 @@ curl http://localhost:8000/health | python3 -m json.tool
 
 The yellow brick road is paved. The first block sparkles.
 
----
-
 ## The Warp Input Editor: Cursor Movement in the Terminal 🖊️
 
 Traditional terminals treat the input line like a 1970s text field. Warp treats it like a code editor:
@@ -259,8 +242,6 @@ print('Running on Apple Silicon' if 'arm64' in sys.platform else 'Not ARM')
 # This works like VS Code. Because Warp is built to.
 ```
 
----
-
 ## The `#` Key: Your First Taste of Magic ✨
 
 Type `#` in Warp's input and start describing what you want in plain English:
@@ -270,6 +251,7 @@ Type `#` in Warp's input and start describing what you want in plain English:
 ```
 
 Warp converts this to:
+
 ```bash
 ps aux | grep python
 ```
@@ -283,8 +265,6 @@ This is not AI autocomplete. This is natural language to shell command translati
 ```
 
 The Scarecrow is acquiring a brain. But that is Episode 2.
-
----
 
 ## The Project Structure So Far 📁
 
@@ -307,13 +287,11 @@ git add .
 git commit -m "feat: scaffold warp-of-oz-tasks — the tornado has landed"
 ```
 
----
-
 ## The Series Map: Eight Episodes 🗺️
 
 | # | Episode | Oz parallel | Warp feature | Codebase milestone |
-|---|---|---|---|---|
-| 1 | *This one* — Yellow Brick Road | Dorothy arrives | Blocks, input editor, `#` key | Health endpoint |
+| --- | --- | --- | --- | --- |
+| 1 | This one — Yellow Brick Road | Dorothy arrives | Blocks, input editor, # key | Health endpoint |
 | 2 | The Scarecrow Gets a Brain | Scarecrow + brain | AI completions, Active AI, agent chat | CRUD endpoints for tasks |
 | 3 | The Tin Man Gets a Heart | Tin Man + heart | WARP.md, Rules, Skills | Auth middleware |
 | 4 | The Lion Gets Courage | Cowardly Lion | Agent pair mode, code review panel | Debug a planted error |
@@ -324,15 +302,12 @@ git commit -m "feat: scaffold warp-of-oz-tasks — the tornado has landed"
 
 In **Episode 2**, the Scarecrow joins the road. He needs a brain. Warp's AI features are exactly that.
 
----
-
 **🔗 Resources**
+
 - **Warp download**: [warp.dev](https://www.warp.dev)
 - **Warp documentation**: [docs.warp.dev](https://docs.warp.dev)
 - **Oz platform**: [oz.warp.dev](https://oz.warp.dev)
 - **uv (Python package manager)**: [docs.astral.sh/uv](https://docs.astral.sh/uv)
 - **FastAPI**: [fastapi.tiangolo.com](https://fastapi.tiangolo.com)
-
----
 
 *🌪️ Warp of Oz Series follows the Yellow Brick Road through Warp's Agentic Development Environment — from the first install on a Mac Mini M4 Pro to cloud agent orchestration with Oz, with Augment Code Intent as the ruby slippers that were powerful all along.*
