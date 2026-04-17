@@ -486,6 +486,112 @@ This file is generated from the YAML files in `series/`.
 - metaphor: 
 - center action: 
 
+## E.T. by OpenVoiceOS Series
+
+- series id: `et_by_openvoiceos_series`
+- source file: `series/et_by_openvoiceos_series.yaml`
+
+### Episode 1: E.T. Has Arrived
+
+- slug: `et-has-arrived`
+- metaphor: an unexpected alien visitor arriving in the open-source suburbs
+- center action: the strange but friendly newcomer is introduced as a voice assistant you can truly own
+
+### Episode 2: He Can Talk! He Can Talk!
+
+- slug: `he-can-talk-he-can-talk`
+- metaphor: a once-mysterious visitor learning to listen, understand, and speak back
+- center action: the full OVOS wake-word, STT, intent, and TTS pipeline is shown as speech coming alive
+
+### Episode 3: E.T. Phone Home
+
+- slug: `et-phone-home`
+- metaphor: building a voice from many sources so a machine can sound familiar and grounded
+- center action: compositional voice building turns a synthetic voice into a memorable identity
+
+### Episode 4: Elliott's Bicycle
+
+- slug: `elliotts-bicycle`
+- metaphor: a lightweight, balanced ride that keeps a voice assistant moving smoothly
+- center action: service monitoring and coordination keep the system moving in one controlled direction
+
+### Episode 5: The Government Scientists
+
+- slug: `the-government-scientists`
+- metaphor: specialists crowding around a mysterious system to inspect, extend, and instrument it
+- center action: skill installation and ecosystem tooling expand the assistant without losing control
+
+### Episode 6: I'll Be Right Here
+
+- slug: `ill-be-right-here`
+- metaphor: keeping a presence available through careful infrastructure and container orchestration
+- center action: a containerized deployment keeps the assistant reliably available at home
+
+### Episode 7: E.T. Goes Home
+
+- slug: `et-goes-home`
+- metaphor: the system returns to its proper place with identity, continuity, and trust intact
+- center action: the assistant's final configuration feels settled, personal, and ready for everyday life
+
+## Game on Djangular Series
+
+- series id: `game_on_djangular_series`
+- source file: `series/game_on_djangular_series.yaml`
+
+### Episode 1: Welcome to the Vault
+
+- slug: `welcome-to-the-vault`
+- metaphor: a game collection stored in a digital vault with carefully managed access
+- center action: the full Djangular stack is introduced as a secure game library from shelf to screen
+
+### Episode 2: Building the Game Catalogue
+
+- slug: `building-the-game-catalogue`
+- metaphor: organising shelves, labels, and records so every game can be found and tracked
+- center action: Django models and serializers become the catalogue system behind the vault
+
+### Episode 3: Your Login Token
+
+- slug: `your-login-token`
+- metaphor: a guild pass that grants trusted access to the vault and refreshes when needed
+- center action: JWT authentication is shown as the membership token connecting client and server
+
+### Episode 4: Loading Your Shelf
+
+- slug: `loading-your-shelf`
+- metaphor: a personal shelf assembling itself from the catalogue the moment a player arrives
+- center action: frontend data loading turns backend records into a player-specific view
+
+### Episode 5: Save Data Over the Wire
+
+- slug: `save-data-over-the-wire`
+- metaphor: carefully packaged save files moving safely between distant parts of the game hall
+- center action: serializers and transport layers move structured data cleanly across the boundary
+
+### Episode 6: Encrypting the Channel
+
+- slug: `encrypting-the-channel`
+- metaphor: a guarded tunnel protecting player traffic as it crosses the network
+- center action: PKI materials and channel encryption turn the game service path into a secure route
+
+### Episode 7: Both Sides of the Lock
+
+- slug: `both-sides-of-the-lock`
+- metaphor: client and server each holding half of a secure gate they must open together
+- center action: mutual trust between both ends of the channel is made visible as paired credentials
+
+### Episode 8: The Guild Registry
+
+- slug: `the-guild-registry`
+- metaphor: a central guild book that records trusted identities for the whole game world
+- center action: identity and access integration become a central registry for players and services
+
+### Episode 9: The Key Factory
+
+- slug: `the-key-factory`
+- metaphor: a specialised workshop producing protected keys for the most sensitive systems
+- center action: the key-management path is shown as a secure workshop for issuing and protecting secrets
+
 ## Kata Series
 
 - series id: `kata_series`
@@ -643,6 +749,41 @@ This file is generated from the YAML files in `series/`.
 - slug: `the-pixar-logo`
 - metaphor: 
 - center action: 
+
+## Magic Lamp Series
+
+- series id: `magic_lamp_series`
+- source file: `series/magic_lamp_series.yaml`
+
+### Episode 1: The Performance
+
+- slug: `the-performance`
+- metaphor: an ordinary desk lamp making its first entrance as a stage character
+- center action: the lamp shifts from prop to performer under the first reveal
+
+### Episode 2: What the Conductor Does
+
+- slug: `what-the-conductor-does`
+- metaphor: a maestro calling cues across a live technical ensemble
+- center action: a conductor dispatches tightly timed OSC and timeline cues to every subsystem
+
+### Episode 3: The Problem with Servo Control
+
+- slug: `the-problem-with-servo-control`
+- metaphor: teaching an actor a vocabulary of posture instead of one-off gestures
+- center action: the lamp cycles through named motion states to turn mechanics into character
+
+### Episode 4: DMX Lighting: 9 States
+
+- slug: `dmx-lighting-9-states`
+- metaphor: a lighting board translating emotion into colour, intensity, and timing
+- center action: lighting cues map the lamp's emotional states into visible atmosphere
+
+### Episode 5: The Architecture: Mac Mini + Raspberry Pi
+
+- slug: `the-architecture-mac-mini-and-raspberry-pi`
+- metaphor: a stage performer on the floor supported by a hidden booth full of control systems
+- center action: the on-stage lamp body and off-stage control brain work as one act
 
 ## Panic Room Home Assistant Series
 

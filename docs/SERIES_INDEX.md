@@ -92,6 +92,28 @@ This file is generated from the YAML files in `series/`.
 - lighting: bright cinematic workshop light with technical dashboard glow
 - episodes: 8
 
+### E.T. by OpenVoiceOS Series
+
+- id: `et_by_openvoiceos_series`
+- type: voice_assistant_explainer_series
+- source file: `series/et_by_openvoiceos_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: Spielberg-inspired suburban night scenes blended with open-source voice assistant hardware and home-lab equipment
+- lighting: moonlit suburb glow, bicycle-sky wonder, and warm domestic device lighting
+- episodes: 7
+
+### Game on Djangular Series
+
+- id: `game_on_djangular_series`
+- type: full_stack_game_platform_series
+- source file: `series/game_on_djangular_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: a polished gaming vault where Django, Angular, APIs, and security systems are explained like a living game library
+- lighting: arcade glow, monitor highlights, and polished control-room atmosphere
+- episodes: 9
+
 ### Kata Series
 
 - id: `kata_series`
@@ -135,6 +157,17 @@ This file is generated from the YAML files in `series/`.
 - setting: Pixar-inspired animation stage with smart devices, lamps, and production props
 - lighting: warm studio stage lighting with a cinematic animation glow
 - episodes: 8
+
+### Magic Lamp Series
+
+- id: `magic_lamp_series`
+- type: theatrical_animatronic_series
+- source file: `series/magic_lamp_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
+- lighting: warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
+- episodes: 5
 
 ### Panic Room Home Assistant Series
 
