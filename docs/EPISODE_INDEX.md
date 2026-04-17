@@ -1046,3 +1046,56 @@ This file is generated from the YAML files in `series/`.
 - metaphor: Planning a Mission to the Moon and Going There
 - center action: Return to Earth
 
+## Warp of Oz Series
+
+- series id: `wizard_of_oz_warp_series`
+- source file: `series/wizard_of_oz_warp_series.yaml`
+
+### Episode 1: Follow the Yellow Brick Road
+
+- slug: `follow-the-yellow-brick-road`
+- metaphor: leaving a grey old terminal behind for a more guided and magical command-line journey
+- center action: Warp is introduced as the road leading a developer out of Kansas and into a more visual terminal world
+
+### Episode 2: The Scarecrow Gets a Brain
+
+- slug: `the-scarecrow-gets-a-brain`
+- metaphor: the terminal gaining the confidence to think alongside the developer
+- center action: Warp AI features turn uncertain command-line work into guided, articulate action
+
+### Episode 3: The Tin Man Gets a Heart
+
+- slug: `the-tin-man-gets-a-heart`
+- metaphor: project rules and memory giving an agent care for the codebase it touches
+- center action: WARP.md, rules, and skills transform generic automation into context-aware project behaviour
+
+### Episode 4: The Lion Gets Courage
+
+- slug: `the-lion-gets-courage`
+- metaphor: trusting an agent to act only after reading the battle plan and the diff
+- center action: code review and pair mode give developers confidence to let the agent fix problems safely
+
+### Episode 5: Flying Monkeys — Dispatch Mode
+
+- slug: `flying-monkeys-dispatch-mode`
+- metaphor: assistants sent on bounded missions that report back once the work is complete
+- center action: dispatch mode lets the agent carry out a defined implementation autonomously and return with results
+
+### Episode 6: The Emerald City — Oz Platform
+
+- slug: `the-emerald-city-oz-platform`
+- metaphor: a glowing city of scheduled and cloud-run agents always ready behind the horizon
+- center action: Oz platform concepts turn local agent work into persistent cloud orchestration
+
+### Episode 7: The Ruby Slippers — Augment Code Intent
+
+- slug: `the-ruby-slippers-augment-code-intent`
+- metaphor: discovering the coordination power that was available all along for multi-agent planning
+- center action: Augment Code Intent appears as the orchestration layer for specs, specialists, and verification
+
+### Episode 8: There's No Place Like Home
+
+- slug: `theres-no-place-like-home`
+- metaphor: bringing every tool, server, and workflow back into one cohesive daily practice
+- center action: MCP servers, Warp Drive, and the full production workflow resolve into a complete home setup
+
