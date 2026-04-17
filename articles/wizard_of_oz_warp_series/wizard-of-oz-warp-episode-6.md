@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.6: The Emerald City — Oz Platform"
+title: "Warp of Oz! 🌪️ Ep.6"
 published: false
 description: "Episode 6: Dorothy finally sees the Emerald City glowing on the horizon — and it is everything promised. Oz is Warp's cloud agent orchestration platform. Cloud agents, scheduled runs, the Oz CLI, and running a cleanup agent on a schedule. The Emerald City, explained."
 tags: [warp, agents, cloud, automation]
@@ -8,14 +8,9 @@ series: "Warp of Oz Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---
-
-# Warp of Oz! 🌪️
 ## Episode 6: The Emerald City — Oz Platform
 
-> *"There it is, Toto. The Emerald City."*
-> — Dorothy, first sighting, The Wizard of Oz (1939)
-
----
+> "There it is, Toto. The Emerald City."— Dorothy, first sighting, The Wizard of Oz (1939)
 
 ## The City on the Horizon 🏙️
 
@@ -27,18 +22,14 @@ The Oz platform has been on the horizon since Episode 1. We installed Warp, lear
 
 They are not flying monkeys (dispatch mode). They are the infrastructure of the city itself: always running, always watching, always ready.
 
----
-
 ## 🗂️ SIPOC — The Emerald City
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
 | You (or a trigger) | A prompt + optional environment config | Oz orchestration layer creates a cloud task, spins up environment, runs agent | A completed agent run with full audit trail, PR, or Slack report | Your team — visible at oz.warp.dev and in the Warp app |
 | A schedule (cron expression) | A configured Oz schedule + skill/prompt | At the scheduled time, Oz starts an agent with the defined prompt | A scheduled run (e.g., daily at 02:00 UTC) | Automated maintenance — no human needed to kick it off |
 | A GitHub PR event (integration) | New PR opened against main | Oz integration catches the event, starts an agent to review the PR | PR review comment from the agent, summary of changes | Your team's PR review queue — AI does first pass |
-| The Oz CLI (`oz`) | Agent run command from terminal, CI, or script | Oz CLI authenticates, submits the run, streams output | A tracked, auditable agent run accessible at oz.warp.dev | Any script that needs to launch an agent programmatically |
-
----
+| The Oz CLI (oz) | Agent run command from terminal, CI, or script | Oz CLI authenticates, submits the run, streams output | A tracked, auditable agent run accessible at oz.warp.dev | Any script that needs to launch an agent programmatically |
 
 ## Installing the Oz CLI 📦
 
@@ -69,8 +60,6 @@ oz auth status
 # Team: your-team
 ```
 
----
-
 ## The Oz Platform Concepts 🏛️
 
 Think of Oz as three layers stacked on the Emerald City:
@@ -82,8 +71,6 @@ Think of Oz as three layers stacked on the Emerald City:
 **Skills** — reusable instruction sets (`.md` files) that define what the agent knows how to do in your project. The same `SKILL.md` files you created in Episode 3 work as Oz Skills.
 
 **Hosts** — where agent execution happens. Warp's managed cloud (default), or your own infrastructure (self-hosted, Enterprise feature).
-
----
 
 ## Setting Up an Oz Environment for `warp-of-oz-tasks` 🌿
 
@@ -110,8 +97,6 @@ oz secret set API_KEYS "prod-key-emerald-city"
 # Secrets are injected as environment variables when the agent runs
 # The agent sees: export API_KEYS="prod-key-emerald-city"
 ```
-
----
 
 ## Running a Cloud Agent from the CLI 🚀
 
@@ -140,8 +125,6 @@ oz agent run \
 ```
 
 You get a link to the full run audit trail. Every command the agent ran, every file it touched, every decision it made — all logged and accessible.
-
----
 
 ## Scheduling a Cleanup Agent 🕐
 
@@ -188,11 +171,10 @@ oz schedule list
 ```
 
 Or via the Oz web app at `oz.warp.dev`:
+
 - New Schedule → name `daily-cleanup` → cron `0 2 * * *` → environment `warp-of-oz-tasks` → prompt (the cleanup skill instruction) → Save
 
 From now on, every day at 02:00 UTC, Oz spins up an agent in the `warp-of-oz-tasks` environment and cleans up failed tasks. No human intervention. No cron job to maintain. The flying monkeys, running on a schedule.
-
----
 
 ## Integrations: Triggered by External Events 🔔
 
@@ -224,8 +206,6 @@ When a developer opens a PR against `main`, Oz automatically spins up an agent, 
 
 Team members can trigger agents directly from Slack without opening a terminal.
 
----
-
 ## Monitoring Running Agents 👁️
 
 ```bash
@@ -245,8 +225,6 @@ oz runs list --status running
 At `oz.warp.dev`, you can join a running agent session with one click — see what it is doing, provide steering input, or stop it.
 
 From the Warp app itself, open the Oz pane (left sidebar → Oz icon) to see all running and recent cloud agent tasks alongside your local terminal sessions.
-
----
 
 ## The Oz SDK: Programmatic Agent Orchestration 🔧
 
@@ -278,8 +256,6 @@ async function onCIFailure(repo: string, prNumber: number) {
 }
 ```
 
----
-
 ## The Project and the City Together 🏙️
 
 The Emerald City did not replace the Yellow Brick Road — it was the destination. Oz (the platform) does not replace local agents and the terminal — it extends them to the cloud.
@@ -307,14 +283,11 @@ git commit -m "feat: add Oz environment, cleanup skill, schedule — Ep.6 Emeral
 
 In **Episode 7**, the ruby slippers. Augment Code Intent joins the road — spec-driven development that combines Intent's Context Engine with Warp's terminal workflow.
 
----
-
 **🔗 Resources**
+
 - **Oz platform**: [oz.warp.dev](https://oz.warp.dev)
 - **Oz documentation**: [docs.warp.dev/agent-platform](https://docs.warp.dev/agent-platform/)
 - **Oz CLI reference**: [docs.warp.dev/agent-platform/cloud-agents/platform#cli](https://docs.warp.dev/agent-platform/cloud-agents/platform)
 - **Warp blog: Introducing Oz**: [warp.dev/blog/oz-orchestration-platform-cloud-agents](https://www.warp.dev/blog/oz-orchestration-platform-cloud-agents)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment.*

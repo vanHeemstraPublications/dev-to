@@ -1,5 +1,5 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.7: The Ruby Slippers — Augment Code Intent"
+title: "Warp of Oz! 🌪️ Ep.7"
 published: false
 description: "Episode 7: Glinda told Dorothy she always had the power to go home. The ruby slippers were there all along. Augment Code Intent is that power: spec-driven multi-agent development that, combined with Warp, gives you the full stack of agentic coding. The slippers click three times."
 tags: [warp, augmentcode, agents, productivity]
@@ -9,13 +9,9 @@ canonical_url: ""
 organization: "the-software-s-journey"
 ---
 
-# Warp of Oz! 🌪️
 ## Episode 7: The Ruby Slippers — Augment Code Intent
 
-> *"You've always had the power, my dear. You just had to learn it for yourself."*
-> — Glinda the Good Witch, The Wizard of Oz (1939)
-
----
+> "You've always had the power, my dear. You just had to learn it for yourself."— Glinda the Good Witch, The Wizard of Oz (1939)
 
 ## The Slippers Were Always There 💎
 
@@ -29,18 +25,14 @@ Intent is Augment's standalone macOS desktop workspace. It is spec-driven multi-
 
 In this episode: how Intent and Warp work together, and how to use them to add a non-trivial feature to `warp-of-oz-tasks`.
 
----
-
 ## 🗂️ SIPOC — The Ruby Slippers
 
-| **Suppliers** | **Inputs** | **Process** | **Outputs** | **Customers** |
-|---|---|---|---|---|
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
 | You (writing the spec in Intent) | A natural language feature description with requirements and acceptance criteria | Intent Coordinator agent breaks spec into parallel tasks → Implementor agents execute in isolated worktrees with Context Engine | Code changes across multiple files, validated against the spec | Your codebase — via git merge of the worktrees |
 | Augment Context Engine | Your entire codebase (indexed by Intent) | Semantic dependency graph construction: maps cross-file relationships, pattern usage, API contracts | Deep contextual understanding for every agent in the workspace | Every implementor agent — never misses a dependency |
-| Warp Terminal (on Mac Mini M4 Pro) | Intent's output: a git branch with the feature implementation | Review diff in Warp's Code Review panel → run tests with `uv run pytest` → commit | Reviewed, tested, committed feature | Your `warp-of-oz-tasks` repository |
+| Warp Terminal (on Mac Mini M4 Pro) | Intent's output: a git branch with the feature implementation | Review diff in Warp's Code Review panel → run tests with uv run pytest → commit | Reviewed, tested, committed feature | Your warp-of-oz-tasks repository |
 | WARP.md (from Episode 3) | Project conventions file | Intent can read WARP.md as part of codebase indexing | Agents follow your conventions without re-specifying them | Code that fits the existing codebase style |
-
----
 
 ## Installing Augment Code Intent 🔧
 
@@ -58,14 +50,12 @@ augment auth login
 
 Intent requires an Augment account. During the beta, it uses regular Augment credits — no separate Intent pricing.
 
----
-
 ## The Warp + Intent Workflow 🤝
 
 The two tools play different roles. Understanding the division makes you faster:
 
 | Task | Best tool |
-|---|---|
+| --- | --- |
 | Individual command execution | Warp terminal |
 | Quick single-file changes | Warp local agent (pair mode) |
 | Autonomous multi-step automation | Warp dispatch mode |
@@ -80,8 +70,6 @@ The pattern: **Intent designs and implements the feature. Warp runs it.**
 
 Intent produces a git branch. You switch to Warp, check out that branch, review the diff in the Code Review panel, run tests in terminal blocks, and commit if satisfied. The terminal is always the final gate.
 
----
-
 ## Opening `warp-of-oz-tasks` in Intent 📂
 
 1. Launch Intent
@@ -90,8 +78,6 @@ Intent produces a git branch. You switch to Warp, check out that branch, review 
 4. You see: the file tree, the workspace chat, and the spec panel
 
 Intent reads `WARP.md` automatically — it is part of the codebase context. All the conventions you defined in Episode 3 are already loaded.
-
----
 
 ## Writing the Living Spec 📄
 
@@ -138,8 +124,6 @@ with multiple tags and then filtered by tag.
 
 Click **Create Spec**. Intent reads it, analyses the codebase, and begins planning.
 
----
-
 ## The Coordinator Plans the Work 🗂️
 
 Intent's Coordinator agent breaks the spec into parallel tasks:
@@ -168,8 +152,6 @@ Parallel plan:
 
 Each worktree is an isolated git checkout. Agents work in parallel without conflicting.
 
----
-
 ## Watching Intent Work 🔭
 
 Intent's workspace view shows:
@@ -187,8 +169,6 @@ You can send messages to the Coordinator mid-run:
 ```
 
 The Coordinator reads your message, adjusts the plan, and instructs the relevant implementor.
-
----
 
 ## The Code Intent Produces 📝
 
@@ -226,7 +206,6 @@ class TaskCreate(BaseModel):
             if len(tag) > 50:
                 raise ValueError(f"Tag {tag!r} exceeds maximum length of 50 characters.")
         return v   # normalisation happens in the repository, not here
-
 
 class TaskUpdate(BaseModel):
     title:       str | None        = Field(None, max_length=200)
@@ -299,8 +278,6 @@ async def list_tasks(
     return task_repo.list_all(tags=tag_filter)
 ```
 
----
-
 ## Intent Updates the Spec as Work Completes 📋
 
 As each acceptance criterion is met, Intent ticks the checkbox in the living spec:
@@ -317,8 +294,6 @@ As each acceptance criterion is met, Intent ticks the checkbox in the living spe
 ```
 
 When all boxes are ticked, Intent surfaces: **"Feature complete — ready to review in Warp."**
-
----
 
 ## Bringing It to Warp: The Final Review 🔎
 
@@ -347,8 +322,6 @@ git commit --amend --no-edit
 
 The ruby slippers clicked three times. The feature is home.
 
----
-
 ## The Warp + Intent Integration Pattern: Summary 🗺️
 
 ```
@@ -372,28 +345,27 @@ Feature complete → branch ready    →  git fetch + checkout
 
 The flow is: Intent for the *why* and *what* (spec-driven). Warp for the *how* and *when* (execution and deployment). Neither replaces the other. Together they are the full yellow brick road.
 
----
-
 ## Advice: When to Use Intent vs Warp Agent
 
 **Use Intent when:**
+
 - The feature requires changes to 4+ files with interdependencies
 - You want a written spec that the team can review before any code is written
 - The work benefits from parallel agent execution (speed)
 - You want the living spec as documentation
 
 **Use Warp Agent (local or dispatch) when:**
+
 - Single-file changes or simple additions
 - Debugging (Agent Mode + code review panel)
 - Quick automation or maintenance tasks
 - You want to stay in the terminal without switching apps
 
 **Use Oz cloud agents when:**
+
 - Scheduled maintenance tasks
 - PR review or CI failure response
 - Background processing unrelated to your active work
-
----
 
 ```bash
 git add .
@@ -402,14 +374,11 @@ git commit -m "feat: task tags + filtering — Ep.7 Ruby Slippers (Intent + Warp
 
 In **Episode 8**, we close the loop: the complete production workflow, MCP servers, Warp Drive for teams, and — there's no place like home.
 
----
-
 **🔗 Resources**
+
 - **Augment Code Intent**: [augmentcode.com/product/intent](https://www.augmentcode.com/product/intent)
 - **Intent documentation**: [augmentcode.com](https://www.augmentcode.com)
 - **Spec-driven development manifesto**: [augmentcode.com/product/intent](https://www.augmentcode.com/product/intent)
 - **Context Engine**: [augmentcode.com](https://www.augmentcode.com)
-
----
 
 *🌪️ Warp of Oz Series — following the Yellow Brick Road through Warp's Agentic Development Environment, with Augment Code Intent as the ruby slippers.*
