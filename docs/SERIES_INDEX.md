@@ -202,3 +202,14 @@ This file is generated from the YAML files in `series/`.
 - lighting: bright space sky with stars
 - episodes: 14
 
+### Warp of Oz Series
+
+- id: `wizard_of_oz_warp_series`
+- type: ai_terminal_workflow_series
+- source file: `series/wizard_of_oz_warp_series.yaml`
+- prompt template: `prompts/PROMPT_TEMPLATE.md`
+- deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
+- setting: whimsical Wizard of Oz-inspired developer journey with terminal blocks, yellow brick roads, emerald dashboards, and AI workflow props
+- lighting: cinematic storybook light with emerald glow, tornado skies, and warm practical device highlights
+- episodes: 8
+
