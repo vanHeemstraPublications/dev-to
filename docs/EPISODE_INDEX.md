@@ -1187,7 +1187,7 @@ This file is generated from the YAML files in `series/`.
 - metaphor: Planning a Mission to the Moon and Going There
 - center action: Return to Earth
 
-## Warp of Oz Series
+## Wizard of Oz Warp Series
 
 - series id: `wizard_of_oz_warp_series`
 - source file: `series/wizard_of_oz_warp_series.yaml`

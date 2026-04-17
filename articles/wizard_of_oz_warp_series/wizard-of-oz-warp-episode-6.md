@@ -1,10 +1,10 @@
 ---
-title: "Warp of Oz! 🌪️ Ep.6"
+title: "Wizard of Oz Warp 🌪️ Ep.6"
 published: false
 description: "Episode 6: Dorothy finally sees the Emerald City glowing on the horizon — and it is everything promised. Oz is Warp's cloud agent orchestration platform. Cloud agents, scheduled runs, the Oz CLI, and running a cleanup agent on a schedule. The Emerald City, explained."
 tags: [warp, agents, cloud, automation]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/warp-of-oz-episode-06.png"
-series: "Warp of Oz Series"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/wizard_of_oz_warp_series/wizard-of-oz-warp-episode-06.png"
+series: "Wizard of Oz Warp Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 ---

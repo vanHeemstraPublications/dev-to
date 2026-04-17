@@ -235,7 +235,7 @@ This file is generated from the YAML files in `series/`.
 - lighting: bright space sky with stars
 - episodes: 14
 
-### Warp of Oz Series
+### Wizard of Oz Warp Series
 
 - id: `wizard_of_oz_warp_series`
 - type: ai_terminal_workflow_series
