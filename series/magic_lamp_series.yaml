@@ -1,0 +1,70 @@
+series:
+  id: magic_lamp_series
+  name: Magic Lamp Series
+  type: theatrical_animatronic_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+  series_config: config/magic-lamp-series.json
+defaults:
+  setting: intimate theatre stage with an animatronic desk lamp, piano, cue sheets, and backstage control gear
+  lighting: warm theatrical spotlight, moody stage haze, and expressive practical lamp glow
+  composition:
+    left_third: presenter, stagehand, or conductor explaining the cue or subsystem
+    center: the lamp performing the episode's main action as the emotional focal point
+    right_third: control rack, laptop, lighting desk, or musical cue support
+    background: black-box theatre, curtains, practical fixtures, and backstage rigging
+episodes:
+- number: 1
+  title: The Performance
+  slug: the-performance
+  metaphor: an ordinary desk lamp making its first entrance as a stage character
+  center_action: the lamp shifts from prop to performer under the first reveal
+  supporting_props:
+  - piano stool
+  - stage mark tape
+  - cue sheet
+  - servo rig
+- number: 2
+  title: What the Conductor Does
+  slug: what-the-conductor-does
+  metaphor: a maestro calling cues across a live technical ensemble
+  center_action: a conductor dispatches tightly timed OSC and timeline cues to every subsystem
+  supporting_props:
+  - score stand
+  - baton
+  - timeline monitor
+  - OSC messages
+- number: 3
+  title: The Problem with Servo Control
+  slug: the-problem-with-servo-control
+  metaphor: teaching an actor a vocabulary of posture instead of one-off gestures
+  center_action: the lamp cycles through named motion states to turn mechanics into character
+  supporting_props:
+  - servo horn
+  - state diagram
+  - motion test bench
+  - calibration notes
+- number: 4
+  title: "DMX Lighting: 9 States"
+  slug: dmx-lighting-9-states
+  metaphor: a lighting board translating emotion into colour, intensity, and timing
+  center_action: lighting cues map the lamp's emotional states into visible atmosphere
+  supporting_props:
+  - DMX controller
+  - colour swatches
+  - cue lamp
+  - lighting plot
+- number: 5
+  title: "The Architecture: Mac Mini + Raspberry Pi"
+  slug: the-architecture-mac-mini-and-raspberry-pi
+  metaphor: a stage performer on the floor supported by a hidden booth full of control systems
+  center_action: the on-stage lamp body and off-stage control brain work as one act
+  supporting_props:
+  - Mac Mini rack
+  - Raspberry Pi board
+  - audio interface
+  - network cable

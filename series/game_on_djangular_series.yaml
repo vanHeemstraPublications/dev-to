@@ -1,0 +1,110 @@
+series:
+  id: game_on_djangular_series
+  name: Game on Djangular Series
+  type: full_stack_game_platform_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+  series_config: config/game-on-djangular-series.json
+defaults:
+  setting: a polished gaming vault where Django, Angular, APIs, and security systems are explained like a living game library
+  lighting: arcade glow, monitor highlights, and polished control-room atmosphere
+  composition:
+    left_third: guild guide, librarian, or engineer introducing the system lesson
+    center: the featured full-stack concept presented as the main game-vault mechanic
+    right_third: terminals, security props, or client-server support systems
+    background: shelves of games, glowing dashboards, vault doors, and network links
+episodes:
+- number: 1
+  title: Welcome to the Vault
+  slug: welcome-to-the-vault
+  metaphor: a game collection stored in a digital vault with carefully managed access
+  center_action: the full Djangular stack is introduced as a secure game library from shelf to screen
+  supporting_props:
+  - vault door
+  - game cases
+  - dashboard screen
+  - access card
+- number: 2
+  title: Building the Game Catalogue
+  slug: building-the-game-catalogue
+  metaphor: organising shelves, labels, and records so every game can be found and tracked
+  center_action: Django models and serializers become the catalogue system behind the vault
+  supporting_props:
+  - catalogue cards
+  - model schema
+  - labelled shelves
+  - barcode scanner
+- number: 3
+  title: Your Login Token
+  slug: your-login-token
+  metaphor: a guild pass that grants trusted access to the vault and refreshes when needed
+  center_action: JWT authentication is shown as the membership token connecting client and server
+  supporting_props:
+  - token badge
+  - checkpoint turnstile
+  - login screen
+  - route guard sign
+- number: 4
+  title: Loading Your Shelf
+  slug: loading-your-shelf
+  metaphor: a personal shelf assembling itself from the catalogue the moment a player arrives
+  center_action: frontend data loading turns backend records into a player-specific view
+  supporting_props:
+  - loading bar
+  - shelf labels
+  - API crate
+  - user profile card
+- number: 5
+  title: Save Data Over the Wire
+  slug: save-data-over-the-wire
+  metaphor: carefully packaged save files moving safely between distant parts of the game hall
+  center_action: serializers and transport layers move structured data cleanly across the boundary
+  supporting_props:
+  - network cable
+  - save crystal
+  - parcel tag
+  - serializer blueprint
+- number: 6
+  title: Encrypting the Channel
+  slug: encrypting-the-channel
+  metaphor: a guarded tunnel protecting player traffic as it crosses the network
+  center_action: PKI materials and channel encryption turn the game service path into a secure route
+  supporting_props:
+  - lock icon
+  - certificate folder
+  - tunnel map
+  - key ring
+- number: 7
+  title: Both Sides of the Lock
+  slug: both-sides-of-the-lock
+  metaphor: client and server each holding half of a secure gate they must open together
+  center_action: mutual trust between both ends of the channel is made visible as paired credentials
+  supporting_props:
+  - paired keys
+  - handshake sigil
+  - client chest
+  - server vault
+- number: 8
+  title: The Guild Registry
+  slug: the-guild-registry
+  metaphor: a central guild book that records trusted identities for the whole game world
+  center_action: identity and access integration become a central registry for players and services
+  supporting_props:
+  - guild ledger
+  - identity seal
+  - registry console
+  - approval stamp
+- number: 9
+  title: The Key Factory
+  slug: the-key-factory
+  metaphor: a specialised workshop producing protected keys for the most sensitive systems
+  center_action: the key-management path is shown as a secure workshop for issuing and protecting secrets
+  supporting_props:
+  - HSM cabinet
+  - forging press
+  - key blanks
+  - access checklist
