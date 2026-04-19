@@ -66,6 +66,7 @@ Over the coming episodes, Father Christmas will walk you through Intent one conc
 | 6 | The Context Engine — The Workshop Knows Every Toy |
 | 7 | Parallel Elves, No Chaos — Multi-Agent Orchestration |
 | 8 | The Delivery — From Spec to Merged Pull Request |
+| 9 | Beyond the Workshop — Intent Meets an External Agent Stack |
 
 ## SIPOC: The Workshop at a Glance
 
