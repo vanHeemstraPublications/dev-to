@@ -107,3 +107,14 @@ episodes:
       - review checklist
       - merged stamp
       - sleigh delivery ledger
+
+  - number: 9
+    title: Beyond the Workshop — Intent Meets an External Agent Stack
+    slug: beyond-the-workshop-intent-meets-an-external-agent-stack
+    metaphor: the North Pole workshop extending its discipline into a field-ready travelling command kit
+    center_action: Santa shows how Claude Code, the Augment Context Engine MCP, RTK, and LiteLLM can work together beyond Intent itself
+    supporting_props:
+      - travelling tool chest
+      - Mac Mini console
+      - routing gateway lantern
+      - compressed shell transcript
