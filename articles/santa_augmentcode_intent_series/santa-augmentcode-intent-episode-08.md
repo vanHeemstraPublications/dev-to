@@ -255,10 +255,10 @@ Intent is available in **public beta for macOS**. [Download it here](https://www
 
 Augment’s documentation is at [docs.augmentcode.com](https://docs.augmentcode.com). Their manifesto — *The End of Linear Work* — is worth reading before your first session.
 
-## A Final Word from Father Christmas
+## One More Sleigh Stop
 
-> I have been doing this for over a thousand years. Every century, the tools improve. The quill gave way to the telegraph, the telegraph to the computer, and now the computer gives way to the agent. But the fundamental challenge has never changed: how do you coordinate complex, parallel work towards a shared goal, on an unmovable deadline, without chaos?The answer, in 1025 and in 2025, is the same: a clear plan, a good team, and the discipline to keep the plan honest.Augment Intent is the first software I have encountered that truly understands this. It puts the plan first. It keeps the plan honest. It coordinates the team without the Elves colliding. And it finishes on time.I am proud of everything we have built in this Workshop. I hope you will build something wonderful in yours.Merry Christmas, and Happy Coding.Ho ho ho! 🎅
+> We have reached the point where the gifts are wrapped, the sleigh is loaded, and the Workshop itself is humming beautifully. But Head Elf Pepper asked me one more excellent question over a final cup of cocoa: *“Santa, what if I want some of this magic outside Intent itself? What if I want Claude Code, the Augment Context Engine, RTK, and LiteLLM working together on a machine of my own?”*Quite right, Pepper. One more stop, then. One more lesson before the reindeer sleep.
 
-*This concludes the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. All eight episodes are available on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+In the next episode, Father Christmas steps just beyond the Workshop walls to show how Intent’s principles carry into an external, token-aware coding stack: **Claude Code + Augment Context Engine MCP + RTK + LiteLLM on a Mac Mini M4 Pro**.
 
-*Thank you for reading. May your specs be living and your merges be clean.*
+*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*

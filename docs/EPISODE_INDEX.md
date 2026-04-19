@@ -1027,6 +1027,12 @@ This file is generated from the YAML files in `series/`.
 - metaphor: a full Christmas delivery run from wish list to gifts safely under the tree
 - center action: the team moves from prompt and spec to verified changes, approval, and a merged pull request
 
+### Episode 9: Beyond the Workshop — Intent Meets an External Agent Stack
+
+- slug: `beyond-the-workshop-intent-meets-an-external-agent-stack`
+- metaphor: the North Pole workshop extending its discipline into a field-ready travelling command kit
+- center action: Santa shows how Claude Code, the Augment Context Engine MCP, RTK, and LiteLLM can work together beyond Intent itself
+
 ## Satellite Tailscale Series
 
 - series id: `satellite_tailscale_series`

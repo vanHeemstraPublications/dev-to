@@ -211,7 +211,7 @@ This file is generated from the YAML files in `series/`.
 - deterministic config: `config/IMAGE_GENERATION_CONFIG.yaml`
 - setting: cosy North Pole workshop with parchment specs, glowing monitors, and toy prototypes
 - lighting: warm firelit Christmas workshop glow with polished storybook ambience
-- episodes: 8
+- episodes: 9
 
 ### Satellite Tailscale Series
 
