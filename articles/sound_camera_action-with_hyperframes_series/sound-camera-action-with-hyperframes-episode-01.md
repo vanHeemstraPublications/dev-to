@@ -4,7 +4,7 @@ part: 1
 published: false
 description: "Episode 1: Every great Hollywood film starts with a director who has a vision and a crew who knows the tools. HyperFrames turns HTML into deterministic video — no React, no proprietary DSL, just the web stack you already know. Meet the studio."
 tags: [javascript, html, video, beginners]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/sound_camera_action_with_hyperframes_series/sound-camer-action-with-hyperframes-episode-01.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/sound_camera_action_with_hyperframes_series/sound-camera-action-with-hyperframes-episode-01.png"
 series: "Sound, Camera, Action with HyperFrames Series"
 canonical_url: ""
 organization: "the-software-s-journey"
@@ -12,10 +12,7 @@ organization: "the-software-s-journey"
 
 ## Episode 1: Lights, Camera, HyperFrames!
 
-> *“Every frame is a painting. Every painting tells a story.”*
-> — Anonymous film director
-
------
+> “Every frame is a painting. Every painting tells a story.”— Anonymous film director
 
 ## The Director Takes the Chair 🎬
 
@@ -27,66 +24,58 @@ Not “sort of HTML” with a build step and a bundler and a framework you need 
 
 HyperFrames is the studio lot. You are the director. This series is your craft school.
 
------
-
 ## 🗂️ SIPOC — The Studio Opens
 
-|**Suppliers**       |**Inputs**                                                  |**Process**                                                                |**Outputs**                                                     |**Customers**                                  |
-|--------------------|------------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------------|
-|You (the director)  |An idea for a video — title card, product promo, social reel|Write `index.html` with composition structure + `data-*` attributes        |A valid HyperFrames composition                                 |The render engine — reads HTML, produces frames|
-|HyperFrames CLI     |The composition HTML file + assets                          |`npx hyperframes render` → headless Chrome captures frames → FFmpeg encodes|`output.mp4` — deterministic, frame-perfect video               |Any media player, video editor, social platform|
-|Node.js 22+ + FFmpeg|Runtime dependencies                                        |Scaffold, preview, lint, render — all via `npx hyperframes`                |Developer experience: live preview, error messages, health check|You — iteration is fast, errors are clear      |
-
------
+| Suppliers | Inputs | Process | Outputs | Customers |
+| --- | --- | --- | --- | --- |
+| You (the director) | An idea for a video — title card, product promo, social reel | Write index.html with composition structure + data-* attributes | A valid HyperFrames composition | The render engine — reads HTML, produces frames |
+| HyperFrames CLI | The composition HTML file + assets | npx hyperframes render → headless Chrome captures frames → FFmpeg encodes | output.mp4 — deterministic, frame-perfect video | Any media player, video editor, social platform |
+| Node.js 22+ + FFmpeg | Runtime dependencies | Scaffold, preview, lint, render — all via npx hyperframes | Developer experience: live preview, error messages, health check | You — iteration is fast, errors are clear |
 
 ## Why Not Remotion? 🤔
 
 HyperFrames was built by the HeyGen team after years running Remotion in production pipelines. The honest comparison:
 
-|                     |HyperFrames                                |Remotion                        |
-|---------------------|-------------------------------------------|--------------------------------|
-|Authoring            |HTML + CSS + GSAP                          |React (TSX)                     |
-|Build step           |None — `index.html` plays as-is            |Required (bundler)              |
-|GSAP / Anime.js      |Frame-accurate (seek-driven)               |Wall-clock drift during render  |
-|Paste any web page   |Yes — the DOM is the composition           |Rewrite as JSX first            |
-|AI agents            |Native — HTML is what LLMs know best       |React surface is a smaller slice|
-|Visual editor        |Natural — editor and renderer share the DOM|Source is code + build step     |
-|Distributed rendering|Single machine today                       |Remotion Lambda (mature)        |
-|Licence              |Apache 2.0 (free)                          |Commercial                      |
+|  | HyperFrames | Remotion |
+| --- | --- | --- |
+| Authoring | HTML + CSS + GSAP | React (TSX) |
+| Build step | None — index.html plays as-is | Required (bundler) |
+| GSAP / Anime.js | Frame-accurate (seek-driven) | Wall-clock drift during render |
+| Paste any web page | Yes — the DOM is the composition | Rewrite as JSX first |
+| AI agents | Native — HTML is what LLMs know best | React surface is a smaller slice |
+| Visual editor | Natural — editor and renderer share the DOM | Source is code + build step |
+| Distributed rendering | Single machine today | Remotion Lambda (mature) |
+| Licence | Apache 2.0 (free) | Commercial |
 
 The critical difference: GSAP timelines in Remotion play at wall-clock speed during render, so animations race through before all frames are captured. HyperFrames *pauses* GSAP and *seeks* it to `frame / fps` before capturing each frame. Same animation code, frame-perfect output.
 
 The other reason: every LLM was trained on more plain HTML than on React-specific video composition patterns. Ask an agent to write a HyperFrames composition and it reaches for a wider creative range. Ask it for Remotion and it spends tokens learning framework rules before it can be creative.
 
------
-
 ## The Hollywood Metaphor 🎥
 
 Before writing a line of code, understand the metaphor this series runs on. Every HyperFrames concept maps to a film production concept:
 
-|Hollywood film production|HyperFrames                                                         |
-|-------------------------|--------------------------------------------------------------------|
-|The screenplay           |The HTML composition file (`index.html`)                            |
-|Scene directions         |`data-*` attributes — when, how long, which track                   |
-|The film timeline        |The composition timeline                                            |
-|A shot / scene           |A clip element (`<video>`, `<img>`, `<div class="clip">`, `<audio>`)|
-|Soundtrack               |`<audio>` clip with `data-volume`                                   |
-|Calling “Action!”        |`npx hyperframes render`                                            |
-|Dailies / rushes review  |`npx hyperframes preview`                                           |
-|The cutting room         |Editing timings in `index.html`                                     |
-|Special effects          |GSAP animations                                                     |
-|Second unit              |Nested sub-compositions                                             |
-|Track marks on the floor |`data-track-index` — clips on the same track cannot overlap         |
-|Post-production grading  |Render flags: `--quality`, `--crf`, `--hdr`                         |
-|Studio vs. location      |Local mode vs. Docker mode                                          |
-|The continuity supervisor|Relative timing — `data-start="clip-id"`                            |
-|Transparent overlay      |`--format mov` (ProRes 4444 transparency)                           |
-|The director’s cut       |The final `output.mp4`                                              |
-|AI script writer         |AI agent writing compositions via `/hyperframes` skill              |
+| Hollywood film production | HyperFrames |
+| --- | --- |
+| The screenplay | The HTML composition file (index.html) |
+| Scene directions | data-* attributes — when, how long, which track |
+| The film timeline | The composition timeline |
+| A shot / scene | A clip element (<video>, <img>, <div class="clip">, <audio>) |
+| Soundtrack | <audio> clip with data-volume |
+| Calling “Action!” | npx hyperframes render |
+| Dailies / rushes review | npx hyperframes preview |
+| The cutting room | Editing timings in index.html |
+| Special effects | GSAP animations |
+| Second unit | Nested sub-compositions |
+| Track marks on the floor | data-track-index — clips on the same track cannot overlap |
+| Post-production grading | Render flags: --quality, --crf, --hdr |
+| Studio vs. location | Local mode vs. Docker mode |
+| The continuity supervisor | Relative timing — data-start="clip-id" |
+| Transparent overlay | --format mov (ProRes 4444 transparency) |
+| The director’s cut | The final output.mp4 |
+| AI script writer | AI agent writing compositions via /hyperframes skill |
 
 By the end of Episode 8, you will have walked every foot of the studio lot.
-
------
 
 ## Prerequisites 🔧
 
@@ -108,8 +97,6 @@ sudo apt install ffmpeg
 ffmpeg -version
 # ffmpeg version 7.x ...
 ```
-
------
 
 ## Your First Composition: The Title Card 🎬
 
@@ -274,39 +261,30 @@ npx hyperframes render --output title-card.mp4
 
 Open `title-card.mp4`. There it is — your director’s cut. Frame-perfect. Deterministic. The same HTML will produce the same MP4 every single time.
 
------
-
 ## The Three Rules Every Director Follows 📋
 
 These three rules underpin every composition you will ever write in HyperFrames. Violate one and the render breaks. Memorise them now:
 
-**Rule 1: The root element must identify itself.**
-Every composition needs a root `<div>` with `data-composition-id`, `data-width`, and `data-height`. Without these, the engine cannot find the composition.
+**Rule 1: The root element must identify itself.**Every composition needs a root `<div>` with `data-composition-id`, `data-width`, and `data-height`. Without these, the engine cannot find the composition.
 
-**Rule 2: Timed elements must be dressed for the timeline.**
-Any element that appears and disappears during the video needs `class="clip"`, `data-start`, `data-duration`, and `data-track-index`. These are the director’s marks on the floor.
+**Rule 2: Timed elements must be dressed for the timeline.**Any element that appears and disappears during the video needs `class="clip"`, `data-start`, `data-duration`, and `data-track-index`. These are the director’s marks on the floor.
 
-**Rule 3: GSAP timelines must be paused and registered.**
-Create all timelines with `{ paused: true }` and register them on `window.__timelines["your-composition-id"]`. The engine seeks the timeline frame by frame — it owns playback, not you.
-
------
+**Rule 3: GSAP timelines must be paused and registered.**Create all timelines with `{ paused: true }` and register them on `window.__timelines["your-composition-id"]`. The engine seeks the timeline frame by frame — it owns playback, not you.
 
 ## The Series Map: Eight Episodes 🗺️
 
-|#|Episode                      |Film metaphor             |HyperFrames concept                                           |
-|-|-----------------------------|--------------------------|--------------------------------------------------------------|
-|1|*This one* — The Studio Opens|Lights, camera!           |Install, first composition, three rules                       |
-|2|The Screenplay               |Writing the script        |HTML anatomy, `data-*` attributes, clip types                 |
-|3|Casting and Timing           |Track marks and continuity|Track indices, relative timing, gaps/overlaps                 |
-|4|Special Effects              |The VFX department        |GSAP animation, supported properties, timeline registration   |
-|5|B-Roll and the Cutting Room  |Media compositing         |Video, audio, `data-volume`, transparent overlays             |
-|6|Second Unit                  |Parallel shooting         |Nested compositions, `data-composition-src`, project structure|
-|7|Rolling!                     |Final render              |Render flags, Docker, quality, GPU, workers                   |
-|8|The AI Script Writer         |AI on set                 |Skills, agent workflow, the Catalog of 50+ blocks             |
+| # | Episode | Film metaphor | HyperFrames concept |
+| --- | --- | --- | --- |
+| 1 | This one — The Studio Opens | Lights, camera! | Install, first composition, three rules |
+| 2 | The Screenplay | Writing the script | HTML anatomy, data-* attributes, clip types |
+| 3 | Casting and Timing | Track marks and continuity | Track indices, relative timing, gaps/overlaps |
+| 4 | Special Effects | The VFX department | GSAP animation, supported properties, timeline registration |
+| 5 | B-Roll and the Cutting Room | Media compositing | Video, audio, data-volume, transparent overlays |
+| 6 | Second Unit | Parallel shooting | Nested compositions, data-composition-src, project structure |
+| 7 | Rolling! | Final render | Render flags, Docker, quality, GPU, workers |
+| 8 | The AI Script Writer | AI on set | Skills, agent workflow, the Catalog of 50+ blocks |
 
 In **Episode 2**, the screenplay. We dissect the HTML composition structure line by line — every attribute, every clip type, the complete grammar of the script.
-
------
 
 **🔗 Resources**
 
@@ -314,7 +292,5 @@ In **Episode 2**, the screenplay. We dissect the HTML composition structure line
 - **Introduction**: [hyperframes.heygen.com/introduction](https://hyperframes.heygen.com/introduction)
 - **Quickstart**: [hyperframes.heygen.com/quickstart](https://hyperframes.heygen.com/quickstart)
 - **GitHub**: [github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)
-
------
 
 *🎬 Sound, Camera, Action with HyperFrames Series — a film director’s guide to rendering videos with HTML and JavaScript. Open-source. No React required.*

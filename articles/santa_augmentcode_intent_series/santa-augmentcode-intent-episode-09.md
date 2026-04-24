@@ -11,9 +11,9 @@ organization: "the-software-s-journey"
 ---
 # Beyond the Workshop — Intent Meets an External Agent Stack 🎅
 
-Accompanying solution repository: [`augment-claude-litellm-rtk`](https://github.com/vanHeemstraSystems/augment-claude-litellm-rtk)
+Accompanying solution repository: `augment-claude-litellm-rtk`
 
-> Not every job can be done at the main workbench. Sometimes Father Christmas must leave the Workshop entirely — to inspect a toy factory in Helsinki, advise a biscuit plant in Brussels, or help a Mac Mini in a quiet study learn some manners. On such occasions, I cannot carry the whole North Pole on my back. But I can carry its *discipline*. And that, dear reader, is what this final episode is about.
+> Not every job can be done at the main workbench. Sometimes Father Christmas must leave the Workshop entirely — to inspect a toy factory in Helsinki, advise a biscuit plant in Brussels, or help a Mac Mini in a quiet study learn some manners. On such occasions, I cannot carry the whole North Pole on my back. But I can carry its discipline. And that, dear reader, is what this final episode is about.
 
 ## When the Workshop Must Travel
 
@@ -30,7 +30,7 @@ An excellent question. The answer is not to copy Intent feature-for-feature in a
 - maintain clear verification steps,
 - and route models sensibly rather than treating every task as if it requires a royal audience with the most expensive intelligence in the kingdom.
 
-That is precisely what the solution in [`augment-claude-litellm-rtk`](https://github.com/vanHeemstraSystems/augment-claude-litellm-rtk) offers.
+That is precisely what the solution in `augment-claude-litellm-rtk` offers.
 
 ## The Travelling Kit: Four Tools in One Case
 
@@ -194,6 +194,6 @@ That is excellent engineering. Also, I am pleased to report, excellent Christmas
 
 > The true sign of a good Workshop is not that it works only in its own building. It is that its principles survive the journey. Intent taught us to coordinate, retrieve wisely, verify carefully, and keep the plan honest. This external stack shows those same values travelling well: the right agent, the right context, less wasted chatter, and an honest gateway for the road ahead. If you can carry that discipline with you, then you are not merely using clever tools. You are building like the North Pole.
 
-*This concludes the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. All nine episodes are available on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*This concludes the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. All nine episodes are available on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
 
 *Thank you for reading. May your specs be living, your context relevant, and your token bills modest. Ho ho ho! 🎅*
