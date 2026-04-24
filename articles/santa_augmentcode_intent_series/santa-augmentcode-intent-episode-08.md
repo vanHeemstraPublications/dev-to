@@ -11,7 +11,7 @@ organization: "the-software-s-journey"
 ---
 # The Gifts Are Under the Tree — From Spec to Merged PR 🎄
 
-Accompanying source code repository: [`Santa Augmentcode Intent`](https://github.com/software-journey/augmentcode-intent)
+Accompanying source code repository: `Santa Augmentcode Intent`
 
 > Every year, on the morning of December 25th, I allow myself one quiet moment before the sleigh is unpacked and the Thank-You Letters start arriving. I sit in the empty Workshop, still warm from the night’s work, and look at the bare shelves where the gifts used to be. They are gone because they were delivered. Every one of them. On time, as specified, to the right address. That moment — that quiet confirmation that everything worked — is what we have been building towards in this entire series. Today, we deliver.
 
@@ -261,4 +261,4 @@ Augment’s documentation is at [docs.augmentcode.com](https://docs.augmentcode.
 
 In the next episode, Father Christmas steps just beyond the Workshop walls to show how Intent’s principles carry into an external, token-aware coding stack: **Claude Code + Augment Context Engine MCP + RTK + LiteLLM on a Mac Mini M4 Pro**.
 
-*Part of the [Santa Augmentcode Intent](https://dev.to/wvanheemstra/series/37310) series. Published on [dev.to](https://dev.to) under the [the-software-s-journey](https://dev.to/the-software-s-journey) organisation.*
+*Part of the *[*Santa Augmentcode Intent*](https://dev.to/wvanheemstra/series/37310)* series. Published on *[*dev.to*](https://dev.to)* under the *[*the-software-s-journey*](https://dev.to/the-software-s-journey)* organisation.*
