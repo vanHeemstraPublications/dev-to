@@ -3,7 +3,7 @@ title: "Michelangelo on Markdown ✍️ Ep.1"
 published: false
 description: "Episode 1: Michelangelo saw the David already waiting inside the marble. The writing begins the same way — raw material, a single vision, and the right tools. Meet Quarkdown (Markdown with superpowers) and Tolaria (your knowledge vault), install both, carve your first document, and understand why these two tools belong in the same studio."
 tags: [quarkdown, markdown, writing, beginners]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-01.png
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-01.png"
 series: "Michelangelo on Markdown Series"
 canonical_url: ""
 organization: "the-software-s-journey"
