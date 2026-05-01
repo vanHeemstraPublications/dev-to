@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.3: Your AI Household Staff”
+---
+title: "Smart Home with NocoBase 🏠 Ep.3"
+part: 2
 published: false
-description: “Episode 3: The power is on. Now the appliances arrive. NocoBase ships nine built-in AI Employees covering email, data, analysis, research, translation, visualisation, and more. Meet the household staff — enable each device, assign a model, write its instruction manual, and create a custom employee for the tasks only your home requires.”
+description: "Episode 3: The power is on. Now the appliances arrive. NocoBase ships nine built-in AI Employees covering email, data, analysis, research, translation, visualisation, and more. Meet the household staff — enable each device, assign a model, write its instruction manual, and create a custom employee for the tasks only your home requires."
 tags: [nocobase, ai, agents, configuration]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-03.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-03.png”
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: Your AI Household Staff
 
