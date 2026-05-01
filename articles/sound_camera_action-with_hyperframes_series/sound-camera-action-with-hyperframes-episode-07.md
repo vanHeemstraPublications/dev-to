@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.7
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.7"
 published: false
 description: "Episode 7: The director calls 'Rolling!' and the cameras start. HyperFrames' render pipeline — local mode for iteration, Docker mode for deterministic production output, quality presets, GPU encoding, parallel workers, and CI/CD integration. Everything from draft rushes to the final print."
 tags: [javascript, html, video, devops]
