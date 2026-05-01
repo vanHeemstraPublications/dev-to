@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.5: The Last Judgement”
+---
+title: "Michelangelo on Markdown ✍️ Ep.5"
+part: 5
 published: false
-description: “Episode 5: The Last Judgement is Michelangelo’s most complex composition — over 300 figures, organised through dynamic scripting of position, weight, and gesture. Quarkdown’s scripting system works at the same scale: variables, conditionals, loops, let expressions, data from CSV, XY charts, and Mermaid diagrams. Turing-complete documents.”
+description: "Episode 5: The Last Judgement is Michelangelo’s most complex composition — over 300 figures, organised through dynamic scripting of position, weight, and gesture. Quarkdown’s scripting system works at the same scale: variables, conditionals, loops, let expressions, data from CSV, XY charts, and Mermaid diagrams. Turing-complete documents."
 tags: [quarkdown, markdown, scripting, data]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-05.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-05.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: The Last Judgement
 
