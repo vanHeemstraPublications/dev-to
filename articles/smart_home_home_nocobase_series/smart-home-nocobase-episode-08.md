@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.8: Automation Rules”
+---
+title: "Smart Home with NocoBase 🏠 Ep.8"
+part: 8
 published: false
-description: “Episode 8: The most powerful smart home feature is not what you control manually — it is what runs automatically. Workflow LLM Nodes embed AI intelligence directly into NocoBase’s workflow engine. Text chat, multimodal analysis, structured data extraction, and AI Employee approval nodes for human-in-the-loop processes.”
+description: "Episode 8: The most powerful smart home feature is not what you control manually — it is what runs automatically. Workflow LLM Nodes embed AI intelligence directly into NocoBase’s workflow engine. Text chat, multimodal analysis, structured data extraction, and AI Employee approval nodes for human-in-the-loop processes."
 tags: [nocobase, ai, workflow, automation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-08.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-08.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 8: Automation Rules
 
