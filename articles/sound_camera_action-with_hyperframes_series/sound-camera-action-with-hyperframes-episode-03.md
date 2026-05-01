@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.3"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.3"
 published: false
 description: "Episode 3: The continuity supervisor ensures every actor enters and exits on cue. HyperFrames' relative timing system — referencing clip IDs instead of absolute seconds — keeps your composition flexible. Change one scene's duration and the whole film reflows automatically."
 tags: [javascript, html, video, tutorial]
