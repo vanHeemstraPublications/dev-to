@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.6: The Great Commission”
+---
+title: "Michelangelo on Markdown ✍️ Ep.6"
+part: 6
 published: false
-description: “Episode 6: Michelangelo did not design St. Peter’s as a single sketch — he organised it into coordinated architectural drawings, each section developed independently but governed by the unified plan. Multi-file Quarkdown works identically: .include, subdocuments, the Paper and Docs built-in libraries, cross-references, bibliography, and the slides document type.”
+description: "Episode 6: Michelangelo did not design St. Peter’s as a single sketch — he organised it into coordinated architectural drawings, each section developed independently but governed by the unified plan. Multi-file Quarkdown works identically: .include, subdocuments, the Paper and Docs built-in libraries, cross-references, bibliography, and the slides document type."
 tags: [quarkdown, markdown, multifile, documentation]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-06.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-06.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 6: The Great Commission
 
