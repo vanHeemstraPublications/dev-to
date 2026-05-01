@@ -1,6 +1,6 @@
 ---
 title: "Michelangelo on Markdown ✍️ Ep.3"
-part: 2
+part: 3
 published: false
 description: "Episode 3: The Pietà is technically perfect — every fold of cloth, every muscle, every proportion studied and mastered. Quarkdown’s function call syntax is the same discipline: a precise grammar for calling built-in functions, chaining operations, declaring variables, and building custom reusable elements. Learn the language of the chisel."
 tags: [quarkdown, markdown, functions, scripting]
