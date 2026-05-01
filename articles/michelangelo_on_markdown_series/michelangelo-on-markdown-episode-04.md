@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.4: Stone and Space”
+---
+title: "Michelangelo on Markdown ✍️ Ep.4"
+part: 4
 published: false
-description: “Episode 4: The Medici Tombs integrate sculpture and architecture — the figures of Dawn, Dusk, Day, and Night do not decorate the space, they ARE the space. Quarkdown’s layout system works the same way: rows, columns, grids, containers, alignment, float, clip, figures with captions, image sizing, and TeX formulae are not decorations — they ARE the document structure.”
+description: "Episode 4: The Medici Tombs integrate sculpture and architecture — the figures of Dawn, Dusk, Day, and Night do not decorate the space, they ARE the space. Quarkdown’s layout system works the same way: rows, columns, grids, containers, alignment, float, clip, figures with captions, image sizing, and TeX formulae are not decorations — they ARE the document structure."
 tags: [quarkdown, markdown, layout, design]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-04.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-04.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 4: Stone and Space
 
