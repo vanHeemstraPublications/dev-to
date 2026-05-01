@@ -1,5 +1,5 @@
 ---
-title: "Globetrotters IAM 🌍 Ep.3"
+title: "Globetrotters Identity and Access Management 🌍 Ep.3"
 part: 3
 published: false
 description: "Episode 3: The border kiosk does not check your entire life history every time you pass a checkpoint. It issues an entry stamp — a time-limited token that downstream checkpoints can verify without calling the ministry again. RWT is that kiosk. OAuth bearer tokens are that stamp. This is how modern authentication scales."
