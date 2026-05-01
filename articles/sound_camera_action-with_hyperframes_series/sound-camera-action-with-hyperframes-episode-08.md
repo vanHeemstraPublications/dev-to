@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.8"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.8"
 published: false
 description: "Episode 8: The AI script writer joins the crew. HyperFrames was designed from day one to be agent-native — the skills system, the non-interactive CLI, the Catalog of 50+ ready-made blocks, and the prompting guide that turns any coding agent into a video director. The complete workflow."
 tags: [javascript, html, ai, video]
