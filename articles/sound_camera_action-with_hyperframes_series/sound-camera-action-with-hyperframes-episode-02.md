@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.2"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.2"
 published: false
 description: "Episode 2: Every Hollywood director starts with a screenplay. In HyperFrames, the screenplay is an HTML file. This episode is the grammar course — every data attribute, every clip type, the mandatory three-rule structure, and common mistakes that break the render."
 tags: [javascript, html, video, tutorial]
