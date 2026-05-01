@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.2: Connecting to the Power Grid”
+---
+title: "Smart Home with NocoBase 🏠 Ep.2"
+part: 1
 published: false
-description: “Episode 2: Before any smart device works, the home needs electricity. Before any AI Employee works, NocoBase needs an LLM service. Configure OpenAI, Gemini, Claude, DeepSeek, Qwen, Kimi, or local Ollama models — the power grid that every AI capability in your smart home draws from.”
+description: "Episode 2: Before any smart device works, the home needs electricity. Before any AI Employee works, NocoBase needs an LLM service. Configure OpenAI, Gemini, Claude, DeepSeek, Qwen, Kimi, or local Ollama models — the power grid that every AI capability in your smart home draws from."
 tags: [nocobase, ai, llm, configuration]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-02.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-02.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 2: Connecting to the Power Grid
 
