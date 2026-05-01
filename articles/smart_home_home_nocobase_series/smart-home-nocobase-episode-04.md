@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.4: The Control Panel”
+---
+title: "Smart Home with NocoBase 🏠 Ep.4"
+part: 4
 published: false
-description: “Episode 4: The appliances are installed. Now you need the control panels — the ways you interact with your AI household staff. The AI Floating Ball, Block Action entries, Block Context, in-chat employee switching, model selection, and file uploads. Everything a smart home resident needs to work with their AI team.”
+description: "Episode 4: The appliances are installed. Now you need the control panels — the ways you interact with your AI household staff. The AI Floating Ball, Block Action entries, Block Context, in-chat employee switching, model selection, and file uploads. Everything a smart home resident needs to work with their AI team."
 tags: [nocobase, ai, collaboration, workflow]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-04.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-04.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 4: The Control Panel
 
