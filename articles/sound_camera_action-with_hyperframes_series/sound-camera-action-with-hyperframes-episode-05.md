@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.5"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.5"
 published: false
 description: "Episode 5: The editor assembles the film. Real video B-roll, audio score, volume mixing, media trimming, and the Hollywood technique that makes overlays work: transparent ProRes 4444 MOV renders. HyperFrames handles the compositing pipeline — you write the cuts."
 tags: [javascript, html, video, ffmpeg]
