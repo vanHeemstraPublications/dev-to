@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.8: The Aging Master’s Studio”
+---
+title: "Michelangelo on Markdown ✍️ Ep.8"
+part: 8
 published: false
-description: “Episode 8: In his final years, Michelangelo worked with assistants who executed his vision at scale. Tolaria’s AI integration does the same: AGENTS.md teaches Claude Code, Codex CLI, and Gemini CLI how your vault works. The MCP server connects any AI agent to your notes. The complete workflow: from vault notes to finished Quarkdown document.”
+description: "Episode 8: In his final years, Michelangelo worked with assistants who executed his vision at scale. Tolaria’s AI integration does the same: AGENTS.md teaches Claude Code, Codex CLI, and Gemini CLI how your vault works. The MCP server connects any AI agent to your notes. The complete workflow: from vault notes to finished Quarkdown document."
 tags: [tolaria, ai, workflow, markdown]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-08.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-08.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 8: The Aging Master’s Studio
 
