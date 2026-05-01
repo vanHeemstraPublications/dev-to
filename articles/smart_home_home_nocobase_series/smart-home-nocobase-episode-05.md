@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.5: Teaching Devices New Skills”
+---
+title: "Smart Home with NocoBase 🏠 Ep.5"
+part: 5
 published: false
-description: “Episode 5: A smart thermostat that can only display temperature is not very smart. Skills and Tools give your AI Employees the ability to act — not just respond. MCP Integration connects third-party smart devices to your hub. Web search gives Vera live access to the internet. Permission control decides who can operate which device.”
+description: "Episode 5: A smart thermostat that can only display temperature is not very smart. Skills and Tools give your AI Employees the ability to act — not just respond. MCP Integration connects third-party smart devices to your hub. Web search gives Vera live access to the internet. Permission control decides who can operate which device."
 tags: [nocobase, ai, mcp, tools]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-05.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-05.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 5: Teaching Devices New Skills
 
