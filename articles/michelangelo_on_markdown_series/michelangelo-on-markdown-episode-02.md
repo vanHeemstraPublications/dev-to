@@ -1,16 +1,15 @@
------
-
-## title: “Michelangelo on Markdown! Ep.2: The Grand Ceiling”
+---
+title: "Michelangelo on Markdown ✍️ Ep.2"
+part: 2
 published: false
-description: “Episode 2: The Sistine Chapel ceiling was not one painting — it was nine central scenes unified by architectural trompe l’oeil borders, prophets, sibyls, and ancestors. Quarkdown’s document types, themes, metadata, page margins, table of contents, and footnotes are that same discipline: a unified compositional system applied before the first word.”
+description: "Episode 2: The Sistine Chapel ceiling was not one painting — it was nine central scenes unified by architectural trompe l’oeil borders, prophets, sibyls, and ancestors. Quarkdown’s document types, themes, metadata, page margins, table of contents, and footnotes are that same discipline: a unified compositional system applied before the first word."
 tags: [quarkdown, markdown, documentation, writing]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-02.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-02.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Michelangelo on Markdown! ✍️
+---
 
 ## Episode 2: The Grand Ceiling
 
