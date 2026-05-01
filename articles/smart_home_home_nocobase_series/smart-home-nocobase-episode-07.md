@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.7: The Home Library”
+---
+title: "Smart Home with NocoBase 🏠 Ep.7"
+part: 7
 published: false
-description: “Episode 7: A smart home with no library is a home where every AI Employee starts from scratch. The AI Knowledge Base gives your employees access to your organisation’s documents, policies, and institutional knowledge — through RAG retrieval that finds the right page in the right manual, instantly.”
+description: "Episode 7: A smart home with no library is a home where every AI Employee starts from scratch. The AI Knowledge Base gives your employees access to your organisation’s documents, policies, and institutional knowledge — through RAG retrieval that finds the right page in the right manual, instantly."
 tags: [nocobase, ai, rag, knowledgebase]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-07.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-07.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 7: The Home Library
 
