@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.1"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.1"
 part: 1
 published: false
 description: "Episode 1: Every great Hollywood film starts with a director who has a vision and a crew who knows the tools. HyperFrames turns HTML into deterministic video — no React, no proprietary DSL, just the web stack you already know. Meet the studio."
