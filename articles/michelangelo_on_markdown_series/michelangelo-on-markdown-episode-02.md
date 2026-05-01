@@ -8,7 +8,6 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Michelangelo on Markdown Series"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
 ---
 
 ## Episode 2: The Grand Ceiling
