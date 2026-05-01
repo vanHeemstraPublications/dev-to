@@ -1,5 +1,5 @@
 ---
-title: "Globetrotters IAM 🌍 Ep.5"
+title: "Globetrotters Identity and Access Management 🌍 Ep.5"
 part: 5
 published: false
 description: "Episode 5: The border officer cross-checks your stamp against the filing cabinet — but what is in that cabinet? LDAP directories are the physical record store of every identity, group membership, and authentication credential. This episode opens the drawer: directory structure, user objects, groups, LDAPS encryption, and ACME’s dual-DC design."
