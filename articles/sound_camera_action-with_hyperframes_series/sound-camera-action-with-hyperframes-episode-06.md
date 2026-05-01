@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.6
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.6
 published: false
 description: "Episode 6: Big productions run multiple simultaneous shooting units. HyperFrames' nested compositions work the same way — external HTML files loaded into a parent composition via data-composition-src. Modular, reusable, independently editable scenes wired together in index.html."
 tags: [javascript, html, video, architecture]
