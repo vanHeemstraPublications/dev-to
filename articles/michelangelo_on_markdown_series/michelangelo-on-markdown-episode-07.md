@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.7: The Letters and Poems”
+---
+title: "Michelangelo on Markdown ✍️ Ep.7"
+part: 7
 published: false
-description: “Episode 7: Michelangelo was not only a sculptor and painter — he wrote over 300 poems and thousands of letters, a private knowledge system that tracked his thinking across a lifetime. Tolaria is that private knowledge system for the modern polymath: vault, notes, YAML frontmatter, types as lenses, wikilinks, neighborhood mode, BlockNote editing, and git history.”
+description: "Episode 7: Michelangelo was not only a sculptor and painter — he wrote over 300 poems and thousands of letters, a private knowledge system that tracked his thinking across a lifetime. Tolaria is that private knowledge system for the modern polymath: vault, notes, YAML frontmatter, types as lenses, wikilinks, neighborhood mode, BlockNote editing, and git history."
 tags: [tolaria, markdown, knowledgebase, productivity]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-07.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-07.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 7: The Letters and Poems
 
