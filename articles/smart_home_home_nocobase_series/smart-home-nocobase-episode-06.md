@@ -1,15 +1,14 @@
------
-
-## title: “Smart Home with NocoBase! Ep.6: Pre-Programmed Routines”
+---
+title: "Smart Home with NocoBase 🏠 Ep.6"
+part: 6
 published: false
-description: “Episode 6: The best smart home routines are the ones you only configure once. Shortcut Tasks let you bind AI Employees to specific blocks, preset the context and instructions, and launch them with a single click — no typing required. The ‘Good Morning’ routine for your AI team.”
+description: "Episode 6: The best smart home routines are the ones you only configure once. Shortcut Tasks let you bind AI Employees to specific blocks, preset the context and instructions, and launch them with a single click — no typing required. The ‘Good Morning’ routine for your AI team."
 tags: [nocobase, ai, automation, productivity]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart-home-nocobase-episode-06.png”
-series: “Smart Home with NocoBase Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-
-# Smart Home with NocoBase! 🏠
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/smart_home_with_nocobase_series/smart-home-with-nocobase-episode-06.png"
+series: "Smart Home with NocoBase Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 6: Pre-Programmed Routines
 
