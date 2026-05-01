@@ -1,5 +1,5 @@
 ---
-title: "Globetrotters IAM 🌍 Ep.2"
+title: "GGlobetrotters Identity and Access Management 🌍 Ep.2"
 part: 2
 published: false
 description: "Episode 2: The immigration ministry does not stand at the border checking passports — it decides, in advance, who is allowed to enter and under what conditions. SailPoint PRD is ACME’s immigration ministry: provisioning, deprovisioning, access certification, and the role catalogue that defines every visa category."
