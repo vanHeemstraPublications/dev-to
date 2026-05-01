@@ -1,5 +1,5 @@
 ---
-title: "Globetrotters IAM 🌍 Ep.8"
+title: "Globetrotters Identity and Access Management 🌍 Ep.8"
 part: 8
 published: false
 description: "Episode 8: All series roads lead here — the Test Factory Secure Interface Enablement solution arriving at LDAP LB-T. Two authentication paths: direct LDAPS bind and OAuth via RWT. The complete entry flow, the implementation decisions, the operational runbook, and the security controls that keep test traffic in its lane."
