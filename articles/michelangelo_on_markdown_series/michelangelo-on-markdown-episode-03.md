@@ -1,16 +1,14 @@
------
-
-## title: “Michelangelo on Markdown! Ep.3: The Perfect Form”
+---
+title: "Michelangelo on Markdown ✍️ Ep.3"
+part: 2
 published: false
-description: “Episode 3: The Pietà is technically perfect — every fold of cloth, every muscle, every proportion studied and mastered. Quarkdown’s function call syntax is the same discipline: a precise grammar for calling built-in functions, chaining operations, declaring variables, and building custom reusable elements. Learn the language of the chisel.”
+description: "Episode 3: The Pietà is technically perfect — every fold of cloth, every muscle, every proportion studied and mastered. Quarkdown’s function call syntax is the same discipline: a precise grammar for calling built-in functions, chaining operations, declaring variables, and building custom reusable elements. Learn the language of the chisel."
 tags: [quarkdown, markdown, functions, scripting]
-cover_image: “https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo-markdown-episode-03.png”
-series: “Michelangelo on Markdown Series”
-canonical_url: “”
-organization: “the-software-s-journey”
-part: 1
-
-# Michelangelo on Markdown! ✍️
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/michelangelo_on_markdown_series/michelangelo-on-markdown-episode-03.png"
+series: "Michelangelo on Markdown Series"
+canonical_url: ""
+organization: "the-software-s-journey"
+---
 
 ## Episode 3: The Perfect Form
 
