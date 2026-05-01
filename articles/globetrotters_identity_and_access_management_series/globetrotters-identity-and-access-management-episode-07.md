@@ -1,5 +1,5 @@
 ---
-title: Globetrotters IAM 🌍 Ep.7"
+title: Globetrotters Identity and Access Management 🌍 Ep.7"
 part: 7
 published: false
 description: "Episode 7: A visa in a plastic bag is not a visa. The seal matters. PKI — Public Key Infrastructure — is the seal system that makes every certificate in ACME’s IAM stack trustworthy. TLS encrypts the channel. mTLS verifies both sides. The ACME Root CA is the authority whose seal makes everything valid."
