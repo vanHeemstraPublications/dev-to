@@ -1,5 +1,5 @@
 ---
-title: "Sound, Camera, Action! 🎬 Ep.4"
+title: "Sound, Camera, Action with HyperFrames 🎬 Ep.4"
 published: false
 description: "Episode 4: No Hollywood blockbuster ships without special effects. In HyperFrames, GSAP is the VFX department — paused timelines the engine seeks frame by frame, registered on window.__timelines. Learn every supported method, every banned pattern, and why frame-accuracy depends on a single rule."
 tags: [javascript, gsap, video, animation]
