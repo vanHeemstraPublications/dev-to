@@ -1,5 +1,5 @@
 ---
-title: "Globetrotters IAM 🌍 Ep.6"
+title: "Globetrotters Identity and Access Management 🌍 Ep.6"
 part: 6
 published: false
 description: "Episode 6: The queue manager at the checkpoint does not check passports. They count the queues, direct travellers to the next available officer, and notice when one booth goes dark. GMF PRD LDAP LB-T is that dispatcher — routing test workloads to city-a or city-b, maintaining high availability, and keeping test traffic in its designated lane."
