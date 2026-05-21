@@ -8,6 +8,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Big Bad Wolf Meets Nirmata"
 canonical_url: ""
 organization: "the-software-s-journey"
+---
 
 ## Episode 3: Sticks and Half-Measures
 
