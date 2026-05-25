@@ -1,5 +1,5 @@
 ---
-title: "The King of the Self-signed Certificates - Ep. 01:"
+title: "The King of the Self-signed Certificates - Ep. 01"
 description: "A self-signed certificate is a royal decree the king writes, seals, and signs himself. Learn what it really is and when it belongs on the throne – and when it does not."
 tags: [python, security, cryptography, tls]
 cover_image: <https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-01.png>
