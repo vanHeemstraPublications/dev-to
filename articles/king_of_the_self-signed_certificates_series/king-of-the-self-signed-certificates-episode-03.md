@@ -1,13 +1,13 @@
 ---
-title: “The King of the Self-signed Certificates - Ep. 03”
-description: “The king commissions his own portrait. In X.509 terms, this means defining the subject name and the issuer name – and in a self-signed certificate, they are the same person.”
+title: "The King of the Self-signed Certificates - Ep. 03"
+description: "The king commissions his own portrait. In X.509 terms, this means defining the subject name and the issuer name – and in a self-signed certificate, they are the same person."
 tags: [python, security, cryptography, x509]
 cover_image: <https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-03.png>
-canonical_url:
-series: The King of the Self-signed Certificates
+canonical_url: ""
+series: "The King of the Self-signed Certificates"
 part: 3
 published: false
-organization: “the-software-s-journey”
+organization: "the-software-s-journey"
 ---
 
 # The King’s Portrait
