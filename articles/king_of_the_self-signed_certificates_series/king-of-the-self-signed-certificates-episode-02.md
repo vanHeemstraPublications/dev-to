@@ -2,7 +2,7 @@
 title: "The King of the Self-signed Certificates - Ep. 02"
 description: "Before the king can dress himself in a self-signed certificate, the tailors must cut the invisible cloth – a 2048-bit RSA private key. Here is how they do it in Python."
 tags: [python, security, cryptography, tls]
-cover_image: <https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-02.png>
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-02.png"
 canonical_url: ""
 series: "The King of the Self-signed Certificates"
 part: 2
