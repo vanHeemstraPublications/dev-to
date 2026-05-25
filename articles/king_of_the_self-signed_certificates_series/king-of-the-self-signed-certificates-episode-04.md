@@ -1,5 +1,5 @@
 ---
-title: “The King of the Self-signed Certificates - Episode 04: The Grand Parade”
+title: ”The King of the Self-signed Certificates - Episode 04: The Grand Parade”
 description: “The certificate is assembled, signed, and written to disk. The king dresses himself, steps into his carriage, and rides through the streets. Here is the complete Python implementation.”
 tags: [python, security, cryptography, tls]
 cover_image: <https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-04.png>
