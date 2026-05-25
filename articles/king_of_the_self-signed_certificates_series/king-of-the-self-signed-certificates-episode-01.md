@@ -9,7 +9,7 @@ part: 1
 published: false
 organization: "the-software-s-journey"
 ---
-
+ 
 # The King’s Proclamation
 
 > *In a faraway kingdom, a king sat upon his throne and declared himself dressed in the finest garments ever woven. The tailors had promised him that only the wise and worthy could see the cloth. And so the entire court agreed: magnificent robes, Your Majesty. Magnificent robes.*
