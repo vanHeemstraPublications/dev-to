@@ -1,7 +1,7 @@
 ---
 title: "The King of the Self-signed Certificates - Ep. 05"
 description: "A child in the crowd says what the entire court refused to say. Browsers have been that child since 2017. Learn why self-signed certs fail in production and how a proper CA hierarchy restores trust."
-tags: [“python”, “security”, “cryptography”, “pki”]
+tags: [python, security, cryptography, pki]
 cover_image: <https://raw.githubusercontent.com/vanHeemstraPublications/covers/main/king-self-signed-episode-05.png>
 canonical_url: ""
 series: "The King of the Self-signed Certificates"
