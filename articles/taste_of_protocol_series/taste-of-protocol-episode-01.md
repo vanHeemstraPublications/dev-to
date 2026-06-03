@@ -1,12 +1,12 @@
 ---
-title: ”Taste of Protocol 🍽️”
+title: "Taste of Protocol 🍽️"
 published: false
-description: ”Remy the rat knew that anyone can cook. We know that anyone can make an HTTP request — but only a chef with a Strategy Pattern knows how to swap the protocol without rewriting the kitchen. HTTP for meat-eaters, HTTPS for vegetarians, and one elegant Python design pattern that lets you change your mind between courses.”
+description: "Remy the rat knew that anyone can cook. We know that anyone can make an HTTP request — but only a chef with a Strategy Pattern knows how to swap the protocol without rewriting the kitchen. HTTP for meat-eaters, HTTPS for vegetarians, and one elegant Python design pattern that lets you change your mind between courses."
 tags: [python, designpatterns, http, beginners]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/taste-of-protocol-episode-01.png>”
-series: “Taste of Protocol”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/taste-of-protocol-episode-01.png"
+series: "Taste of Protocol"
+canonical_url: ""
+organization: "the-software-s-journey"
 ---
 
 ## Anyone Can Cook an HTTP Request
