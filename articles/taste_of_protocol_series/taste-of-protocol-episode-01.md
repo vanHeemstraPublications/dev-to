@@ -111,7 +111,7 @@ if __name__ == "__main__":
     rest.strategy = HttpsStrategy()
     rest.get("/health")
 
-    rest.post("/users", {"name": "John"})
+    rest.post("/users", {"name": "Gusteau"})
 ```
 
 And when you run this kitchen, the pass produces:
@@ -120,7 +120,7 @@ And when you run this kitchen, the pass produces:
 GET http://api.example.com/health
 GET https://api.example.com/health
 POST https://api.example.com/users
-BODY {'name': 'John'}
+BODY {'name': 'Gusteau'}
 ```
 
 -----
@@ -245,10 +245,10 @@ if __name__ == "__main__":
     rest.strategy = HttpsStrategy()
     rest.get("/health")
 
-    rest.post("/users", {"name": "John"})
+    rest.post("/users", {"name": "Gusteau"})
 ```
 
-The dining room. We seat the `rest` object with an `HttpStrategy`, check that the kitchen is alive (`/health`), then — mid-service — swap to `HttpsStrategy` and check again. The second health check goes out encrypted. Then we `POST` a new user named `John` (almost certainly a developer who insisted on putting his own name in the example data).
+The dining room. We seat the `rest` object with an `HttpStrategy`, check that the kitchen is alive (`/health`), then — mid-service — swap to `HttpsStrategy` and check again. The second health check goes out encrypted. Then we `POST` a new user named `Gusteau` (almost certainly a developer who insisted on putting his own name in the example data).
 
 The strategy swap happens in one line. No subclassing `Rest`. No factory method. No configuration object. One line. New sous-chef. Service continues.
 
