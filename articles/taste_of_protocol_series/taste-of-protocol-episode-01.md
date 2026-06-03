@@ -248,7 +248,7 @@ if __name__ == "__main__":
     rest.post("/users", {"name": "John"})
 ```
 
-The dining room. We seat the `rest` object with an `HttpStrategy`, check that the kitchen is alive (`/health`), then — mid-service — swap to `HttpsStrategy` and check again. The second health check goes out encrypted. Then we `POST` a new user named `Willem` (almost certainly a developer who insisted on putting his own name in the example data).
+The dining room. We seat the `rest` object with an `HttpStrategy`, check that the kitchen is alive (`/health`), then — mid-service — swap to `HttpsStrategy` and check again. The second health check goes out encrypted. Then we `POST` a new user named `John` (almost certainly a developer who insisted on putting his own name in the example data).
 
 The strategy swap happens in one line. No subclassing `Rest`. No factory method. No configuration object. One line. New sous-chef. Service continues.
 
