@@ -7,7 +7,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Lunapark Astrid Series"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
+part: 8
 ---
 
 ## Episode 8: Build Your Own Ride
