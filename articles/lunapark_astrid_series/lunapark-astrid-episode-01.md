@@ -224,7 +224,7 @@ In **Episode 2**, we tour the Grand Central Pavilion — the kernel that never c
 **🔗 Resources**
 
 - **Astrid Repository**: [github.com/unicity-astrid/astrid](https://github.com/unicity-astrid/astrid)
-- **Companion Repository**: [github.com/the-software-journey/astrid](https://github.com/the-software-journey/astrid)
+- **Companion Repository**: [github.com/software-journey/astrid](https://github.com/software-journey/astrid)
 - **Rust Installation**: [rustup.rs](https://rustup.rs)
 
 -----
