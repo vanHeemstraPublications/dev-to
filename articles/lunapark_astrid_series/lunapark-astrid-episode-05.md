@@ -7,7 +7,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Lunapark Astrid Series"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
+part: 5
 ---
 
 ## Episode 5: The Safety Inspector — The Five-Layer Security Model
