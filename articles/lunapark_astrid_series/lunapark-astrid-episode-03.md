@@ -7,7 +7,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Lunapark Astrid Series"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
+part: 3
 ---
 
 ## Episode 3: Rides and Attractions — The Capsule System
