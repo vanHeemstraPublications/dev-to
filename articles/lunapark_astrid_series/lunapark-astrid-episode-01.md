@@ -4,7 +4,7 @@ published: false
 description: "Episode 1: Step right through the gates of the most enchanting lunapark in the AI universe! Astrid is an operating system for AI agents — a fixed microkernel surrounded by swappable capsule attractions. Come discover what makes this park unlike any other, how to get your first wristband, and why the rides never stop changing while the park itself stays perfectly in place."
 tags: [rust, ai, agents, beginners]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/lunapark_astrid_series/astrid-lunapark-episode-01.png"
-series: "Lunapark Astrid Series
+series: "Lunapark Astrid Series"
 canonical_url: ""
 organization: "the-software-s-journey"
 part: 1
