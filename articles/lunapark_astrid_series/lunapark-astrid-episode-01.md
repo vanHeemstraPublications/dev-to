@@ -63,18 +63,18 @@ Everything above this foundation? Swappable capsule. Provider capsule. Orchestra
                     ╠═══════════════════════════════════╣
                     ║                                   ║
      Capsule Park   ║  ┌──────────────────────────────┐ ║
-     (all swappable)║  │    Provider Attraction        │ ║
-                    ║  │  (OpenAI / Ollama / vLLM)     │ ║
+     (all swappable)║  │    Provider Attraction       │ ║
+                    ║  │  (OpenAI / Ollama / vLLM)    │ ║
                     ║  └─────────────┬────────────────┘ ║
                     ║                │ IPC              ║
                     ║  ┌─────────────▼────────────────┐ ║
-                    ║  │   Orchestrator Attraction     │ ║
-                    ║  │  (ReAct / Monte Carlo / MCTS) │ ║
+                    ║  │   Orchestrator Attraction    │ ║
+                    ║  │ (ReAct / Monte Carlo / MCTS) │ ║
                     ║  └─────────────┬────────────────┘ ║
                     ║                │ IPC              ║
                     ║  ┌─────────────▼────────────────┐ ║
-                    ║  │     Tools Attraction          │ ║
-                    ║  │  (search, code, filesystem)   │ ║
+                    ║  │     Tools Attraction         │ ║
+                    ║  │  (search, code, filesystem)  │ ║
                     ║  └──────────────────────────────┘ ║
                     ║                                   ║
                     ╠═══════════════════════════════════╣
