@@ -5,7 +5,7 @@ Render the final banner typography inside the image itself.
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
 Dome-Bot Build with Codey
-Episode 1: The First Spark
+Episode 5: The Holo Projector
 
 
 Canvas requirements:
@@ -41,10 +41,10 @@ Lighting and atmosphere:
 warm workbench lighting with cool blue-white dome-LED glow, soft holographic accents, and gentle cinematic rim light evoking a retro sci-fi maker workshop
 
 Visual metaphor:
-a maker meets Codey Online in the browser and the very first LED blinks to life on the dome-bot's build
+the dome-bot receiving a new brain and a holo projector through an ESP32-S3 upgrade and an OLED display
 
 Center action:
-the maker uploads the first sketch via Web Serial and a single LED on the Arduino UNO blinks to life next to the dome-bot
+the maker swaps the Arduino UNO for an ESP32-S3 N16R8 and a 128x64 SSD1306 OLED projects a small holographic message
 
 Composition guidance:
 - left third: a friendly maker or workshop guide character introducing the episode's subsystem
@@ -53,7 +53,7 @@ Composition guidance:
 - background: maker workshop with parts bins, soldering tools, and subtle retro sci-fi set-dressing such as distant robot silhouettes and small toy spaceship models
 
 Supporting props to include:
-Arduino UNO R3, USB-B cable, laptop showing Codey Online, first blinking LED
+ESP32-S3 N16R8 board, SSD1306 OLED display, I2C wiring sketch, Codey Milestones and Rollback panel
 
 Style requirements:
 - cinematic digital illustration, highly detailed, polished maker-workshop realism, retro sci-fi set dressing, friendly dome-bot build composition
@@ -81,7 +81,7 @@ Typography handling:
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
   - Dome-Bot Build with Codey
-  - Episode 1: The First Spark
+  - Episode 5: The Holo Projector
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 40% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.

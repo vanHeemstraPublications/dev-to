@@ -5,7 +5,7 @@ Render the final banner typography inside the image itself.
 The image is not complete unless the exact two-line title text below is visibly rendered in the final image, centered horizontally and kept slightly above true vertical center so the entire subtitle remains fully visible:
 
 Dome-Bot Build with Codey
-Episode 1: The First Spark
+Episode 2: Finding Its Voice
 
 
 Canvas requirements:
@@ -41,10 +41,10 @@ Lighting and atmosphere:
 warm workbench lighting with cool blue-white dome-LED glow, soft holographic accents, and gentle cinematic rim light evoking a retro sci-fi maker workshop
 
 Visual metaphor:
-a maker meets Codey Online in the browser and the very first LED blinks to life on the dome-bot's build
+the dome-bot finds its signature beep-and-whistle voice through a piezo buzzer and Arduino's tone() function
 
 Center action:
-the maker uploads the first sketch via Web Serial and a single LED on the Arduino UNO blinks to life next to the dome-bot
+a passive piezo buzzer plays the dome-bot's first beep-and-whistle sequence driven by the Arduino UNO
 
 Composition guidance:
 - left third: a friendly maker or workshop guide character introducing the episode's subsystem
@@ -53,7 +53,7 @@ Composition guidance:
 - background: maker workshop with parts bins, soldering tools, and subtle retro sci-fi set-dressing such as distant robot silhouettes and small toy spaceship models
 
 Supporting props to include:
-Arduino UNO R3, USB-B cable, laptop showing Codey Online, first blinking LED
+passive piezo buzzer, 100 ohm resistor, Codey Smart Library Picker panel, wiring diagram with pin 8 highlighted
 
 Style requirements:
 - cinematic digital illustration, highly detailed, polished maker-workshop realism, retro sci-fi set dressing, friendly dome-bot build composition
@@ -81,7 +81,7 @@ Typography handling:
 - The image is not complete unless the exact two-line title text below is visibly rendered in the final image.
 - Render exactly this readable two-line title block inside the image:
   - Dome-Bot Build with Codey
-  - Episode 1: The First Spark
+  - Episode 2: Finding Its Voice
 - Keep title typography at least 12% away from the left and right edges.
 - Keep title typography at least 40% away from the top edge.
 - Keep title typography at least 40% away from the bottom edge.
