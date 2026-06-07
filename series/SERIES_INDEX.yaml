@@ -84,3 +84,7 @@ series:
   name: Warp of Oz Series
   file: series/wizard_of_oz_warp_series.yaml
   prompt_template: prompts/PROMPT_TEMPLATE.md
+- id: r2-d2_creation_with_codey_series
+  name: R2-D2 Creation with Codey Series
+  file: series/r2-d2_creation_with_codey_series.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md

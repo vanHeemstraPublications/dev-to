@@ -1,0 +1,100 @@
+series:
+  id: r2-d2_creation_with_codey_series
+  name: Dome-Bot Build with Codey
+  type: maker_dome_bot_build_series
+  orientation: landscape
+  resolution: 1000x420
+  aspect_ratio: '100:42'
+  whitespace_margin_percent: 24
+  deterministic_config: config/IMAGE_GENERATION_CONFIG.yaml
+  prompt_template: prompts/PROMPT_TEMPLATE.md
+  series_config: config/r2-d2-creation-with-codey-series.json
+defaults:
+  setting: a friendly retro sci-fi maker workshop where a half-built dome-bot is wired up alongside an Arduino/ESP32 development bench, a laptop running Codey Online in the browser, and tidy breadboard layouts
+  lighting: warm workbench lighting with cool blue-white dome-LED glow, soft holographic accents, and gentle cinematic rim light evoking a retro sci-fi maker workshop
+  composition:
+    left_third: a friendly maker or workshop guide character introducing the episode's subsystem
+    center: the dome-bot (or the in-progress build) performing the episode's main action as the emotional focal point
+    right_third: laptop showing Codey Online, wiring diagram, or the electronic module added in this episode
+    background: maker workshop with parts bins, soldering tools, and subtle retro sci-fi set-dressing such as distant robot silhouettes and small toy spaceship models
+episodes:
+- number: 1
+  title: The First Spark
+  slug: the-rebellion-begins
+  metaphor: a maker meets Codey Online in the browser and the very first LED blinks to life on the dome-bot's build
+  center_action: the maker uploads the first sketch via Web Serial and a single LED on the Arduino UNO blinks to life next to the dome-bot
+  supporting_props:
+  - Arduino UNO R3
+  - USB-B cable
+  - laptop showing Codey Online
+  - first blinking LED
+- number: 2
+  title: Finding Its Voice
+  slug: the-sound-of-the-force
+  metaphor: the dome-bot finds its signature beep-and-whistle voice through a piezo buzzer and Arduino's tone() function
+  center_action: a passive piezo buzzer plays the dome-bot's first beep-and-whistle sequence driven by the Arduino UNO
+  supporting_props:
+  - passive piezo buzzer
+  - 100 ohm resistor
+  - Codey Smart Library Picker panel
+  - wiring diagram with pin 8 highlighted
+- number: 3
+  title: The Dome Lights Up
+  slug: the-dome-awakens
+  metaphor: the dome-bot's signature dome coming alive with a ring of blue-and-white NeoPixel light
+  center_action: a 12-LED WS2812B NeoPixel ring lights up the dome-bot's dome in pulsing blue-white animations
+  supporting_props:
+  - NeoPixel ring
+  - 470 ohm resistor
+  - 100 microfarad capacitor
+  - voltage safety check warning card
+- number: 4
+  title: The All-Seeing Eye
+  slug: the-all-seeing-eye
+  metaphor: the dome-bot gaining perception through an ultrasonic sensor eye and a PIR motion detector
+  center_action: the dome-bot's HC-SR04 sensor lights up as an approaching hand triggers the dome to react and a beep to play
+  supporting_props:
+  - HC-SR04 ultrasonic sensor
+  - HC-SR501 PIR motion sensor
+  - Codey Auto Error Fixing panel
+  - breadboard photo for Vision check
+- number: 5
+  title: The Holo Projector
+  slug: the-projector-of-hope
+  metaphor: the dome-bot receiving a new brain and a holo projector through an ESP32-S3 upgrade and an OLED display
+  center_action: the maker swaps the Arduino UNO for an ESP32-S3 N16R8 and a 128x64 SSD1306 OLED projects a small holographic message
+  supporting_props:
+  - ESP32-S3 N16R8 board
+  - SSD1306 OLED display
+  - I2C wiring sketch
+  - Codey Milestones and Rollback panel
+- number: 6
+  title: On the Move
+  slug: let-the-wookiee-win-r2-moves
+  metaphor: the dome-bot finally moving with a rotating dome and motorised wheels driven by an L298N H-bridge
+  center_action: the dome-bot's dome sweeps under SG90 servo control while DC gear motors roll it across the workbench
+  supporting_props:
+  - SG90 micro servo
+  - L298N motor driver
+  - DC gear motors with wheels
+  - 74AHCT125 level shifter and separate battery pack
+- number: 7
+  title: The Voice of the Bot
+  slug: the-voice-of-the-galaxy
+  metaphor: the dome-bot trading its buzzer for true personality through a DFPlayer Mini and a microSD card of sounds
+  center_action: a DFPlayer Mini wired to the ESP32-S3 plays the dome-bot's full beep-and-whistle sequence through a small speaker
+  supporting_props:
+  - DFPlayer Mini module
+  - 4 ohm or 8 ohm speaker
+  - microSD card with mp3 folder
+  - Live Serial Monitor showing playback logs
+- number: 8
+  title: The Complete Build
+  slug: the-complete-droid
+  metaphor: every dome-bot subsystem coming together as one orchestrated robot with Wi-Fi adding remote command from afar
+  center_action: a fully assembled dome-bot with dome lights, OLED projector, motion, and audio operates as one while a Wi-Fi command pings from a phone
+  supporting_props:
+  - full dome-bot build
+  - master wiring diagram PDF
+  - Codey Deep Think mode panel
+  - smartphone sending a Wi-Fi command
