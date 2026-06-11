@@ -78,17 +78,17 @@ Every OAuth2 flow involves four roles. Understanding who is who is the first ste
 ┌────────────────────────────────────────────────────────────────────┐
 │                    OAUTH2 CRIME SCENE LAYOUT                       │
 │                                                                    │
-│  Resource Owner                  Authorization Server             │
-│  (Alice — the user)              (The Crime Lab)                  │
-│  Owns the data.                  Issues warrants (tokens).        │
-│  Grants or denies                Validates identity.              │
-│  permission.                     Records consent.                 │
+│  Resource Owner                   Authorization Server             │
+│  (Alice — the user)               (The Crime Lab)                  │
+│  Owns the data.                   Issues warrants (tokens).        │
+│  Grants or denies                 Validates identity.              │
+│  permission.                      Records consent.                 │
 │                                                                    │
-│  Client                          Resource Server                  │
-│  (The Application)               (The Protected API)              │
-│  Wants access to                 Holds the protected              │
-│  Alice's data.                   resources. Accepts               │
-│  Presents the token.             valid tokens only.               │
+│  Client                           Resource Server                  │
+│  (The Application)                (The Protected API)              │
+│  Wants access to                  Holds the protected              │
+│  Alice's data.                    resources. Accepts               │
+│  Presents the token.              valid tokens only.               │
 └────────────────────────────────────────────────────────────────────┘
 ```
 
