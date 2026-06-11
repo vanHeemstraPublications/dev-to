@@ -6,7 +6,7 @@ tags: [ldap, security, production, openldap]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/what-are-you-ldap-episode-08.png"
 series: "What Are You LDAP?"
 canonical_url: ""
-organization: "the-software-s-journey
+organization: "the-software-s-journey"
 part: 8
 ---
 
