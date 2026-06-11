@@ -1,5 +1,5 @@
 ---
-title: "Who Are You CoreDNS 🔬 Ep.1"
+title: "Who Are You CoreDNS? 🔬 Ep.1"
 published: false
 description: "Episode 1: *ba-ba-baaaa, ba-ba-baaaaa* — Who are you? Who who, who who? A DNS query hits the wire. A pod needs an answer. And in the shadows of kube-system, the CoreDNS lab is already processing evidence. Welcome to the most overlooked crime scene in Kubernetes: the DNS stack. Every resolution failure is a case. Every timeout is a cold case. Every Corefile is a case file."
 tags: [kubernetes, dns, coredns, beginners]
