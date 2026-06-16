@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.4: The Double Stretch — Ktor and Networking”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.4"
 published: false
-description: “Episode 4: The double stretch — left hand to yellow while right foot reaches blue. Two platforms, one API call. Ktor is Kotlin Multiplatform’s HTTP client: one shared interface in commonMain, platform-specific engines underneath (OkHttp on Android, Darwin/NSURLSession on iOS). Combined with kotlinx.serialization, it creates a complete shared networking layer that every platform executes with native performance.”
+description: "Episode 4: The double stretch — left hand to yellow while right foot reaches blue. Two platforms, one API call. Ktor is Kotlin Multiplatform’s HTTP client: one shared interface in commonMain, platform-specific engines underneath (OkHttp on Android, Darwin/NSURLSession on iOS). Combined with kotlinx.serialization, it creates a complete shared networking layer that every platform executes with native performance."
 tags: [kotlin, multiplatform, ktor, networking]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-04.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-04.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 4: The Double Stretch — Ktor and Networking
 
