@@ -1,5 +1,5 @@
 ---
-title: "E.T.’s Finger by Fritzing and Aisler 🔴 Ep.5"
+title: "E.T.’s Finger build by Fritzing and Aisler 🔴 Ep.5"
 published: false
 description: "Episode 5: E.T. leans over the radio, soldered from spare parts, and speaks into it: ‘E.T. phone home.’ The radio works. The call gets through. Our firmware is that radio — the piece of code that makes the hardware speak, that transforms an amber LED from a static light into something alive, responsive, breathing. This episode writes the complete ATtiny85 sketch: capacitive touch, sinusoidal LED breathing, and the touch-triggered glow."
 tags: [arduino, attiny85, firmware, electronics]
