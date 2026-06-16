@@ -300,4 +300,4 @@ In **Episode 3**, we switch to the Schematic view in Fritzing and clean up the c
 
 -----
 
-*🔴 E.T.’s Finger by Fritzing and Aisler — from breadboard to fingertip, one glowing episode at a time.*
+*🔴 E.T.’s Finger build by Fritzing and Aisler — from breadboard to fingertip, one glowing episode at a time.*
