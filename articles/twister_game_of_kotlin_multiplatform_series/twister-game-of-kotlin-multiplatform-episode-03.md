@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.3: The Referee’s Call — expect/actual”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.3"
 published: false
-description: “Episode 3: In Twister, the referee calls a move and every player must execute it — but each from their own position, in their own way. In Kotlin Multiplatform, expect/actual is that referee call. commonMain declares the expectation — the move that must be made. Each platform provides the actual — the specific way they execute it from where they stand. The platform bridge, explained completely.”
+description: "Episode 3: In Twister, the referee calls a move and every player must execute it — but each from their own position, in their own way. In Kotlin Multiplatform, expect/actual is that referee call. commonMain declares the expectation — the move that must be made. Each platform provides the actual — the specific way they execute it from where they stand. The platform bridge, explained completely."
 tags: [kotlin, multiplatform, expectactual, android]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-03.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-03.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 3: The Referee’s Call — expect/actual
 
