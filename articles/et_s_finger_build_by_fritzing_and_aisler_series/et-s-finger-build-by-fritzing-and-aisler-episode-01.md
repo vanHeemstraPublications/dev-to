@@ -1,5 +1,5 @@
 ---
-title: "E.T.‘s Finger by Fritzing and Aisler 🔴 Ep.1"
+title: "E.T.‘s Finger build by Fritzing and Aisler 🔴 Ep.1"
 published: false
 description: "Episode 1: A long time ago, a small alien pressed his glowing fingertip against a child’s forehead and left a warmth that never faded. We are going to build that finger — a wearable PCB that glows warm amber-red at a touch, breathes like a heartbeat, and fits on your fingertip. This is how we plan it, install Fritzing, and begin the journey from the movie screen to your breadboard."
 tags: [fritzing, aisler, electronics, makers]
