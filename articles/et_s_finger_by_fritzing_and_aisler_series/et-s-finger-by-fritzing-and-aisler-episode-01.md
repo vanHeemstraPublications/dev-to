@@ -1,16 +1,14 @@
------
-
-## title: “E.T.‘s Finger by Fritzing and Aisler! Ep.1: E.T. Phone Home”
+---
+title: "E.T.‘s Finger by Fritzing and Aisler 🔴 Ep.1"
 published: false
-description: “Episode 1: A long time ago, a small alien pressed his glowing fingertip against a child’s forehead and left a warmth that never faded. We are going to build that finger — a wearable PCB that glows warm amber-red at a touch, breathes like a heartbeat, and fits on your fingertip. This is how we plan it, install Fritzing, and begin the journey from the movie screen to your breadboard.”
+description: "Episode 1: A long time ago, a small alien pressed his glowing fingertip against a child’s forehead and left a warmth that never faded. We are going to build that finger — a wearable PCB that glows warm amber-red at a touch, breathes like a heartbeat, and fits on your fingertip. This is how we plan it, install Fritzing, and begin the journey from the movie screen to your breadboard."
 tags: [fritzing, aisler, electronics, makers]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-finger-episode-01.png>”
-series: “E.T.’s Finger by Fritzing and Aisler”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/et-finger-episode-01.png"
+series: "E.T.’s Finger by Fritzing and Aisler"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# E.T.’s Finger by Fritzing and Aisler! 🔴
+---
 
 ## Episode 1: E.T. Phone Home
 
