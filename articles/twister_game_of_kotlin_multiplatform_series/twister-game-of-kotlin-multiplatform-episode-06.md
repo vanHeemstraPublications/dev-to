@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.6: Shared Moves — Compose Multiplatform”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.6"
 published: false
-description: “Episode 6: The boldest move in Twister is when everyone simultaneously reaches for the same yellow circle — and stays balanced. Compose Multiplatform is that move: one @Composable function rendering on Android, iOS, and Desktop simultaneously. Stable since May 2025. Shared navigation, shared resources, shared UI with platform-specific tweaks where needed. The mat becomes a stage.”
+description: "Episode 6: The boldest move in Twister is when everyone simultaneously reaches for the same yellow circle — and stays balanced. Compose Multiplatform is that move: one @Composable function rendering on Android, iOS, and Desktop simultaneously. Stable since May 2025. Shared navigation, shared resources, shared UI with platform-specific tweaks where needed. The mat becomes a stage."
 tags: [kotlin, compose, multiplatform, ui]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-06.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-06.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 6: Shared Moves — Compose Multiplatform
 
