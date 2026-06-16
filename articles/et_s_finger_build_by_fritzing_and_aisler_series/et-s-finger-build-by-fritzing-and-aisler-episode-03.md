@@ -1,5 +1,5 @@
 ---
-title: "E.T.‘s Finger by Fritzing and Aisler 🔴 Ep.3"
+title: "E.T.‘s Finger build by Fritzing and Aisler 🔴 Ep.3"
 published: false
 description: "Episode 3: ‘I’ll be right here,’ says E.T., pressing his glowing finger to Elliott’s forehead. The schematic is that promise. It is the document that persists through every physical revision, every component swap, every board respin. It tells the permanent truth about what the circuit does. This episode cleans up the Fritzing schematic view: proper symbols, net labels, power flags, and a complete circuit document."
 tags: [fritzing, schematic, electronics, documentation]
