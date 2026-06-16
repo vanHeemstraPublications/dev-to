@@ -1,5 +1,5 @@
 ---
-title: "E.T.‘s Finger by Fritzing and Aisler 🔴 Ep.4"
+title: "E.T.‘s Finger build by Fritzing and Aisler 🔴 Ep.4"
 published: false
 description: "Episode 4: The moment E.T. opened his eyes in the ice chest and his heart light blazed, everyone in the cinema felt it — the sudden blazing return of something that should not exist but does. In our project, this is the PCB view: the moment the circuit stops being an abstraction and becomes a physical object. We shape the board like a fingertip, route the traces, pour the ground plane, and run the DRC."
 tags: [fritzing, pcb, layout, electronics]
