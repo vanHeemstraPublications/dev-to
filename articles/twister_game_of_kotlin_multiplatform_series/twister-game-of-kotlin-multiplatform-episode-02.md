@@ -6,7 +6,7 @@ tags: [kotlin, multiplatform, gradle, architecture]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-02.png"
 series: "Twister Game of Kotlin Multiplatform
 canonical_url: ""
-organization: "the-software-s-journey
+organization: "the-software-s-journey"
 part: 1
 ---
 
