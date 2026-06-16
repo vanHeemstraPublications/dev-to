@@ -236,4 +236,4 @@ In **Episode 2**, we open Fritzing’s Breadboard view and begin placing compone
 
 -----
 
-*🔴 E.T.’s Finger by Fritzing and Aisler — from breadboard to fingertip, one glowing episode at a time.*
+*🔴 E.T.’s Finger build by Fritzing and Aisler — from breadboard to fingertip, one glowing episode at a time.*
