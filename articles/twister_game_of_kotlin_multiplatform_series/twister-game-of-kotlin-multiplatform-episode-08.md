@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.8: Winning the Game — Production and Beyond”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.8"
 published: false
-description: “Episode 8: The finale. The mat is full. Every player holds their position. The game is won not by the boldest move but by staying balanced the longest. Testing strategy across platforms. Jetpack libraries in KMP. Version management. Performance profiling. The complete production deployment checklist. And a look at where the game goes next — Kotlin/Wasm maturing, Swift interop improving, the mat growing.”
+description: "Episode 8: The finale. The mat is full. Every player holds their position. The game is won not by the boldest move but by staying balanced the longest. Testing strategy across platforms. Jetpack libraries in KMP. Version management. Performance profiling. The complete production deployment checklist. And a look at where the game goes next — Kotlin/Wasm maturing, Swift interop improving, the mat growing."
 tags: [kotlin, multiplatform, testing, production]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-08.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-08.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 8: Winning the Game — Production and Beyond
 
