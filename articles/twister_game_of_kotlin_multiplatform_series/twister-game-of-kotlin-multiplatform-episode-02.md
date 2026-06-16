@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.2: Left Hand Red — The Source Set Circles”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.2"
 published: false
-description: “Episode 2: The Twister mat has coloured circles — yellow, red, blue, green. In Kotlin Multiplatform, source sets are those circles. commonMain is the shared yellow circle everyone touches. androidMain, iosMain, jvmMain are the platform-exclusive colours. But there are also intermediate circles — appleMain, nativeMain — that some players share but others cannot reach. Every circle, mapped and explained.”
+description: "Episode 2: The Twister mat has coloured circles — yellow, red, blue, green. In Kotlin Multiplatform, source sets are those circles. commonMain is the shared yellow circle everyone touches. androidMain, iosMain, jvmMain are the platform-exclusive colours. But there are also intermediate circles — appleMain, nativeMain — that some players share but others cannot reach. Every circle, mapped and explained."
 tags: [kotlin, multiplatform, gradle, architecture]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-02.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-02.png"
+series: "Twister Game of Kotlin Multiplatform
+canonical_url: ""
+organization: "the-software-s-journey
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 2: Left Hand Red — The Source Set Circles
 
