@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.7: Tournament Play — Advanced Architecture”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.7"
 published: false
-description: “Episode 7: Tournament Twister. More players, more circles, longer games, higher stakes. Clean Architecture in KMP with multi-module projects. SKIE for natural Swift interoperability with Kotlin coroutines. Kotlin/Wasm for browser targets. klib cross-compilation enabling CI without macOS. The techniques that separate production KMP apps from prototypes.”
+description: "Episode 7: Tournament Twister. More players, more circles, longer games, higher stakes. Clean Architecture in KMP with multi-module projects. SKIE for natural Swift interoperability with Kotlin coroutines. Kotlin/Wasm for browser targets. klib cross-compilation enabling CI without macOS. The techniques that separate production KMP apps from prototypes."
 tags: [kotlin, multiplatform, architecture, advanced]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-07.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-07.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 7: Tournament Play — Advanced Architecture
 
