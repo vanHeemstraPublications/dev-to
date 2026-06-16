@@ -1,5 +1,5 @@
 ---
-title: "E.T.‘s Finger by Fritzing and Aisler 🔴 Ep.7"
+title: "E.T.‘s Finger build by Fritzing and Aisler 🔴 Ep.7"
 published: false
 description: "Episode 7: ‘We’re home.’ Elliot says it as E.T.’s heart light blazes and the flowers spring back to life. The boards have arrived from AISLER. The components are waiting. The soldering iron is at temperature. This episode assembles the E.T. Finger PCB from bare board to complete device: every component, every solder joint, every order of operations. We solder our way home."
 tags: [soldering, electronics, assembly, makers]
