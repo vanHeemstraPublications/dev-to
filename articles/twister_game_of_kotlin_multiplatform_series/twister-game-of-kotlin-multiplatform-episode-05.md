@@ -1,16 +1,14 @@
------
-
-## title: “Twister Game of Kotlin Multiplatform! Ep.5: Two Players, One Circle — SQLDelight and Persistence”
+---
+title: "Twister Game of Kotlin Multiplatform 🎯 Ep.5"
 published: false
-description: “Episode 5: Two players, one circle — Android and iOS both need local persistence, but each uses different database drivers. SQLDelight generates type-safe Kotlin from SQL that works on every platform. Koin dependency injection wires the right driver to the right platform. Multiplatform Settings handles simple key-value storage. The shared persistence layer, built completely.”
+description: "Episode 5: Two players, one circle — Android and iOS both need local persistence, but each uses different database drivers. SQLDelight generates type-safe Kotlin from SQL that works on every platform. Koin dependency injection wires the right driver to the right platform. Multiplatform Settings handles simple key-value storage. The shared persistence layer, built completely."
 tags: [kotlin, multiplatform, sqldelight, persistence]
-cover_image: “<https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-05.png>”
-series: “Twister Game of Kotlin Multiplatform”
-canonical_url: “”
-organization: “the-software-s-journey”
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/twister-kmp-episode-05.png"
+series: "Twister Game of Kotlin Multiplatform"
+canonical_url: ""
+organization: "the-software-s-journey"
 part: 1
-
-# Twister Game of Kotlin Multiplatform! 🎯
+---
 
 ## Episode 5: Two Players, One Circle — SQLDelight and Persistence
 
