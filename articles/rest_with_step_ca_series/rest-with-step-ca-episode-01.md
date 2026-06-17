@@ -4,9 +4,9 @@ published: false
 description: "Episode 1: step-ca is a private Certificate Authority that speaks plain HTTPS. You can curl it, script it, and wrap it in a Python class. This episode introduces step-ca, explains why a REST interface beats shelling out to the CLI, surveys the full HTTP API surface with architecture diagrams, and spins up a local CA in Docker — ready for the eight-episode Python integration journey ahead."
 tags: [python, security, certificates, devops]
 cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/rest-with-step-ca-episode-01.png"
-series: "REST with step-ca
+series: "REST with step-ca"
 canonical_url: ""
-organization: "the-software-s-journey
+organization: "the-software-s-journey"
 part: 1
 ---
 
