@@ -7,7 +7,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "REST with step-ca"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
+part: 6
 ---
 
 ## Episode 6: Still Breathing — mTLS Renewal and the Daemon
