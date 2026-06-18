@@ -40,13 +40,13 @@ Eight episodes. One class. Complete certificate lifecycle management in Python.
 ## System Architecture: The Three-Layer Picture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                      YOUR INFRASTRUCTURE                            │
-│                                                                     │
-│  ┌──────────────────────┐        ┌──────────────────────────────┐  │
-│  │   Python Application │        │   step-ca Server             │  │
-│  │                      │        │   (Docker / bare metal)      │  │
-│  │  ┌────────────────┐  │        │                              │  │
+┌───────────────────────────────────────────────────────────────────┐
+│                      YOUR INFRASTRUCTURE                          │
+│                                                                   │
+│  ┌──────────────────────┐        ┌─────────────────────────────┐  │
+│  │   Python Application │        │   step-ca Server            │  │
+│  │                      │        │   (Docker / bare metal)     │  │
+│  │  ┌────────────────┐  │        │                             │  │
 │  │  │ StepCAClient   │  │ HTTPS  │  ┌────────────────────────┐ │  │
 │  │  │                │◄─┼────────┼─►│  REST API  :9000       │ │  │
 │  │  │  health()      │  │  JSON  │  │  /health               │ │  │
@@ -63,16 +63,16 @@ Eight episodes. One class. Complete certificate lifecycle management in Python.
 │  │  - python-jose (JWT) │        │  │  Authority (Go)        │ │  │
 │  │  - jwcrypto (JWE)    │        │  │  Intermediate CA Key   │ │  │
 │  └──────────────────────┘        │  │  JWK Provisioner       │ │  │
-│                                   │  │  BadgerDB / MySQL      │ │  │
+│                                  │  │  BadgerDB / MySQL      │ │  │
 │  ┌──────────────────────┐        │  └────────────────────────┘ │  │
-│  │   Root CA Trust      │        │                              │  │
+│  │   Root CA Trust      │        │               /             │  │
 │  │   root_ca.crt        │        │  ┌────────────────────────┐ │  │
 │  │   (PEM on disk)      │        │  │  Root CA (offline)     │ │  │
 │  │   Used by httpx to   │        │  │  root_ca.crt           │ │  │
 │  │   verify CA's TLS    │        │  │  intermediate_ca.crt   │ │  │
 │  └──────────────────────┘        │  └────────────────────────┘ │  │
-│                                   └──────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────────┘
+│                                  └─────────────────────────────┘  │
+└───────────────────────────────────────────────────────────────────┘
 ```
 
 The Python client and step-ca server communicate over HTTPS. The client verifies the server’s certificate using the root CA certificate it bootstrapped at startup. Every request after bootstrapping is mutually authenticated through the root of trust.
