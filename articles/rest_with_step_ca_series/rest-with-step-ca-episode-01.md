@@ -122,7 +122,7 @@ IS:                                    IS NOT:
 ────────────────────────────────────  ────────────────────────────────────
 ✓ An online intermediate CA           ✗ A full enterprise PKI platform
 ✓ Clean REST API with JSON            ✗ A certificate history/audit UI
-✓ JWK, ACME, OIDC, cloud providers   ✗ Full CRL / OCSP support (limited)
+✓ JWK, ACME, OIDC, cloud providers    ✗ Full CRL / OCSP support (limited)
 ✓ Short-lived cert automation         ✗ Certificate Transparency log support
 ✓ Runs in Docker, single binary       ✗ Dynamic SCEP (Intune/Jamf)
 ✓ SSH cert support (bonus)            ✗ Multi-issuing-CA topology
