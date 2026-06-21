@@ -7,7 +7,7 @@ cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/m
 series: "Luxo Jr. with Palmier"
 canonical_url: ""
 organization: "the-software-s-journey"
-part: 1
+part: 5
 ---
 
 # Luxo Jr. with Palmier! 💡
