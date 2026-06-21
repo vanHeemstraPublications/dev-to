@@ -221,26 +221,26 @@ A pattern emerges: every contract has the same four-part skeleton — `apiVersio
 
 ```
                     BOTH RUNTIME PLATFORMS
-        ┌─────────────────────┐   ┌─────────────────────┐
-        │ Detective Operating │   │   Agility Game       │
-        │       System        │   │  (hypothetical, not  │
-        │  (Kotlin/JVM/Ktor)  │   │   shipped here)       │
-        └──────────┬───────────┘   └───────────┬───────────┘
-                   │                            │
-                   │   import contracts.mission │
-                   │   import contracts.space   │
-                   │   import contracts.agent   │
-                   ▼                            ▼
+        ┌─────────────────────┐    ┌──────────────────────┐
+        │ Detective Operating │    │   Agility Game       │
+        │       System        │    │  (hypothetical, not  │
+        │  (Kotlin/JVM/Ktor)  │    │   shipped here)      │
+        └──────────┬──────────┘    └───────────┬──────────┘
+                   │                           │
+                   │  import contracts.mission │
+                   │  import contracts.space   │
+                   │  import contracts.agent   │
+                   ▼                           ▼
         ┌──────────────────────────────────────────────────┐
         │           contracts/ (Kotlin Multiplatform)      │
         │                                                  │
-        │   Space.kt    Mission.kt    Agent.kt              │
-        │   Evidence.kt   Result.kt                          │
-        │   state/ObjectMeta.kt   state/Phases.kt            │
+        │   Space.kt    Mission.kt    Agent.kt             │
+        │   Evidence.kt   Result.kt                        │
+        │   state/ObjectMeta.kt   state/Phases.kt          │
         │                                                  │
-        │   @Serializable data classes — NO behaviour,      │
-        │   NO Kubernetes client, NO Ktor, NO controller     │
-        │   logic. Pure, inert, typed JSON shapes.           │
+        │   @Serializable data classes — NO behaviour,     │
+        │   NO Kubernetes client, NO Ktor, NO controller   │
+        │   logic. Pure, inert, typed JSON shapes.         │
         └──────────────────────────────────────────────────┘
                               │
                               │ compiles via kotlinx.serialization
