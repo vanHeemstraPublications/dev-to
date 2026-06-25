@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 1
 ---
 
-## 🧳 The Traveler Who Has Never Met You
+## Episode 1: The Traveler Who Has Never Met You
 
 Picture an arrivals hall. A traveler steps up to the booth. The border officer has never met this person in their life. Has no idea what kind of music they like, whether they remembered to water their plants before leaving, or what they had for breakfast. And yet, within about four seconds, the officer waves them through.
 
