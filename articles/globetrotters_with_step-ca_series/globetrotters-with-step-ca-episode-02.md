@@ -1,5 +1,5 @@
 ---
-title: "A Letter Only One Hand Can Sign ✍️ Ep.2"
+title: "Globetrotters with step-ca ✍️ Ep.2"
 published: false
 description: "Episode 2: Two ways to prove a message is genuine: a shared secret handshake everyone in the circle knows, or a signature that only one specific hand can produce. This episode covers message authentication codes and digital signatures, and why the difference matters enormously the moment more than two parties are involved."
 tags: [security, pki, cryptography, beginners]
