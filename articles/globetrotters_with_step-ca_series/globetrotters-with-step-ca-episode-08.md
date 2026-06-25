@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 8
 ---
 
-## The Folder of Stamps Back to the Homeland
+## Episode 8: The Folder of Stamps Back to the Homeland
 
 A passport on its own usually does the job. But sometimes -- crossing into a country with stricter requirements, traveling on a diplomatic mission, carrying documents on behalf of an organization -- a single passport isn't enough. You need the supporting visa stapled in, maybe a letter of introduction from your embassy, a whole small folder of documents that together trace an unbroken line of authority back to a government the border officer actually recognizes.
 
