@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 2
 ---
 
-## A Letter Only One Hand Can Sign
+## Episode 2: A Letter Only One Hand Can Sign
 
 Two travel buddies arrange a secret handshake before they part ways at the airport, so that if one of them later sends a postcard, the other can tell it's genuinely from them and not some prankster who found their address. That handshake is a shared secret. Both people know it. Either one could fake a postcard "from the other," and there'd be no way to tell who actually wrote it.
 
