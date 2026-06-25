@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 4
 ---
 
-## The Passport That Binds a Face to a Name
+## Episode 4: The Passport That Binds a Face to a Name
 
 Episode 3 ended on an unresolved problem: vision only helps you recognize a face you've already seen. What does a border officer do with a traveler whose face they have genuinely never encountered before?
 
