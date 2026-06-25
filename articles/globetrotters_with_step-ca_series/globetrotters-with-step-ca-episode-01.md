@@ -1,9 +1,9 @@
 ---
-title: "🧳 The Traveler Who Has Never Met You"
+title: "Globetrotters with step-ca 🧳 Ep.1"
 published: false
 description: "Episode 1: Before any passport is stamped or any border is crossed, we need a shared vocabulary. This episode lays out the cast of characters in every PKI story -- entities, identities, claims, subscribers, certificate authorities, and relying parties -- using the oldest trick in human travel: trusting a stranger because someone else vouched for them."
 tags: [security, pki, stepca, beginners]
-cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/globetrotters-stepca-episode-01.png"
+cover_image: "https://raw.githubusercontent.com/vanHeemstraPublications/dev-to/main/images/globetrotters-with-step-ca-episode-01.png"
 series: "Globetrotters with step-ca"
 canonical_url: ""
 organization: "the-software-s-journey"
