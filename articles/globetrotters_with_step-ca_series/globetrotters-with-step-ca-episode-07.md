@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 7
 ---
 
-## The Border Officer's Little Black Book
+## Episode 7: The Border Officer's Little Black Book
 
 We glossed over something important back in Episode 4. We said a relying party can verify a certificate's signature if they know the issuer's public key. Fine -- but how, exactly, does the relying party come to know that public key in the first place? Somebody had to tell them, at some point, to trust it.
 
