@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 3
 ---
 
-## The Power to See Without Touching
+## Episode 3: The Power to See Without Touching
 
 To prove you know a password, you have to share it. The moment you do, whoever you shared it with can use that password themselves, indistinguishably from you. Passwords are a one-way ticket: once shared, the secret stops being exclusively yours.
 
