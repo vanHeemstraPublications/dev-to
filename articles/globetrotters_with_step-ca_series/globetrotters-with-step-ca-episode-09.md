@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 9
 ---
 
-## Choosing What Name Goes on the Cover
+## Episode 9: Choosing What Name Goes on the Cover
 
 Imagine a passport whose cover tried to cram in your name, your hometown, your employer, your favorite color, and a few other fields nobody asked for, all squeezed into one crowded line. That's roughly what the original X.509 naming scheme looked like, and the modern world has quietly moved past it in favor of something cleaner.
 
