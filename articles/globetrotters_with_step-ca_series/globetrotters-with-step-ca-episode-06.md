@@ -10,7 +10,7 @@ organization: "the-software-s-journey"
 part: 6
 ---
 
-## Public Roads Versus Private Estates
+## Episode 6: Public Roads Versus Private Estates
 
 The passport you carry across an international border is issued by a national government and recognized by essentially every other government on Earth. That's enormously convenient -- and entirely the wrong tool for getting your employees through your own office's front door. For that, you don't need a passport. You need an employee badge, issued by your own security office, recognized only by your own door scanners, governed entirely by your own rules about who gets one and for how long.
 
