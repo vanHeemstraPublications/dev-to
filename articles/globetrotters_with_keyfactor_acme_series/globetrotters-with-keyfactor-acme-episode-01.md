@@ -1,12 +1,12 @@
 ---
-title: "🌍 The Travel Agency Opens Ep.1"
+title: "Globetrotters with Keyfactor ACME 🌍 Ep.1"
 series: "Globetrotters with Keyfactor ACME"
 part: 1
 organization: "the-software-s-journey"
 tags: [keyfactor, acme, pki, certificates, automation, rfc8555]
 ---
 
-## 🌍 Episode 1: The Travel Agency Opens
+## Episode 1: The Travel Agency Opens
 
 Picture a bustling travel agency counter. Travelers walk up needing one thing: a stamped, trusted document that lets them cross a border without a fuss. That document is a digital certificate. The travelers are ACME clients like Certbot. The borders are the domains they need to prove they own. And the agency, quietly making all the calls behind the counter, is the Keyfactor ACME server.
 
