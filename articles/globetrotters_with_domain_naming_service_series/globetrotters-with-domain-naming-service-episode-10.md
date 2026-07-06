@@ -1,0 +1,23 @@
+---
+title: "Globetrotters with Domain Naming Service 📋 Ep.10"
+series: "Globetrotters with Domain Naming Service"
+part: 10
+organization: "the-software-s-journey"
+tags: [dns, architecture, review, recommendations]
+---
+
+## Episode 10: The Trip Report
+
+Every good expedition ends with a debrief: what the itinerary got right, and what still needs a decision before the next group sets off. The recommended two-lane architecture earns its keep on five counts. Central DNS is unloaded — the pop-up campsite's churn stays inside a delegated neighborhood the platform team owns, and the national registry sees only the delegation and the front-door listing. The wildcard is used the way a wildcard should be used — pointed at exactly one front door, never at a pool of residents, so it stays a name-matching trick rather than a broken routing mechanism. TLS validation keeps working end to end, whichever lane a guest takes, because the passport handed over always matches the name that was actually asked for. The two lanes are traffic-aware — HTTP(S) travels the hotel route, direct TCP/UDP travels the village route, and neither shape gets forced onto traffic it does not fit. And the whole system is lifecycle-driven: DNS updates fall out of DevBench check-ins and check-outs automatically, with no operator ever standing at the desk making the call by hand.
+
+Ten items still belong on the itinerary before the map is truly finished. The `dns.svg` companion is still a title placeholder and needs the actual two-lane diagram drawn in — central DNS holding only the delegation and VIP, the wildcard-to-VIP path, and the delegated neighborhood fed by DDNS/DHCP/IPAM. The delegated street name itself, `devbench.company.internal`, is a placeholder pending confirmation per environment, and that delegation needs registering with whoever owns central DNS today. Ownership of the delegated neighborhood — the zone, the housing pool, the wildcard VIP record, the wildcard passport — has not yet been assigned to an existing team's remit and needs to land squarely with the DevBench platform team. The night auditor's schedule, its threshold for what counts as stale, and its alert threshold on eviction counts all still need concrete numbers. The wildcard passport for `*.devbench.company.internal` needs its issuer decision locked in — the existing `cert-manager` + `Keyfactor ACME Server` chain, renewed with a healthy overlap before expiry. Per-resident passports, where Lane B needs them, need their issuance path confirmed through the SUT-side PKI Client's `ACME Adapter`, so both cluster and DevBench passports trace back to the same root of trust. If any guest from outside the fab network ever needs to reach these names, a split-horizon view exposing only the wildcard-to-VIP listing needs publishing — the delegated neighborhood itself should never be visible from outside. Reverse listings are an easy thing to let slip, so `PTR` maintenance belongs in the DDNS automation from day one, with the night auditor checking for orphans there too. The control plane's check-out process needs to be genuinely transactional — a DevBench is not considered gone until both the IPAM release and the DDNS delete are confirmed, with retries until they are. And metrics for DDNS add/delete rate, scavenger evictions, and routing-table size in the wildcard VIP all still need defining as first-class platform signals — a sudden climb in any of them is the earliest warning that the automation itself is starting to fail.
+
+That closes the route map: from the first mention of a shared address book, through passport control, the pop-up campsite's scaling strain, two honest lanes across the border, the shortcut that looked clever and was not, the housekeeping that keeps it all trustworthy, and the passports that ride on top of every one of these decisions. The Domain Naming Service was never just a lookup table in this journey — it was the itinerary the whole trip was built around.
+
+### SIPOC
+
+| Supplier | Input | Process | Output | Customer |
+|---|---|---|---|---|
+| This analysis (dns.md) | Architectural review of the two-lane recommendation | Compile strengths and open items | Trip report with ten actionable review items | Virtual Fab Secure Interface Enablement project stakeholders |
+| DevBench platform team | Open review items | Assign owners, define thresholds, confirm issuer paths | Closed action items, named accountability | Central DNS owner, PKI Client team, security reviewers |
+| Diagram author | Placeholder `dns.svg` | Draw the two-lane recommended architecture | Companion diagram matching the written recommendation | Future readers of this series |
