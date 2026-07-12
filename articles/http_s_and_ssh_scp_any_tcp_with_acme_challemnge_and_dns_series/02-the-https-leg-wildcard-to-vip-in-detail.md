@@ -1,12 +1,12 @@
 ---
-title: "🌐 The HTTPS Leg: Wildcard-to-VIP in Detail"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🌐 Ep.2"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 2
 organization: "the-software-s-journey"
 tags: [dns, tls, sni, f5, wildcard-certificate, load-balancing]
 ---
 
-## 🌐 The HTTPS Leg: Wildcard-to-VIP in Detail
+## Episode 2: The HTTPS Leg: Wildcard-to-VIP in Detail
 
 Follow a single `curl https://db-a1b2c3.devbench.company.internal/…` from a Virtual Fab Client and six things happen in order. First, name resolution: the client queries `db-a1b2c3.devbench.company.internal`, the query lands on Central DNS, and the wildcard `*.devbench A 10.20.30.40` matches — every name under `*.devbench.company.internal`, regardless of which DevBench it names, returns the same VIP. Second, TCP and TLS setup to the VIP: the client opens a connection to `10.20.30.40:443` and sends `SNI=db-a1b2c3.devbench.company.internal` in the `ClientHello`, along with `Host: db-a1b2c3.devbench.company.internal` on the HTTP request itself. Third, TLS termination at the F5: it presents the wildcard certificate (`CN/SAN: *.devbench.company.internal`), and because the SAN wildcard covers the whole subdomain, hostname validation under `RFC 6125`/`RFC 9525` succeeds for any `db-<id>.devbench.company.internal` name. Fourth, SNI/Host-based routing: the F5 inspects `SNI` (and `Host` for HTTP/2 or muxed connections) and looks up the specific DevBench in a routing table that the DevBench control plane keeps current — DNS plays no role in this per-DevBench step. Fifth, the backend hop: the F5 forwards across the firewall(s) to the HTTP(S) reverse proxy inside the SUT and on to the target DevBench, over a leg that is either plaintext-inside-a-trusted-network or a re-encrypt with an internal certificate — no per-bench external certificate is required here. Sixth, the response returns along the same established TLS session.
 
