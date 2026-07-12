@@ -1,12 +1,12 @@
 ---
-title: "🧭 Option D Overview: The Recommended Hybrid Architecture"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🧭 Ep.1"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 1
 organization: "the-software-s-journey"
 tags: [dns, architecture, tls, acme, devbench, virtual-fab]
 ---
 
-## 🧭 Option D Overview: The Recommended Hybrid Architecture
+## Episode 1: Option D Overview: The Recommended Hybrid Architecture
 
 Option D is the recommended target architecture for DevBench naming and access in the Virtual Fab. It does not introduce a new DNS pattern of its own — it layers two already-understood patterns, Option A (wildcard-to-VIP) and Option B (delegated subzone with DDNS), into a single deployment and picks the leg per traffic class rather than as a single global switch.
 
