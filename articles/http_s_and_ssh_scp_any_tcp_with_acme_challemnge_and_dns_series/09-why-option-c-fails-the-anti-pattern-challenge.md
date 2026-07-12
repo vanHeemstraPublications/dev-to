@@ -1,12 +1,12 @@
 ---
-title: "🚫 Why Option C Fails: The Anti-Pattern Challenge"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🚫 Ep.9"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 9
 organization: "the-software-s-journey"
 tags: [acme, anti-pattern, wildcard-dns, security, dns]
 ---
 
-## 🚫 Why Option C Fails: The Anti-Pattern Challenge
+## Episode 9: Why Option C Fails: The Anti-Pattern Challenge
 
 Option C is not a deployment recommendation; it is drawn only to show why the ACME challenge cannot be arranged soundly on top of a wildcard-to-pool DNS shape. It is explicitly ruled out by the recommended architecture: never point a wildcard at a pool of DevBench IPs. The shape is a single wildcard record, `*.devbench.company.internal`, resolving to a round-robin set of DevBench IPs rather than a single VIP. Because the wildcard returns the same answer set regardless of the queried name, the certificate authority's verifier — fetching the proof over that name — may land on a different DevBench than the one that actually placed the proof.
 
