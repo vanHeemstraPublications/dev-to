@@ -1,12 +1,12 @@
 ---
-title: "🤝 Option D's Combined Challenge Model: Two Proofs, One Certificate Authority"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🤝 Ep.10"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 10
 organization: "the-software-s-journey"
 tags: [acme, keyfactor, architecture, decision-making, tls]
 ---
 
-## 🤝 Option D's Combined Challenge Model: Two Proofs, One Certificate Authority
+## Episode 10: Option D's Combined Challenge Model: Two Proofs, One Certificate Authority
 
 Option D does not invent a new challenge model. It runs Option A's shared wildcard proof on the HTTP(S) leg and Option B's per-bench proof on the direct leg, at the same time, both terminating at the same `Keyfactor ACME Server → Keyfactor Command → Configured CA` chain. Only the proof spot and the renewal cadence differ between the two.
 
