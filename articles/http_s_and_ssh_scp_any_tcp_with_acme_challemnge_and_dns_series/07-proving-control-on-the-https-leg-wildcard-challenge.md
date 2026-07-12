@@ -1,12 +1,12 @@
 ---
-title: "🏛️ Proving Control on the HTTPS Leg: The Wildcard Challenge"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🏛️ Ep.7"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 7
 organization: "the-software-s-journey"
 tags: [acme, dns-01, wildcard-certificate, cert-manager, keyfactor]
 ---
 
-## 🏛️ Proving Control on the HTTPS Leg: The Wildcard Challenge
+## Episode 7: Proving Control on the HTTPS Leg: The Wildcard Challenge
 
 On the HTTP(S) leg, one shared proof at the front door covers every DevBench name at once. The certificate being issued is a wildcard for `*.devbench.company.internal`, and it lives on the F5 front door, not on any individual DevBench. The requester is `cert-manager`, running in the Virtual Fab cluster, using the same automated path already used elsewhere in the environment. Every renewal goes through the same challenge.
 
