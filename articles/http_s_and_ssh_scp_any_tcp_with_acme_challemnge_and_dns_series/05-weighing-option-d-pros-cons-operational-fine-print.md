@@ -1,12 +1,12 @@
 ---
-title: "🧮 Weighing Option D: Pros, Cons, and the Operational Fine Print"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🧮 Ep.5"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 5
 organization: "the-software-s-journey"
 tags: [dns, operations, risk, ttl, observability, decision-making]
 ---
 
-## 🧮 Weighing Option D: Pros, Cons, and the Operational Fine Print
+## Episode 5: Weighing Option D: Pros, Cons, and the Operational Fine Print
 
 Option D earns its recommendation on eight counts. It fits the traffic to the pattern rather than forcing one shape onto everything — HTTP(S) uses wildcard-to-VIP, SSH and arbitrary TCP use the delegated subzone, and neither is forced onto traffic it does not suit. Central DNS is unloaded completely, holding only one wildcard record and one `NS` delegation. The wildcard is used correctly — pointed at a single VIP that does the actual routing, never at a pool of DevBench IPs. Both TLS validation models work end to end on their respective legs, so any strict-verify client keeps working unmodified and the Downgrade Guard never needs to fire. Per-bench identity is available exactly where it is needed, without forcing that cost onto traffic that does not need it. Everything is lifecycle-driven, with no manual operator step in normal operation. Blast radius is split by leg — an F5 outage takes down HTTP(S) but not SSH; a platform-authoritative DNS outage takes down direct-name resolution but not HTTP(S). And the whole design reuses existing infrastructure: both DDI planes are InfoBlox, and both certificate types issue through the existing Keyfactor ACME chain.
 
