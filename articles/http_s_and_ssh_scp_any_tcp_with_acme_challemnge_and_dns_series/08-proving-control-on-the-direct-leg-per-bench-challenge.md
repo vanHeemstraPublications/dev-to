@@ -1,12 +1,12 @@
 ---
-title: "🎫 Proving Control on the Direct Leg: The Per-Bench Challenge"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🎫 Ep.8"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 8
 organization: "the-software-s-journey"
 tags: [acme, dns-01, http-01, per-bench-certificate, pki-client]
 ---
 
-## 🎫 Proving Control on the Direct Leg: The Per-Bench Challenge
+## Episode 8: Proving Control on the Direct Leg: The Per-Bench Challenge
 
 On the direct-access leg, the proof is placed once per DevBench, at each DevBench's own service door, rather than once for the whole subdomain. The certificate being issued is a per-bench certificate whose name matches exactly the DevBench being claimed — `db-a1b2c3.devbench.company.internal` — and it lives on that specific machine. The requester is the SUT-side PKI Client's ACME Adapter, driven by the same DevBench lifecycle event that already creates the name in the platform-authoritative DNS.
 
