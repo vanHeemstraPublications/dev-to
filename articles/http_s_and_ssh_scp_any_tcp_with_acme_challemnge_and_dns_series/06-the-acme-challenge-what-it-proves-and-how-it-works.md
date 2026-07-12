@@ -1,12 +1,12 @@
 ---
-title: "🔑 The ACME Challenge: What It Proves and How It Works"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🔑 Ep.6"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 6
 organization: "the-software-s-journey"
 tags: [acme, tls, pki, dns-01, http-01, certificates]
 ---
 
-## 🔑 The ACME Challenge: What It Proves and How It Works
+## Episode 6: The ACME Challenge: What It Proves and How It Works
 
 Before Keyfactor will issue a certificate for a name like `db-a1b2c3.devbench.company.internal`, it insists on one thing: proof that the requester really controls that name today. That proof step is the ACME challenge — the moment "we say we own this name" becomes "we have demonstrated we own this name."
 
