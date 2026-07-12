@@ -1,12 +1,12 @@
 ---
-title: "🔐 The Direct-Access Leg: SSH, SCP, and Any TCP via Delegated DNS"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service 🔐 Ep.3"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 3
 organization: "the-software-s-journey"
 tags: [dns, ddns, dhcp, ipam, ssh, delegated-zone]
 ---
 
-## 🔐 The Direct-Access Leg: SSH, SCP, and Any TCP via Delegated DNS
+## Episode 3: The Direct-Access Leg: SSH, SCP, and Any TCP via Delegated DNS
 
 Follow an `ssh user@db-a1b2c3.devbench.company.internal` (or `scp …`) from the same Virtual Fab Client, and the path diverges from the very first lookup. Name resolution starts at Central DNS, but Central DNS holds a more-specific match than the wildcard: the delegation `devbench. ... NS platform-auth-dns. ...`. That delegation wins over the wildcard for names under `devbench.company.internal`, and Central DNS returns a referral instead of an answer. The client's resolver then follows that referral to the platform-authoritative DNS, which holds the actual per-bench `A` record — `db-a1b2c3.devbench.company.internal → 10.1.0.11` — published with a short TTL of 30–60 seconds by the DHCP/IPAM stack via an `RFC 2136` DDNS update at lease time.
 
