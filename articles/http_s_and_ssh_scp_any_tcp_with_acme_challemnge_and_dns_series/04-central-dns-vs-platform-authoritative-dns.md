@@ -1,12 +1,12 @@
 ---
-title: "⚖️ Central DNS vs Platform-Authoritative DNS: The Responsibility Split"
+title: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service ⚖️ Ep.4"
 series: "HTTP(S) and SSH, SCP, or any TCP with ACME Challenge and Domain Naming Service"
 part: 4
 organization: "the-software-s-journey"
 tags: [dns, infoblox, delegation, ownership, dns-planes]
 ---
 
-## ⚖️ Central DNS vs Platform-Authoritative DNS: The Responsibility Split
+## Episode 4: Central DNS vs Platform-Authoritative DNS: The Responsibility Split
 
 Option D deliberately splits the DNS surface into two authoritative planes with disjoint responsibilities. Central DNS, hosted on the top-centre InfoBlox instance, holds exactly two record shapes relevant to DevBenches: one wildcard `A` record (`*.devbench A 10.20.30.40`) and one `NS` delegation (`devbench. ... NS platform-auth-dns. ...`). It changes at a rate of roughly zero writes per day, and it is owned by the corporate networking team. Its role is to answer the HTTP(S) leg directly via the wildcard match, and to refer the SSH leg onward to the platform-authoritative DNS via the delegation.
 
