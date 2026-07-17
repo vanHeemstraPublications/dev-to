@@ -7,7 +7,7 @@ tags: [hyperframes, gsap, animation, composition, data-attributes]
 ---
 
 ## Episode 4: The East Australian Current: Clips, Tracks, and Timelines
-
+ 
 The EAC doesn't ask a sea turtle to swim — it asks the turtle to let go and be carried, which is a very different skill. HyperFrames' animation model works the same way. You don't hand-animate frame by frame; you build a timeline, pause it, register it, and let the renderer carry every clip through the current at exactly the beat you specified.
 
 The composition contract has exactly three rules, and our root element in `index.html` follows all three:
