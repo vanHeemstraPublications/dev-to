@@ -7,7 +7,7 @@ tags: [hyperframes, heygen, ai-agents, video, html, opensource]
 ---
 
 ## Episode 1: 42 Wallaby Way, the Reef Where Videos Are Born
-
+ 
 Somewhere past the drop-off, past the tank in the dentist's window, there is a reef where nothing gets made by hand anymore. You don't paint the coral or carve the anemone. You describe the reef you want, and the current itself writes the HTML, the CSS, and the JS that grows it. That reef is HyperFrames — HeyGen's open-source answer to the question of what happens when you let an AI agent edit video the way a developer edits a web page: by vibe-coding it, one composition at a time.
 
 This series does not stay theoretical. Starting with this episode, everything we build lives in one real, running project — a twenty-second promo literally titled "Nemo finds Hyperframes," composed from nothing but HTML, CSS, and a GSAP timeline. The full codebase backing every episode is public at [github.com/software-journey/hyperframes](https://github.com/software-journey/hyperframes). Clone it now if you want to follow along scene by scene as we build it up:
