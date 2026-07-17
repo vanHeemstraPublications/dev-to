@@ -7,7 +7,7 @@ tags: [hyperframes, skills, claude-code, cli, npx]
 ---
 
 ## Episode 2: Just Keep Swimming: Installing the Skills
-
+ 
 Dory's genius was never really about memory. It was about motion — the refusal to stop paddling just because the way forward wasn't obvious yet. `npx skills add heygen-com/hyperframes` is that same refusal, compressed into one line. This is the very first command we ran against the `hyperframes` repository before writing a single scene:
 
 ```bash
