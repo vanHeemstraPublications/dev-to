@@ -4,6 +4,7 @@ published: false
 description: "Why on-premise virtual machines need a hostname allocation strategy that is separate from the machine's identity in your hypervisor, and the architecture we will build across this series."
 tags: networking, dns, dhcp, infrastructure
 series: Call My Hostname
+part: 1
 organization: "the-software-s-journey"
 ---
 
