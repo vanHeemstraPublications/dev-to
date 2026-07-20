@@ -61,12 +61,12 @@ ISC dhcpd, the traditional Unix DHCP server, is now in maintenance mode upstream
 Three things worth explaining carefully to an apprentice:
 
 - **`pools` vs `reservations`.** The `pools` range is for dynamic, unreserved leases — anything without a matching reservation gets a temporary address from that range. `reservations` sit outside that logic entirely: Kea checks reservations first, and a reserved address does not need to fall inside the dynamic pool range at all (in this example it deliberately does not).
-- **The `hostname` field inside the reservation** is what Kea will both offer to the client via DHCP Option 12, and — critically for Part 5 — use as the name it registers in DNS. This must match, exactly, the hostname you injected via cloud-init in Part 3. If these two do not match, the machine will believe it is called one thing while DNS says another.
-- **`hw-address`** is the MAC address, the same one used as the key in the hostname ledger from Part 2. This is the thread that ties all three episodes together: one MAC address, one ledger entry, one cloud-init seed, one DHCP reservation.
+- **The `hostname` field inside the reservation** is what Kea will both offer to the client via DHCP Option 12, and — critically for Episode 5 — use as the name it registers in DNS. This must match, exactly, the hostname you injected via cloud-init in Episode 3. If these two do not match, the machine will believe it is called one thing while DNS says another.
+- **`hw-address`** is the MAC address, the same one used as the key in the hostname ledger from Episode 2. This is the thread that ties all three episodes together: one MAC address, one ledger entry, one cloud-init seed, one DHCP reservation.
 
 ## Automating reservation creation
 
-Since reservations should be generated from the same ledger as the hostname, not typed by hand, extend the allocation script from Part 2 to also emit a Kea reservation fragment:
+Since reservations should be generated from the same ledger as the hostname, not typed by hand, extend the allocation script from Episode 2 to also emit a Kea reservation fragment:
 
 ```python
 #!/usr/bin/env python3
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     print(json.dumps(build_reservation(mac, ip, hostname_short), indent=2))
 ```
 
-In practice, the IP address itself can come from a small IP pool ledger identical in structure to the hostname ledger in Part 2 (a table of `ip_address`, `mac_address`, `allocated_at`), so that IP allocation and hostname allocation both draw from tracked, non-overlapping pools rather than "the next free-looking address."
+In practice, the IP address itself can come from a small IP pool ledger identical in structure to the hostname ledger in Episode 2 (a table of `ip_address`, `mac_address`, `allocated_at`), so that IP allocation and hostname allocation both draw from tracked, non-overlapping pools rather than "the next free-looking address."
 
 ## Applying the change
 
@@ -113,15 +113,15 @@ ip -4 addr show eth0
 hostname -f
 ```
 
-The IP shown should match the reservation, and `hostname -f` should still show the FQDN set by cloud-init in Part 3 — these are two independent confirmations that both halves of the pipeline agree with each other.
+The IP shown should match the reservation, and `hostname -f` should still show the FQDN set by cloud-init in Episode 3 — these are two independent confirmations that both halves of the pipeline agree with each other.
 
 ## SIPOC for this episode
 
 | Supplier | Input | Process | Output | Customer |
 |---|---|---|---|---|
-| Hostname + IP ledgers (Part 2) | MAC address, allocated IP, allocated hostname | Create a Kea static reservation | A VM that always receives the same IP and advertises the correct hostname via DHCP | Dynamic DNS update (Part 5) |
+| Hostname + IP ledgers (Episode 2) | MAC address, allocated IP, allocated hostname | Create a Kea static reservation | A VM that always receives the same IP and advertises the correct hostname via DHCP | Dynamic DNS update (Episode 5) |
 
-## Coming up in Part 5
+## Coming up in Episode 5
 
-DHCP now knows the hostname and IP address together, but knowing is not the same as telling DNS. Part 5 wires Kea to push that information into BIND automatically, using RFC 2136 dynamic updates.
+DHCP now knows the hostname and IP address together, but knowing is not the same as telling DNS. Episode 5 wires Kea to push that information into BIND automatically, using RFC 2136 dynamic updates.
 
