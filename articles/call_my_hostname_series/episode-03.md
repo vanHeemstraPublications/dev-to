@@ -101,7 +101,7 @@ virt-install \
   --noautoconsole
 ```
 
-Note that `--name vm1234` here is only the libvirt-level object name shown in `virsh list`; it has no bearing on the guest operating system's actual hostname, which comes entirely from the seed ISO. This is the decoupling described in Part 1: the hypervisor's label for the VM and the VM's own hostname are two independent strings that happen, in this example, to look similar.
+Note that `--name vm1234` here is only the libvirt-level object name shown in `virsh list`; it has no bearing on the guest operating system's actual hostname, which comes entirely from the seed ISO. This is the decoupling described in Episode 1: the hypervisor's label for the VM and the VM's own hostname are two independent strings that happen, in this example, to look similar.
 
 ## Verifying at first boot
 
