@@ -18,7 +18,7 @@ This is a **static reservation**, not a static IP configured inside the VM's net
 
 ## Choosing Kea over ISC dhcpd
 
-ISC dhcpd, the traditional Unix DHCP server, is now in maintenance mode upstream; **Kea**, from the same project (ISC), is its actively developed replacement, configured in JSON rather than dhcpd's own syntax, and has first-class support for the dynamic DNS updates covered in Part 5. This episode uses Kea.
+ISC dhcpd, the traditional Unix DHCP server, is now in maintenance mode upstream; **Kea**, from the same project (ISC), is its actively developed replacement, configured in JSON rather than dhcpd's own syntax, and has first-class support for the dynamic DNS updates covered in Episode 5. This episode uses Kea.
 
 ## A minimal Kea configuration with a static reservation
 
