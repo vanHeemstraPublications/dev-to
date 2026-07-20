@@ -4,6 +4,7 @@ published: false
 description: "Designing a simple, file-based hostname pool that guarantees every virtual machine gets a unique name before it is ever provisioned."
 tags: networking, infrastructure, python, dns
 series: Call My Hostname
+part: 2
 organization: "the-software-s-journey"
 ---
 
