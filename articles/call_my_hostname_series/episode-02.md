@@ -129,6 +129,6 @@ This script is called once, at the very start of provisioning a new VM, before t
 |---|---|---|---|---|
 | Provisioning script / operator | MAC address of the new VM's NIC | Query the ledger, allocate the next free number, record the mapping | A unique hostname string | cloud-init seed generator (Part 3) |
 
-## Coming up in Part 3
+## Coming up in Episode 3
 
 With a guaranteed-unique hostname in hand, the next step is getting that string into the virtual machine's operating system the moment it boots for the first time, using cloud-init's NoCloud datasource.
