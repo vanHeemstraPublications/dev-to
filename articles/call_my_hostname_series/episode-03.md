@@ -76,7 +76,7 @@ cloud-localds "${SEED_ISO}" /tmp/user-data /tmp/meta-data
 echo "seed ISO created at ${SEED_ISO}"
 ```
 
-Run it with the hostname allocated in Part 2:
+Run it with the hostname allocated in Episode 2:
 
 ```bash
 HOSTNAME=$(python3 hostname_ledger.py allocate aa:bb:cc:dd:ee:ff)
@@ -119,9 +119,9 @@ cat /etc/hosts
 
 | Supplier | Input | Process | Output | Customer |
 |---|---|---|---|---|
-| Hostname ledger (Part 2) | Allocated hostname string | Generate NoCloud meta-data/user-data, build seed ISO, attach to VM | A VM whose OS hostname matches the allocated name | DHCP/DNS provisioning (Parts 4 and 5) |
+| Hostname ledger (Episode 2) | Allocated hostname string | Generate NoCloud meta-data/user-data, build seed ISO, attach to VM | A VM whose OS hostname matches the allocated name | DHCP/DNS provisioning (Episodes 4 and 5) |
 
-## Coming up in Part 4
+## Coming up in Episode 4
 
 The hostname now lives correctly inside the VM. Next, that VM's network interface needs to receive the same IP address every time it boots, so that DNS can point to something stable.
 
