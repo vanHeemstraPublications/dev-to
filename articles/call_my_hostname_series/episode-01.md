@@ -9,7 +9,7 @@ organization: "the-software-s-journey"
 ---
 
 # Episode 1: The Problem with Machine1
-
+ 
 ## Why this series exists
 
 If you provision virtual machines by hand, or with a template that always names the VM object "machine1" or copies a base image without changing anything, you will eventually get two machines answering to the same name on the same network. DHCP will hand out a hostname option nobody asked for, DNS will silently overwrite one record with another, and whoever is troubleshooting at 2 AM will not know which physical box "machine1" actually is.
