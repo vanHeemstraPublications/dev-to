@@ -9,7 +9,7 @@ organization: "the-software-s-journey"
 ---
 
 # Episode 6: Proving It Works
-
+ 
 ## Walking the chain in order
 
 When something is wrong, resist the urge to jump straight to DNS, since DNS is usually the last symptom of a problem that started two layers earlier. Check each link in the order it was built across this series.
