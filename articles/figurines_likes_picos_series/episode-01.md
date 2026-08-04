@@ -1,12 +1,12 @@
 ---
-title: "🧸 Unboxing Your First Pico"
+title: "Figurines like Picos 🧸 Ep.1"
 series: "Figurines like Picos"
 part: 1
 organization: "the-software-s-journey"
 tags: [pico, picolabs, krl, introduction, iot]
 ---
 
-## 🧸 Unboxing Your First Pico
+## Episode 1: Unboxing Your First Pico
 
 Oh, there is nothing — *nothing* — quite like the feeling of sliding a brand new figurine out of its box for the first time. The little pop of the packaging, the figurine standing there for the first time, already itself, already whole, ready for a shelf of its own. That feeling is exactly what it's like to create your very first pico, and this whole series is my excuse to grin about it for ten-odd episodes.
 
