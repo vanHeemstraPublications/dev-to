@@ -30,3 +30,4 @@ GET  /sky/cloud/{eci}/{ruleset}/{function}    → query a function on this pico
 | Pico's installed rulesets | An incoming event matched against the pico's own ECI | Fire the matching `select when` rule | The rule's action (a directive, a state change, a further event) | The original sender, other listening rules |
 
 Next stop: time to stop talking about knocking on doors and actually knock — Python, the requests library, and our very own remote control.
+ 
