@@ -62,3 +62,4 @@ Every time this figurine is greeted, it quietly ticks up its own personal count 
 | Persistent variables (`ent:*`) | A value set inside a rule's action | Store it durably inside the pico | State that survives across every future event | Future rules reading the same `ent:` variable |
 
 Next stop: figurines don't just appear on the shelf out of nowhere — meet the workshop that assembles every one of them: Wrangler.
+ 
