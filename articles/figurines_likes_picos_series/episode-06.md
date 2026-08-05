@@ -75,3 +75,4 @@ rule join_community {
 | Thing pico (`io.picolabs.thing`) | A `join_request` toward a community's ECI | Raise `addThing` on the target community | Membership recorded via subscription | The community pico, `getThings()`/`getCommunities()` inventory |
 
 Next stop: a big collection needs a sign-in sheet at the door — the Tag Registry and Skills Registry that keep track of what's in the cabinet and what each thing can do.
+ 
