@@ -38,3 +38,4 @@ Wrangler's other great service is channels — the little labelled hooks Wrangle
 | Pico Engine | Wrangler's installed rulesets | Provide the underlying host and event bus Wrangler operates on | The runtime substrate Wrangler's services depend on | Wrangler, every pico it manages |
 
 Next stop: every figurine needs its own little address label so the right hand knocks on the right door — meet Channels and ECIs.
+ 
