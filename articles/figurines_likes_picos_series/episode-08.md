@@ -64,3 +64,4 @@ What makes this worth admiring, beyond the sheer convenience, is the privacy dis
 | Owner | A `change_notification_setting` event | Toggle a channel on or off per subject pico | An updated, owner-controlled notification preference | Future `add_notification` events for that pico |
 
 Next stop: we've organized the whole collection in software — now let's talk about ordering the actual physical display case it all lives inside, courtesy of Crossplane.
+ 
