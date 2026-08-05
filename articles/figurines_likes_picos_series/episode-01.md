@@ -25,3 +25,4 @@ Over the next several episodes we'll open the whole toy chest: the instruction s
 | Collections of picos (e.g. Fuse) | Many individually-created picos | Compose them into a decentralized, heterarchical network | A working diorama of interacting entities | End users of the IoT system being modeled |
 
 Next stop: the instruction sheet every figurine ships with — KRL, and the rules that make a pico come alive.
+ 
