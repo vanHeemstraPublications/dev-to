@@ -58,3 +58,4 @@ Registering the tag registry with the owner has to happen once, and it has to ha
 | Manifold bootstrap | The owner registering the tag registry (`manifold:new_tag_server`) | Link the registry to the owner before any tagging begins | A registry that's actually ready to answer scans | Every thing tagged afterward |
 
 Next stop: a collection this organized deserves to actually tell you when something happens — the notification bell that rings across the whole cabinet.
+ 
