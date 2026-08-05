@@ -59,3 +59,4 @@ A small, wonderfully liberating thing about this: nothing about our Python scrip
 | Ruleset's `select when` rule / query function | The routed event or query | Execute the matching action or return a value | A directive (for events) or a JSON result (for queries) | The Python script awaiting the response |
 
 Next stop: one figurine is delightful, but a whole organized collection with shelves, sections, and a sign-in sheet is something else entirely — Manifold, the collector's display cabinet system.
+ 
