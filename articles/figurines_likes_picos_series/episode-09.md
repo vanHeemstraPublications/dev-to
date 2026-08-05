@@ -121,3 +121,4 @@ Apply that, and Crossplane's control plane reconciles a real Azure Container Ins
 | function-patch-and-transform | Field-path patches from the composite spec to the provider resource | Map `location`/`cpu`/`memoryGB`/`image` onto the Azure resource | A correctly-configured `ContainerGroup` manifest | The Crossplane reconciliation loop, the Azure provider |
 
 Next stop: the whole toy chest, closed up and admired — persistence, decentralization, and why every figurine in this collection was worth unboxing in the first place.
+ 
