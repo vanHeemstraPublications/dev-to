@@ -1,12 +1,12 @@
 ---
-title: "🌉 Gate 2: Crossing the PyO3 Bridge"
+title: "Hello Pico Workflow 🌉 Ep.5"
 series: "Hello Pico Workflow"
 part: 5
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, pyo3, rust, python, maturin]
 ---
 
-## 🌉 Gate 2: Crossing the PyO3 Bridge
+## Episode 5: Gate 2: Crossing the PyO3 Bridge
 
 The instruction I found most useful going in: the PyO3 crate should be thin. It's not where logic lives — it's a boundary, a translator, nothing more. Conceptually, the shape looks like this:
 
