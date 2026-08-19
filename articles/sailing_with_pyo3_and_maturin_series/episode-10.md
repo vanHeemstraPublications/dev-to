@@ -1,12 +1,12 @@
 ---
-title: "🗺️ Crossing Borders: manylinux and Every Port at Once"
+title: "Sailing with PyO3 and Maturin 🗺️ Ep.10"
 series: "Sailing with PyO3 and Maturin"
 part: 10
 organization: "the-software-s-journey"
 tags: [maturin, manylinux, ci, cross-compilation, github-actions]
 ---
 
-## 🗺️ Crossing Borders: manylinux and Every Port at Once
+## Episode 10: Crossing Borders: manylinux and Every Port at Once
 
 A boat that only sails in its home harbor isn't much of a yacht. The whole point is making port in places you've never been, on machines with different chips, different operating systems, different libraries already installed — or not installed — on the dock. This is where most hybrid Python/Rust packages either quietly fail or quietly succeed, and the difference almost always comes down to whether someone bothered to actually build for every port ahead of time, rather than hoping the harbor you land in looks like the one you left.
 
