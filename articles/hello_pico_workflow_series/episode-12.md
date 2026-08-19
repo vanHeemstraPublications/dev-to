@@ -1,12 +1,12 @@
 ---
-title: "🧬 The Open Engineering Namespace and the Pico XRD"
+title: "Hello Pico Workflow 🧬 Ep.12"
 series: "Hello Pico Workflow"
 part: 12
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, crossplane, xrd, namespace]
 ---
 
-## 🧬 The Open Engineering Namespace and the Pico XRD
+## Episode 12: The Open Engineering Namespace and the Pico XRD
 
 Two small setup steps this episode, both foundational to everything after. First, the namespace all of this will live in, `platform/namespace.yaml`:
 
