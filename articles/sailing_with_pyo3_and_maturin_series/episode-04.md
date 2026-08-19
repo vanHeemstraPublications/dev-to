@@ -1,12 +1,12 @@
 ---
-title: "🔧 Below-Deck Machinery: Building Classes with pyclass"
+title: "Sailing with PyO3 and Maturin 🔧 Ep.4"
 series: "Sailing with PyO3 and Maturin"
 part: 4
 organization: "the-software-s-journey"
 tags: [pyo3, pyclass, rust, python, oop]
 ---
 
-## 🔧 Below-Deck Machinery: Building Classes with pyclass
+## Episode 4: Below-Deck Machinery: Building Classes with pyclass
 
 A single function shouted down a tube only gets you so far. Real engine rooms have machinery with state — a throttle that remembers its own position, a fuel gauge that tracks what's actually left in the tank. PyO3's `#[pyclass]` is how a whole piece of below-deck machinery gets a proper handle installed above deck, one Sonny can operate without ever climbing down the ladder.
 
