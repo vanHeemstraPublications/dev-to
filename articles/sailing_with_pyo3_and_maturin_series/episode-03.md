@@ -1,12 +1,12 @@
 ---
-title: "📢 The Speaking Tube: pyfunction and pymodule"
+title: "Sailing with PyO3 and Maturin 📢 Ep.3"
 series: "Sailing with PyO3 and Maturin"
 part: 3
 organization: "the-software-s-journey"
 tags: [pyo3, pyfunction, pymodule, rust, python]
 ---
 
-## 📢 The Speaking Tube: pyfunction and pymodule
+## Episode 3: The Speaking Tube: pyfunction and pymodule
 
 Old ships had a brass tube running from the bridge straight down to the engine room — shout an order in one end, it comes out clear on the other, no radio required, no translation lost. PyO3's `#[pyfunction]` macro is that tube, and it's almost suspiciously simple to install.
 
