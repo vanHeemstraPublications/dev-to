@@ -1,12 +1,12 @@
 ---
-title: "🏠 The Manifold Runtime"
+title: "Hello Pico Workflow 🏠 Ep.6"
 series: "Hello Pico Workflow"
 part: 6
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, manifold, fastapi, python]
 ---
 
-## 🏠 The Manifold Runtime
+## Episode 6: The Manifold Runtime
 
 Up to now, everything's lived at the command line — `cargo test`, a one-off Python REPL session. This episode is where Python stops being a script and becomes a *host environment*: something long-running, reachable over HTTP, that other systems can actually talk to. That host is Manifold.
 
