@@ -1,12 +1,12 @@
 ---
-title: "🏁 The Finished Journey"
+title: "Hello Pico Workflow 🏁 Ep.19"
 series: "Hello Pico Workflow"
 part: 19
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, wrapup, architecture]
 ---
 
-## 🏁 The Finished Journey
+## Episode 19: The Finished Journey
 
 Eighteen episodes ago, I didn't know what a Pico was. Here's the course laid out the way it naturally organizes itself, now that every piece has a name and a place:
 
