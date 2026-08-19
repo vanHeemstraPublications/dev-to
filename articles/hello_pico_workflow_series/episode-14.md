@@ -1,12 +1,12 @@
 ---
-title: "🏡 Mosquitto and Home Assistant Inside Minikube"
+title: "Hello Pico Workflow 🏡 Ep.14"
 series: "Hello Pico Workflow"
 part: 14
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, mosquitto, home-assistant, mqtt]
 ---
 
-## 🏡 Mosquitto and Home Assistant Inside Minikube
+## Episode 14: Mosquitto and Home Assistant Inside Minikube
 
 The Composition from last episode configures Manifold to look for `mosquitto.home-automation.svc.cluster.local` — but nothing answering that name exists yet. This episode fixes that, and gets Home Assistant running too.
 
