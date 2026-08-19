@@ -1,12 +1,12 @@
 ---
-title: "📦 The Cargo Hold Manifest: Passing Data Between Decks"
+title: "Sailing with PyO3 and Maturin 📦 Ep.6"
 series: "Sailing with PyO3 and Maturin"
 part: 6
 organization: "the-software-s-journey"
 tags: [pyo3, type-conversion, frompyobject, intopy, rust]
 ---
 
-## 📦 The Cargo Hold Manifest: Passing Data Between Decks
+## Episode 6: The Cargo Hold Manifest: Passing Data Between Decks
 
 Nothing gets loaded onto this boat without a manifest — a clear, checked description of exactly what's in every crate before it moves between decks. PyO3's type conversion system is that manifest, and it's the reason passing a Python list or dictionary into Rust doesn't feel like smuggling contraband across a border.
 
