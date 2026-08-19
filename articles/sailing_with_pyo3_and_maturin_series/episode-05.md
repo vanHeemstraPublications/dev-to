@@ -5,7 +5,7 @@ part: 5
 organization: "the-software-s-journey"
 tags: [pyo3, gil, allow_threads, concurrency, python]
 ---
-
+ 
 ## Episode 5: The One-Wheel Rule: the GIL and Letting the Engine Room Run
 
 Every boat this size has a rule that sounds restrictive until you understand why it exists: only one person touches the wheel at a time. Not because the crew can't be trusted, but because two hands fighting the same wheel in a storm is worse than one hand, alone, holding a steady course. Python has the exact same rule, and it's got a name everyone eventually learns to either love or resent: the Global Interpreter Lock, the GIL. Only one thread executes Python bytecode at a time, full stop, no exceptions — which is precisely why a pure-Python program rarely benefits from more CPU cores, no matter how many threads you throw at it.
