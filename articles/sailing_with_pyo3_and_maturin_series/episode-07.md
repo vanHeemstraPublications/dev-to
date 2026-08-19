@@ -1,12 +1,12 @@
 ---
-title: "🌊 Handling Rough Seas: Errors Across the Boundary"
+title: "Sailing with PyO3 and Maturin 🌊 Ep.7"
 series: "Sailing with PyO3 and Maturin"
 part: 7
 organization: "the-software-s-journey"
 tags: [pyo3, error-handling, pyerr, exceptions, rust]
 ---
 
-## 🌊 Handling Rough Seas: Errors Across the Boundary
+## Episode 7: Handling Rough Seas: Errors Across the Boundary
 
 Rico doesn't radio up "everything's fine" when the engine's actually flooding. He calls it exactly as it is, in terms Sonny can act on immediately, from the bridge, without climbing down to see for himself. That's what good error handling across the Python/Rust boundary looks like — a below-deck problem surfacing above deck as a proper Python exception, not a silent failure or, worse, a crash that takes the whole boat down.
 
