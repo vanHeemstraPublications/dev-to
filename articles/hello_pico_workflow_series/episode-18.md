@@ -1,12 +1,12 @@
 ---
-title: "🤖 The Just Interface and AI Pair Programming"
+title: "Hello Pico Workflow 🤖 Ep.18"
 series: "Hello Pico Workflow"
 part: 18
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, justfile, ai, opencode, qwen3]
 ---
 
-## 🤖 The Just Interface and AI Pair Programming
+## Episode 18: The Just Interface and AI Pair Programming
 
 By now, this repository has grown well past the three `Justfile` targets from Episode 8. This episode rounds out the full command surface, and then puts it to an interesting use.
 
