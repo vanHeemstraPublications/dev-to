@@ -1,12 +1,12 @@
 ---
-title: "📡 MQTT and Home Assistant Discovery"
+title: "Hello Pico Workflow 📡 Ep.7"
 series: "Hello Pico Workflow"
 part: 7
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, mqtt, home-assistant, discovery]
 ---
 
-## 📡 MQTT and Home Assistant Discovery
+## Episode 7: MQTT and Home Assistant Discovery
 
 Here's a design decision I appreciated once I understood it: the Pico itself should never know anything about Home Assistant. Not its existence, not its entity model, nothing. Instead, there's a clean relay:
 
