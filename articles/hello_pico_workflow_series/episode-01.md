@@ -106,4 +106,4 @@ Two things worth carrying forward before we lay a single file down. For this fir
 | The "hello" event contract | A stateless request naming who's saying hello | Transition Pico state deterministically | Updated `message`, `event_count`, and `last_run` fields | Every layer downstream: Manifold, MQTT, Home Assistant |
 | This series | The full source workflow, section by section | Walk it in order, keeping every code sample intact | A newcomer-readable path from empty repo to a working, visible Pico | You, following along |
 
-Next stop: laying out the actual [repository](https://github.com/software-journey/pico), file by file, before we write a single line of Rust.
+Next stop: laying out the actual [repository](https://github.com/software-journey/hello-pico), file by file, before we write a single line of Rust.
