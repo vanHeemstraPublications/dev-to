@@ -1,12 +1,12 @@
 ---
-title: "⚓ The Shipwright's Drawing Board"
+title: "Sailing with PyO3 and Maturin ⚓ Ep.2"
 series: "Sailing with PyO3 and Maturin"
 part: 2
 organization: "the-software-s-journey"
 tags: [maturin, project-structure, pyproject-toml, cargo]
 ---
 
-## ⚓ The Shipwright's Drawing Board
+## Episode 2: The Shipwright's Drawing Board
 
 Rico doesn't build a boat by improvising with whatever's lying around the dock. There's a drawing board first, a layout everyone agrees on before a single plank goes down. Maturin's version of that drawing board is one command:
 
