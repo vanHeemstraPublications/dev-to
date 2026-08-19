@@ -1,12 +1,12 @@
 ---
-title: "🗂️ Laying Out the Repository"
+title: "Hello Pico Workflow 🗂️ Ep.2"
 series: "Hello Pico Workflow"
 part: 2
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, project-structure, repository]
 ---
 
-## 🗂️ Laying Out the Repository
+## Episode 2: Laying Out the Repository
 
 Before writing anything clever, I wanted the whole shape of the project sitting in front of me — every folder, every file, so nothing later feels like it appeared from nowhere. Here's the full `hello-pico/` [repository](https://github.com/software-journey/pico) layout this series builds toward, piece by piece:
 
