@@ -1,12 +1,12 @@
 ---
-title: "🎡 Gate 3: Building the Wheel"
+title: "Hello Pico Workflow 🎡 Ep.9"
 series: "Hello Pico Workflow"
 part: 9
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, maturin, wheel, packaging]
 ---
 
-## 🎡 Gate 3: Building the Wheel
+## Episode 9: Gate 3: Building the Wheel
 
 Everything so far has run in development mode — `maturin develop`, installing the native extension straight into an active virtualenv for fast iteration. That's great for writing code, and completely inadequate for proving the thing you'll actually ship works. This episode is about leaving development mode and building the real artifact.
 
