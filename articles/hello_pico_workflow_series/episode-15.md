@@ -1,12 +1,12 @@
 ---
-title: "🐴 Gate 5: Wrangler Brings the Pico to Life"
+title: "Hello Pico Workflow 🐴 Ep.15"
 series: "Hello Pico Workflow"
 part: 15
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, wrangler, crossplane, gate5]
 ---
 
-## 🐴 Gate 5: Wrangler Brings the Pico to Life
+## Episode 15: Gate 5: Wrangler Brings the Pico to Life
 
 Every previous episode built a piece of scaffolding. This one is where those pieces finally connect into a running system — and it starts with understanding *why* Wrangler exists at all, rather than just using `kubectl` for everything.
 
