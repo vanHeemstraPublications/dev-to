@@ -1,12 +1,12 @@
 ---
-title: "🧰 Provisioning the Yacht: Two Supply Lists, One Boat"
+title: "Sailing with PyO3 and Maturin 🧰 Ep.8"
 series: "Sailing with PyO3 and Maturin"
 part: 8
 organization: "the-software-s-journey"
 tags: [cargo, dependencies, pip, pyproject-toml, rust]
 ---
 
-## 🧰 Provisioning the Yacht: Two Supply Lists, One Boat
+## Episode 8: Provisioning the Yacht: Two Supply Lists, One Boat
 
 Before any real trip, somebody's got two separate supply lists going — one for what the bridge needs (charts, fuel receipts, the espresso machine Sonny insists on), one for what the engine room needs (filters, gaskets, spare belts). Different lists, different suppliers, and nobody confuses which crate goes where. A hybrid PyO3 project runs the exact same way: `Cargo.toml` provisions the engine room, `pyproject.toml` provisions the bridge, and Maturin is the one making sure both lists get loaded before the boat leaves the dock.
 
