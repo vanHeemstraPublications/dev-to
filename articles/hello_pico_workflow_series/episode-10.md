@@ -1,12 +1,12 @@
 ---
-title: "🐳 Gate 4: Containerizing for Minikube"
+title: "Hello Pico Workflow 🐳 Ep.10"
 series: "Hello Pico Workflow"
 part: 10
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, docker, minikube, kubernetes]
 ---
 
-## 🐳 Gate 4: Containerizing for Minikube
+## Episode 10: Gate 4: Containerizing for Minikube
 
 Here's a mistake worth naming before it happens: if your development machine is Apple Silicon/macOS (as mine is), do **not** copy your locally built extension straight into a Kubernetes container. The wheel from the last episode was built for your machine's own architecture and operating system — it will not run correctly inside a Linux container. The fix is to build the PyO3 wheel *inside* the Docker build itself, on Linux, from source, every time:
 
