@@ -1,12 +1,12 @@
 ---
-title: "🌅 Pulling Back Into Harbor"
+title: "Sailing with PyO3 and Maturin 🌅 Ep.11"
 series: "Sailing with PyO3 and Maturin"
 part: 11
 organization: "the-software-s-journey"
 tags: [pyo3, maturin, wrapup, rust, python]
 ---
 
-## 🌅 Pulling Back Into Harbor
+## Episode 11: Pulling Back Into Harbor
 
 Sun's coming up over the marina now, and it's worth standing on the dock a minute looking back at the boat before anyone heads home. Sonny never had to learn Rust's borrow checker to steer this thing. Rico never had to explain to a single passenger why the engine room does what it does. That's not an accident — that's the entire design working exactly as intended.
 
