@@ -1,12 +1,12 @@
 ---
-title: "🦀 Gate 1: The Rust Core"
+title: "Hello Pico Workflow 🦀 Ep.4"
 series: "Hello Pico Workflow"
 part: 4
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, rust, testing]
 ---
 
-## 🦀 Gate 1: The Rust Core
+## Episode 4: Gate 1: The Rust Core
 
 Here's where I finally write code, and — I found this reassuring as someone who'd never touched Rust seriously before — none of it involves Python, Kubernetes, MQTT, or Crossplane yet. Just the state transition itself, in `crates/pico-core/src/lib.rs`:
 
