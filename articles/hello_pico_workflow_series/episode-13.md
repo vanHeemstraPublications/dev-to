@@ -1,12 +1,12 @@
 ---
-title: "🛡️ RBAC and the Composition"
+title: "Hello Pico Workflow 🛡️ Ep.13"
 series: "Hello Pico Workflow"
 part: 13
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, crossplane, rbac, composition]
 ---
 
-## 🛡️ RBAC and the Composition
+## Episode 13: RBAC and the Composition
 
 Two things stand between "Pico is a real API" (last episode) and "creating a Pico actually produces running resources" (a few episodes from now): permission, and translation logic. This episode covers both.
 
