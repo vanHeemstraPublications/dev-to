@@ -1,12 +1,12 @@
 ---
-title: "✅ Testing, Linting, and the Justfile"
+title: "Hello Pico Workflow ✅ Ep.8"
 series: "Hello Pico Workflow"
 part: 8
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, testing, justfile, ci]
 ---
 
-## ✅ Testing, Linting, and the Justfile
+## Episode 8: Testing, Linting, and the Justfile
 
 Before we move any further into the stack, I wanted a written test proving the Python binding from Episode 5 behaves the way the manual REPL session suggested — not just "I saw the right output once," but something that runs every time. Here's `tests/test_native.py`:
 
