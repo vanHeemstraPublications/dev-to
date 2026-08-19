@@ -1,12 +1,12 @@
 ---
-title: "💾 Persistence and Real Readiness"
+title: "Hello Pico Workflow 💾 Ep.17"
 series: "Hello Pico Workflow"
 part: 17
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, persistence, kubernetes, readiness-probes]
 ---
 
-## 💾 Persistence and Real Readiness
+## Episode 17: Persistence and Real Readiness
 
 Two refinements this episode, both about making the system honest rather than merely functional — because as it stands right now, there's a gap between what our Pico *claims* and what it actually guarantees.
 
