@@ -1,12 +1,12 @@
 ---
-title: "⚙️ Installing Crossplane and Its Templating Function"
+title: "Hello Pico Workflow ⚙️ Ep.11"
 series: "Hello Pico Workflow"
 part: 11
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, crossplane, kubernetes, helm]
 ---
 
-## ⚙️ Installing Crossplane and Its Templating Function
+## Episode 11: Installing Crossplane and Its Templating Function
 
 Everything up to now has lived on my own machine. This episode is where Kubernetes gets a new kind of API installed into it — one that understands what a Pico is. As of 19 August 2026, Crossplane's current documentation is v2.3, and the recommended installation path is Helm:
 
