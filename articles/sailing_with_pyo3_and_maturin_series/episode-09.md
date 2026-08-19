@@ -1,12 +1,12 @@
 ---
-title: "🚀 Launch Day: develop, build, and publish"
+title: "Sailing with PyO3 and Maturin 🚀 Ep.9"
 series: "Sailing with PyO3 and Maturin"
 part: 9
 organization: "the-software-s-journey"
 tags: [maturin, wheels, abi3, publish, ci]
 ---
 
-## 🚀 Launch Day: develop, build, and publish
+## Episode 9: Launch Day: develop, build, and publish
 
 Every boat has three very different kinds of days: the sea trials, where the crew is still bolting things on between test runs; the actual launch, when the finished vessel gets sealed up and handed to its new owner; and the day it's registered for the whole marina to charter. Maturin has a command for each one, and knowing which day you're actually having matters.
 
