@@ -1,12 +1,12 @@
 ---
-title: "🔔 Home Assistant Discovers Pico, and Learns to Say Hello Back"
+title: "Hello Pico Workflow 🔔 Ep.16"
 series: "Hello Pico Workflow"
 part: 16
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, home-assistant, mqtt, events]
 ---
 
-## 🔔 Home Assistant Discovers Pico, and Learns to Say Hello Back
+## Episode 16: Home Assistant Discovers Pico, and Learns to Say Hello Back
 
 Nothing manual left to do here — that's rather the point of this episode. Because Manifold publishes its MQTT discovery definition and current state the moment it starts up (Episode 7), all that's left is to go look. In Home Assistant: **Settings → Devices & services → MQTT**, and you should now find:
 
