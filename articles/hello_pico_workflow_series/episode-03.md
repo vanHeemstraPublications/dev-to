@@ -1,12 +1,12 @@
 ---
-title: "📝 Defining the Pico Declaratively"
+title: "Hello Pico Workflow📝 Ep.3"
 series: "Hello Pico Workflow"
 part: 3
 organization: "the-software-s-journey"
 tags: [open-engineering, pico, yaml, declarative]
 ---
 
-## 📝 Defining the Pico Declaratively
+## Episode 3: Defining the Pico Declaratively
 
 This is the file I found myself rereading a few times, because what it *doesn't* say turned out to matter as much as what it does. Here's `definitions/pico.yaml` in full:
 
