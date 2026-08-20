@@ -1,12 +1,12 @@
 ---
-title: "🔭 One Model, As Many Views As I Need"
+title: "What has changed, LikeC4? 🔭 Ep.5"
 series: "What has changed, LikeC4?"
 part: 5
 organization: "the-software-s-journey"
 tags: [likec4, dsl, views, predicates, c4-model]
 ---
 
-## 🔭 One Model, As Many Views As I Need
+## Episode 5: One Model, As Many Views As I Need
 
 This is the moment every stakeholder meeting has been waiting for — an actual diagram. But here's the mental shift that took me a while to internalize: a view isn't something I draw. It's a *projection* of the model I already wrote, defined by predicates — statements about what to include or exclude. The model is the single truth; views are just different flashlights pointed at parts of it.
 
