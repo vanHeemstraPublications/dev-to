@@ -1,12 +1,12 @@
 ---
-title: "➡️ The Arrows Between the Boxes"
+title: "What has changed, LikeC4? ➡️ Ep.4"
 series: "What has changed, LikeC4?"
 part: 4
 organization: "the-software-s-journey"
 tags: [likec4, dsl, relationships, best-practices]
 ---
 
-## ➡️ The Arrows Between the Boxes
+## Episode 4: The Arrows Between the Boxes
 
 A model full of boxes with no arrows between them isn't an architecture — it's an inventory. Relationships are where LikeC4 earns the name "architecture as code" rather than "component list as code," and they're refreshingly simple to write:
 
