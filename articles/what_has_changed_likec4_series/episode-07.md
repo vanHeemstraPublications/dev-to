@@ -1,12 +1,12 @@
 ---
-title: "🎬 Telling One Story Without Cluttering the Model"
+title: "What has changed, LikeC4? 🎬 Ep.7"
 series: "What has changed, LikeC4?"
 part: 7
 organization: "the-software-s-journey"
 tags: [likec4, dsl, dynamic-views, sequence-diagrams]
 ---
 
-## 🎬 Telling One Story Without Cluttering the Model
+## Episode 7: Telling One Story Without Cluttering the Model
 
 Structure diagrams answer "what exists." Sooner or later, someone in a design review asks a different kind of question — "okay, but what actually happens when a customer places an order?" That's a scenario, a use case, a specific sequence of steps, and I don't want to pollute my structural model with elements and relationships that only exist to answer one narrow question. Dynamic views are LikeC4's answer: a scenario defined entirely inside the view itself.
 
