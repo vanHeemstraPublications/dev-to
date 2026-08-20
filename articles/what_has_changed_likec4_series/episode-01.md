@@ -1,12 +1,12 @@
 ---
-title: "🗺️ The Question I Ask Every Monday Morning"
+title: "What has changed, LikeC4? 🗺️ Ep.1"
 series: "What has changed, LikeC4?"
 part: 1
 organization: "the-software-s-journey"
 tags: [likec4, architecture-as-code, c4-model, introduction]
 ---
 
-## 🗺️ The Question I Ask Every Monday Morning
+## Episode 1: The Question I Ask Every Monday Morning
 
 I've been a software architect long enough to know the real enemy isn't complexity. It's staleness. Give me the most tangled distributed system in the world and I'll draw you an honest picture of it — once. The problem is never the first diagram. The problem is the diagram from six sprints ago, still pinned to the wiki, still confidently lying to every new hire who opens it, because nobody remembered to update the PNG after the payments service got split in two.
 
