@@ -1,12 +1,12 @@
 ---
-title: "🧰 The Rest of the Toolbox"
+title: "What has changed, LikeC4? 🧰 Ep.10"
 series: "What has changed, LikeC4?"
 part: 10
 organization: "the-software-s-journey"
 tags: [likec4, cli, export, validate, format]
 ---
 
-## 🧰 The Rest of the Toolbox
+## Episode 10: The Rest of the Toolbox
 
 `likec4 start` and `likec4 build` cover ninety percent of my week. This episode is the other ten percent — the commands I reach for when someone needs a plain image, a different diagramming format, or when I need the CLI to catch my own mistakes before a reviewer does.
 
