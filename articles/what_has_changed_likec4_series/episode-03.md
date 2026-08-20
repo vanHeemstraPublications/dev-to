@@ -1,12 +1,12 @@
 ---
-title: "🏗️ Building the Model, One Nested Box at a Time"
+title: "What has changed, LikeC4? 🏗️ Ep.3"
 series: "What has changed, LikeC4?"
 part: 3
 organization: "the-software-s-journey"
 tags: [likec4, dsl, model, hierarchy]
 ---
 
-## 🏗️ Building the Model, One Nested Box at a Time
+## Episode 3: Building the Model, One Nested Box at a Time
 
 Vocabulary settled, now I actually describe the system. The `model` block is where every element I'll ever draw actually lives, and I start, deliberately, at the top:
 
