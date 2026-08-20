@@ -1,12 +1,12 @@
 ---
-title: "🔁 Letting the Pipeline Ask the Question For Me"
+title: "What has changed, LikeC4? 🔁 Ep.11"
 series: "What has changed, LikeC4?"
 part: 11
 organization: "the-software-s-journey"
 tags: [likec4, ci-cd, github-actions, automation]
 ---
 
-## 🔁 Letting the Pipeline Ask the Question For Me
+## Episode 11: Letting the Pipeline Ask the Question For Me
 
 Here's the honest confession behind this whole series: I stopped manually asking "what has changed?" the day I put LikeC4 into CI. Now the pipeline asks it for me, on every single pull request, whether I remember to or not — which, let's be honest, is the only version of this discipline that actually survives contact with a busy sprint.
 
