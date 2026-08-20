@@ -1,12 +1,12 @@
 ---
-title: "🎨 Making It Recognizable at a Glance"
+title: "What has changed, LikeC4? 🎨 Ep.6"
 series: "What has changed, LikeC4?"
 part: 6
 organization: "the-software-s-journey"
 tags: [likec4, dsl, styling, icons, tags]
 ---
 
-## 🎨 Making It Recognizable at a Glance
+## Episode 6: Making It Recognizable at a Glance
 
 A technically correct diagram that nobody can parse in under thirty seconds has failed at its actual job. Once the structure's right, I spend a genuinely small amount of effort making things recognizable — shapes, icons, colors, tags — because a database that looks like a database saves every reader a moment of translation.
 
