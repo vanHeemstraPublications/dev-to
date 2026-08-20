@@ -1,12 +1,12 @@
 ---
-title: "🤖 Finally Asking the Question Out Loud"
+title: "What has changed, LikeC4? 🤖 Ep.12"
 series: "What has changed, LikeC4?"
 part: 12
 organization: "the-software-s-journey"
 tags: [likec4, mcp, ai, agent-skills]
 ---
 
-## 🤖 Finally Asking the Question Out Loud
+## Episode 12: Finally Asking the Question Out Loud
 
 This is the episode where the series title stops being a rhetorical device and becomes something I can literally type into a chat window. LikeC4 provides two complementary pieces for AI-powered work: Agent Skills, which teach a coding assistant the DSL syntax so it stops hallucinating attributes that don't exist, and an MCP Server, which exposes my actual, current model to an LLM as queryable knowledge — not a snapshot, not a summary someone wrote by hand, the live model.
 
