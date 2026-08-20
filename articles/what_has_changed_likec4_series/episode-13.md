@@ -1,12 +1,12 @@
 ---
-title: "🧭 The Habit This Whole Series Was Really About"
+title: "What has changed, LikeC4? 🧭 Ep.13"
 series: "What has changed, LikeC4?"
 part: 13
 organization: "the-software-s-journey"
 tags: [likec4, wrapup, architecture-as-code]
 ---
 
-## 🧭 The Habit This Whole Series Was Really About
+## Episode 13: The Habit This Whole Series Was Really About
 
 Twelve episodes ago I opened with a Monday-morning question I used to ask nervously, half-expecting the answer to be "you have no idea, and neither does anyone else." I want to close by admitting what actually changed, and it wasn't really about diagrams.
 
