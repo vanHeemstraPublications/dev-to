@@ -1,12 +1,12 @@
 ---
-title: "📐 Defining My Own Vocabulary First"
+title: "What has changed, LikeC4? 📐 Ep.2"
 series: "What has changed, LikeC4?"
 part: 2
 organization: "the-software-s-journey"
 tags: [likec4, dsl, specification, c4-model]
 ---
 
-## 📐 Defining My Own Vocabulary First
+## Episode 2: Defining My Own Vocabulary First
 
 Before I draw anything, I define what I'm even allowed to draw. That's the `specification` block, and it's the first thing in every LikeC4 project I've ever started. It's not decoration — it's me declaring the vocabulary my whole team will use to talk about this system, so nobody invents a fourth kind of "service" halfway through a diagram three months from now.
 
