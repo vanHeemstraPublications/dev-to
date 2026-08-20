@@ -1,12 +1,12 @@
 ---
-title: "🌍 Where This Thing Actually Runs"
+title: "What has changed, LikeC4? 🌍 Ep.8"
 series: "What has changed, LikeC4?"
 part: 8
 organization: "the-software-s-journey"
 tags: [likec4, dsl, deployment, infrastructure]
 ---
 
-## 🌍 Where This Thing Actually Runs
+## Episode 8: Where This Thing Actually Runs
 
 Everything so far has been the *logical* model — what the system is made of, conceptually, regardless of where any of it physically lives. Sooner or later, though, someone asks the other question: "which of this is actually in the EU region, and which VM is it running on?" That's a different layer entirely, and LikeC4 keeps it genuinely separate — a Deployment Model, its own physical structure of deployment nodes, that references the logical model and inherits its relationships rather than duplicating them.
 
