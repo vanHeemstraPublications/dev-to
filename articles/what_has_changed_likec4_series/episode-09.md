@@ -1,12 +1,12 @@
 ---
-title: "☁️ Shipping the Documentation, Not Just Writing It"
+title: "What has changed, LikeC4? ☁️ Ep.9"
 series: "What has changed, LikeC4?"
 part: 9
 organization: "the-software-s-journey"
 tags: [likec4, cli, aws, s3, cloudfront, deployment]
 ---
 
-## ☁️ Shipping the Documentation, Not Just Writing It
+## Episode 9: Shipping the Documentation, Not Just Writing It
 
 A model sitting in my editor helps exactly nobody who isn't me. This episode is about the full loop I've actually run on a real AWS project — from a multi-file `.c4` project to a live, interactive site stakeholders can click through on their own.
 
