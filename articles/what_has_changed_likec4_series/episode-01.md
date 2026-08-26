@@ -45,4 +45,4 @@ Claudio Taverna, an architect who's put this into real production use on AWS, pu
 | The architect (me) | A system's actual structure, as it exists in code today | Write it down once, in `.c4` files, committed to the same repository | A single source of truth for "what this system is" | Every diagram, export, and query that follows |
 | Version control (Git) | Every change to the `.c4` source files | Track, diff, and review architecture changes like any other code change | A full history of "what has changed," answerable at any time | This series' entire premise |
 
-Next stop: the very first file I write for any new system — the specification that defines my own vocabulary before I draw a single box.
+Next stop: the very first file I write for any new system — the specification that defines my own vocabulary before I draw a single box. See the accompanying repository [likec4](https://github.com/software-journey/likec4) for the source code of this series.
